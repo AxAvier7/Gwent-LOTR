@@ -8,6 +8,48 @@ public class GameLoader : MonoBehaviour
    {
     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     SceneManager.LoadScene(2);
-    //para cargar la escena donde está el juego en sí
    }
+
+   public void QuitGame ()
+   {
+      Debug.Log ("Quit");
+      Application.Quit();
+   }
+
+   public void LoadSettings()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(1);
+   }
+
+   public void LoadCredits()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(6);
+   }
+
+   public void LoadLanguage()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(3);
+   }
+
+   public void LoadAudio()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(4);
+   }
+
+   public void LoadVideo()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(5);
+   }
+
+   public void LoadMainMenu()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(0);
+   }
+
 }

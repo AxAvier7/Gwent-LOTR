@@ -136,8 +136,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -2539690455572833229}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: CancelInvoke
+        m_TargetAssemblyTypeName: PlayPropRanged, Assembly-CSharp
+        m_MethodName: Ponercarta
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

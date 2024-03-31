@@ -465,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Opciones, Assembly-CSharp
+      value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745740062431773452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 374e03f300e2abe40bb62959afe879a9, type: 3}
+  m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7366753263223848825

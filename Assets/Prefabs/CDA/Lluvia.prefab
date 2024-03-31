@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 8464608748665781521}
   - component: {fileID: -8805348130904044029}
+  - component: {fileID: -6573832860594827588}
   m_Layer: 0
   m_Name: Lluvia
   m_TagString: Untagged
@@ -133,4 +134,30 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4352113008848839618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6573832860594827588}
+        m_TargetAssemblyTypeName: PlayPropRain, Assembly-CSharp
+        m_MethodName: Ponercarta
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-6573832860594827588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae52ee18aad7e748ad4def6bbc8a8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 3039818207556937179}
+  Zona: {fileID: 0}

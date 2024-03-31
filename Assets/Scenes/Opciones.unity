@@ -560,14 +560,14 @@ PrefabInstance:
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1620876523}
+      objectReference: {fileID: 1620876527}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadVideo
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Video, Assembly-CSharp
+      value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -583,7 +583,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8702677067632155044, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1620876523}
+      addedObject: {fileID: 1620876527}
   m_SourcePrefab: {fileID: 100100000, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
 --- !u!224 &1620876521 stripped
 RectTransform:
@@ -595,7 +595,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8702677067632155044, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
   m_PrefabInstance: {fileID: 1620876520}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1620876523
+--- !u!114 &1620876527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -604,7 +604,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1620876522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8062a4fa82db7a64eb16d64cc1ac1950, type: 3}
+  m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &1761643517 stripped
@@ -750,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Audio, Assembly-CSharp
+      value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1879530062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f7c0ff3113b5e4d9ce048972748ce6, type: 3}
+  m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1745740062431773451
@@ -801,10 +801,14 @@ PrefabInstance:
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3783960373231936599}
+      objectReference: {fileID: 3783960373231936603}
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4569155244569254081, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_Pivot.x
@@ -896,7 +900,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9158099178888402281, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3783960373231936599}
+      addedObject: {fileID: 3783960373231936603}
   m_SourcePrefab: {fileID: 100100000, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
 --- !u!1 &1745740062431773452 stripped
 GameObject:
@@ -908,7 +912,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4569155244569254081, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
   m_PrefabInstance: {fileID: 1745740062431773451}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3783960373231936599
+--- !u!114 &3783960373231936603
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -917,7 +921,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745740062431773452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d96c00e9ed9bd624c9061bd8cd1fc029, type: 3}
+  m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7366753263223848825
@@ -1120,7 +1124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Idioma, Assembly-CSharp
+      value: GameLoader, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1152,7 +1156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8601062602264132542}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c6de8798a8656f4e993d3fb3c56866e, type: 3}
+  m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
