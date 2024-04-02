@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class RobarCDA : MonoBehaviour
@@ -35,7 +34,9 @@ public GameObject Niebla;
 public GameObject Niebla2;
 public GameObject Nevada;
 public GameObject Nevada2;
-public GameObject CuernoGondor;
+public GameObject CuernoGondorMelee;
+public GameObject CuernoGondorRanged;
+public GameObject CuernoGondorSiege;
 
 public List <GameObject> CDA = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
@@ -80,7 +81,9 @@ Card.transform.SetParent(Mano.transform, false);
     CDA.Add(Nevada2);
     CDA.Add(Niebla);
     CDA.Add(Niebla2);
-    CDA.Add(CuernoGondor);
+    CDA.Add(CuernoGondorMelee);
+    CDA.Add(CuernoGondorRanged);
+    CDA.Add(CuernoGondorSiege);
     }
 
     void Update()

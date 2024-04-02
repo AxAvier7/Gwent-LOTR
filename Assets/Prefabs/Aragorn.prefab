@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 1594753074520103884}
   - component: {fileID: 1883928581810246982}
   - component: {fileID: 6206125134975504670}
+  - component: {fileID: 1497985728259450135}
+  - component: {fileID: 4149479488772334094}
+  - component: {fileID: 7514747703448557051}
   m_Layer: 5
   m_Name: Aragorn
   m_TagString: Untagged
@@ -132,3 +135,78 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1497985728259450135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852246999250710793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b4cef58d597eb5408e7332e1e11a736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Aragorn
+  Faccion: Comunidad del Anillo
+  Descripcion: A este le daban igual elfas que humanas
+  Habilidad: "En caso de empate, su facci\xF3n gana la ronda"
+--- !u!114 &4149479488772334094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852246999250710793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2322f473e28f87041a605476f9d0c4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Descripciones: {fileID: -274420427891528157, guid: 13bc265862ed14046b8e857b246bdf71, type: 3}
+  Card: {fileID: 4852246999250710793}
+--- !u!114 &7514747703448557051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852246999250710793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4149479488772334094}
+          m_TargetAssemblyTypeName: ObjectDescription, Assembly-CSharp
+          m_MethodName: InfoLeader
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4149479488772334094}
+          m_TargetAssemblyTypeName: ObjectDescription, Assembly-CSharp
+          m_MethodName: cerrarinfo
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class RobarMordor : MonoBehaviour
@@ -26,7 +25,9 @@ public GameObject Smaug;
 public GameObject Saruman;
 public GameObject Gollum;
 public GameObject Nazgul;
-public GameObject Ring;
+public GameObject RingMelee;
+public GameObject RingRanged;
+public GameObject RingSiege;
 public GameObject Despeje3;
 public GameObject Despeje4;
 public GameObject Lluvia3;
@@ -70,7 +71,9 @@ Card.transform.SetParent(Mano.transform, false);
     Mordor.Add(Saruman);
     Mordor.Add(Gollum);
     Mordor.Add(Nazgul);
-    Mordor.Add(Ring);
+    Mordor.Add(RingMelee);
+    Mordor.Add(RingRanged);
+    Mordor.Add(RingSiege);
     Mordor.Add(Despeje3);
     Mordor.Add(Despeje4);
     Mordor.Add(Lluvia3);

@@ -177,5 +177,14 @@ MonoBehaviour:
   Legolas: {fileID: 3039818207556937179, guid: 562e460e8a84a6840bb02c4689d4b433, type: 3}
   Sam: {fileID: 3039818207556937179, guid: 5542ed6b07567c844953ad57c109ab6b, type: 3}
   Talion: {fileID: 3039818207556937179, guid: 0653d5c75e23c1043ab0c172e339409c, type: 3}
+  Despeje: {fileID: 3039818207556937179, guid: 08baaee7b3e35114db9ecce8be3c4707, type: 3}
+  Despeje2: {fileID: 3039818207556937179, guid: 2f73f19dd3b42b9488460a32c09f66ca, type: 3}
+  Lluvia: {fileID: 3039818207556937179, guid: 1585888048f0b6a4e8b62399c2566ae9, type: 3}
+  Lluvia2: {fileID: 3039818207556937179, guid: a3324856d359bc345b22b5c30efbbef2, type: 3}
+  Niebla: {fileID: 3039818207556937179, guid: aee9b366d83ddc940a6b0697b78f0ad3, type: 3}
+  Niebla2: {fileID: 3039818207556937179, guid: b3865c54b55c54d40984bf8d592afbf4, type: 3}
+  Nevada: {fileID: 3039818207556937179, guid: 4c9324162f8f25447b5126525dd7d02d, type: 3}
+  Nevada2: {fileID: 3039818207556937179, guid: 7d6b99e66e450b348828e52ad74a61ba, type: 3}
+  CuernoGondor: {fileID: 3039818207556937179, guid: 58d2f85e964504e4991909fa0b69078f, type: 3}
   CDA: []
   Mano: {fileID: 0}
