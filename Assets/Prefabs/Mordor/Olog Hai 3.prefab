@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4077548401788100439}
   - component: {fileID: -2425713171249734612}
   - component: {fileID: 2822600007770429629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Olog Hai 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

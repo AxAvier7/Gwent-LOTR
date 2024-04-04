@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4895516892093801858}
   - component: {fileID: -4466519811086036832}
   - component: {fileID: -4838836697366082680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CuernoGondorSiege
   m_TagString: Untagged
   m_Icon: {fileID: 0}

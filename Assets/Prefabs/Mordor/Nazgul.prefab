@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8988638228999539228}
   - component: {fileID: -1226792473069133021}
   - component: {fileID: -5886808466147679253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nazgul
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2282654501328324915}
   - component: {fileID: 1452226855435326153}
   - component: {fileID: -7821163645027402977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lluvia3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

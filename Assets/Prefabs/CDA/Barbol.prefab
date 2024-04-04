@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1575640435525909581}
   - component: {fileID: -1528284168244517568}
   - component: {fileID: 7107440832628388853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Barbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}

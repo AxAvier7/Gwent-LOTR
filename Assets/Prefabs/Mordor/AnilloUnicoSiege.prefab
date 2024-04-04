@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -5531743654180485687}
   - component: {fileID: 7706146674530853335}
   - component: {fileID: 111046193030269666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnilloUnicoSiege
   m_TagString: Untagged
   m_Icon: {fileID: 0}

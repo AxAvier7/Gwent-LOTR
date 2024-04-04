@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -371775754537117678}
   - component: {fileID: 5433732032965964353}
   - component: {fileID: 5923920413627925344}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boromir
   m_TagString: Untagged
   m_Icon: {fileID: 0}

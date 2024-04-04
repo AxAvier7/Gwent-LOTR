@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3769029098409597424}
   - component: {fileID: 6595456192245876436}
   - component: {fileID: -151224962813140999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Legolas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

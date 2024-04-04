@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -2155038062844501578}
   - component: {fileID: 2854014777710947184}
   - component: {fileID: 1032188349588330186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Smaug
   m_TagString: Untagged
   m_Icon: {fileID: 0}

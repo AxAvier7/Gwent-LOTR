@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7845468241659249259}
   - component: {fileID: -2578512256102725917}
   - component: {fileID: -8291435304280031697}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Galadriel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

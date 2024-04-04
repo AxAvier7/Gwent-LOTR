@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -3867648945527913442}
   - component: {fileID: -491017924815213670}
   - component: {fileID: 8101804123044931060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gimli
   m_TagString: Untagged
   m_Icon: {fileID: 0}

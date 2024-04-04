@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3906831853212990274}
   - component: {fileID: 2863727168567949345}
   - component: {fileID: 631539119175876111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Azog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

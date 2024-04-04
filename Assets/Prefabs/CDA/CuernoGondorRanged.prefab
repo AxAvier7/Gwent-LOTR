@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -123425549832711118}
   - component: {fileID: 6023983491390643268}
   - component: {fileID: 3336351406848879160}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CuernoGondorRanged
   m_TagString: Untagged
   m_Icon: {fileID: 0}

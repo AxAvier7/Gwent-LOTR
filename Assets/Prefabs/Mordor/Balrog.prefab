@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 6171149387122384373}
   - component: {fileID: -3483309196174024493}
   - component: {fileID: -3971785657137304395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Balrog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

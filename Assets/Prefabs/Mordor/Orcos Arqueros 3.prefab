@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4379926865972075940}
   - component: {fileID: 7651951830380925718}
   - component: {fileID: -2002450347219428189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orcos Arqueros 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

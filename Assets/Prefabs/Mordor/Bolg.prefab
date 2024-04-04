@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3812735035797154059}
   - component: {fileID: 1721918182030757143}
   - component: {fileID: 3727294982027734943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bolg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

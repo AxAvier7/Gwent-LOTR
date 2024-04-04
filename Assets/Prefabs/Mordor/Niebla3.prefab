@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -14811518839759253}
   - component: {fileID: -4475831349338537599}
   - component: {fileID: 2937491786519333834}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Niebla3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

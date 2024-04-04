@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -5672681066171435585}
   - component: {fileID: 7334480601898318668}
   - component: {fileID: 7177065478776798782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnilloUnicoRanged
   m_TagString: Untagged
   m_Icon: {fileID: 0}

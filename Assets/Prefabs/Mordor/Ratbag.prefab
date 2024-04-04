@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -29658706803960215}
   - component: {fileID: -3846721865420037729}
   - component: {fileID: -4236455088369955303}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ratbag
   m_TagString: Untagged
   m_Icon: {fileID: 0}

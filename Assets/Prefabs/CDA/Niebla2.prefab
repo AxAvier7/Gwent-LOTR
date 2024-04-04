@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 101151532838832021}
   - component: {fileID: 1324601091373180254}
   - component: {fileID: 8843426340616369305}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Niebla2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -8925559700427853586}
   - component: {fileID: 8273223426718988865}
   - component: {fileID: -4270699276019343115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SiegeMachine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

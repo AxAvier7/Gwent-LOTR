@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5068028455241714053}
   - component: {fileID: -9018526434318869133}
   - component: {fileID: -6973223847389364508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ElficArcher1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

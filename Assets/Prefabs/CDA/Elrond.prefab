@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1792462812505229371}
   - component: {fileID: -1023411446275684044}
   - component: {fileID: 3181985301953037541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Elrond
   m_TagString: Untagged
   m_Icon: {fileID: 0}

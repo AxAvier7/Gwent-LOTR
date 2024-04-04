@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -6242928108658681661}
   - component: {fileID: -4183589630556440012}
   - component: {fileID: -8383327893557881453}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Talion
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4464924945148866476}
   - component: {fileID: -6134314383906376668}
   - component: {fileID: -1934198263758386779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lurtz
   m_TagString: Untagged
   m_Icon: {fileID: 0}

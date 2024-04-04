@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7896372189220614223}
   - component: {fileID: -9008920879735389580}
   - component: {fileID: 5229177491541105987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nevada2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

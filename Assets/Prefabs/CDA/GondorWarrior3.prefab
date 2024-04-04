@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -66963953637440950}
   - component: {fileID: 7974284668401632082}
   - component: {fileID: -2822756268720775516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GondorWarrior3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

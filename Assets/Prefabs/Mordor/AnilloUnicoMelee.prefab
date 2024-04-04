@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -121231602574971400}
   - component: {fileID: 3054977786166927823}
   - component: {fileID: -5146658237524964514}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnilloUnicoMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}

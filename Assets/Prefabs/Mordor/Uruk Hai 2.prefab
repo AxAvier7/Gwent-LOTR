@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3414701302583223673}
   - component: {fileID: 5345491917924590010}
   - component: {fileID: 2935722622279284412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Uruk Hai 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

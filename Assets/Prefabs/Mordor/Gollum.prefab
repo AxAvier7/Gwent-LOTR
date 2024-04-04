@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1558589957447407656}
   - component: {fileID: 5109669829367963193}
   - component: {fileID: 7713725287448029626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gollum
   m_TagString: Untagged
   m_Icon: {fileID: 0}

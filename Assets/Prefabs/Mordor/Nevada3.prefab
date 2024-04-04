@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 2683617580127146798}
   - component: {fileID: 1576654667364189921}
   - component: {fileID: 381354504379980603}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nevada3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

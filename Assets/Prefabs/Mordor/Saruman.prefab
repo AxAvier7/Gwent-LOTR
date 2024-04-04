@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -2462893402312986513}
   - component: {fileID: -4267651723185377652}
   - component: {fileID: -4035744241775144911}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Saruman
   m_TagString: Untagged
   m_Icon: {fileID: 0}

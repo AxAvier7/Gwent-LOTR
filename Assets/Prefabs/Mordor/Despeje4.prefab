@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 132802302472149708}
   - component: {fileID: -5892174547594828736}
   - component: {fileID: -3688501242032614243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Despeje4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
