@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Galadriel
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Ranged
   Poder: 7
   Descripcion: "B\xE1sicamente Megumin pero en edad legal"

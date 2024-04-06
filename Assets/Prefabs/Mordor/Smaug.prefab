@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Smaug, el Dorado
   Faccion: Mordor
+  Rango: Oro
   Franja: Siege
   Poder: 8
   Descripcion: "Es b\xE1sicamente Aquiles con escamas, alas y un lanzallamas en la

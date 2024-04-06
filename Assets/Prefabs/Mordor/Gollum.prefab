@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Gollum
   Faccion: Mordor
+  Rango: Oro
   Franja: Melee
   Poder: 2
   Descripcion: "El pobre no ten\xEDa culpa de nada"

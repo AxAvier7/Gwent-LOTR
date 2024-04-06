@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: "Arqueros \xE9lficos"
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Ranged
   Poder: 4
   Descripcion: "Tienen fama de buena punter\xEDa"

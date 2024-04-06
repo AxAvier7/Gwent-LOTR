@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Olog-Hai
   Faccion: Mordor
+  Rango: Plata
   Franja: Siege
   Poder: 5
   Descripcion: Es que nadie va a pensar en los trolls

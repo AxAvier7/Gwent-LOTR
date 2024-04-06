@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Legolas
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Ranged
   Poder: 6
   Descripcion: "El m\xE1s guapo de todo el continente conocido y pr\xEDncipe de los

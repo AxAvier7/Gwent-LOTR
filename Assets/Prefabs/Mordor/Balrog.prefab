@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Balrog
   Faccion: Mordor
+  Rango: Oro
   Franja: Siege
   Poder: 8
   Descripcion: "This monster\u2019s on fire"

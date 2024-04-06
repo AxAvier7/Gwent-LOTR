@@ -83,9 +83,4 @@ Card.transform.SetParent(Mano.transform, false);
     Mordor.Add(Nevada3);
     Mordor.Add(Nevada4);
     }
-
-    void Update()
-    {
-        
-    }
 }

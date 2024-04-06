@@ -6,12 +6,14 @@ public class GameLoader : MonoBehaviour
 {
    public void LoadGame()
    {
+   //este y todos los metodos de este script que tiene SceneManager.LoadScene son para cargar la escene a la que corresponde el numero entre parentesis
     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     SceneManager.LoadScene(2);
    }
 
    public void QuitGame ()
    {
+      //este metodo sirve para cerrar el juego. El Debug.Log era para probar que funcionaba antes de hacer la build
       Debug.Log ("Quit");
       Application.Quit();
    }

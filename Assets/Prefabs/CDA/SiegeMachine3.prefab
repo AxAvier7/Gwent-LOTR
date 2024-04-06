@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: "M\xE1quinas de asedio"
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Siege
   Poder: 4
   Descripcion: "No aportan nada pero ah\xED est\xE1n"

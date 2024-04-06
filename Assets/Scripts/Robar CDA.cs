@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RobarCDA : MonoBehaviour
 {
-    //aca declaro todas las cartas de uno de los mazos
+    //aca declaro todas las cartas del mazo de la Comunidad del Anillo
 public GameObject Card;
 public GameObject GondorWarrior1;
 public GameObject GondorWarrior2;
@@ -84,10 +84,5 @@ Card.transform.SetParent(Mano.transform, false);
     CDA.Add(CuernoGondorMelee);
     CDA.Add(CuernoGondorRanged);
     CDA.Add(CuernoGondorSiege);
-    }
-
-    void Update()
-    {
-        
     }
 }

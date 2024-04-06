@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Gimli
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Melee
   Poder: 4
   Descripcion: "Todo enano encuentra siempre una elfa que le ablanda el coraz\xF3n"

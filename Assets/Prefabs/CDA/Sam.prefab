@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Sam
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Melee
   Poder: 2
   Descripcion: El verdadero protagonista de esta historia

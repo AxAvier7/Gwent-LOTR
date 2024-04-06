@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Azog, el Profanador
   Faccion: Mordor
+  Rango: Oro
   Franja: Melee
   Poder: 6
   Descripcion: "Jur\xF3 venganza, no obtuvo venganza"

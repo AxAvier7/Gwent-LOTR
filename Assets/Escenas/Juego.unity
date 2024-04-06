@@ -2385,6 +2385,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1897.6, y: 175}
   m_EdgeRadius: 0
+--- !u!114 &1401522345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401522343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f585adc3b4909c2429798fa3fec97071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsinFrange: []
+  Cartas: 0
 --- !u!1001 &1747311670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3796,6 +3810,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2314389238788838867, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1401522344}
+    - targetCorrespondingSourceObject: {fileID: 2314389238788838867, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1401522345}
   m_SourcePrefab: {fileID: 100100000, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
 --- !u!224 &2336070269681029972 stripped
 RectTransform:
@@ -5079,6 +5096,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8796456048116470469, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
+      propertyPath: m_Spacing.x
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5086,6 +5107,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5769555473096672475, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7488780437938185481}
+    - targetCorrespondingSourceObject: {fileID: 5769555473096672475, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7488780437938185482}
   m_SourcePrefab: {fileID: 100100000, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
 --- !u!1 &7488780437938185480 stripped
 GameObject:
@@ -5137,6 +5161,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1897.6, y: 175}
   m_EdgeRadius: 0
+--- !u!114 &7488780437938185482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7488780437938185480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f585adc3b4909c2429798fa3fec97071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsinFrange: []
+  Cartas: 0
 --- !u!1001 &8580913587306563390
 PrefabInstance:
   m_ObjectHideFlags: 0

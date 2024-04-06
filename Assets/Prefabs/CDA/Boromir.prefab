@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Boromir
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Melee
   Poder: 4
   Descripcion: Pendejo no dura nada

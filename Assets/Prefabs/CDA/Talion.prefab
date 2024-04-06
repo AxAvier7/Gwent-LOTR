@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Talion
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Melee
   Poder: 4
   Descripcion: "Este ni siquiera deberia estar aqu\xED pero el Sombras de Mordor

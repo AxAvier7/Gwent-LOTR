@@ -24,6 +24,8 @@ CartaJugada = collision.gameObject;
 CartasenFranja.Add(CartaJugada);
 }
 
+
+
 void Update()
 {
 sumaparcial = 0;

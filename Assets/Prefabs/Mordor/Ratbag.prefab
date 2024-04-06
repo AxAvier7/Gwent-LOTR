@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Ratbag, el Cobarde
   Faccion: Mordor
+  Rango: Plata
   Franja: Melee
   Poder: 3
   Descripcion: Este sobra pero no hay tantos orcos relevantes en la historia

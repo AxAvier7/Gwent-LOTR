@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Frodo
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Melee
   Poder: 2
   Descripcion: El subnormal que le complica la vida al pobre Sam

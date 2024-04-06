@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Saruman
   Faccion: Mordor
+  Rango: Oro
   Franja: Ranged
   Poder: 6
   Descripcion: Gandalf^-1

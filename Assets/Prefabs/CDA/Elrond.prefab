@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Elrond
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Ranged
   Poder: 5
   Descripcion: "\xC9l estuvo ah\xED Gandalf"

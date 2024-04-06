@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Gandalf
   Faccion: Comunidad del Anillo
+  Rango: Oro
   Franja: Siege
   Poder: 7
   Descripcion: Se hizo un Michael Jackson, de mago gris a mago blanco

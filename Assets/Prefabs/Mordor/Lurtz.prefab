@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Lurtz
   Faccion: Mordor
+  Rango: Plata
   Franja: Ranged
   Poder: 4
   Descripcion: El encargado de capturar a Frodo (no lo consigue)

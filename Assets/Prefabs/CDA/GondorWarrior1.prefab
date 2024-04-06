@@ -152,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Soldados de Rohan
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Melee
   Poder: 2
   Descripcion: "Unos figurantes de toda la vida a lo que les pagaron 2 kilos por

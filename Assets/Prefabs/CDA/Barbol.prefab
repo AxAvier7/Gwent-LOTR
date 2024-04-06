@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Barbol
   Faccion: Comunidad del Anillo
+  Rango: Plata
   Franja: Siege
   Poder: 6
   Descripcion: "Un \xE1rbol m\xE1s inteligente que yo"

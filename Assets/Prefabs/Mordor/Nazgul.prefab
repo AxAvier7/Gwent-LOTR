@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Nazgul
   Faccion: Mordor
+  Rango: Oro
   Franja: Melee
   Poder: 7
   Descripcion: Tienen la armadura negra porque negra tienen el alma
