@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CDAMelee
+  - CDARanged
+  - CDASiege
+  - MordorMelee
+  - MordorRanged
+  - MordorSiege
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,13 @@ CartasenFranja.Add(CartaJugada);
 }
 
 
+public void CuernodeGondor()
+    {
+        foreach(GameObject carta in CartasenFranja)
+        {
+            carta.GetComponent<ClaseCarta>().Poder += 1;
+        }
+    }
 
 void Update()
 {

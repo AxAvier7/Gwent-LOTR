@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -123425549832711118}
   - component: {fileID: 6023983491390643268}
   - component: {fileID: 3336351406848879160}
+  - component: {fileID: -2768529378592313144}
   m_Layer: 6
   m_Name: CuernoGondorRanged
   m_TagString: Untagged
@@ -214,6 +215,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -2768529378592313144}
+        m_TargetAssemblyTypeName: ClaseFranja, Assembly-CSharp
+        m_MethodName: CuernodeGondor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-123425549832711118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +313,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-2768529378592313144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playedcard: {fileID: 3039818207556937179}
+  CartasenFranja: []
+  Suma: 0
+  puntuationText: {fileID: 0}
+  Faccion: 
+  franja: 0
+  GraveyardCDA: {fileID: 0}
+  GraveyardMordor: {fileID: 0}
+  ManoPlayer: {fileID: 0}
+  ManoVS: {fileID: 0}
+  sumaparcial: 0

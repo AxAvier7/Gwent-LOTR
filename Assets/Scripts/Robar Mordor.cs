@@ -37,6 +37,10 @@ public GameObject Niebla4;
 public GameObject Nevada3;
 public GameObject Nevada4;
 
+public bool robo1 = false;
+public bool robo2 = false;
+public bool robo3 = false;
+
 public List <GameObject> Mordor = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RobarCDA : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public GameObject Nevada2;
 public GameObject CuernoGondorMelee;
 public GameObject CuernoGondorRanged;
 public GameObject CuernoGondorSiege;
+
+public bool robo1 = false;
+public bool robo2 = false;
+public bool robo3 = false;
 
 public List <GameObject> CDA = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
