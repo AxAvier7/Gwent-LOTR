@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a321e5279d8bc324fadd0690de102921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: c8f9da53d9296d245bff4520944a6fb9, type: 2}
 --- !u!1 &809917122
 GameObject:
@@ -309,6 +310,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 322640178186283094, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
+      propertyPath: m_Color.b
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 322640178186283094, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
+      propertyPath: m_Color.g
+      value: 0.21960786
+      objectReference: {fileID: 0}
+    - target: {fileID: 322640178186283094, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21960786
+      objectReference: {fileID: 0}
     - target: {fileID: 1582978130327719171, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
       propertyPath: audioMixer
       value: 

@@ -8,7 +8,6 @@ public class ObjectDescription : MonoBehaviour
 {
 public Text Descripciones;
 public GameObject Card;
-
 private GameObject Descript;
 private Text Informacion;
 //declaracion de variables y objetos
@@ -22,7 +21,7 @@ private Text Informacion;
    }
    public void InfoClimate()
    {
-        Descripciones.text = Card.GetComponent<ClaseClima>().Nombre + ". Facción: " + Card.GetComponent<ClaseClima>().Faccion + ". Franja afectada: " + Card.GetComponent<ClaseClima>().Franja_afectada + ". Descripción: " + Card.GetComponent<ClaseClima>().Descripcion + ". Habilidad: " + Card.GetComponent<ClaseClima>().Habilidad;
+        Descripciones.text = Card.GetComponent<ClaseCarta>().Nombre + ". Facción: " + Card.GetComponent<ClaseCarta>().Faccion + ". Franja afectada: " + Card.GetComponent<ClaseCarta>().Franja_afectada + ". Descripción: " + Card.GetComponent<ClaseCarta>().Descripcion + ". Habilidad: " + Card.GetComponent<ClaseCarta>().Habilidad;
         Informacion = Instantiate(Descripciones, new Vector2(0,0), Quaternion.identity);
         Informacion.transform.SetParent(Descript.transform, false);
    }

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 7605683858704636883}
-  - component: {fileID: -3518490572883025756}
-  - component: {fileID: -7092699983854309591}
   - component: {fileID: 977614398247572022}
   - component: {fileID: 6626529051967677481}
   - component: {fileID: 2842786355073733919}
   - component: {fileID: -314342608686672706}
+  - component: {fileID: -3463221496243629155}
+  - component: {fileID: 9063256301637554340}
   m_Layer: 6
   m_Name: Lluvia4
   m_TagString: Untagged
@@ -126,9 +126,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -3518490572883025756}
-        m_TargetAssemblyTypeName: PlayMordor, Assembly-CSharp
-        m_MethodName: PonerRain
+      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,37 +138,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-3518490572883025756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ffc179aea06e84ea274d101449f076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
---- !u!114 &-7092699983854309591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Lluvia
-  Faccion: Neutral
-  Franja_afectada: Ranged
-  Descripcion: Chubascos aislados y algunas lluvias
-  Habilidad: "Reduce en 1 el da\xF1o de las unidades Ranged"
 --- !u!114 &977614398247572022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +269,66 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-3463221496243629155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Lluvia
+  Faccion: Mordor
+  Rango: 
+  Franja: Ranged
+  Poder: 0
+  PoderInicial: 0
+  Descripcion: Chubascos aislados y algunas lluvias
+  Habilidad: "Reduce en 1 el da\xF1o de las unidades Ranged"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 5
+  yarepartida: 1
+  Franja_afectada: Ranged
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 0
+--- !u!114 &9063256301637554340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c31c7aa83b4ce4bb3a75932c26ba69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 3039818207556937179}
+  Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}

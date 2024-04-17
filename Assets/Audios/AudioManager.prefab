@@ -47,7 +47,7 @@ MonoBehaviour:
   sonidos:
   - nombre: Musica de fondo
     clip: {fileID: 8300000, guid: 023735b924c77fe41bcf3c23edcf0d0a, type: 3}
-    volume: 0.54
+    volume: 0.18
     pitch: 1
     source: {fileID: 0}
     loop: 1

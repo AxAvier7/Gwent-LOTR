@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -5148381549448322290}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerSiege
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -155,9 +155,13 @@ MonoBehaviour:
   Rango: Oro
   Franja: Siege
   Poder: 7
+  PoderInicial: 7
   Descripcion: Se hizo un Michael Jackson, de mago gris a mago blanco
   Habilidad: Calcular el promedio de poder entre todas las cartas del tablero (propio
     o rival) e igualar el poder de todas las cartas (rivales o propias) a ese promedio
+  Afectado: 0
+  Franjita: 3
+  yarepartida: 0
 --- !u!114 &3906237636890694923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +235,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &4816446993985694939
 BoxCollider2D:
   m_ObjectHideFlags: 0

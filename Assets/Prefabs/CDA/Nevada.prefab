@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 3523074171700516007}
-  - component: {fileID: -4911241429297955153}
+  - component: {fileID: -7298056622819845305}
   - component: {fileID: 6629386598099575035}
   - component: {fileID: 7968357799561587077}
   - component: {fileID: 8973779181471912834}
@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8973779181471912834}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerSnow
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &-4911241429297955153
+--- !u!114 &-7298056622819845305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,14 +147,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: Nevada
-  Faccion: Neutral
-  Franja_afectada: Siege
+  Faccion: Comunidad del Anillo
+  Rango: 
+  Franja: Siege
+  Poder: 0
+  PoderInicial: 0
   Descripcion: "La nieve est\xE1 mal"
   Habilidad: "Reduce en 1 el da\xF1o de las unidades Siege"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 6
+  yarepartida: 0
+  Franja_afectada: Siege
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &6629386598099575035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +239,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-1241567398694449176
 BoxCollider2D:
   m_ObjectHideFlags: 0

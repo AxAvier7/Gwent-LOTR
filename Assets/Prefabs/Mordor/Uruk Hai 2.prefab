@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 6713468503527916040}
-  - component: {fileID: 2541831846971736711}
   - component: {fileID: -2567350062196968786}
   - component: {fileID: -4777546336809654509}
   - component: {fileID: 3414701302583223673}
   - component: {fileID: 5345491917924590010}
   - component: {fileID: 2935722622279284412}
+  - component: {fileID: 2688143210218777697}
   m_Layer: 6
   m_Name: Uruk Hai 2
   m_TagString: Untagged
@@ -126,9 +126,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2541831846971736711}
-        m_TargetAssemblyTypeName: PlayMordor, Assembly-CSharp
-        m_MethodName: PonerMelee
+      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,20 +138,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2541831846971736711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ffc179aea06e84ea274d101449f076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
 --- !u!114 &-2567350062196968786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,9 +155,18 @@ MonoBehaviour:
   Rango: Plata
   Franja: Melee
   Poder: 3
+  PoderInicial: 3
   Descripcion: "Vaya bichos m\xE1s feos Tolkien"
   Habilidad: Multiplicar por n su ataque, siendo n la cantidad de cartas iguales
     a ella en el tablero
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 1
+  yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 0
 --- !u!114 &-4777546336809654509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,3 +298,38 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2688143210218777697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c31c7aa83b4ce4bb3a75932c26ba69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 3039818207556937179}
+  Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}

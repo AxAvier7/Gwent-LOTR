@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 845799759042927237}
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
-  - component: {fileID: 5411157406575474538}
+  - component: {fileID: 8403771963909861373}
   - component: {fileID: -1422076422027279748}
   - component: {fileID: 6279864680932145650}
   - component: {fileID: 1802229649254851479}
   - component: {fileID: -123425549832711118}
   - component: {fileID: 6023983491390643268}
   - component: {fileID: 3336351406848879160}
-  - component: {fileID: -2768529378592313144}
+  - component: {fileID: -1970512399500920937}
   m_Layer: 6
   m_Name: CuernoGondorRanged
   m_TagString: Untagged
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5411157406575474538
+--- !u!114 &8403771963909861373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,14 +92,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: Cuerno de Gondor
   Faccion: Comunidad del Anillo
-  Franja_afectada: Ranged
+  Rango: 
+  Franja: Ranged
+  Poder: 0
+  PoderInicial: 0
   Descripcion: "Profesi\xF3n: Cuerno. Nacionalidad: Gondor"
   Habilidad: "Aumenta en 1 el da\xF1o de todas las cartas de una fila"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 5
+  yarepartida: 0
+  Franja_afectada: Ranged
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-1422076422027279748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,20 +215,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -123425549832711118}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerRain
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -2768529378592313144}
-        m_TargetAssemblyTypeName: ClaseFranja, Assembly-CSharp
-        m_MethodName: CuernodeGondor
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -241,6 +240,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &6023983491390643268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -313,7 +333,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &-2768529378592313144
+--- !u!114 &-1970512399500920937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -322,17 +342,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: 69027c89facbcdb4a8e4269dc798c36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 3039818207556937179}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  jugable: 0

@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 6713468503527916040}
-  - component: {fileID: 4159248818550533254}
   - component: {fileID: -4577661238374019500}
   - component: {fileID: 6647093082784259587}
   - component: {fileID: -121231602574971400}
-  - component: {fileID: 3054977786166927823}
   - component: {fileID: -5146658237524964514}
+  - component: {fileID: -8139534236851848546}
+  - component: {fileID: -5250483705031142538}
   m_Layer: 6
   m_Name: AnilloUnicoMelee
   m_TagString: Untagged
@@ -126,9 +126,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4159248818550533254}
-        m_TargetAssemblyTypeName: PlayMordor, Assembly-CSharp
-        m_MethodName: PonerFog
+      - m_Target: {fileID: -5250483705031142538}
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,20 +138,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4159248818550533254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ffc179aea06e84ea274d101449f076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
 --- !u!114 &-4577661238374019500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,23 +224,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &3054977786166927823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Anillo Unico
-  Faccion: Neutral
-  Franja_afectada: Todas
-  Descripcion: The one to rule them all
-  Habilidad: "umenta en 1 el da\xF1o de todas las cartas de una fila"
 --- !u!114 &-5146658237524964514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +269,66 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &-8139534236851848546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Anillo Unico
+  Faccion: Mordor
+  Rango: 
+  Franja: Melee
+  Poder: 0
+  PoderInicial: 0
+  Descripcion: The one to rule them all
+  Habilidad: "Aumenta en 1 el da\xF1o de todas las cartas de una fila"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 4
+  yarepartida: 0
+  Franja_afectada: Melee
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 0
+--- !u!114 &-5250483705031142538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99c31c7aa83b4ce4bb3a75932c26ba69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 3039818207556937179}
+  Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 845799759042927237}
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
-  - component: {fileID: -5084431373453429248}
+  - component: {fileID: -2501795877260481843}
   - component: {fileID: -3640783870057696855}
   - component: {fileID: -3323142395470961335}
   - component: {fileID: 7965005422320082350}
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-5084431373453429248
+--- !u!114 &-2501795877260481843
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,14 +91,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: Despeje
-  Faccion: Neutral
-  Franja_afectada: Todas
+  Faccion: Comunidad del Anillo
+  Rango: 
+  Franja: Todas
+  Poder: 0
+  PoderInicial: 0
   Descripcion: Sol solecito, calientame un poquito
   Habilidad: Elimina las cartas de clima activas en el tablero
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 4
+  yarepartida: 0
+  Franja_afectada: Todas
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-3640783870057696855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +214,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -7422655290557600153}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PlaySunrise
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -228,6 +239,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &6473026394934798726
 BoxCollider2D:
   m_ObjectHideFlags: 0

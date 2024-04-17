@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -6242928108658681661}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerMelee
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -152,12 +152,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Talion
   Faccion: Comunidad del Anillo
-  Rango: Oro
+  Rango: Plata
   Franja: Melee
   Poder: 4
+  PoderInicial: 4
   Descripcion: "Este ni siquiera deberia estar aqu\xED pero el Sombras de Mordor
     es un juegazo"
   Habilidad: 'Efecto: Eliminar la carta con menos poder del rival'
+  Afectado: 0
+  Franjita: 1
+  yarepartida: 0
 --- !u!114 &540677546671303105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +235,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-4183589630556440012
 BoxCollider2D:
   m_ObjectHideFlags: 0

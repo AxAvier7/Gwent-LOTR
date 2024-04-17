@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8131248381934290515}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerMelee
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -155,10 +155,14 @@ MonoBehaviour:
   Rango: Plata
   Franja: Melee
   Poder: 2
+  PoderInicial: 2
   Descripcion: "Unos figurantes de toda la vida a lo que les pagaron 2 kilos por
     salir en la trilog\xEDa "
   Habilidad: Multiplicar por n su ataque, siendo n la cantidad de cartas iguales
     a ella en el tablero
+  Afectado: 0
+  Franjita: 1
+  yarepartida: 0
 --- !u!114 &-5222674598835083522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +236,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-5420072464256716475
 BoxCollider2D:
   m_ObjectHideFlags: 0

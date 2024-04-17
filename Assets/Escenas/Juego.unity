@@ -231,6 +231,7 @@ RectTransform:
   - {fileID: 2336070269681029972}
   - {fileID: 470689654}
   - {fileID: 2057263018}
+  - {fileID: 514853410}
   - {fileID: 2120482109}
   - {fileID: 263015517}
   - {fileID: 1836752395}
@@ -245,15 +246,21 @@ RectTransform:
   - {fileID: 3952073389554119951}
   - {fileID: 3952073389981901016}
   - {fileID: 3952073390465914058}
-  - {fileID: 661413247}
-  - {fileID: 1357136282}
-  - {fileID: 71858775}
-  - {fileID: 586226821}
-  - {fileID: 1756625299}
-  - {fileID: 1940188038}
+  - {fileID: 7490848195879565268}
+  - {fileID: 4798641934924806263}
+  - {fileID: 3952073390992423666}
+  - {fileID: 8562633465339833729}
+  - {fileID: 6067389718750036200}
+  - {fileID: 5580683988459721106}
   - {fileID: 640040991}
   - {fileID: 128980988}
+  - {fileID: 3943646285242294795}
+  - {fileID: 1106184742}
+  - {fileID: 799496935}
+  - {fileID: 1959040158}
   - {fileID: 1435986208}
+  - {fileID: 1093848001}
+  - {fileID: 685071544}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -279,10 +286,11 @@ MonoBehaviour:
   ManoMordor: {fileID: 0}
   TaparManoCDA: {fileID: 0}
   TaparManoMordor: {fileID: 0}
-  CDARendido: {fileID: 0}
-  MordorRendido: {fileID: 0}
+  CDARendidotxt: {fileID: 0}
+  MordorRendidotxt: {fileID: 0}
   skillaragorn: 0
   skillsauron: 0
+  Ganador: 
 --- !u!1 &30710270
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +458,7 @@ GameObject:
   - component: {fileID: 45398347}
   - component: {fileID: 45398346}
   m_Layer: 0
-  m_Name: contmelee
+  m_Name: RondaCDA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -525,6 +533,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 900309703602343763, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 900309703602343763, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 2017479208}
+    - target: {fileID: 900309703602343763, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 3952073390921613476, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -610,98 +630,30 @@ PrefabInstance:
       value: VsSiege
       objectReference: {fileID: 0}
     - target: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: MordorSiege
       objectReference: {fileID: 0}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 2017479208}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 71858777}
-    - targetCorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 71858778}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
---- !u!224 &71858775 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3952073390921613476, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-  m_PrefabInstance: {fileID: 71858774}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &71858776 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-  m_PrefabInstance: {fileID: 71858774}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &71858777
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71858776}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &71858778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71858776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 2017479208}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1 &128980987
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +729,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128980987}
   m_CullTransparentMesh: 1
+--- !u!1 &156230442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+  m_PrefabInstance: {fileID: 1756625298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &173965693 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2600496483327915078, guid: 4bcfa3bd7792b774096a0cc689ada30c, type: 3}
@@ -1018,6 +975,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263015516}
   m_CullTransparentMesh: 1
+--- !u!1 &401866755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401866756}
+  - component: {fileID: 401866758}
+  - component: {fileID: 401866757}
+  m_Layer: 0
+  m_Name: Ronda
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &401866756
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401866755}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.0917153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 514853410}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0014849, y: -0.0010777}
+  m_SizeDelta: {x: 290.44, y: 159.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &401866757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401866755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 22
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 0
+    m_MaxSize: 67
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Ronda: '
+--- !u!222 &401866758
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401866755}
+  m_CullTransparentMesh: 1
 --- !u!1 &413419410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1188,6 +1224,82 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
   m_PrefabInstance: {fileID: 1486167709496745736}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &514853409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514853410}
+  - component: {fileID: 514853412}
+  - component: {fileID: 514853411}
+  m_Layer: 0
+  m_Name: Rondas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &514853410
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514853409}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 6.003234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 401866756}
+  m_Father: {fileID: 9394435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -816.66, y: 460.25}
+  m_SizeDelta: {x: 290.44, y: 159.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &514853411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514853409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &514853412
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514853409}
+  m_CullTransparentMesh: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,14 +1476,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Name
       value: VsClimateMelee
       objectReference: {fileID: 0}
     - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: CMMORDOR
       objectReference: {fileID: 0}
+    - target: {fileID: 1640675602056221314, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1458,89 +1582,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 586226823}
-    - targetCorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 586226824}
+      addedObject: {fileID: 8562633465339833734}
   m_SourcePrefab: {fileID: 100100000, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
---- !u!224 &586226821 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-  m_PrefabInstance: {fileID: 586226820}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &586226822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-  m_PrefabInstance: {fileID: 586226820}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &586226823
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586226822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &586226824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 586226822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1 &611310897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,9 +1848,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PFranja: {fileID: 647190637}
-  Melee: {fileID: 661413248}
-  Ranged: {fileID: 1357136283}
-  Siege: {fileID: 71858776}
+  Melee: {fileID: 7224516314977634275}
+  Ranged: {fileID: 4790695227954636998}
+  Siege: {fileID: 5212408859917604000}
 --- !u!1001 &661413246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1816,13 +1859,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 3296546688603545206, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 3296546688603545206, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 2074006647}
+    - target: {fileID: 3296546688603545206, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 2074006647}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Name
       value: VsMelee
       objectReference: {fileID: 0}
     - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: MordorMelee
       objectReference: {fileID: 0}
     - target: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Pivot.x
@@ -1907,92 +1978,158 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 661413249}
-    - targetCorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 661413250}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
---- !u!224 &661413247 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-  m_PrefabInstance: {fileID: 661413246}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &661413248 stripped
+--- !u!1 &685071543
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-  m_PrefabInstance: {fileID: 661413246}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &661413249
-BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661413248}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &661413250
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 685071544}
+  - component: {fileID: 685071547}
+  - component: {fileID: 685071546}
+  - component: {fileID: 685071545}
+  - component: {fileID: 685071548}
+  m_Layer: 5
+  m_Name: RendirMordor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &685071544
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685071543}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9394435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 910, y: 489.99997}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &685071545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661413248}
+  m_GameObject: {fileID: 685071543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 2074006647}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 685071546}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 685071548}
+        m_TargetAssemblyTypeName: MordorRendicion, Assembly-CSharp
+        m_MethodName: crinde
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &685071546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685071543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &685071547
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685071543}
+  m_CullTransparentMesh: 1
+--- !u!114 &685071548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685071543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9407af859d55c42893bc30830c846b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turno: 0
+  Ronda: 0
+  CompararRonda: 1
+  PlayerHand: {fileID: 0}
+  EnemyHand: {fileID: 7488780437938185482}
 --- !u!1 &793776236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2280,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793776236}
   m_CullTransparentMesh: 1
+--- !u!1 &799496932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799496935}
+  - component: {fileID: 799496936}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &799496935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799496932}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 101.105225, y: 15.035767, z: 4.8987885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9394435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &799496936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799496932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653e6341f0c719b4e9d2e88ba46587a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VictoriaCDA: {fileID: 45398346}
+  VictoriaMordor: {fileID: 1740299541}
+  PuntosCDA: 
+  PuntosMordor: 
+  CDARobando: {fileID: 0}
+  MordorRobando: {fileID: 0}
+  Ronda: 1
+  Ganador: 
+  CDARendido: {fileID: 0}
+  MordorRendido: {fileID: 0}
+  CDAWin: 0
+  MordorWin: 0
+  FinPartida: 0
+  PartidaTerminada: 0
 --- !u!1 &876629396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2859,166 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093848000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093848001}
+  - component: {fileID: 1093848004}
+  - component: {fileID: 1093848003}
+  - component: {fileID: 1093848002}
+  - component: {fileID: 1093848005}
+  m_Layer: 5
+  m_Name: RendirCDA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1093848001
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093848000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9394435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 910, y: -490}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1093848002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093848000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1093848003}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1093848005}
+        m_TargetAssemblyTypeName: Rendicion, Assembly-CSharp
+        m_MethodName: crinde
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1093848003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093848000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1093848004
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093848000}
+  m_CullTransparentMesh: 1
+--- !u!114 &1093848005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093848000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30be6e933c0264d489d11ecfaea403ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Turno: 1
+  Ronda: 0
+  CompararRonda: 1
+  PlayerHand: {fileID: 1401522345}
+  EnemyHand: {fileID: 0}
+--- !u!224 &1106184742 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+  m_PrefabInstance: {fileID: 5453187837999529536}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1106184743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8791903894050935567, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+  m_PrefabInstance: {fileID: 5453187837999529536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1243180134 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
@@ -3061,8 +3416,8 @@ PrefabInstance:
       value: VsRanged
       objectReference: {fileID: 0}
     - target: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: MordorRanged
       objectReference: {fileID: 0}
     - target: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: m_Pivot.x
@@ -3144,95 +3499,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 1301044513}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
+    - target: {fileID: 8651455290771559291, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: ManoVS
+      value: 
+      objectReference: {fileID: 7488780437938185480}
+    - target: {fileID: 8651455290771559291, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 1301044513}
+    - target: {fileID: 8651455290771559291, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1357136284}
-    - targetCorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1357136285}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
---- !u!224 &1357136282 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-  m_PrefabInstance: {fileID: 1357136281}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1357136283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-  m_PrefabInstance: {fileID: 1357136281}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1357136284
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357136283}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &1357136285
+--- !u!114 &1372744006 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7105119105346514554, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+  m_PrefabInstance: {fileID: 209088290327657566}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357136283}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: ea06f4795e77be544a490e90867b4c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 1301044513}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1 &1377777829
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,6 +3856,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MenuPausaUI: {fileID: 0}
+--- !u!1 &1430390285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+  m_PrefabInstance: {fileID: 4350673925362039657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1435986204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3929,6 +4244,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536145515}
   m_CullTransparentMesh: 1
+--- !u!1 &1678741952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+  m_PrefabInstance: {fileID: 284814790211813931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679093177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+  m_PrefabInstance: {fileID: 586226820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1740299539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,7 +4266,7 @@ GameObject:
   - component: {fileID: 1740299542}
   - component: {fileID: 1740299541}
   m_Layer: 0
-  m_Name: contmelee
+  m_Name: RondaMordor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3979,7 +4304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4123,9 +4448,21 @@ PrefabInstance:
       value: VsClimateRanged
       objectReference: {fileID: 0}
     - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: CRMORDOR
       objectReference: {fileID: 0}
+    - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
+    - target: {fileID: 4670975665863267614, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 6067389720483592570, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4212,89 +4549,18 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1756625301}
-    - targetCorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1756625302}
+      addedObject: {fileID: 6067389718750036205}
   m_SourcePrefab: {fileID: 100100000, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
---- !u!224 &1756625299 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6067389720483592570, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-  m_PrefabInstance: {fileID: 1756625298}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1756625300 stripped
+--- !u!1 &1796539741 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-  m_PrefabInstance: {fileID: 1756625298}
+  m_CorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+  m_PrefabInstance: {fileID: 2512276608377576544}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1756625301
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!1 &1809372886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+  m_PrefabInstance: {fileID: 1940188037}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756625300}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &1756625302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1756625300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1 &1836752394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,6 +4645,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: Faccion
+      value: Mordor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     - target: {fileID: 5580683990282467863, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4464,98 +4738,76 @@ PrefabInstance:
       value: VsClimateSiege
       objectReference: {fileID: 0}
     - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      propertyPath: m_Layer
-      value: 7
+      propertyPath: m_TagString
+      value: CSMORDOR
       objectReference: {fileID: 0}
+    - target: {fileID: 7459301355161101478, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: GraveyardMordor
+      value: 
+      objectReference: {fileID: 8580913587306563391}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1940188040}
-    - targetCorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1940188041}
+      addedObject: {fileID: 5580683988459721111}
   m_SourcePrefab: {fileID: 100100000, guid: 3909878e751b807439169f74f1860bcc, type: 3}
---- !u!224 &1940188038 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5580683990282467863, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-  m_PrefabInstance: {fileID: 1940188037}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1940188039 stripped
+--- !u!1 &1959040157
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-  m_PrefabInstance: {fileID: 1940188037}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1940188040
-BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940188039}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959040158}
+  - component: {fileID: 1959040159}
+  m_Layer: 0
+  m_Name: GestTurno
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959040158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959040157}
   serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &1940188041
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 101.105225, y: 15.035767, z: 4.8987885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9394435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959040159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940188039}
+  m_GameObject: {fileID: 1959040157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: cd1c7f7facb881e4db05a86460eba54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
+  Ronda: 1
+  Turno: 1
+  ManoCDA: {fileID: 1401522345}
+  ManoMordor: {fileID: 7488780437938185482}
+  TaparManoCDA: {fileID: 3943646285242294796}
+  TaparManoMordor: {fileID: 1106184743}
+  CDARendidotxt: {fileID: 0}
+  MordorRendidotxt: {fileID: 0}
+  skillaragorn: 0
+  skillsauron: 0
+  Ganador: 
 --- !u!224 &1969904286 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3952073390921613476, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
@@ -4691,7 +4943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4963,6 +5215,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazo CDA
       objectReference: {fileID: 0}
+    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1372744006}
+    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RobarCDA, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7105119105346514554, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
       propertyPath: Mano
       value: 
@@ -5016,13 +5288,13 @@ PrefabInstance:
       value: PropClimateRanged
       objectReference: {fileID: 0}
     - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: m_TagString
-      value: MordorRanged
+      value: CRCDA
       objectReference: {fileID: 0}
+    - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
     - target: {fileID: 6067389720483592570, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5109,16 +5381,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3952073389981901017}
-    - targetCorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3952073389981901018}
+      addedObject: {fileID: 3952073389981901021}
   m_SourcePrefab: {fileID: 100100000, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
---- !u!1 &284814790211813932 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-  m_PrefabInstance: {fileID: 284814790211813931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1334209425393510565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5228,14 +5492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PropRanged
       objectReference: {fileID: 0}
-    - target: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      propertyPath: m_TagString
-      value: CDARanged
-      objectReference: {fileID: 0}
     - target: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5316,90 +5572,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: ManoPlayer
+      value: 
+      objectReference: {fileID: 1401522343}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 30710272}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1486167709496745738}
-    - targetCorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1486167709496745739}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
 --- !u!1 &1486167709496745737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
   m_PrefabInstance: {fileID: 1486167709496745736}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &1486167709496745738
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486167709496745737}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &1486167709496745739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486167709496745737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 30710272}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1001 &2063232218655184837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5415,6 +5609,14 @@ PrefabInstance:
     - target: {fileID: 2314389238788838867, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314389238788838867, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
+      propertyPath: m_TagString
+      value: Manojugador
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314389238788838867, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3262540254875033089, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
       propertyPath: m_Pivot.x
@@ -5528,6 +5730,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
     - target: {fileID: 5580683990282467863, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5613,12 +5819,8 @@ PrefabInstance:
       value: PropClimateSiege
       objectReference: {fileID: 0}
     - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: m_TagString
-      value: MordorSiege
+      value: CSCDA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5626,16 +5828,8 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3952073390465914059}
-    - targetCorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3952073390465914060}
+      addedObject: {fileID: 3952073390465914063}
   m_SourcePrefab: {fileID: 100100000, guid: 3909878e751b807439169f74f1860bcc, type: 3}
---- !u!1 &2512276608377576545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-  m_PrefabInstance: {fileID: 2512276608377576544}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3165474968013432317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5841,98 +6035,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: PropSiege
       objectReference: {fileID: 0}
-    - target: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      propertyPath: m_TagString
-      value: CDASiege
-      objectReference: {fileID: 0}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: ManoPlayer
+      value: 
+      objectReference: {fileID: 1401522343}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 207931773}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3569824495525567879}
-    - targetCorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3569824495525567880}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
 --- !u!1 &3569824495525567878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
   m_PrefabInstance: {fileID: 3569824495525567877}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &3569824495525567879
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3569824495525567878}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &3569824495525567880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3569824495525567878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 207931773}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!224 &3763935055599688629 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1553088289270859753, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
@@ -5943,157 +6067,215 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2336070270750724469, guid: 91e68af7751e56e488485b40675c692d, type: 3}
   m_PrefabInstance: {fileID: 3165474968013432317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3943646285242294794
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9394435}
+    m_Modifications:
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.9441676
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -464.57675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313472902180264816, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_Name
+      value: taparcda
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313472902180264816, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+--- !u!224 &3943646285242294795 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4964581561889296546, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+  m_PrefabInstance: {fileID: 3943646285242294794}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3943646285242294796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5313472902180264816, guid: 802c7928828b76447a1e7495047e6e97, type: 3}
+  m_PrefabInstance: {fileID: 3943646285242294794}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3952073389554119951 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
   m_PrefabInstance: {fileID: 4350673925362039657}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3952073389554119956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430390285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playedcard: {fileID: 0}
+  CartasenFranja: []
+  Suma: 0
+  Cartas: 0
+  puntuationText: {fileID: 0}
+  Faccion: Comunidad del Anillo
+  franja: 4
+  GraveyardCDA: {fileID: 8728653141236571525}
+  GraveyardMordor: {fileID: 0}
+  ManoPlayer: {fileID: 1401522343}
+  ManoVS: {fileID: 0}
+  sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
 --- !u!224 &3952073389981901016 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6067389720483592570, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
   m_PrefabInstance: {fileID: 284814790211813931}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &3952073389981901017
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284814790211813932}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &3952073389981901018
+--- !u!114 &3952073389981901021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284814790211813932}
+  m_GameObject: {fileID: 1678741952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
+  Cartas: 0
   puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
+  Faccion: Comunidad del Anillo
+  franja: 5
+  GraveyardCDA: {fileID: 8728653141236571525}
   GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
+  ManoPlayer: {fileID: 1401522343}
   ManoVS: {fileID: 0}
   sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
 --- !u!224 &3952073390465914058 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5580683990282467863, guid: 3909878e751b807439169f74f1860bcc, type: 3}
   m_PrefabInstance: {fileID: 2512276608377576544}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &3952073390465914059
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2512276608377576545}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &3952073390465914060
+--- !u!114 &3952073390465914063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2512276608377576545}
+  m_GameObject: {fileID: 1796539741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
+  Cartas: 0
   puntuationText: {fileID: 0}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
+  Faccion: Comunidad del Anillo
+  franja: 6
+  GraveyardCDA: {fileID: 8728653141236571525}
   GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
+  ManoPlayer: {fileID: 1401522343}
   ManoVS: {fileID: 0}
   sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
+--- !u!224 &3952073390992423666 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3952073390921613476, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+  m_PrefabInstance: {fileID: 71858774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4285485625696155109 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5927021399136803262, guid: ba301a3aa6b4a6743a6edf1dee351bdd, type: 3}
@@ -6204,17 +6386,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
     - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Name
       value: PropClimateMelee
       objectReference: {fileID: 0}
     - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_TagString
-      value: MordorMelee
+      value: CMCDA
       objectReference: {fileID: 0}
     - target: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Pivot.x
@@ -6302,84 +6484,182 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4350673925362039659}
-    - targetCorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4350673925362039660}
+      addedObject: {fileID: 3952073389554119956}
   m_SourcePrefab: {fileID: 100100000, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
---- !u!1 &4350673925362039658 stripped
+--- !u!1 &4790695227954636998 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-  m_PrefabInstance: {fileID: 4350673925362039657}
+  m_CorrespondingSourceObject: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+  m_PrefabInstance: {fileID: 1357136281}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &4350673925362039659
-BoxCollider2D:
+--- !u!224 &4798641934924806263 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+  m_PrefabInstance: {fileID: 1357136281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5212408859917604000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+  m_PrefabInstance: {fileID: 71858774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5453187837999529536
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350673925362039658}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 160, y: 115}
-  m_EdgeRadius: 0
---- !u!114 &4350673925362039660
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9394435}
+    m_Modifications:
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.9441676
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 468
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887645941472558784, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791903894050935567, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+      propertyPath: m_Name
+      value: taparmordor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 503bdd930df0d7c42ab386ce9387bd15, type: 3}
+--- !u!224 &5580683988459721106 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5580683990282467863, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+  m_PrefabInstance: {fileID: 1940188037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5580683988459721111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4350673925362039658}
+  m_GameObject: {fileID: 1809372886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
+  Cartas: 0
   puntuationText: {fileID: 0}
-  Faccion: 
+  Faccion: Mordor
   franja: 0
   GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
+  GraveyardMordor: {fileID: 8580913587306563391}
   ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
+  ManoVS: {fileID: 7488780437938185480}
   sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
+--- !u!224 &6067389718750036200 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6067389720483592570, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+  m_PrefabInstance: {fileID: 1756625298}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6067389718750036205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156230442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playedcard: {fileID: 0}
+  CartasenFranja: []
+  Suma: 0
+  Cartas: 0
+  puntuationText: {fileID: 0}
+  Faccion: Mordor
+  franja: 0
+  GraveyardCDA: {fileID: 0}
+  GraveyardMordor: {fileID: 8580913587306563391}
+  ManoPlayer: {fileID: 0}
+  ManoVS: {fileID: 7488780437938185480}
+  sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
 --- !u!1001 &7224154111351366304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6477,6 +6757,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bcfa3bd7792b774096a0cc689ada30c, type: 3}
+--- !u!1 &7224516314977634275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+  m_PrefabInstance: {fileID: 661413246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7237878292726154209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6485,17 +6770,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: ManoPlayer
+      value: 
+      objectReference: {fileID: 1401522343}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: GraveyardCDA
+      value: 
+      objectReference: {fileID: 8728653141236571525}
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: puntuationText
+      value: 
+      objectReference: {fileID: 413419412}
     - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Name
       value: PropMelee
-      objectReference: {fileID: 0}
-    - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      propertyPath: m_TagString
-      value: CDAMelee
       objectReference: {fileID: 0}
     - target: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Pivot.x
@@ -6580,87 +6869,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7237878292726154211}
-    - targetCorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7237878292726154212}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
 --- !u!1 &7237878292726154210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
   m_PrefabInstance: {fileID: 7237878292726154209}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &7237878292726154211
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237878292726154210}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1020, y: 105}
-  m_EdgeRadius: 0
---- !u!114 &7237878292726154212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7237878292726154210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b428a2a6b85a5249aaa03b42da99631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
-  CartasenFranja: []
-  Suma: 0
-  puntuationText: {fileID: 413419412}
-  Faccion: 
-  franja: 0
-  GraveyardCDA: {fileID: 0}
-  GraveyardMordor: {fileID: 0}
-  ManoPlayer: {fileID: 0}
-  ManoVS: {fileID: 0}
-  sumaparcial: 0
 --- !u!1 &7376377116929780921
 GameObject:
   m_ObjectHideFlags: 0
@@ -6725,6 +6940,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5769555473096672475, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
+      propertyPath: m_TagString
+      value: Manomordor
+      objectReference: {fileID: 0}
     - target: {fileID: 7622028143020796180, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6787,7 +7006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7622028143020796180, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.5643e-10
+      value: -0.013123
       objectReference: {fileID: 0}
     - target: {fileID: 7622028143020796180, guid: c20d97c05b6dfd04bb97dc52f68ba79b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6857,7 +7076,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -2.3781395}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6885,6 +7104,42 @@ MonoBehaviour:
   CardsinFrange: []
   Cartas: 0
   rendido: 0
+--- !u!224 &7490848195879565268 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+  m_PrefabInstance: {fileID: 661413246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8562633465339833729 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+  m_PrefabInstance: {fileID: 586226820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8562633465339833734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679093177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playedcard: {fileID: 0}
+  CartasenFranja: []
+  Suma: 0
+  Cartas: 0
+  puntuationText: {fileID: 0}
+  Faccion: Mordor
+  franja: 0
+  GraveyardCDA: {fileID: 0}
+  GraveyardMordor: {fileID: 8580913587306563391}
+  ManoPlayer: {fileID: 0}
+  ManoVS: {fileID: 7488780437938185480}
+  sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0
 --- !u!1001 &8580913587306563390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6982,6 +7237,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd78f840bbdd44429072d43992e8e3b, type: 3}
+--- !u!1 &8580913587306563391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1871434917655670959, guid: 8fd78f840bbdd44429072d43992e8e3b, type: 3}
+  m_PrefabInstance: {fileID: 8580913587306563390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8728653141236571524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7079,6 +7339,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba301a3aa6b4a6743a6edf1dee351bdd, type: 3}
+--- !u!1 &8728653141236571525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4451565777400051311, guid: ba301a3aa6b4a6743a6edf1dee351bdd, type: 3}
+  m_PrefabInstance: {fileID: 8728653141236571524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

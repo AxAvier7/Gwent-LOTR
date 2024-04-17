@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -6931897558071500447}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerRanged
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -155,9 +155,13 @@ MonoBehaviour:
   Rango: Plata
   Franja: Ranged
   Poder: 4
+  PoderInicial: 4
   Descripcion: "Tienen fama de buena punter\xEDa"
   Habilidad: Multiplicar por n su ataque, siendo n la cantidad de cartas iguales
     a ella en el tablero
+  Afectado: 0
+  Franjita: 2
+  yarepartida: 0
 --- !u!114 &-970870751015529600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +235,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-474209815709039415
 BoxCollider2D:
   m_ObjectHideFlags: 0

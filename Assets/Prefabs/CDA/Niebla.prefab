@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: -3136960702511798649}
-  - component: {fileID: 3489226651869776451}
+  - component: {fileID: 7708518336565946043}
   - component: {fileID: 9028860441686020771}
   - component: {fileID: 6568581035260744215}
   - component: {fileID: -2109091219792935077}
@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -2109091219792935077}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerFog
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3489226651869776451
+--- !u!114 &7708518336565946043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,14 +147,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: Niebla
-  Faccion: Neutral
-  Franja_afectada: Melee
+  Faccion: Comunidad del Anillo
+  Rango: 
+  Franja: Melee
+  Poder: 0
+  PoderInicial: 0
   Descripcion: Welcome to Silent Hill
   Habilidad: "Reduce en 1 el da\xF1o de las unidades Melee"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 4
+  yarepartida: 0
+  Franja_afectada: Melee
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &9028860441686020771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +239,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-423244281813637383
 BoxCollider2D:
   m_ObjectHideFlags: 0

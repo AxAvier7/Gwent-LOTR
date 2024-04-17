@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 5703228276286762000}
-  - component: {fileID: 3430401576254759421}
   - component: {fileID: -1331158247098496266}
   - component: {fileID: 6333025044787581133}
   - component: {fileID: -7896372189220614223}
   - component: {fileID: -9008920879735389580}
   - component: {fileID: 5229177491541105987}
+  - component: {fileID: 4502583424389773352}
   m_Layer: 6
   m_Name: Nevada2
   m_TagString: Untagged
@@ -127,8 +127,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: -7896372189220614223}
-        m_TargetAssemblyTypeName: PlayCDA, Assembly-CSharp
-        m_MethodName: PonerSnow
+        m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -138,23 +138,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3430401576254759421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9095a23782ff68448ec8d4fb33829c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Nevada
-  Faccion: Neutral
-  Franja_afectada: Siege
-  Descripcion: "La nieve est\xE1 mal"
-  Habilidad: "Reduce en 1 el da\xF1o de las unidades Siege"
 --- !u!114 &-1331158247098496266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +211,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
   Zona: {fileID: 0}
+  jugable: 1
+  PartidaTerminada: 0
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+  Manojugador: {fileID: 0}
+  Manomordor: {fileID: 0}
+  CDAMelee: {fileID: 0}
+  CDARanged: {fileID: 0}
+  CDASiege: {fileID: 0}
+  MordorMelee: {fileID: 0}
+  MordorRanged: {fileID: 0}
+  MordorSiege: {fileID: 0}
+  CMCDA: {fileID: 0}
+  CRCDA: {fileID: 0}
+  CSCDA: {fileID: 0}
+  CMMORDOR: {fileID: 0}
+  CRMORDOR: {fileID: 0}
+  CSMORDOR: {fileID: 0}
+  Bloqueo1: {fileID: 0}
+  Bloqueo2: {fileID: 0}
 --- !u!61 &-9008920879735389580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -300,3 +304,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &4502583424389773352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Nevada
+  Faccion: Comunidad del Anillo
+  Rango: 
+  Franja: Siege
+  Poder: 0
+  PoderInicial: 0
+  Descripcion: "La nieve est\xE1 mal"
+  Habilidad: "Reduce en 1 el da\xF1o de las unidades Siege"
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 6
+  yarepartida: 0
+  Franja_afectada: Siege
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1

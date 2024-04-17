@@ -1093,58 +1093,30 @@ PrefabInstance:
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 023735b924c77fe41bcf3c23edcf0d0a, type: 3}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[0].loop
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: c4bcc35ebc203f14a80ebe3141e8cbf7, type: 3}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 023735b924c77fe41bcf3c23edcf0d0a, type: 3}
+      objectReference: {fileID: 8300000, guid: 983b24b6d0f856846aeb50a530e424b9, type: 3}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[1].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 023735b924c77fe41bcf3c23edcf0d0a, type: 3}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[2].loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[1].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[2].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[0].nombre
-      value: Musica de fondo
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[0].volume
-      value: 0.36
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[1].nombre
-      value: Musica de fondi
+      value: SIU
       objectReference: {fileID: 0}
     - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: sonidos.Array.data[1].volume
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[2].nombre
-      value: Musica de fondi
-      objectReference: {fileID: 0}
-    - target: {fileID: 4430658380528610347, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
-      propertyPath: sonidos.Array.data[2].volume
-      value: 0.36
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6416480863654952335, guid: a996bd12ba57e014689a0c94146ed66a, type: 3}
       propertyPath: m_LocalPosition.x
