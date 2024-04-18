@@ -42,6 +42,31 @@ CartasenFranja.Add(CartaJugada);
 Cartas += 1;
 }
 
+public void Sauron()
+{
+    if(Faccion == "Comunidad del Anillo")
+    {
+        if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+            {
+            int mayor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
+            for(int i = 0; i < CartasenFranja.Count; i++)//busca la cartas con mas poder del tablero rival
+            {
+                mayor = Mathf.Max(mayor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
+            }
+            
+            foreach(GameObject Cartas in CartasenFranja)
+            {
+                if(Cartas.GetComponent<ClaseCarta>().Poder == mayor)//manda la carta mas fuerte al cementerio
+                {
+                    Cartas.transform.SetParent(GraveyardCDA.transform, true);
+                    Cartas.transform.position = GraveyardCDA.transform.position;
+                    CartasenFranja.Remove(Cartas);
+                    break;
+                }
+            }
+            }
+    }
+}
 
 public void Cuerno()
     {
@@ -64,22 +89,170 @@ public void Despeje()
         }
     }
 
+public int Tropillas()
+{
+int Tropa = 1;
+if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+{
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+        {
+            Tropa += 1;
+        }
+    }
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Arqueros élficos")
+        {
+            Tropa += 1;
+        }
+    }
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Máquinas de asedio")
+        {
+            Tropa += 1;
+        }
+    }
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Uruk-Hai")
+        {
+            Tropa += 1;
+        }
+    }
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Orcos arqueros")
+        {
+            Tropa += 1;
+        }
+    }
+    foreach (GameObject Card in CartasenFranja)
+    {
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Olog-Hai")
+        {
+            Tropa += 1;
+        }
+    }
+}
+return Tropa;
+}
+
+public void TropillasBonus()
+{
+int Tropa = 1;
+
+        if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+        {
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Arqueros élficos")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Arqueros élficos")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+
+                foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Máquinas de asedio")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Máquinas de asedio")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Uruk-Hai")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Uruk-Hai")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Orcos arqueros")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Orcos arqueros")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Olog-Hai")
+            {
+                Tropa +=1;
+            }
+        }
+        foreach (GameObject Card in CartasenFranja)
+        {
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Olog-Hai")
+            {
+                Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
+            }
+        }
+        }
+}
 
 void Update()
 {
-ManoPlayer = GameObject.Find("manojugador");
-ManoVS = GameObject.Find("manomordor");
+Ronda =  GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ronda;
+ManoPlayer = GameObject.Find("Mano");
+ManoVS = GameObject.Find("Mano rival");
 Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
-Rprop = GameObject.FindGameObjectWithTag("CDADistance").GetComponent<ClaseFranja>(); 
+Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
 Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
 Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
-Rvs = GameObject.FindGameObjectWithTag("MordorDistance").GetComponent<ClaseFranja>(); 
+Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
 Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
 
 if(ComprobadordeRonda != Ronda)
         {
             ComprobadordeRonda = Ronda;
-            if(Faccion == "Sacrificios")
+            if(Faccion == "Comunidad del Anillo")
             {
                 foreach(GameObject Card in CartasenFranja)
                 {
@@ -127,7 +300,7 @@ puntuationText.text = Suma.ToString();
 
 if(aumentoafectado)
         {
-            foreach(GameObject Card in CartasenFranja)
+          foreach(GameObject Card in CartasenFranja)
           {
             if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectaumento == false) //si no es de oro y no esta afectada le suma 1
             {
@@ -141,7 +314,7 @@ if(climaafectado)
         {
             foreach(GameObject Card in CartasenFranja)
           {
-            if(Card.GetComponent<ClaseCarta>().Rango != "oro" && Card.GetComponent<ClaseCarta>().Afectclima == false) // si no es de oro y no esta afectada ya la vuelve 1
+            if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectclima == false) // si no es de oro y no esta afectada ya la vuelve 1
             {
                 Card.GetComponent<ClaseCarta>().Afectclima = true;
                 Card.GetComponent<ClaseCarta>().Poder = 1;

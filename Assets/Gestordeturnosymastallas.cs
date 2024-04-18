@@ -10,13 +10,13 @@ public Text VictoriaCDA; //WinsGuttsText
 public Text VictoriaMordor; //WinsGriffithText
 public string PuntosCDA; //PointsGutts
 public string PuntosMordor; //PointsGriffith
-public Text CDARobando;
-public Text MordorRobando;
 public int Ronda = 1;
-public string Ganador; //GanadorText
+public string Ganador; //GanadorRondas
+public string GanadordeRonda;
+public Turnos Turnito;
 
-public Text CDARendido; //playerRendido
-public Text MordorRendido; //enemyRendido
+public bool CDARendido; //playerRendido
+public bool MordorRendido; //enemyRendido
 public int CDAWin = 0; //VictoriasGutts
 public int MordorWin = 0; //VictoriasGeffith
 public bool FinPartida = false; //PartidaTerminada
@@ -28,12 +28,19 @@ private bool CDARoboRonda3; //Proba3
 private bool MordorRoboRonda1; //Eroba
 private bool MordorRoboRonda2; //Eroba2
 private bool MordorRoboRonda3; //Eroba3
-public bool PartidaTerminada = false;
+private bool yacda;
+private bool yamordor;
+
+void Awake()
+{
+    GanadordeRonda = "nulo";
+    Turnito = GameObject.FindGameObjectWithTag("ContTurno").GetComponent<Turnos>();
+}
 
 public void yelganadores()
 {
         //ronda 1
-        if(Ronda == 1 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda1 && MordorRoboRonda1) //se quedan sin cartas
+        if(Ronda == 1 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor) //se quedan sin cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -41,19 +48,21 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                 //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
         }
     
-        if(Ronda == 1 && CDARendido && MordorRendido && CDARoboRonda1 && MordorRoboRonda1) //los dos se rinden
+        if(Ronda == 1 && CDARendido && MordorRendido && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor) //los dos se rinden
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -61,18 +70,20 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raMordor";
+                Turnito.Turno =false;
             }
             Ronda += 1;
         }
-        if(Ronda == 1 && CDARendido && ManoMordor == 0 && CDARoboRonda1 && MordorRoboRonda1)  //Se rinde la Comunidad y Mordor no tiene cartas
+        if(Ronda == 1 && CDARendido && ManoMordor == 0 && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor)  //Se rinde la Comunidad y Mordor no tiene cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -80,18 +91,20 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
         }
-        if(Ronda == 1 && ManoCDA == 0 && MordorRendido && CDARoboRonda1 && MordorRoboRonda1)  //Se rinde Mordor y la Comunidad no tiene cartas
+        if(Ronda == 1 && ManoCDA == 0 && MordorRendido && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor)  //Se rinde Mordor y la Comunidad no tiene cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -99,20 +112,22 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "1raMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
 }
 
         //ronda 2
-        if(Ronda == 2 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2) //se quedan sin cartas
+        if(Ronda == 2 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor) //se quedan sin cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -120,18 +135,20 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                 //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
         }
-        if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2 && MordorRoboRonda2) //los dos se rinden
+        if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor) //los dos se rinden
         {
              int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -139,18 +156,20 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
         }
-        if(Ronda == 2 && CDARendido && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2)  //Se rinde la Comunidad y Mordor no tiene cartas
+        if(Ronda == 2 && CDARendido && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor)  //Se rinde la Comunidad y Mordor no tiene cartas
         {
              int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -158,14 +177,16 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
         }
@@ -177,14 +198,16 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
             }
             Ronda += 1;
 }
@@ -197,14 +220,16 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raCDA";
+                // Turnito.Turno = true;                
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                 //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raMordor";
+                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
@@ -216,14 +241,16 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raCDA";
+                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raMordor";
+                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
@@ -235,72 +262,79 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raCDA";
+                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raMordor";
+                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
         if(Ronda == 3 && ManoCDA == 0 && MordorRendido && CDARoboRonda3 && MordorRoboRonda3)  //Se rinde Mordor y la Comunidad no tiene cartas
         {
-             int ptsCDA = int.Parse(PuntosCDA);
+            int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
             if(ptsCDA >= ptsMordor)
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                //Ganador = true// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raCDA";
+                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                //Ganador = false// preguntar a alejandro como cambio el objeto ganador de bool a string aqui
+                // GanadordeRonda = "3raMordor";
+                // Turnito.Turno = true;
+
             }
             Ronda = 0;
-}
+        }
 }
 void Update()
 {
-        ManoCDA = GameObject.Find("Mano").GetComponent<ClaseMano>().Cartas;
-        ManoMordor = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
+    yacda = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
+    yamordor = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
 
-        // CDARendido = GameObject.Find("Mano").GetComponent<ClaseMano>().rendido;
-        // MordorRendido = GameObject.Find("Mano Rival").GetComponent<ClaseMano>().rendido;
-        
-        PuntosCDA = GameObject.Find("ContCDA").GetComponent<Text>().text;
-        PuntosMordor = GameObject.Find("ContMordor").GetComponent<Text>().text;
+    ManoCDA = GameObject.Find("Mano").GetComponent<ClaseMano>().Cartas;
+    ManoMordor = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
 
-        CDARoboRonda1 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo1;
-        MordorRoboRonda1 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo1;
-        CDARoboRonda2 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo2;
-        MordorRoboRonda2 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo2;
-        CDARoboRonda3 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo3;
-        MordorRoboRonda3 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo3;
+    CDARendido = GameObject.Find("Mano").GetComponent<ClaseMano>().rendido;
+    MordorRendido = GameObject.Find("Mano rival").GetComponent<ClaseMano>().rendido;
+ 
+    PuntosCDA = GameObject.Find("contcda").GetComponent<Text>().text;
+    PuntosMordor = GameObject.Find("contmordor").GetComponent<Text>().text;
+
+    CDARoboRonda1 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo1;
+    MordorRoboRonda1 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo1;
+    CDARoboRonda2 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo2;
+    MordorRoboRonda2 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo2;
+    CDARoboRonda3 = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo3;
+    MordorRoboRonda3 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo3;
 
     
 //quien gana? quien sigue? tu decides
-if(FinPartida == false && CDAWin == MordorWin && MordorWin == 2)
+if(FinPartida == false && CDAWin == 2) //gana la Comunidad
 {
-FinPartida = true;
-//crear escena para cuando empaten
+    FinPartida = true;
+    SceneManager.LoadScene(7);
 }
-
-else if(FinPartida == false && CDAWin == 2)
+else if(FinPartida == false && MordorWin == 2) //gana Mordor
 {
-FinPartida = true;
-//crear escena para cuando gane CDA
+    FinPartida = true;
+    SceneManager.LoadScene(6);
 }
-else if(FinPartida == false && MordorWin == 2)
+if(FinPartida == false && CDAWin == MordorWin && MordorWin == 2) //empatan, pero gana la Comunidad porque decidi yo las reglas
 {
-FinPartida = true;
-//crear escena para cuando gane Mordor
+    FinPartida = true;
+    SceneManager.LoadScene(7);
 }
 }
 }

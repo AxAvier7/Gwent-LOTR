@@ -316,7 +316,7 @@ MonoBehaviour:
   PartidaTerminada: 0
   aragornrend: 0
   sauronrend: 0
-  Turno: 1
+  Turno: 0
   Manojugador: {fileID: 0}
   Manomordor: {fileID: 0}
   CDAMelee: {fileID: 0}

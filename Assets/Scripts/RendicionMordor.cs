@@ -25,8 +25,8 @@ public class MordorRendicion : MonoBehaviour
     void Update()
     {
         Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
-        PlayerHand = GameObject.FindGameObjectWithTag("PlayerHand").GetComponent<ClaseMano>();
-        EnemyHand = GameObject.FindGameObjectWithTag("EnemyHand").GetComponent<ClaseMano>();
+        PlayerHand = GameObject.FindGameObjectWithTag("Manojugador").GetComponent<ClaseMano>();
+        EnemyHand = GameObject.FindGameObjectWithTag("Manomordor").GetComponent<ClaseMano>();
         Ronda = GameObject.Find("GestTurno").GetComponent<Turnos>().Ronda;
         if(CompararRonda != Ronda)
         {

@@ -18,6 +18,7 @@ TagManager:
   - CMMORDOR
   - CRMORDOR
   - CSMORDOR
+  - ContTurno
   layers:
   - Default
   - TransparentFX

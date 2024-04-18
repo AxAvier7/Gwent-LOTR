@@ -287,7 +287,7 @@ MonoBehaviour:
   PartidaTerminada: 0
   aragornrend: 0
   sauronrend: 0
-  Turno: 1
+  Turno: 0
   Manojugador: {fileID: 0}
   Manomordor: {fileID: 0}
   CDAMelee: {fileID: 0}
@@ -327,7 +327,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 6
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Siege
   aragornrend: 0
   sauronrend: 0

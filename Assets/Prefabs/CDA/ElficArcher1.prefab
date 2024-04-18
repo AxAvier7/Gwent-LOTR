@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5068028455241714053}
   - component: {fileID: -9018526434318869133}
   - component: {fileID: -6973223847389364508}
+  - component: {fileID: -6045614426193658283}
   m_Layer: 6
   m_Name: ElficArcher1
   m_TagString: Untagged
@@ -138,6 +139,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -6045614426193658283}
+        m_TargetAssemblyTypeName: Tropas, Assembly-CSharp
+        m_MethodName: Skill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-1147199015061361268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,9 +172,14 @@ MonoBehaviour:
   Descripcion: "Tienen fama de buena punter\xEDa"
   Habilidad: Multiplicar por n su ataque, siendo n la cantidad de cartas iguales
     a ella en el tablero
-  Afectado: 0
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 2
-  yarepartida: 0
+  yarepartida: 1
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-1436178052484624479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +346,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-6045614426193658283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfb3164381799249934c873673bc4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sCaC: {fileID: 0}
+  sR: {fileID: 0}
+  sS: {fileID: 0}
+  mCaC: {fileID: 0}
+  mR: {fileID: 0}
+  mS: {fileID: 0}
+  jugable: 0
+  eleg: 0

@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Escenas/Cr\xE9ditos.unity"
     guid: d617215172b9d5a428e8b2d3b39e6a0e
+  - enabled: 1
+    path: Assets/Escenas/GanaMordor.unity
+    guid: 04c9aabc4c6601b4b8cad6f0ee0714e1
+  - enabled: 1
+    path: Assets/Escenas/GanaCDA.unity
+    guid: faabea52b94907e48b6bfc430e7a71f8
   m_configObjects: {}

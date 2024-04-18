@@ -27,11 +27,11 @@ public class Rendicion : MonoBehaviour
     void Update()
     {
         Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
-        PlayerHand = GameObject.FindGameObjectWithTag("manojugador").GetComponent<ClaseMano>();
-        EnemyHand = GameObject.FindGameObjectWithTag("manomordor").GetComponent<ClaseMano>();
+        PlayerHand = GameObject.FindGameObjectWithTag("Manojugador").GetComponent<ClaseMano>();
+        EnemyHand = GameObject.FindGameObjectWithTag("Manomordor").GetComponent<ClaseMano>();
         Ronda = GameObject.Find("GestTurno").GetComponent<Turnos>().Ronda;
-        robacda = GameObject.Find("MazoCDA").GetComponent<RobarCDA>().robo1;
-        robamordor = GameObject.Find("MazoMordor").GetComponent<RobarMordor>().robo1;
+        robacda = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo1;
+        robamordor = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo1;
         if(CompararRonda != Ronda)
         {
             CompararRonda = Ronda;

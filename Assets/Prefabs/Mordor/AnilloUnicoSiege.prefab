@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 111046193030269666}
   - component: {fileID: 2531165664910650734}
   - component: {fileID: -3242803745586905504}
+  - component: {fileID: 6927173886581259537}
   m_Layer: 6
   m_Name: AnilloUnicoSiege
   m_TagString: Untagged
@@ -129,6 +130,18 @@ MonoBehaviour:
       - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -7321155696249036804, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+        m_TargetAssemblyTypeName: Anillo, Assembly-CSharp
+        m_MethodName: Habilidad
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -292,7 +305,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 6
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Siege
   aragornrend: 0
   sauronrend: 0
@@ -315,7 +328,7 @@ MonoBehaviour:
   PartidaTerminada: 0
   aragornrend: 0
   sauronrend: 0
-  Turno: 1
+  Turno: 0
   Manojugador: {fileID: 0}
   Manomordor: {fileID: 0}
   CDAMelee: {fileID: 0}
@@ -332,3 +345,19 @@ MonoBehaviour:
   CSMORDOR: {fileID: 0}
   Bloqueo1: {fileID: 0}
   Bloqueo2: {fileID: 0}
+--- !u!114 &6927173886581259537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e35d26fca98064e95391d4d7f21f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

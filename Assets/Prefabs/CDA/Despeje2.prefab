@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -3679990511558318941}
   - component: {fileID: -6159119317556699516}
   - component: {fileID: 3990498793391444954}
+  - component: {fileID: -4892418943287773144}
   m_Layer: 6
   m_Name: Despeje2
   m_TagString: Untagged
@@ -197,6 +198,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -4892418943287773144}
+        m_TargetAssemblyTypeName: Despeje, Assembly-CSharp
+        m_MethodName: Efecto
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-3044137689619413031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +340,20 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 4
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Todas
   aragornrend: 0
   sauronrend: 0
   Turno: 1
+--- !u!114 &-4892418943287773144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64b0a7704d76b741bf61e2fcc135f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

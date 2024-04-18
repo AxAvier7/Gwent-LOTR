@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Cuerno : MonoBehaviour
 {
-public ClaseFranja Mprop; //pcc
-public ClaseFranja Rprop; //pd
-public ClaseFranja Sprop; //ps
+public ClaseFranja Mprop;
+public ClaseFranja Rprop;
+public ClaseFranja Sprop;
 public bool jugable;
 
 public void Habilidad()

@@ -34,6 +34,8 @@ public GameObject Bloqueo2;
 private List<GameObject> CDA;
 private List<GameObject> Mordor;
 private int position = 0;
+private bool aragorneleg;
+private bool sauroneleg;
 
 void Start()
 {
@@ -50,15 +52,15 @@ void Start()
     CRMORDOR = GameObject.Find("VsClimateRanged");
     CSMORDOR = GameObject.Find("VsClimateSiege");
     Manojugador = GameObject.Find("Mano");
-    Manomordor = GameObject.Find("Manorival");
-    PartidaTerminada = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().PartidaTerminada;
+    Manomordor = GameObject.Find("Mano rival");
+    PartidaTerminada = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().FinPartida;
 }
 
 public void Play()
 {
 if(PartidaTerminada == false)
        {
-        if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == true && aragornrend == false)
+        if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == true && aragornrend == false && aragorneleg)
         {
             if(jugable)
             {
@@ -68,7 +70,7 @@ if(PartidaTerminada == false)
             }
         }
 
-         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == true && aragornrend == false)
+         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == true && aragornrend == false && aragorneleg)
          {
             if(jugable)
             {
@@ -78,7 +80,7 @@ if(PartidaTerminada == false)
             }
          }
 
-         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == true && aragornrend == false)
+         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == true && aragornrend == false && aragorneleg)
          {
             if(jugable)
             {
@@ -88,7 +90,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == true && aragornrend == false)
+         if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == true && aragornrend == false && aragorneleg)
          {
             if(jugable)
             {
@@ -98,7 +100,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-          if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == true && aragornrend == false)
+          if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == true && aragornrend == false && aragorneleg)
          {
             if(jugable)
             {
@@ -108,7 +110,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-           if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == true && aragornrend == false)
+           if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == true && aragornrend == false && aragorneleg)
          {
             if(jugable)
             {
@@ -119,7 +121,7 @@ if(PartidaTerminada == false)
          }
 
 
-            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == false && sauronrend == false)
+            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -129,7 +131,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == false && sauronrend == false)
+            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -139,7 +141,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-             if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == false && sauronrend == false)
+             if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -149,7 +151,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-             if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == false && sauronrend == false)
+             if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -159,7 +161,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == false && sauronrend == false)
+            if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -169,7 +171,7 @@ if(PartidaTerminada == false)
             }   
          }
 
-         if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == false && sauronrend == false)
+         if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == false && sauronrend == false && sauroneleg)
          {
             if(jugable)
             {
@@ -181,7 +183,7 @@ if(PartidaTerminada == false)
        }
 }
 
-public void verificador()
+public void verificadorcda()
     {
         position = Random.Range(0, CDA.Count);
         if(CDA[position].GetComponent<ClaseCarta>().yarepartida == false)
@@ -192,10 +194,10 @@ public void verificador()
         }
         else
         {
-            verificador();
+            verificadorcda();
         }
     }
-     public void verificadorenemigo() 
+     public void verificadormordor() 
     {
         position = Random.Range(0, Mordor.Count);
         if(Mordor[position].GetComponent<ClaseCarta>().yarepartida == false)
@@ -206,77 +208,20 @@ public void verificador()
         }
         else
         {
-            verificadorenemigo();
+            verificadormordor();
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//cada uno de los metodos siguientes es para, segun el objeto al que se le asigna cada metodo, enviar un objeto a una determinada zona del tablero
-// public void PonerSiege()
-// {
-// Zona = GameObject.Find("PropSiege");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-// public void PonerRanged()
-// {
-// Zona = GameObject.Find("PropRanged");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-// public void PonerMelee()
-// {
-// Zona = GameObject.Find("PropMelee");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-// public void PonerSnow()
-// {
-// Zona = GameObject.Find("PropClimateSiege");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-// public void PonerRain()
-// {
-// Zona = GameObject.Find("PropClimateRanged");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-// public void PonerFog()
-// {
-// Zona = GameObject.Find("PropClimateMelee");
-// Card.transform.SetParent(Zona.transform, false);
-// Card.transform.position = Zona.transform.position;
-// }
-
-/*Zona = GameObject.Find("PropClimateRanged");
-Card.transform.SetParent(Zona.transform, false);
-Card.transform.position = Zona.transform.position;
-Zona = GameObject.Find("PropClimateMelee");
-Card.transform.SetParent(Zona.transform, false);
-Card.transform.position = Zona.transform.position;*/
+   void Update()
+    {
+      Manojugador = GameObject.Find("Mano");
+      Manomordor = GameObject.Find("Mano rival");
+      aragorneleg = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
+      sauroneleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+      Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
+      CDA = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().CDA;
+      Mordor = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().Mordor;
+      aragornrend = GameObject.Find("Mano").GetComponent<ClaseMano>().rendido;
+      sauronrend = GameObject.Find("Mano rival").GetComponent<ClaseMano>().rendido;
+    }
 }
