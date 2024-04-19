@@ -108,6 +108,44 @@ public void GandalfUsado(int promediocartas)
 
 }
 
+public void Gollum()
+{
+    if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+    {
+    int mayor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
+    for(int i = 0; i < CartasenFranja.Count; i++)
+    {
+        mayor = Mathf.Max(mayor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
+    }
+    foreach(GameObject Card in CartasenFranja)
+    {
+         if(Card.GetComponent<ClaseCarta>().Poder == mayor && Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
+        {
+            Card.transform.SetParent(ManoPlayer.transform, false);
+            Card.transform.position = ManoPlayer.transform.position;
+            Card.GetComponent<JugarCarta>().jugable = true;
+            Card.GetComponent<ClaseCarta>().Afectclima = false;
+            Card.GetComponent<ClaseCarta>().Afectaumento = false;
+            Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial;
+            CartasenFranja.Remove(Card);
+            return;
+        }
+        if(Card.GetComponent<ClaseCarta>().Poder == mayor && Card.GetComponent<ClaseCarta>().Faccion == "Mordor")
+        {
+            Card.transform.SetParent(ManoVS.transform, false);
+            Card.transform.position = ManoVS.transform.position;
+            Card.GetComponent<JugarCarta>().jugable = true;
+            Card.GetComponent<ClaseCarta>().Afectclima = false;
+            Card.GetComponent<ClaseCarta>().Afectaumento = false;
+            Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial;
+            CartasenFranja.Remove(Card);
+            return;
+        }
+    }
+    }
+}
+
+
 public void Balrog(int Franja)
 {
         if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
@@ -305,7 +343,7 @@ int Tropa = 1;
 
 void Update()
 {
-Ronda =  GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ronda;
+Ronda =  GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
 ManoPlayer = GameObject.Find("Mano");
 ManoVS = GameObject.Find("Mano rival");
 Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();

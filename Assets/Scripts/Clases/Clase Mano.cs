@@ -7,6 +7,7 @@ public class ClaseMano : MonoBehaviour
      private GameObject Cardentry;
      public List<GameObject> CardsinFrange;
      public int Cartas = 0;
+     public int Cartasdevueltas;
      public bool rendido = false;
 
      private void OnCollisionEnter2D(Collision2D collision) //metodo que detecta cuando entra una carta a la zona de la mano del jugador

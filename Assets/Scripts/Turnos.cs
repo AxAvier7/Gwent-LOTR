@@ -42,14 +42,21 @@ Ganador = "nulo";
 taparmanoCDA = TaparManoCDA.GetComponent<RectTransform>();
 taparmanomordor = TaparManoMordor.GetComponent<RectTransform>();
 }
+ public void EmpCDA()
+ {
+    Turno = true;
+ }
 
+  public void EmpMordor()
+ {
+    Turno = false;
+ }
 
 void Update()
 {
 eligearagorn = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
 eligesauron =GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
-Ganador = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ganador;
-
+Ganador = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().GanadordeRonda;
 // skillaragorn = GameObject.Find("Aragorn").GetComponent<>().Utilizada;
 skillsauron = GameObject.Find("Sauron").GetComponent<SkillSauron>().used;
 
@@ -63,7 +70,7 @@ MordorRoboRonda1 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().ro
 MordorRoboRonda2 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo2;
 MordorRoboRonda3 = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo3;
 
-Ronda = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ronda;
+Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
 Mano1 = GameObject.Find("Mano").GetComponent<ClaseMano>().Cartas;
 Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
 
@@ -169,18 +176,22 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
         if(Ronda != CompRonda && Ganador == "1raCDA")
         {
             CompRonda = Ronda;
+            EmpCDA();
         }
         else if(Ronda != CompRonda && Ganador == "1raMordor")
         {
             CompRonda = Ronda;
+            EmpCDA();
         }
         else if(Ronda != CompRonda && Ganador == "2daCDA")
         {
             CompRonda = Ronda;
+            EmpMordor();
         }
         else if(Ronda != CompRonda && Ganador == "2daMordor")
         {
             CompRonda = Ronda;
+            EmpMordor();
         }
 }
 }

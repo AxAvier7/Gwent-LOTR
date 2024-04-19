@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 5109669829367963193}
   - component: {fileID: 7713725287448029626}
   - component: {fileID: 1910017899685466027}
+  - component: {fileID: 2754774119998522145}
   m_Layer: 6
   m_Name: Gollum
   m_TagString: Untagged
@@ -126,6 +127,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2754774119998522145}
+        m_TargetAssemblyTypeName: SenueloGollum, Assembly-CSharp
+        m_MethodName: Skill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1910017899685466027}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
@@ -153,11 +166,12 @@ MonoBehaviour:
   Nombre: Gollum
   Faccion: Mordor
   Rango: Plata
-  Franja: Melee
+  Franja: "Se\xF1uelo Melee"
   Poder: 2
   PoderInicial: 2
-  Descripcion: '-'
-  Habilidad: Poner una carta de aumento en una fila propia
+  Descripcion: "El pobre no ten\xEDa culpa de nada"
+  Habilidad: "Sustituye a la carta de la franja Melee con m\xE1s poder y la devuelve
+    a la mano"
   Afectaumento: 0
   Afectclima: 0
   Franjita: 1
@@ -332,3 +346,18 @@ MonoBehaviour:
   CSMORDOR: {fileID: 0}
   Bloqueo1: {fileID: 0}
   Bloqueo2: {fileID: 0}
+--- !u!114 &2754774119998522145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aaa5cff03b6f0f44a60ea9dac974419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Melee1: {fileID: 0}
+  Melee2: {fileID: 0}
+  jugable: 0

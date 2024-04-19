@@ -8,15 +8,14 @@ public class Gestordeturnosymastallas : MonoBehaviour
 {
 public Text VictoriaCDA; //WinsGuttsText
 public Text VictoriaMordor; //WinsGriffithText
-public string PuntosCDA; //PointsGutts
-public string PuntosMordor; //PointsGriffith
+public string PuntosCDA;
+public string PuntosMordor;
 public int Ronda = 1;
-public string Ganador; //GanadorRondas
 public string GanadordeRonda;
 public Turnos Turnito;
 
-public bool CDARendido; //playerRendido
-public bool MordorRendido; //enemyRendido
+public bool CDARendido;
+public bool MordorRendido;
 public int CDAWin = 0; //VictoriasGutts
 public int MordorWin = 0; //VictoriasGeffith
 public bool FinPartida = false; //PartidaTerminada
@@ -127,7 +126,7 @@ public void yelganadores()
 }
 
         //ronda 2
-        if(Ronda == 2 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor) //se quedan sin cartas
+        if(Ronda == 2 && ManoCDA == 0 && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2) //se quedan sin cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -148,9 +147,9 @@ public void yelganadores()
             }
             Ronda += 1;
         }
-        if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor) //los dos se rinden
+        if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2 && MordorRoboRonda2) //los dos se rinden
         {
-             int ptsCDA = int.Parse(PuntosCDA);
+            int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
             if(ptsCDA >= ptsMordor)
             {
@@ -169,7 +168,7 @@ public void yelganadores()
             }
             Ronda += 1;
         }
-        if(Ronda == 2 && CDARendido && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2 && yacda && yamordor)  //Se rinde la Comunidad y Mordor no tiene cartas
+        if(Ronda == 2 && CDARendido && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2)  //Se rinde la Comunidad y Mordor no tiene cartas
         {
              int ptsCDA = int.Parse(PuntosCDA);
             int ptsMordor = int.Parse(PuntosMordor);
@@ -293,7 +292,6 @@ public void yelganadores()
                 VictoriaMordor.text = MordorWin.ToString();
                 // GanadordeRonda = "3raMordor";
                 // Turnito.Turno = true;
-
             }
             Ronda = 0;
         }

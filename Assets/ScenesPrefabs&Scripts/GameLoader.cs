@@ -48,4 +48,21 @@ public class GameLoader : MonoBehaviour
     SceneManager.LoadScene(0);
    }
 
+   public void LoadTutorial()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(8);
+   }
+
+   public void LoadTutorial2()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(9);
+   }
+   public void LoadTutorial3()
+   {
+    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(10);
+   }
+
 }

@@ -68,7 +68,7 @@ public void OnClick()
 {
         if(Turno)
         {
-        if(robo1 == false)
+        if(robo1 == false && Ronda == 1)
         {
         for (int i= 0; i < 10; i ++)
         { 
@@ -77,7 +77,7 @@ public void OnClick()
         robo1 = true;
         }
 
-         if(robo2 == false && Ronda == 2)
+        if(robo2 == false && Ronda == 2)
         {
         for (int i= 0; i < 2; i ++)
         {
@@ -86,7 +86,7 @@ public void OnClick()
         robo2 = true;
         }
 
-         if(robo3 == false && Ronda == 3)
+        if(robo3 == false && Ronda == 3)
         {
         for (int i= 0; i < 2; i ++)
         { 
@@ -138,7 +138,7 @@ public void OnClick()
 
     void Update()
     {
-        Ronda = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ronda;
+        Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
         Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
     }
 }
