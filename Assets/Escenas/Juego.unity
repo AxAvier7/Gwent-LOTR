@@ -5823,6 +5823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazo CDA
       objectReference: {fileID: 0}
+    - target: {fileID: 4852246999250710793, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
+      propertyPath: m_TagString
+      value: mazocda
+      objectReference: {fileID: 0}
     - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -6847,7 +6851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
@@ -6878,7 +6881,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
@@ -6909,7 +6911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
@@ -7282,7 +7283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
@@ -7313,7 +7313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
@@ -7816,7 +7815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0

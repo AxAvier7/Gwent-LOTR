@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ClaseFranja : MonoBehaviour
 {
 private GameObject CartaJugada;
-public GameObject playedcard; //cartagutts
 public List<GameObject> CartasenFranja;
 public int Suma = 0;
 public int Cartas = 0;
@@ -26,9 +25,9 @@ public bool aumentoafectado = false;
 private ClaseFranja Mprop; //pcc
 private ClaseFranja Rprop; //pd
 private ClaseFranja Sprop; //ps
-private ClaseFranja Mvs; //ecc
-private ClaseFranja Rvs; //ed
-private ClaseFranja Svs; //es
+private ClaseFranja Mvs; //ec
+private ClaseFranja Rvs;
+private ClaseFranja Svs;
 
 
 private int Ronda = 1;
@@ -68,6 +67,47 @@ public void Sauron()
     }
 }
 
+public void Legolas()
+{
+    if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+        {
+            int cartamenor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
+            for(int i = 0; i < CartasenFranja.Count; i++)
+            {
+                cartamenor = Mathf.Min(cartamenor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
+            }
+            foreach(GameObject Card in CartasenFranja)
+            {
+            if(Card.GetComponent<ClaseCarta>().Poder == cartamenor)
+            {
+                Card.transform.position = GraveyardMordor.transform.position;
+                Card.transform.SetParent(GraveyardMordor.transform, true);
+                CartasenFranja.Remove(Card);
+                break;
+            }
+            }
+        }
+}
+
+public int Gandalf()
+{
+    int promediocartas = 0;
+    foreach(GameObject Card in CartasenFranja)
+    {
+        promediocartas += Card.GetComponent<ClaseCarta>().Poder;
+    }
+    return promediocartas;
+}
+
+public void GandalfUsado(int promediocartas)
+{
+    foreach(GameObject Card in CartasenFranja)
+    {
+        Card.GetComponent<ClaseCarta>().Poder = promediocartas;
+    }
+
+}
+
 public void Balrog(int Franja)
 {
         if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
@@ -91,7 +131,6 @@ public void Climas()
 {
     climaafectado = true;
 }
-
 
 public void Cuerno()
     {

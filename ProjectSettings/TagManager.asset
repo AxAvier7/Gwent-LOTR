@@ -19,6 +19,7 @@ TagManager:
   - CRMORDOR
   - CSMORDOR
   - ContTurno
+  - mazocda
   layers:
   - Default
   - TransparentFX

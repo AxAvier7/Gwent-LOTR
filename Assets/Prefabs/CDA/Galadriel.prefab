@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -7845468241659249259}
   - component: {fileID: -2578512256102725917}
   - component: {fileID: -8291435304280031697}
+  - component: {fileID: 6108746125080899200}
   m_Layer: 6
   m_Name: Galadriel
   m_TagString: Untagged
@@ -129,6 +130,18 @@ MonoBehaviour:
       - m_Target: {fileID: -7845468241659249259}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6108746125080899200}
+        m_TargetAssemblyTypeName: GaladrielSkill, Assembly-CSharp
+        m_MethodName: Skill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -332,3 +345,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &6108746125080899200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f03d4fd6228c494283cf7d905d43e8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meucuerninho: {fileID: 3039818207556937179, guid: 58d2f85e964504e4991909fa0b69078f, type: 3}
+  climaranged: {fileID: 0}
+  ranged: {fileID: 0}

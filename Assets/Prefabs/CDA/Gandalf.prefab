@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -5148381549448322290}
   - component: {fileID: 4816446993985694939}
   - component: {fileID: 2097677138103917886}
+  - component: {fileID: 5958619438142781891}
   m_Layer: 6
   m_Name: Gandalf
   m_TagString: Untagged
@@ -138,6 +139,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5958619438142781891}
+        m_TargetAssemblyTypeName: GandalfSkill, Assembly-CSharp
+        m_MethodName: Skill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6477949482704873401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,9 +172,14 @@ MonoBehaviour:
   Descripcion: Se hizo un Michael Jackson, de mago gris a mago blanco
   Habilidad: Calcular el promedio de poder entre todas las cartas del tablero (propio
     o rival) e igualar el poder de todas las cartas (rivales o propias) a ese promedio
-  Afectado: 0
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 3
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &3906237636890694923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +346,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &5958619438142781891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15832bb3f10d3db4bbc80e33147fb201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pMelee: {fileID: 0}
+  pRanged: {fileID: 0}
+  pSiege: {fileID: 0}
+  vsMelee: {fileID: 0}
+  vsRanged: {fileID: 0}
+  vsSiege: {fileID: 0}
+  jugable: 0
