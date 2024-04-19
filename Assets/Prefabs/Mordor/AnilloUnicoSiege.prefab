@@ -127,7 +127,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: -3242803745586905504}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -139,7 +139,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -7321155696249036804, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: 6927173886581259537}
         m_TargetAssemblyTypeName: Anillo, Assembly-CSharp
         m_MethodName: Habilidad
         m_Mode: 1

@@ -15,7 +15,7 @@ public class Turnos : MonoBehaviour
     public Text MordorRendidotxt;
     // public bool skillaragorn;
     public bool skillsauron;
-    //private int aragorn = 1;
+    // private int aragorn = 1;
     private int sauron = 1;
     private int Mano1 = 0;
     private int Mano2 = 0;

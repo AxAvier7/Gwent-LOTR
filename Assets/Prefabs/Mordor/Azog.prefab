@@ -126,7 +126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: -2420049449886295258}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -157,7 +157,7 @@ MonoBehaviour:
   Poder: 6
   PoderInicial: 6
   Descripcion: "Jur\xF3 venganza, no obtuvo venganza"
-  Habilidad: Eliminar la carta con mayor poder del tablero
+  Habilidad: '-'
   Afectaumento: 0
   Afectclima: 0
   Franjita: 1

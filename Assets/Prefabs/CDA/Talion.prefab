@@ -158,10 +158,15 @@ MonoBehaviour:
   PoderInicial: 4
   Descripcion: "Este ni siquiera deberia estar aqu\xED pero el Sombras de Mordor
     es un juegazo"
-  Habilidad: 'Efecto: Eliminar la carta con menos poder del rival'
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 1
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &540677546671303105
 MonoBehaviour:
   m_ObjectHideFlags: 0

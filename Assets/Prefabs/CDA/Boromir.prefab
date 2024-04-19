@@ -192,10 +192,15 @@ MonoBehaviour:
   Poder: 4
   PoderInicial: 4
   Descripcion: Pendejo no dura nada
-  Habilidad: Poner una carta de aumento en una fila propia
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 1
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &1839143844575213769
 MonoBehaviour:
   m_ObjectHideFlags: 0

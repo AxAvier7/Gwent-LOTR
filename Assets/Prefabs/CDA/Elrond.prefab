@@ -157,10 +157,15 @@ MonoBehaviour:
   Poder: 5
   PoderInicial: 5
   Descripcion: "\xC9l estuvo ah\xED Gandalf"
-  Habilidad: Invocar una carta de clima
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 2
-  yarepartida: 0
+  yarepartida: 1
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-5932439384660143481
 MonoBehaviour:
   m_ObjectHideFlags: 0

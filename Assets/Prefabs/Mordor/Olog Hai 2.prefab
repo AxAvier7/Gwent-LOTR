@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -8151414433662013799}
   - component: {fileID: -4178807893407049965}
   - component: {fileID: -6904691405247087809}
+  - component: {fileID: 8584993769588855920}
   m_Layer: 6
   m_Name: Olog Hai 2
   m_TagString: Untagged
@@ -126,9 +127,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: -6904691405247087809}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8584993769588855920}
+        m_TargetAssemblyTypeName: Tropas, Assembly-CSharp
+        m_MethodName: Skill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -333,3 +346,23 @@ MonoBehaviour:
   CSMORDOR: {fileID: 0}
   Bloqueo1: {fileID: 0}
   Bloqueo2: {fileID: 0}
+--- !u!114 &8584993769588855920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfb3164381799249934c873673bc4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sCaC: {fileID: 0}
+  sR: {fileID: 0}
+  sS: {fileID: 0}
+  mCaC: {fileID: 0}
+  mR: {fileID: 0}
+  mS: {fileID: 0}
+  jugable: 0
+  eleg: 0

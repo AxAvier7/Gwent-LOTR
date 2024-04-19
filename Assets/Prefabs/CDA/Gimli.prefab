@@ -157,10 +157,15 @@ MonoBehaviour:
   Poder: 4
   PoderInicial: 4
   Descripcion: "Todo enano encuentra siempre una elfa que le ablanda el coraz\xF3n"
-  Habilidad: Poner una carta de aumento en una fila propia
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 1
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-4028086116761740276
 MonoBehaviour:
   m_ObjectHideFlags: 0

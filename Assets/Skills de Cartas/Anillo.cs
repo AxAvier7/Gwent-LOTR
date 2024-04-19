@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Anillo : MonoBehaviour
 {
-public ClaseFranja Mvs; //ecc
-public ClaseFranja Rvs; //ed
-public ClaseFranja Svs; //es
+public ClaseFranja Mvs;
+public ClaseFranja Rvs;
+public ClaseFranja Svs;
 public bool jugable;
 
 public void Habilidad()

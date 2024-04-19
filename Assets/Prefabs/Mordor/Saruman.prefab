@@ -126,7 +126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: -7494581395729123992}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -157,8 +157,7 @@ MonoBehaviour:
   Poder: 6
   PoderInicial: 6
   Descripcion: Gandalf^-1
-  Habilidad: Calcular el promedio de poder entre todas las cartas del tablero (propio
-    o rival) e igualar el poder de todas las cartas (rivales o propias) a ese promedio
+  Habilidad: Robar una carta del mazo
   Afectaumento: 0
   Afectclima: 0
   Franjita: 2

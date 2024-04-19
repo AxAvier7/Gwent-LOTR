@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2854014777710947184}
   - component: {fileID: 1032188349588330186}
   - component: {fileID: 6147475610207783846}
+  - component: {fileID: 5131350481508419642}
   m_Layer: 6
   m_Name: Smaug
   m_TagString: Untagged
@@ -126,9 +127,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: 6147475610207783846}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5131350481508419642}
+        m_TargetAssemblyTypeName: SmaugSkill, Assembly-CSharp
+        m_MethodName: Skill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -158,11 +171,11 @@ MonoBehaviour:
   PoderInicial: 8
   Descripcion: "Es b\xE1sicamente Aquiles con escamas, alas y un lanzallamas en la
     garganta"
-  Habilidad: Limpiar la fila del tablero (propio o rival) con menos cartas
+  Habilidad: Invocar una carta de clima
   Afectaumento: 0
   Afectclima: 0
   Franjita: 3
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: 
   aragornrend: 0
   sauronrend: 0
@@ -333,3 +346,19 @@ MonoBehaviour:
   CSMORDOR: {fileID: 0}
   Bloqueo1: {fileID: 0}
   Bloqueo2: {fileID: 0}
+--- !u!114 &5131350481508419642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32322d6e646bad740ba07f0ce3720bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Snow: {fileID: 0}
+  FranjaSnow: {fileID: 3039818207556937179, guid: 273163d1ef7257940a20e77e95e0edcd, type: 3}
+  propSnow: {fileID: 0}
+  vsSnow: {fileID: 0}

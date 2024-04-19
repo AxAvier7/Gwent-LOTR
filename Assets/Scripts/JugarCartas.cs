@@ -188,8 +188,8 @@ public void verificadorcda()
         position = Random.Range(0, CDA.Count);
         if(CDA[position].GetComponent<ClaseCarta>().yarepartida == false)
         {
-            GameObject card = Instantiate(CDA[position], new Vector2(0,0), Quaternion.identity);
-            card.transform.SetParent(Manojugador.transform, false);
+            GameObject Card = Instantiate(CDA[position], new Vector2(0,0), Quaternion.identity);
+            Card.transform.SetParent(Manojugador.transform, false);
             CDA[position].GetComponent<ClaseCarta>().yarepartida = true;
         }
         else
@@ -202,8 +202,8 @@ public void verificadorcda()
         position = Random.Range(0, Mordor.Count);
         if(Mordor[position].GetComponent<ClaseCarta>().yarepartida == false)
         {
-            GameObject card = Instantiate(Mordor[position], new Vector2(0,0), Quaternion.identity);
-            card.transform.SetParent(Manomordor.transform, false);
+            GameObject Card = Instantiate(Mordor[position], new Vector2(0,0), Quaternion.identity);
+            Card.transform.SetParent(Manomordor.transform, false);
             Mordor[position].GetComponent<ClaseCarta>().yarepartida = true;
         }
         else

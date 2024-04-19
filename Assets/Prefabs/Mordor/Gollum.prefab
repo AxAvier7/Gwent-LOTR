@@ -126,7 +126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: 1910017899685466027}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -156,12 +156,12 @@ MonoBehaviour:
   Franja: Melee
   Poder: 2
   PoderInicial: 2
-  Descripcion: "El pobre no ten\xEDa culpa de nada"
+  Descripcion: '-'
   Habilidad: Poner una carta de aumento en una fila propia
   Afectaumento: 0
   Afectclima: 0
   Franjita: 1
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: 
   aragornrend: 0
   sauronrend: 0

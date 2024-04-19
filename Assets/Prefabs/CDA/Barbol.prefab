@@ -192,10 +192,15 @@ MonoBehaviour:
   Poder: 6
   PoderInicial: 6
   Descripcion: "Un \xE1rbol m\xE1s inteligente que yo"
-  Habilidad: Eliminar la carta con menos poder del rival
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 3
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-6533823982723915203
 MonoBehaviour:
   m_ObjectHideFlags: 0

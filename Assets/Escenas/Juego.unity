@@ -7288,7 +7288,7 @@ MonoBehaviour:
   Cartas: 0
   puntuationText: {fileID: 2017479208}
   Faccion: Mordor
-  franja: 0
+  franja: 6
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 8580913587306563391}
   ManoPlayer: {fileID: 0}
@@ -7319,7 +7319,7 @@ MonoBehaviour:
   Cartas: 0
   puntuationText: {fileID: 1301044513}
   Faccion: Mordor
-  franja: 0
+  franja: 5
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 8580913587306563391}
   ManoPlayer: {fileID: 0}
@@ -7822,7 +7822,7 @@ MonoBehaviour:
   Cartas: 0
   puntuationText: {fileID: 2074006647}
   Faccion: Mordor
-  franja: 0
+  franja: 4
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 8580913587306563391}
   ManoPlayer: {fileID: 0}

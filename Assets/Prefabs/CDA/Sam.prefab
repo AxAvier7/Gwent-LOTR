@@ -157,10 +157,15 @@ MonoBehaviour:
   Poder: 2
   PoderInicial: 2
   Descripcion: El verdadero protagonista de esta historia
-  Habilidad: Poner una carta de aumento en una fila propia
-  Afectado: 0
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 1
-  yarepartida: 0
+  yarepartida: 1
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-7209299923487866360
 MonoBehaviour:
   m_ObjectHideFlags: 0

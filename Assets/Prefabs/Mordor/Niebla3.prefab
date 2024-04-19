@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2937491786519333834}
   - component: {fileID: -6191128388924902153}
   - component: {fileID: -5520482622375309555}
+  - component: {fileID: 7513888265820550970}
   m_Layer: 6
   m_Name: Niebla3
   m_TagString: Untagged
@@ -126,9 +127,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5250483705031142538, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+      - m_Target: {fileID: -6191128388924902153}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7513888265820550970}
+        m_TargetAssemblyTypeName: ClimaSkill, Assembly-CSharp
+        m_MethodName: Clima
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -327,8 +340,27 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 4
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Melee
   aragornrend: 0
   sauronrend: 0
   Turno: 0
+--- !u!114 &7513888265820550970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e11f62ffe0e964083731ab5923c89b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

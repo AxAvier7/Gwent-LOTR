@@ -157,10 +157,15 @@ MonoBehaviour:
   Poder: 7
   PoderInicial: 7
   Descripcion: "B\xE1sicamente Megumin pero en edad legal"
-  Habilidad: Eliminar la carta con mayor poder del tablero
-  Afectado: 0
+  Habilidad: Invocar una carta de aumento en una fila propia
+  Afectaumento: 0
+  Afectclima: 0
   Franjita: 2
   yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
 --- !u!114 &-8271325313254418845
 MonoBehaviour:
   m_ObjectHideFlags: 0

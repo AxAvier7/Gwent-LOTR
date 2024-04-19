@@ -68,6 +68,31 @@ public void Sauron()
     }
 }
 
+public void Balrog(int Franja)
+{
+        if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+        {
+            if(CartasenFranja.Count < 10)
+            {
+                if(CartasenFranja.Count == Franja)
+                {
+                foreach(GameObject Card in CartasenFranja)
+                {
+                    Card.transform.position = GraveyardCDA.transform.position;
+                    Card.transform.SetParent(GraveyardCDA.transform, true);
+                }
+                CartasenFranja.Clear();
+                }
+            }
+        }
+}
+
+public void Climas()
+{
+    climaafectado = true;
+}
+
+
 public void Cuerno()
     {
        aumentoafectado = true;  
@@ -236,6 +261,8 @@ int Tropa = 1;
         }
         }
 }
+
+
 
 void Update()
 {
