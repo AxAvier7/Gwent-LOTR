@@ -58,6 +58,8 @@ public void yelganadores()
                 GanadordeRonda = "1raMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
         }
     
@@ -80,6 +82,8 @@ public void yelganadores()
                 GanadordeRonda = "1raMordor";
                 Turnito.Turno =false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
         }
         if(Ronda == 1 && CDARendido && ManoMordor == 0 && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor)  //Se rinde la Comunidad y Mordor no tiene cartas
@@ -101,6 +105,8 @@ public void yelganadores()
                 GanadordeRonda = "1raMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
         }
         if(Ronda == 1 && ManoCDA == 0 && MordorRendido && CDARoboRonda1 && MordorRoboRonda1 && yacda && yamordor)  //Se rinde Mordor y la Comunidad no tiene cartas
@@ -122,6 +128,8 @@ public void yelganadores()
                 GanadordeRonda = "1raMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
 }
 
@@ -145,6 +153,8 @@ public void yelganadores()
                 GanadordeRonda = "2daMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;            
             Ronda += 1;
         }
         if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2 && MordorRoboRonda2) //los dos se rinden
@@ -166,8 +176,84 @@ public void yelganadores()
                 GanadordeRonda = "2daMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
         }
+
+        if(Ronda == 2 && CDARendido && MordorRendido) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
+            }
+            CDARendido = false;
+            MordorRendido = false;
+            Ronda += 1;
+        }
+
+
+        if(Ronda == 2 && CDARendido && MordorRendido && CDARoboRonda2) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
+            }
+            CDARendido = false;
+            MordorRendido = false;
+            Ronda += 1;
+        }
+
+        if(Ronda == 2 && CDARendido && MordorRendido && MordorRoboRonda2) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+                GanadordeRonda = "2daCDA";
+                Turnito.Turno = true;
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+                GanadordeRonda = "2daMordor";
+                Turnito.Turno = false;
+            }
+            CDARendido = false;
+            MordorRendido = false;
+            Ronda += 1;
+        }
+
         if(Ronda == 2 && CDARendido && ManoMordor == 0 && CDARoboRonda2 && MordorRoboRonda2)  //Se rinde la Comunidad y Mordor no tiene cartas
         {
              int ptsCDA = int.Parse(PuntosCDA);
@@ -187,6 +273,8 @@ public void yelganadores()
                 GanadordeRonda = "2daMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
         }
         if(Ronda == 2 && ManoCDA == 0 && MordorRendido && CDARoboRonda2 && MordorRoboRonda2)  //Se rinde Mordor y la Comunidad no tiene cartas
@@ -208,6 +296,8 @@ public void yelganadores()
                 GanadordeRonda = "2daMordor";
                 Turnito.Turno = false;
             }
+            CDARendido = false;
+            MordorRendido = false;
             Ronda += 1;
 }
         //ronda 3
@@ -245,6 +335,61 @@ public void yelganadores()
             }
             Ronda = 0;
         }
+
+        if(Ronda == 3 && CDARendido && MordorRendido && CDARoboRonda3) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+            }
+            Ronda = 0;
+        }
+
+        if(Ronda == 3 && CDARendido && MordorRendido) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+            }
+            Ronda = 0;
+        }
+
+        if(Ronda == 3 && CDARendido && MordorRendido && MordorRoboRonda3) //los dos se rinden
+        {
+            int ptsCDA = int.Parse(PuntosCDA);
+            int ptsMordor = int.Parse(PuntosMordor);
+            if(ptsCDA >= ptsMordor)
+            {
+                CDAWin += 1;
+                VictoriaCDA.text = CDAWin.ToString();
+            }
+
+            if(ptsMordor >= ptsCDA)
+            {
+                MordorWin += 1;
+                VictoriaMordor.text = MordorWin.ToString();
+            }
+            Ronda = 0;
+        }
+
         if(Ronda == 3 && CDARendido && ManoMordor == 0 && CDARoboRonda3 && MordorRoboRonda3)  //Se rinde la Comunidad y Mordor no tiene cartas
         {
             int ptsCDA = int.Parse(PuntosCDA);

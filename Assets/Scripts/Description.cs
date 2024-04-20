@@ -35,7 +35,7 @@ private Text Informacion;
 
    public void cerrarinfo()
    {
-    Destroy(Informacion);
+    Destroy(Informacion.gameObject);
     //metodo para que el texto desaparezca cuando el cursor deje de estar sobre la carta
    }
 

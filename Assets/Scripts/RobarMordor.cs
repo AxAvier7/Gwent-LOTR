@@ -67,7 +67,7 @@ public void revisarjugada()
 
 public void OnClick()
 {
-    if(Turno)
+    if(Turno == false)
         {
         if(robo1 == false && Ronda == 1)
         {

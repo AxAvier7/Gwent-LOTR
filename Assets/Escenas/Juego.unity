@@ -1649,7 +1649,6 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 7376377116929780921}
-  CartaZona: {fileID: 1055466402}
 --- !u!1001 &586226820
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2746,7 +2745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MENU
+  m_text: "MEN\xDA"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3591,7 +3590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Salir al menu principal
+  m_text: "Salir al men\xFA principal"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5649,7 +5648,6 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 7376377116929780921}
-  CartaZona: {fileID: 1055466402}
 --- !u!1 &2057263017
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,7 +7101,6 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 7376377116929780921}
-  CartaZona: {fileID: 1055466402}
 --- !u!1001 &3943646285242294794
 PrefabInstance:
   m_ObjectHideFlags: 0

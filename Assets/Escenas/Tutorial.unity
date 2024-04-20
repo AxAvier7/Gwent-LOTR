@@ -276,16 +276,16 @@ MonoBehaviour:
     mazos. Los jugadores pueden descartar dos cartas y cambiarlas por otras dos del
     mazo. Esto se puede realizar una sola vez y en la primera ronda.\r\nLos jugadores
     pueden jugar una carta de unidad en la fila del tablero que le corresponda a
-    la carta. Solo pueden jugar una carta por turno a menos que una habilidad indique
-    lo contrario. Tambi\xE9n pueden jugar una carta de climao de aumento en su turno.\r\nCada
+    la carta. Solo pueden jugar una carta por turno, a menos que una habilidad indique
+    lo contrario. Tambi\xE9n pueden jugar una carta de clima o de aumento en su turno.\r\nCada
     carta posee puntos de poder que se suman al total de puntos de cada fila y al
     total del jugador. Un jugador gana la ronda cuando tenga m\xE1s poder que el
     otro y ambos jugadores se queden sin cartas o ambos pasen su turno.\r\nLas partidas
     se ganan al mejor de 3 rondas. El jugador que gana una ronda empieza la siguiente.
     Estas rondas se representan por puntos debajo de las cartas de l\xEDder. En la
-    segunda y tercera rondas se roba 2 cartas del mazo. Cada victoria suma 1 punto
-    y cuando se llega a 2 se gana la partida. No hay empates en las rondas porque
-    la habilidad de Aragorn es que si hay empate \xE9l siempre gana :)."
+    segunda y tercera rondas se roban 2 cartas del mazo. Cada victoria suma 1 punto
+    y cuando se llega a 2 se gana la partida. No hay empates en las partidas porque
+    la habilidad de Aragorn es que si hay empate \xE9l siempre gana :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

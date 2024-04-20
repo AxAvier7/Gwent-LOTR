@@ -31,7 +31,21 @@ public class RoboDevuelve : MonoBehaviour
             mazojugador.revisarjugada();
             Destroy(gameObject);
             Destroy(InfoZona.transform.GetChild(0).gameObject);
-            Destroy(InfoZona.transform.GetChild(1).gameObject);
+            // Destroy(InfoZona.transform.GetChild(1).gameObject);
+            // Destroy(InfoZona.transform.GetChild(2).gameObject);
+            // Destroy(InfoZona.transform.GetChild(3).gameObject);
+            // Destroy(InfoZona.transform.GetChild(4).gameObject);
+            // Destroy(InfoZona.transform.GetChild(5).gameObject);
+            // Destroy(InfoZona.transform.GetChild(6).gameObject);
+            // Destroy(InfoZona.transform.GetChild(7).gameObject);
+            // Destroy(InfoZona.transform.GetChild(8).gameObject);
+            // Destroy(InfoZona.transform.GetChild(9).gameObject);
+            // Destroy(InfoZona.transform.GetChild(10).gameObject);
+            // Destroy(InfoZona.transform.GetChild(11).gameObject);
+            // Destroy(InfoZona.transform.GetChild(12).gameObject);
+            // Destroy(InfoZona.transform.GetChild(13).gameObject);
+            // Destroy(InfoZona.transform.GetChild(14).gameObject);
+            // Destroy(InfoZona.transform.GetChild(15).gameObject);
         }
 
         if(Input.GetMouseButtonUp(0) && manomordor.Cartasdevueltas < 2 && Turn.Turno == false && elegmordor == false && gameObject.GetComponent<ClaseCarta>().Faccion == "Mordor")
@@ -41,7 +55,21 @@ public class RoboDevuelve : MonoBehaviour
             mazoenemigo.revisarjugada();
             Destroy(gameObject);
             Destroy(InfoZona.transform.GetChild(0).gameObject);
-            Destroy(InfoZona.transform.GetChild(1).gameObject);
+            // Destroy(InfoZona.transform.GetChild(1).gameObject);
+            // Destroy(InfoZona.transform.GetChild(2).gameObject);
+            // Destroy(InfoZona.transform.GetChild(3).gameObject);
+            // Destroy(InfoZona.transform.GetChild(4).gameObject);
+            // Destroy(InfoZona.transform.GetChild(5).gameObject);
+            // Destroy(InfoZona.transform.GetChild(6).gameObject);
+            // Destroy(InfoZona.transform.GetChild(7).gameObject);
+            // Destroy(InfoZona.transform.GetChild(8).gameObject);
+            // Destroy(InfoZona.transform.GetChild(9).gameObject);
+            // Destroy(InfoZona.transform.GetChild(10).gameObject);
+            // Destroy(InfoZona.transform.GetChild(11).gameObject);
+            // Destroy(InfoZona.transform.GetChild(12).gameObject);
+            // Destroy(InfoZona.transform.GetChild(13).gameObject);
+            // Destroy(InfoZona.transform.GetChild(14).gameObject);
+            // Destroy(InfoZona.transform.GetChild(15).gameObject);
         }
     }
 
