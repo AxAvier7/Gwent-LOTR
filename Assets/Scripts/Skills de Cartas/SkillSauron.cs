@@ -4,30 +4,49 @@ using UnityEngine;
 
 public class SkillSauron : MonoBehaviour
 {
-public bool Turnillo;
-public bool used = false;
+ public ClaseFranja CDAM;
+public ClaseFranja CDAR;
+public ClaseFranja CDAS;
+public bool used = false; 
 public bool elegida = false;
-public ClaseFranja Melee;
-public ClaseFranja Ranged;
-public ClaseFranja Siege;
+public bool Turnillo;
 
 public void Skill()
 {
-    if(used == false && Turnillo == false && elegida)
+    int cdam = CDAM.MayorCarta(); 
+    int cdar = CDAR.MayorCarta();
+    int cdas = CDAS.MayorCarta();
+    int mayor = Mathf.Max(cdam, Mathf.Max(cdar, Mathf.Max(cdas)));
+ 
+ if (Turnillo == false && elegida && used == false)
+ {
+    if(cdam == mayor)
     {
-        Melee.Sauron();
-        Ranged.Sauron();
-        Siege.Sauron();
+        CDAM.EliminarMayorCarta(mayor);
         used = true;
+        return;        
+    }
+
+    if(cdar == mayor)
+    {
+        CDAR.EliminarMayorCarta(mayor);
+        used = true;
+        return;
+    }
+    if(cdas == mayor)
+    {
+        CDAS.EliminarMayorCarta(mayor);
+        used = true;
+        return;
     }
 }
-
-void Update()
-{
-    elegida = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
-    Melee = GameObject.Find("PropMelee").GetComponent<ClaseFranja>();
-    Ranged = GameObject.Find("PropRanged").GetComponent<ClaseFranja>();
-    Siege = GameObject.Find("PropSiege").GetComponent<ClaseFranja>();
-    Turnillo = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
 }
+    void Update()
+    {
+        elegida = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        CDAM = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
+        CDAR = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();
+        CDAS = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
+        Turnillo = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
+    }
 }

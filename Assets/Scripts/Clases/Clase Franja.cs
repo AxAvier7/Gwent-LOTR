@@ -41,31 +41,60 @@ CartasenFranja.Add(CartaJugada);
 Cartas += 1;
 }
 
-public void Sauron()
-{
-    if(Faccion == "Comunidad del Anillo")
+//el metodo Sauron funcionaba pero no era exactamente el efecto que se pedia en la orden del proyecto, por eso lo cambie a ultima hora
+// public void Sauron()
+// {
+//     if(Faccion == "Comunidad del Anillo")
+//     {
+//         if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+//             {
+//             int mayor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
+//             for(int i = 0; i < CartasenFranja.Count; i++)//busca la cartas con mas poder del tablero rival
+//             {
+//                 mayor = Mathf.Max(mayor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
+//             }
+            
+//             foreach(GameObject Cartas in CartasenFranja)
+//             {
+//                 if(Cartas.GetComponent<ClaseCarta>().Poder == mayor)//manda la carta mas fuerte al cementerio
+//                 {
+//                     Cartas.transform.SetParent(GraveyardCDA.transform, true);
+//                     Cartas.transform.position = GraveyardCDA.transform.position;
+//                     CartasenFranja.Remove(Cartas);
+//                     break;
+//                 }
+//             }
+//             }
+//     }
+// }
+
+    public int MayorCarta()
+    {
+        int mayor = 0;
+        foreach(GameObject Card in CartasenFranja)
+        {
+            mayor = Mathf.Max(mayor, Card.GetComponent<ClaseCarta>().Poder);
+        }
+        return mayor;
+    }
+
+    public void EliminarMayorCarta(int puntos)
     {
         if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+        {
+            foreach(GameObject Card in CartasenFranja)
             {
-            int mayor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
-            for(int i = 0; i < CartasenFranja.Count; i++)//busca la cartas con mas poder del tablero rival
-            {
-                mayor = Mathf.Max(mayor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
-            }
-            
-            foreach(GameObject Cartas in CartasenFranja)
-            {
-                if(Cartas.GetComponent<ClaseCarta>().Poder == mayor)//manda la carta mas fuerte al cementerio
+                if(Card.GetComponent<ClaseCarta>().Poder == puntos && Faccion == "Comunidad del Anillo")
                 {
-                    Cartas.transform.SetParent(GraveyardCDA.transform, true);
-                    Cartas.transform.position = GraveyardCDA.transform.position;
-                    CartasenFranja.Remove(Cartas);
-                    break;
+                    Card.transform.position = GraveyardCDA.transform.position;
+                    Card.transform.SetParent(GraveyardCDA.transform, true);
+                    CartasenFranja.Remove(Card);
+                    return;
                 }
             }
-            }
+        }
     }
-}
+
 
 public void Legolas()
 {

@@ -2419,6 +2419,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6936661799272051436, guid: 7296238ad886568408065e05a477e8c6, type: 3}
+      propertyPath: m_text
+      value: Eliminar la carta con menos poder del rival en la franja Ranged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936661799272051436, guid: 7296238ad886568408065e05a477e8c6, type: 3}
+      propertyPath: m_fontSize
+      value: 31.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
