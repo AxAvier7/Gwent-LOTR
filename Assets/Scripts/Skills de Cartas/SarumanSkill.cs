@@ -42,8 +42,8 @@ private int posicion = 0;
 
 public List <GameObject> Mordor = new List<GameObject>();
 public GameObject Mano;
-
-
+private bool jugable;
+private bool eleg = false;
 
 public void revisarjugada()
     {
@@ -63,7 +63,7 @@ public void revisarjugada()
 public void OnClick()
 {
 {
-        if(robo == false)
+        if(robo == false && eleg && jugable)
         {
         for (int i= 0; i < 1; i ++)
         { 
@@ -114,8 +114,10 @@ public void OnClick()
 
     void Update()
     {
-        Ronda = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().Ronda;
+        eleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
         Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
         Mano = GameObject.Find("Mano rival");
+        jugable = gameObject.GetComponent<JugarCarta>().jugable;
     }
     }

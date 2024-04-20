@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -6242928108658681661}
   - component: {fileID: -4183589630556440012}
   - component: {fileID: -8383327893557881453}
+  - component: {fileID: 8926642567282950130}
   m_Layer: 6
   m_Name: Talion
   m_TagString: Untagged
@@ -138,6 +139,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8926642567282950130}
+        m_TargetAssemblyTypeName: RoboDevuelve, Assembly-CSharp
+        m_MethodName: Devolver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2187325181408970042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +175,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 1
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: 
   aragornrend: 0
   sauronrend: 0
@@ -333,3 +346,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &8926642567282950130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}

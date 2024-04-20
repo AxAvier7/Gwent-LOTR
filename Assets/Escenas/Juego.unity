@@ -306,7 +306,6 @@ GameObject:
   - component: {fileID: 30710271}
   - component: {fileID: 30710273}
   - component: {fileID: 30710272}
-  - component: {fileID: 30710274}
   m_Layer: 0
   m_Name: contranged
   m_TagString: Untagged
@@ -375,20 +374,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30710270}
   m_CullTransparentMesh: 1
---- !u!114 &30710274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30710270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 30710272}
-  franja: {fileID: 1486167709496745737}
 --- !u!1 &34349250
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +835,6 @@ GameObject:
   - component: {fileID: 207931772}
   - component: {fileID: 207931774}
   - component: {fileID: 207931773}
-  - component: {fileID: 207931775}
   m_Layer: 0
   m_Name: contsiege
   m_TagString: Untagged
@@ -919,20 +903,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207931771}
   m_CullTransparentMesh: 1
---- !u!114 &207931775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207931771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 207931773}
-  franja: {fileID: 3569824495525567878}
 --- !u!1 &235640202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1066,6 @@ GameObject:
   - component: {fileID: 413419411}
   - component: {fileID: 413419413}
   - component: {fileID: 413419412}
-  - component: {fileID: 413419414}
   m_Layer: 0
   m_Name: contmelee
   m_TagString: Untagged
@@ -1165,20 +1134,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413419410}
   m_CullTransparentMesh: 1
---- !u!114 &413419414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413419410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 0}
-  franja: {fileID: 7237878292726154210}
 --- !u!224 &417458288 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2269859657788170688, guid: 64f2458256ea59e4bb6b1fc20a947241, type: 3}
@@ -3724,7 +3679,6 @@ GameObject:
   - component: {fileID: 1301044512}
   - component: {fileID: 1301044514}
   - component: {fileID: 1301044513}
-  - component: {fileID: 1301044515}
   m_Layer: 0
   m_Name: contrangedvs
   m_TagString: Untagged
@@ -3793,20 +3747,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301044511}
   m_CullTransparentMesh: 1
---- !u!114 &1301044515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1301044511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 1301044513}
-  franja: {fileID: 4790695227954636998}
 --- !u!1 &1346661909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,7 +5480,6 @@ GameObject:
   - component: {fileID: 2017479207}
   - component: {fileID: 2017479209}
   - component: {fileID: 2017479208}
-  - component: {fileID: 2017479210}
   m_Layer: 0
   m_Name: contsiegevs
   m_TagString: Untagged
@@ -5609,20 +5548,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017479206}
   m_CullTransparentMesh: 1
---- !u!114 &2017479210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017479206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 2017479208}
-  franja: {fileID: 5212408859917604000}
 --- !u!1 &2022057843
 GameObject:
   m_ObjectHideFlags: 0
@@ -5813,7 +5738,6 @@ GameObject:
   - component: {fileID: 2074006646}
   - component: {fileID: 2074006648}
   - component: {fileID: 2074006647}
-  - component: {fileID: 2074006649}
   m_Layer: 0
   m_Name: contmeleevs
   m_TagString: Untagged
@@ -5882,20 +5806,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074006645}
   m_CullTransparentMesh: 1
---- !u!114 &2074006649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074006645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cff836b2af58a748bc4afee1b43aaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PFranja: {fileID: 2074006647}
-  franja: {fileID: 7224516314977634275}
 --- !u!1 &2080309880
 GameObject:
   m_ObjectHideFlags: 0

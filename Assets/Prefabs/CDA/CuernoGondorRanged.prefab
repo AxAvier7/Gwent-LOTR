@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 6023983491390643268}
   - component: {fileID: 3336351406848879160}
   - component: {fileID: -1970512399500920937}
+  - component: {fileID: -8165332766483733500}
   m_Layer: 6
   m_Name: CuernoGondorRanged
   m_TagString: Untagged
@@ -106,7 +107,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 5
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Ranged
   aragornrend: 0
   sauronrend: 0
@@ -217,6 +218,18 @@ MonoBehaviour:
       - m_Target: {fileID: -123425549832711118}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -8165332766483733500}
+        m_TargetAssemblyTypeName: RoboDevuelve, Assembly-CSharp
+        m_MethodName: Devolver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -361,3 +374,20 @@ MonoBehaviour:
   Rprop: {fileID: 0}
   Sprop: {fileID: 0}
   jugable: 0
+--- !u!114 &-8165332766483733500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}

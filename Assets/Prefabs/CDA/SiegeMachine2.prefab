@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -8452083900501776906}
   - component: {fileID: -5912765098039600677}
   - component: {fileID: 2374813386426898927}
+  - component: {fileID: -5293180978633713182}
   m_Layer: 6
   m_Name: SiegeMachine2
   m_TagString: Untagged
@@ -130,6 +131,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8725877017141406508}
         m_TargetAssemblyTypeName: JugarCarta, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -5293180978633713182}
+        m_TargetAssemblyTypeName: RoboDevuelve, Assembly-CSharp
+        m_MethodName: Devolver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -366,3 +379,20 @@ MonoBehaviour:
   mS: {fileID: 0}
   jugable: 0
   eleg: 0
+--- !u!114 &-5293180978633713182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}

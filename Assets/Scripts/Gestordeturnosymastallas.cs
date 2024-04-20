@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Gestordeturnosymastallas : MonoBehaviour
 {
-public Text VictoriaCDA; //WinsGuttsText
-public Text VictoriaMordor; //WinsGriffithText
+public Text VictoriaCDA;
+public Text VictoriaMordor;
 public string PuntosCDA;
 public string PuntosMordor;
 public int Ronda = 1;
@@ -16,17 +16,17 @@ public Turnos Turnito;
 
 public bool CDARendido;
 public bool MordorRendido;
-public int CDAWin = 0; //VictoriasGutts
-public int MordorWin = 0; //VictoriasGeffith
-public bool FinPartida = false; //PartidaTerminada
-private int ManoCDA; //Mano1
-private int ManoMordor; //Mano2
-private bool CDARoboRonda1; //Proba
-private bool CDARoboRonda2; //Proba2
-private bool CDARoboRonda3; //Proba3
-private bool MordorRoboRonda1; //Eroba
-private bool MordorRoboRonda2; //Eroba2
-private bool MordorRoboRonda3; //Eroba3
+public int CDAWin = 0;
+public int MordorWin = 0;
+public bool FinPartida = false;
+private int ManoCDA;
+private int ManoMordor;
+private bool CDARoboRonda1;
+private bool CDARoboRonda2;
+private bool CDARoboRonda3;
+private bool MordorRoboRonda1; 
+private bool MordorRoboRonda2;
+private bool MordorRoboRonda3;
 private bool yacda;
 private bool yamordor;
 
@@ -218,17 +218,13 @@ public void yelganadores()
             if(ptsCDA >= ptsMordor)
             {
                 CDAWin += 1;
-                VictoriaCDA.text = CDAWin.ToString();
-                // GanadordeRonda = "3raCDA";
-                // Turnito.Turno = true;                
+                VictoriaCDA.text = CDAWin.ToString();            
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                // GanadordeRonda = "3raMordor";
-                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
@@ -240,16 +236,12 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                // GanadordeRonda = "3raCDA";
-                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                // GanadordeRonda = "3raMordor";
-                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
@@ -261,16 +253,12 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                // GanadordeRonda = "3raCDA";
-                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                // GanadordeRonda = "3raMordor";
-                // Turnito.Turno = false;
             }
             Ronda = 0;
         }
@@ -282,16 +270,12 @@ public void yelganadores()
             {
                 CDAWin += 1;
                 VictoriaCDA.text = CDAWin.ToString();
-                // GanadordeRonda = "3raCDA";
-                // Turnito.Turno = true;
             }
 
             if(ptsMordor >= ptsCDA)
             {
                 MordorWin += 1;
                 VictoriaMordor.text = MordorWin.ToString();
-                // GanadordeRonda = "3raMordor";
-                // Turnito.Turno = true;
             }
             Ronda = 0;
         }

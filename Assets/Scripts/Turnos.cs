@@ -13,9 +13,7 @@ public class Turnos : MonoBehaviour
     public GameObject TaparManoMordor;
     public Text CDARendidotxt;
     public Text MordorRendidotxt;
-    // public bool skillaragorn;
     public bool skillsauron;
-    // private int aragorn = 1;
     private int sauron = 1;
     private int Mano1 = 0;
     private int Mano2 = 0;
@@ -56,8 +54,7 @@ void Update()
 {
 eligearagorn = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
 eligesauron =GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
-Ganador = GameObject.Find("GameManager").GetComponent<Gestordeturnosymastallas>().GanadordeRonda;
-// skillaragorn = GameObject.Find("Aragorn").GetComponent<>().Utilizada;
+Ganador = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().GanadordeRonda;
 skillsauron = GameObject.Find("Sauron").GetComponent<SkillSauron>().used;
 
 ManoCDA = GameObject.FindGameObjectWithTag("Manojugador").GetComponent<ClaseMano>();
@@ -74,11 +71,6 @@ Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().
 Mano1 = GameObject.Find("Mano").GetComponent<ClaseMano>().Cartas;
 Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
 
-        // if(Turno && skillaragorn && aragorn == 1 && eligearagorn)
-        // {
-        //     aragorn += 1;
-        //     Turno = false;
-        // }
         if(Turno == false && skillsauron && sauron == 1 && eligesauron) //cambia el turno cuando Sauron use su habilidad
         {
             sauron += 1;
@@ -89,8 +81,8 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
        if(Turno) //cambio de turno 
        {
         taparmanoCDA.sizeDelta = new Vector2(0, 0);
-        taparmanomordor.sizeDelta = new Vector2(1300, 170); // aqui cambio el size del bloque para que el oponente no vea tus cartas
-        if(Mano1 == 0 && Ronda == 1 && CDARoboRonda1 && eligearagorn) //esto es para cuando te quedes sin cartas le toque solo al oponente y lo repito para cada ronda
+        taparmanomordor.sizeDelta = new Vector2(1300, 170);
+        if(Mano1 == 0 && Ronda == 1 && CDARoboRonda1 && eligearagorn)
         {
             Turno = false;
         }
@@ -103,7 +95,7 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
             Turno = false;
         }
 
-        if(comparador1 != Mano1 && eligearagorn) // si detecta que hay una diferencia en las cartas es que se ha jugado  y cambia el turno
+        if(comparador1 != Mano1 && eligearagorn)
         {
             comparador1 = Mano1;
             Turno = false;
@@ -111,7 +103,7 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
        }
 
 
-       if(Turno == false) //cambio de turno y repito lo mismo de arriba
+       if(Turno == false)
        {    
         taparmanomordor.sizeDelta = new Vector2(0, 0);
         taparmanoCDA.sizeDelta = new Vector2(1300, 170); 
@@ -155,7 +147,7 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
             MordorRendidotxt.text = "";
         }
         
-        //estos 3 que vienen son para que cuando se rinda alguien se tapen las 2 manos
+        //los 3 que vienen son para que cuando se rinda alguien se tapen la mano del otro
         if(ManoMordor.rendido && ManoCDA.rendido)
         {
             taparmanomordor.sizeDelta = new Vector2(1300, 170);
@@ -181,12 +173,12 @@ Mano2 = GameObject.Find("Mano rival").GetComponent<ClaseMano>().Cartas;
         else if(Ronda != CompRonda && Ganador == "1raMordor")
         {
             CompRonda = Ronda;
-            EmpCDA();
+            EmpMordor();
         }
         else if(Ronda != CompRonda && Ganador == "2daCDA")
         {
             CompRonda = Ronda;
-            EmpMordor();
+            EmpCDA();
         }
         else if(Ronda != CompRonda && Ganador == "2daMordor")
         {
