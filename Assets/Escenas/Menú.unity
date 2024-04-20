@@ -905,7 +905,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1346853673682668872, guid: 71af327950add644086bfb3d4cfc56f3, type: 3}
       propertyPath: m_text
-      value: Gwent LOTR v0.4
+      value: Gwent LOTR
       objectReference: {fileID: 0}
     - target: {fileID: 5187749064298786237, guid: 71af327950add644086bfb3d4cfc56f3, type: 3}
       propertyPath: m_Name

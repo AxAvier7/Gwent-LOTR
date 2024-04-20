@@ -737,15 +737,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4597516492846436733, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_text
-      value: "En realidad no son cr\xE9ditos, quer\xEDa darle las gracias a todos
-        los que voy a nombrar ahora:\n-A todos los profesores y alumnos ayudantes
-        de la carrera\n-A Brackeys, 3B1B, \xC1lgebra para todos, Matefacil y a la
-        naci\xF3n argentina en general por sus profes en YouTube\n-A todos los del
-        Proyecto Turing\n-A mi amigo Alejandro, cuyo proyecto ver\xE1n tambi\xE9n\n-A
-        Twenty One Pilots que me ha hecho m\xE1s llevadero el estr\xE9s del 1er a\xF1o\n-A
-        La Media Inglesa por siempre sacar un video que me alegra el d\xEDa\n-Al
-        que decidi\xF3 poner wifi en la facultad\n-Y para no alargar m\xE1s, a mi
-        familia y a todos los que han estado ah\xED"
+      value: "Hola buenas, aqu\xED Adri\xE1n. En realidad no son cr\xE9ditos, quer\xEDa
+        darle las gracias a todos los que voy a nombrar ahora:\n-A todos los profesores
+        y alumnos ayudantes de la carrera\n-A Brackeys, 3B1B, \xC1lgebra para todos,
+        Matefacil y a la naci\xF3n argentina en general por sus profes en YouTube\n-A
+        todos los del Proyecto Turing\n-A mi amigo Alejandro, cuyo proyecto ver\xE1n
+        tambi\xE9n\n-A Twenty One Pilots que me ha hecho m\xE1s llevadero el estr\xE9s
+        del 1er a\xF1o\n-A La Media Inglesa por siempre sacar un video que me alegra
+        el d\xEDa\n-Al que decidi\xF3 poner wifi en la facultad\n-Y para no alargar
+        m\xE1s, a mi familia y a todos los que han estado ah\xED"
       objectReference: {fileID: 0}
     - target: {fileID: 4597516492846436733, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
       propertyPath: m_fontColor.b
