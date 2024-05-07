@@ -9,10 +9,12 @@ public ClaseFranja Mvs;
 public ClaseFranja Rvs;
 public ClaseFranja Svs;
 public bool jugable;
+private bool ecda;
+private bool emordor;
 
 public void Habilidad()
 {
-    if(jugable)
+    if(jugable && ecda && emordor)
     {
             if(gameObject.GetComponent<ClaseCarta>().Franjita == 4 && gameObject.GetComponent<ClaseCarta>().Faccion == "Mordor")
             {
@@ -35,5 +37,7 @@ void Update()
     Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
     Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
     Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
+    emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+    ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
     }
 }

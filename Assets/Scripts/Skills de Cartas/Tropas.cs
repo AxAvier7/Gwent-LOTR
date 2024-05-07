@@ -19,7 +19,7 @@ public void Skill()
 {
     if(jugable)
     {
-        if(gameObject.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan" && eleg)
+        if(gameObject.GetComponent<ClaseCarta>().Nombre == "Rohirrim" && eleg)
         {
             Poder = sCaC.Tropillas();
             sCaC.TropillasBonus();
@@ -49,14 +49,15 @@ public void Skill()
             Poder = mS.Tropillas();
             mS.TropillasBonus();
         }
+        gameObject.GetComponent<ClaseCarta>().Poder = gameObject.GetComponent<ClaseCarta>().PoderInicial * Poder;
     }
 }
 
 
 void Update()
 {
-    eleg = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
-    elegsauron = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+    eleg = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
+    elegsauron = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
     jugable = gameObject.GetComponent<JugarCarta>().jugable;
     sCaC = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
     sR = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();

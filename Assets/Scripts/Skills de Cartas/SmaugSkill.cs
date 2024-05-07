@@ -31,7 +31,7 @@ public class SmaugSkill : MonoBehaviour
 
     void Update()
     {
-        eleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
         jugable = gameObject.GetComponent<JugarCarta>().jugable;
         propSnow = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
         vsSnow = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();

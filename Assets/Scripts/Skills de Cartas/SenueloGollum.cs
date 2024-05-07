@@ -26,7 +26,7 @@ public class SenueloGollum : MonoBehaviour
 
     void Update()
     {
-       eleg = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
+       eleg = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
        jugable = gameObject.GetComponent<JugarCarta>().jugable;
        Melee1 = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>(); 
        Melee2 = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 

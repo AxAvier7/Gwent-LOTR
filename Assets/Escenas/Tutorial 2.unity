@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 7041470760636406361, guid: 3451a8242278a9e4e95dc56fb4537c56, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a5aaaaecbf8398a4b88b8fe5608552ca, type: 3}
+      objectReference: {fileID: 21300000, guid: 3831bf5a83c091345a1ff243b2bdb21a, type: 3}
     - target: {fileID: 7214676098220903324, guid: 3451a8242278a9e4e95dc56fb4537c56, type: 3}
       propertyPath: m_Pivot.x
       value: 0.49999994
@@ -2541,6 +2541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Galadrieltuto
       objectReference: {fileID: 0}
+    - target: {fileID: 7041470760636406361, guid: 3451a8242278a9e4e95dc56fb4537c56, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 618f96119daef8b43a40906f59cf5e16, type: 3}
     - target: {fileID: 7214676098220903324, guid: 3451a8242278a9e4e95dc56fb4537c56, type: 3}
       propertyPath: m_Pivot.x
       value: 0.49999994
@@ -2810,6 +2814,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 6018235286782885957, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
     - {fileID: 4996147682144351658, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
+    - {fileID: 6361887909038551144, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8568696936634237121, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
       insertIndex: 0
@@ -2854,7 +2859,7 @@ PrefabInstance:
       insertIndex: 13
       addedObject: {fileID: 657702936}
     - targetCorrespondingSourceObject: {fileID: 8568696936634237121, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
-      insertIndex: 15
+      insertIndex: -1
       addedObject: {fileID: 4569155245596904974}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}

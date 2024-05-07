@@ -74,7 +74,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 75b6fda6cc9b85e4f82f38b5acdf833b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9923786f641d56f43890318e4c139065, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -353,7 +353,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 6
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Siege
   aragornrend: 0
   sauronrend: 0

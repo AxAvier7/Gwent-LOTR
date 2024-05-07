@@ -11,7 +11,7 @@ public class GaladrielSkill : MonoBehaviour
     private bool eleg = false;
     public void Skill()
     {
-        eleg = GameObject.Find("ElecCDA").GetComponent<EleccionCDA>().cdaelegido;
+        eleg = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
         if(jugable && eleg)
         {
             GameObject Card = Instantiate(meucuerninho, new Vector2(0,0), Quaternion.identity);

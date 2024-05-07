@@ -18,7 +18,7 @@ public class LegolasSkill : MonoBehaviour
     void Update()
     {
         jugable = gameObject.GetComponent<JugarCarta>().jugable;
-        eleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
         Ranged = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>();
     }
 }

@@ -44,7 +44,7 @@ int poderpromediado = (franja1 + franja2 + franja3 + franja4 + franja5 + franja6
 
     void Update()
     {
-      eleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+      eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
       jugable = gameObject.GetComponent<JugarCarta>().jugable;
       pMelee = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
       pRanged = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();

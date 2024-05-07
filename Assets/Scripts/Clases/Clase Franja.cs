@@ -227,7 +227,7 @@ if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
 {
     foreach (GameObject Card in CartasenFranja)
     {
-        if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Rohirrim")
         {
             Tropa += 1;
         }
@@ -279,14 +279,14 @@ int Tropa = 1;
         {
         foreach (GameObject Card in CartasenFranja)
         {
-            if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Rohirrim")
             {
                 Tropa +=1;
             }
         }
         foreach (GameObject Card in CartasenFranja)
         {
-            if(Card.GetComponent<ClaseCarta>().Nombre == "Soldados de Rohan")
+            if(Card.GetComponent<ClaseCarta>().Nombre == "Rohirrim")
             {
                 Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial * Tropa;
             }

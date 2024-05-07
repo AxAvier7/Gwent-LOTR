@@ -20,10 +20,12 @@ private FranjaClima MordorNiebla;
 private FranjaClima MordorLluvia;
 private FranjaClima MordorNieve;
 private bool jugable;
+private bool emordor;
+private bool ecda;
 
     public void Efecto()
     {
-        if(jugable)
+        if(jugable && ecda && emordor)
         {
             Mprop.Despeje();
             Mvs.Despeje();
@@ -105,6 +107,8 @@ private bool jugable;
        CDANieve = GameObject.FindGameObjectWithTag("CSCDA").GetComponent<FranjaClima>(); 
        MordorNiebla = GameObject.FindGameObjectWithTag("CMMORDOR").GetComponent<FranjaClima>(); 
        MordorLluvia = GameObject.FindGameObjectWithTag("CRMORDOR").GetComponent<FranjaClima>(); 
-       MordorNieve = GameObject.FindGameObjectWithTag("CSMORDOR").GetComponent<FranjaClima>();  
+       MordorNieve = GameObject.FindGameObjectWithTag("CSMORDOR").GetComponent<FranjaClima>();
+       emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+       ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
     }
 }

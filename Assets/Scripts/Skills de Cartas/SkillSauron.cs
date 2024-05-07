@@ -43,7 +43,7 @@ public void Skill()
 }
     void Update()
     {
-        elegida = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        elegida = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
         CDAM = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
         CDAR = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();
         CDAS = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();

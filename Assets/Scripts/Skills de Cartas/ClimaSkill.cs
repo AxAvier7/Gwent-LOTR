@@ -11,10 +11,13 @@ public ClaseFranja Mvs;
 public ClaseFranja Rvs;
 public ClaseFranja Svs;
 public bool jugable;
+private bool emordor;
+private bool ecda;
+
 
     public void Clima()
     {
-        if(jugable)
+        if(jugable && ecda && emordor)
         {
             if(gameObject.GetComponent<ClaseCarta>().Franjita == 4)
             {
@@ -43,6 +46,8 @@ public bool jugable;
        Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
        Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
        Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
+       emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+       ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
     }
 
 }

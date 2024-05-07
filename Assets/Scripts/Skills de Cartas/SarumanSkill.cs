@@ -114,7 +114,7 @@ public void OnClick()
 
     void Update()
     {
-        eleg = GameObject.Find("ElecMordor").GetComponent<EleccionMordor>().mordorelegido;
+        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
         Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
         Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
         Mano = GameObject.Find("Mano rival");
