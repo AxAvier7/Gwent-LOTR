@@ -8,7 +8,7 @@ private GameObject CDACem;
 private GameObject MordorCem;
 private ClaseFranja Mprop;
 private ClaseFranja Rprop;
- private ClaseFranja Sprop;
+private ClaseFranja Sprop;
 private ClaseFranja Mvs;
 private ClaseFranja Rvs;
 private ClaseFranja Svs;
@@ -23,26 +23,26 @@ private bool jugable;
 private bool emordor;
 private bool ecda;
 
-    public void Efecto()
+public void Efecto()
+{
+    if(jugable && ecda && emordor)
     {
-        if(jugable && ecda && emordor)
-        {
-            Mprop.Despeje();
-            Mvs.Despeje();
-            Rprop.Despeje();
-            Rvs.Despeje();
-            Sprop.Despeje();
-            Svs.Despeje();
-            PalCementerio();
-        }
+        Mprop.Despeje();
+        Mvs.Despeje();
+        Rprop.Despeje();
+        Rvs.Despeje();
+        Sprop.Despeje();
+        Svs.Despeje();
+        PalCementerio();
     }
-    public void PalCementerio()
+}
+public void PalCementerio()
+{
+    foreach(GameObject Card in CDANiebla.CartasenFranja)
     {
-        foreach(GameObject Card in CDANiebla.CartasenFranja)
-        {
-            if(Card.GetComponent<ClaseCarta>().Nombre == "Niebla")
-            {Card.transform.SetParent(CDACem.transform, false);
-            Card.transform.position = CDACem.transform.position;}
+        if(Card.GetComponent<ClaseCarta>().Nombre == "Niebla")
+        {Card.transform.SetParent(CDACem.transform, false);
+        Card.transform.position = CDACem.transform.position;}
         }
         foreach(GameObject Card in CDALluvia.CartasenFranja)
         {
@@ -87,28 +87,28 @@ private bool ecda;
         }
     }
 
-    void Start()
-    {
-        CDACem = GameObject.Find("Graveyard CDA");
-        MordorCem = GameObject.Find("Graveyard Mordor");
-    }
-    void Update()
-    {
-       jugable = gameObject.GetComponent<JugarCarta>().jugable;
-       Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
-       Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
-       Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
-       Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
-       Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
-       Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
+void Start()
+{
+    CDACem = GameObject.Find("Graveyard CDA");
+    MordorCem = GameObject.Find("Graveyard Mordor");
+}
+void Update()
+{
+    jugable = gameObject.GetComponent<JugarCarta>().jugable;
+    Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
+    Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
+    Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
+    Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
+    Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
+    Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
        
-       CDANiebla = GameObject.FindGameObjectWithTag("CMCDA").GetComponent<FranjaClima>();
-       CDALluvia = GameObject.FindGameObjectWithTag("CRCDA").GetComponent<FranjaClima>(); 
-       CDANieve = GameObject.FindGameObjectWithTag("CSCDA").GetComponent<FranjaClima>(); 
-       MordorNiebla = GameObject.FindGameObjectWithTag("CMMORDOR").GetComponent<FranjaClima>(); 
-       MordorLluvia = GameObject.FindGameObjectWithTag("CRMORDOR").GetComponent<FranjaClima>(); 
-       MordorNieve = GameObject.FindGameObjectWithTag("CSMORDOR").GetComponent<FranjaClima>();
-       emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-       ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
-    }
+    CDANiebla = GameObject.FindGameObjectWithTag("CMCDA").GetComponent<FranjaClima>();
+    CDALluvia = GameObject.FindGameObjectWithTag("CRCDA").GetComponent<FranjaClima>(); 
+    CDANieve = GameObject.FindGameObjectWithTag("CSCDA").GetComponent<FranjaClima>(); 
+    MordorNiebla = GameObject.FindGameObjectWithTag("CMMORDOR").GetComponent<FranjaClima>(); 
+    MordorLluvia = GameObject.FindGameObjectWithTag("CRMORDOR").GetComponent<FranjaClima>(); 
+    MordorNieve = GameObject.FindGameObjectWithTag("CSMORDOR").GetComponent<FranjaClima>();
+    emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+    ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
+}
 }

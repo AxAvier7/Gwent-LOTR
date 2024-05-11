@@ -53,12 +53,12 @@ public void Skill()
 }
 }
 
-    void Update()
-    {
-        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-        jugable = gameObject.GetComponent<JugarCarta>().jugable;
-        CDAMelee = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>(); 
-        CDARanged = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
-        CDASiege = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
-    }
+void Update()
+{
+    eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+    jugable = gameObject.GetComponent<JugarCarta>().jugable;
+    CDAMelee = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>(); 
+    CDARanged = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
+    CDASiege = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
+}
 }

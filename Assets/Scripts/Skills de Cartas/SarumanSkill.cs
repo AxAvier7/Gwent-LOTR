@@ -39,85 +39,81 @@ private int Ronda = 1;
 private bool Turno;
 private int posicion = 0;
 
-
 public List <GameObject> Mordor = new List<GameObject>();
 public GameObject Mano;
 private bool jugable;
 private bool eleg = false;
 
 public void revisarjugada()
+{
+    posicion = Random.Range(0, Mordor.Count);
+    if(Mordor[posicion].GetComponent<ClaseCarta>().yarepartida == false)
     {
-        posicion = Random.Range(0, Mordor.Count);
-        if(Mordor[posicion].GetComponent<ClaseCarta>().yarepartida == false)
-        {
-            GameObject Card = Instantiate(Mordor[posicion], new Vector2(0,0), Quaternion.identity);
-            Card.transform.SetParent(Mano.transform, false);
-            Mordor[posicion].GetComponent<ClaseCarta>().yarepartida = true;
-        }
-        else
-        {
-            revisarjugada();
-        }
+        GameObject Card = Instantiate(Mordor[posicion], new Vector2(0,0), Quaternion.identity);
+        Card.transform.SetParent(Mano.transform, false);
+        Mordor[posicion].GetComponent<ClaseCarta>().yarepartida = true;
     }
+    else
+    {
+        revisarjugada();
+    }
+}
 
 public void OnClick()
 {
-{
-        if(robo == false && eleg && jugable)
-        {
-        for (int i= 0; i < 1; i ++)
+    if(robo == false && eleg && jugable)
+    {
+        for (int i = 0; i < 1; i ++)
         { 
             revisarjugada();
         }
         robo = true;
-        }
-} 
+    }
 }
     
-    void Start()
-    {
-    Mordor.Add(UrukHai1);
-    Mordor.Add(UrukHai2);
-    Mordor.Add(UrukHai3);
-    Mordor.Add(OrcArcher1);
-    Mordor.Add(OrcArcher2);
-    Mordor.Add(OrcArcher3);
-    Mordor.Add(OlogHai1);
-    Mordor.Add(OlogHai2);
-    Mordor.Add(OlogHai3);
-    Mordor.Add(Bolg);
-    Mordor.Add(Lurtz);
-    Mordor.Add(Ratbag);
-    Mordor.Add(Azog);
-    Mordor.Add(Balrog);
-    Mordor.Add(Smaug);
-    Mordor.Add(Gollum);
-    Mordor.Add(Nazgul);
-    Mordor.Add(RingMelee);
-    Mordor.Add(RingRanged);
-    Mordor.Add(RingSiege);
-    Mordor.Add(Despeje3);
-    Mordor.Add(Despeje4);
-    Mordor.Add(Lluvia3);
-    Mordor.Add(Lluvia4);
-    Mordor.Add(Niebla3);
-    Mordor.Add(Niebla4);
-    Mordor.Add(Nevada3);
-    Mordor.Add(Nevada4);
+void Start()
+{
+Mordor.Add(UrukHai1);
+Mordor.Add(UrukHai2);
+Mordor.Add(UrukHai3);
+Mordor.Add(OrcArcher1);
+Mordor.Add(OrcArcher2);
+Mordor.Add(OrcArcher3);
+Mordor.Add(OlogHai1);
+Mordor.Add(OlogHai2);
+Mordor.Add(OlogHai3);
+Mordor.Add(Bolg);
+Mordor.Add(Lurtz);
+Mordor.Add(Ratbag);
+Mordor.Add(Azog);
+Mordor.Add(Balrog);
+Mordor.Add(Smaug);
+Mordor.Add(Gollum);
+Mordor.Add(Nazgul);
+Mordor.Add(RingMelee);
+Mordor.Add(RingRanged);
+Mordor.Add(RingSiege);
+Mordor.Add(Despeje3);
+Mordor.Add(Despeje4);
+Mordor.Add(Lluvia3);
+Mordor.Add(Lluvia4);
+Mordor.Add(Niebla3);
+Mordor.Add(Niebla4);
+Mordor.Add(Nevada3);
+Mordor.Add(Nevada4);
     
+foreach(GameObject Card in Mordor)
+{
+    Card.GetComponent<ClaseCarta>().yarepartida = false;
+}
+}
 
-    foreach(GameObject Card in Mordor)
-    {
-        Card.GetComponent<ClaseCarta>().yarepartida = false;
-    }
-    }
-
-    void Update()
-    {
-        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-        Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
-        Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
-        Mano = GameObject.Find("Mano rival");
-        jugable = gameObject.GetComponent<JugarCarta>().jugable;
-    }
-    }
+void Update()
+{
+    eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+    Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
+    Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
+    Mano = GameObject.Find("Mano rival");
+    jugable = gameObject.GetComponent<JugarCarta>().jugable;
+}
+}

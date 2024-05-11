@@ -500,14 +500,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3e9ee1bb1812c41a81e069e6be1d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rdm: 0
   Info: {fileID: 2136922266}
 --- !u!224 &1697712666 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8568696936634237121, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
   m_PrefabInstance: {fileID: 9142004057034163486}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1697712672
+--- !u!114 &1697712678
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,11 +515,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1697712659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c62cba8cc87dff46918008288e66a66, type: 3}
+  m_Script: {fileID: 11500000, guid: 62e26d26893f00244b992027d332cf70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 900
-  Escenaacargar: 
+  tiempillo: 0
 --- !u!114 &2136922266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -274420427891528157, guid: f0596b9c22cfcac409698a71ab75c5bc, type: 3}
@@ -752,7 +750,7 @@ PrefabInstance:
       addedObject: {fileID: 1697712660}
     - targetCorrespondingSourceObject: {fileID: 8607522156657471264, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1697712672}
+      addedObject: {fileID: 1697712678}
   m_SourcePrefab: {fileID: 100100000, guid: 9d6519fb31f1bbd459994eb573577314, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

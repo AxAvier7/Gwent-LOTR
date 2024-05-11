@@ -5,35 +5,35 @@ using UnityEngine;
 
 public class SmaugSkill : MonoBehaviour
 {
-    public GameObject Snow;
-    public GameObject FranjaSnow;
-    public ClaseFranja propSnow;
-    public ClaseFranja vsSnow;
-    private bool eleg = false;
-    private bool jugable;
+public GameObject Snow;
+public GameObject FranjaSnow;
+public ClaseFranja propSnow;
+public ClaseFranja vsSnow;
+private bool eleg = false;
+private bool jugable;
 
-    public void Skill()
+public void Skill()
+{
+    if(jugable && eleg)
     {
-        if(jugable && eleg)
-        {
-            GameObject Card = Instantiate(FranjaSnow, new Vector2(0,0), Quaternion.identity);
-            Card.transform.SetParent(Snow.transform, false);
-            Card.transform.position = Snow.transform.position;
-            propSnow.Climas();
-            vsSnow.Climas();
-        }
+        GameObject Card = Instantiate(FranjaSnow, new Vector2(0,0), Quaternion.identity);
+        Card.transform.SetParent(Snow.transform, false);
+        Card.transform.position = Snow.transform.position;
+        propSnow.Climas();
+        vsSnow.Climas();
     }
+}
 
-    void Start()
-    {
-        Snow = GameObject.Find("VsClimateSiege");
-    }
+void Start()
+{
+    Snow = GameObject.Find("VsClimateSiege");
+}
 
-    void Update()
-    {
-        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-        jugable = gameObject.GetComponent<JugarCarta>().jugable;
-        propSnow = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
-        vsSnow = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();
-    }
+void Update()
+{
+    eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+    jugable = gameObject.GetComponent<JugarCarta>().jugable;
+    propSnow = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
+    vsSnow = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();
+}
 }

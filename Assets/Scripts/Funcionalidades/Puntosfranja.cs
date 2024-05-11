@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Puntosfranja : MonoBehaviour
 {
 public Text PFranja;
@@ -13,10 +12,10 @@ private int sumafranja = 0;
 
 void Update()  
 {
-int semisuma = 0;
-semisuma = Melee.GetComponent<ClaseFranja>().Suma + Ranged.GetComponent<ClaseFranja>().Suma + Siege.GetComponent<ClaseFranja>().Suma;
-sumafranja = semisuma;
-PFranja.text = sumafranja.ToString();
-//metodo para sumar el poder de cada franja y que el resultado sea el poder total de cada faccion en la ronda
+    int semisuma = 0;
+    semisuma = Melee.GetComponent<ClaseFranja>().Suma + Ranged.GetComponent<ClaseFranja>().Suma + Siege.GetComponent<ClaseFranja>().Suma;
+    sumafranja = semisuma;
+    PFranja.text = sumafranja.ToString();
+    //metodo para sumar el poder de cada franja y que el resultado sea el poder total de cada faccion en la ronda
 }
 }

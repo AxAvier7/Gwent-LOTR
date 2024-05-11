@@ -22,32 +22,26 @@ public void Skill()
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Rohirrim" && eleg)
         {
             Poder = sCaC.Tropillas();
-            sCaC.TropillasBonus();
         }
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Arqueros élficos" && eleg)
         {
             Poder = sR.Tropillas();
-            sR.TropillasBonus();
         }
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Máquinas de asedio" && eleg)
         {
             Poder = sS.Tropillas();
-            sS.TropillasBonus();
         }
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Uruk-Hai" && elegsauron)
         {
             Poder = mCaC.Tropillas();
-            mCaC.TropillasBonus();
         }
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Orcos arqueros" && elegsauron)
         {
             Poder = mR.Tropillas();
-            mR.TropillasBonus();
         }
         if(gameObject.GetComponent<ClaseCarta>().Nombre == "Olog-Hai" && elegsauron)
         {
             Poder = mS.Tropillas();
-            mS.TropillasBonus();
         }
         gameObject.GetComponent<ClaseCarta>().Poder = gameObject.GetComponent<ClaseCarta>().PoderInicial * Poder;
     }
@@ -56,14 +50,14 @@ public void Skill()
 
 void Update()
 {
-    eleg = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
-    elegsauron = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-    jugable = gameObject.GetComponent<JugarCarta>().jugable;
-    sCaC = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
-    sR = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();
-    sS = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
-    mCaC = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>();
-    mR = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>();
-    mS = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();
+eleg = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
+elegsauron = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+jugable = gameObject.GetComponent<JugarCarta>().jugable;
+sCaC = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
+sR = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>();
+sS = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>();
+mCaC = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>();
+mR = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>();
+mS = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();
 }
 }

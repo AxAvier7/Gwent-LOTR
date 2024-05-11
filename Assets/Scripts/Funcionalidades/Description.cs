@@ -35,8 +35,8 @@ public void InfoLeader()
 
 public void cerrarinfo()
 {
-Destroy(Informacion.gameObject);
-//metodo para que el texto desaparezca cuando el cursor deje de estar sobre la carta
+     Destroy(Informacion.gameObject);
+     //metodo para que el texto desaparezca cuando el cursor deje de estar sobre la carta
 }
 
 void Start()

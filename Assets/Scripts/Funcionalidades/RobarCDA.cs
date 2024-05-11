@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class RobarCDA : MonoBehaviour
 {
-    //aca declaro todas las cartas del mazo de la Comunidad del Anillo
+//aca declaro todas las cartas del mazo de la Comunidad del Anillo
 public GameObject GondorWarrior1;
 public GameObject GondorWarrior2;
 public GameObject GondorWarrior3;
@@ -50,95 +50,95 @@ public List <GameObject> CDA = new List<GameObject>(); //aca creo una lista en l
 public GameObject Mano;
 
 public void revisarjugada()
+{
+    posicion = Random.Range(0, CDA.Count);
+    if(CDA[posicion].GetComponent<ClaseCarta>().yarepartida == false)
     {
-        posicion = Random.Range(0, CDA.Count);
-        if(CDA[posicion].GetComponent<ClaseCarta>().yarepartida == false)
-        {
-            GameObject Card = Instantiate(CDA[posicion], new Vector2(0,0), Quaternion.identity);
-            Card.transform.SetParent(Mano.transform, false);
-            CDA[posicion].GetComponent<ClaseCarta>().yarepartida = true;
-        }
-        else
-        {
-            revisarjugada();
-        }
+        GameObject Card = Instantiate(CDA[posicion], new Vector2(0,0), Quaternion.identity);
+        Card.transform.SetParent(Mano.transform, false);
+        CDA[posicion].GetComponent<ClaseCarta>().yarepartida = true;
     }
+    else
+    {
+        revisarjugada();
+    }
+}
 
 public void OnClick()
 {
-        if(Turno)
-        {
+    if(Turno)
+    {
         if(robo1 == false && Ronda == 1)
         {
-        for (int i= 0; i < 10; i ++)
-        { 
-            revisarjugada();
-        }
-        robo1 = true;
+            for (int i= 0; i < 10; i ++)
+            { 
+                revisarjugada();
+            }
+            robo1 = true;
         }
 
         if(robo2 == false && Ronda == 2)
         {
-        for (int i= 0; i < 2; i ++)
-        {
-            revisarjugada();
-        }
-        robo2 = true;
+            for (int i= 0; i < 2; i ++)
+            {
+                revisarjugada();
+            }
+            robo2 = true;
         }
 
         if(robo3 == false && Ronda == 3)
         {
-        for (int i= 0; i < 2; i ++)
-        { 
-            revisarjugada();
+            for (int i= 0; i < 2; i ++)
+            { 
+                revisarjugada();
+            }
+            robo3 = true;
         }
-        robo3 = true;
-        }
+    }
 }
-    }
-    void Start()
-    {
-    //aca añado todas las cartas a la lista de cartas
-    CDA.Add(GondorWarrior1);
-    CDA.Add(GondorWarrior2);
-    CDA.Add(GondorWarrior3);
-    CDA.Add(ElficArcher1);
-    CDA.Add(ElficArcher2);
-    CDA.Add(ElficArcher3);
-    CDA.Add(SiegeMachine1);
-    CDA.Add(SiegeMachine2);
-    CDA.Add(SiegeMachine3); 
-    CDA.Add(Barbol);
-    CDA.Add(Boromir);
-    CDA.Add(Elrond);
-    CDA.Add(Frodo);
-    CDA.Add(Galadriel);
-    CDA.Add(Gandalf);
-    CDA.Add(Gimli);
-    CDA.Add(Legolas);
-    CDA.Add(Sam);
-    CDA.Add(Talion);
-    CDA.Add(Despeje);
-    CDA.Add(Despeje2);
-    CDA.Add(Lluvia);
-    CDA.Add(Lluvia2);
-    CDA.Add(Nevada);
-    CDA.Add(Nevada2);
-    CDA.Add(Niebla);
-    CDA.Add(Niebla2);
-    CDA.Add(CuernoGondorMelee);
-    CDA.Add(CuernoGondorRanged);
-    CDA.Add(CuernoGondorSiege);
+void Start()
+{
+//aca añado todas las cartas a la lista de cartas
+CDA.Add(GondorWarrior1);
+CDA.Add(GondorWarrior2);
+CDA.Add(GondorWarrior3);
+CDA.Add(ElficArcher1);
+CDA.Add(ElficArcher2);
+CDA.Add(ElficArcher3);
+CDA.Add(SiegeMachine1);
+CDA.Add(SiegeMachine2);
+CDA.Add(SiegeMachine3); 
+CDA.Add(Barbol);
+CDA.Add(Boromir);
+CDA.Add(Elrond);
+CDA.Add(Frodo);
+CDA.Add(Galadriel);
+CDA.Add(Gandalf);
+CDA.Add(Gimli);
+CDA.Add(Legolas);
+CDA.Add(Sam);
+CDA.Add(Talion);
+CDA.Add(Despeje);
+CDA.Add(Despeje2);
+CDA.Add(Lluvia);
+CDA.Add(Lluvia2);
+CDA.Add(Nevada);
+CDA.Add(Nevada2);
+CDA.Add(Niebla);
+CDA.Add(Niebla2);
+CDA.Add(CuernoGondorMelee);
+CDA.Add(CuernoGondorRanged);
+CDA.Add(CuernoGondorSiege);
 
-    foreach(GameObject Card in CDA)
-    {
-        Card.GetComponent<ClaseCarta>().yarepartida = false;
-    }
-    }
+foreach(GameObject Card in CDA)
+{
+    Card.GetComponent<ClaseCarta>().yarepartida = false;
+}
+}
 
-    void Update()
-    {
-        Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
-        Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
-    }
+void Update()
+{
+    Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
+    Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
+}
 }

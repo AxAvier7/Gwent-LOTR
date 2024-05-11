@@ -14,30 +14,30 @@ private bool emordor;
 
 public void Habilidad()
 {
-    if(jugable && ecda && emordor)
+    if(jugable && ecda && emordor && gameObject.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
     {
-            if(gameObject.GetComponent<ClaseCarta>().Franjita == 4 && gameObject.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
-            {
-                Mprop.Cuerno();
-            }
-            if(gameObject.GetComponent<ClaseCarta>().Franjita == 5 && gameObject.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
-            {
-                Rprop.Cuerno();
-            }
-            if(gameObject.GetComponent<ClaseCarta>().Franjita == 6 && gameObject.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
-            {
-                Sprop.Cuerno();
-            }
+        if(gameObject.GetComponent<ClaseCarta>().Franjita == 4)
+        {
+            Mprop.Cuerno();
+        }
+        if(gameObject.GetComponent<ClaseCarta>().Franjita == 5)
+        {
+            Rprop.Cuerno();
+        }
+        if(gameObject.GetComponent<ClaseCarta>().Franjita == 6)
+        {
+            Sprop.Cuerno();
+        }
     }
 }
 
 void Update()
-    {
-    jugable = gameObject.GetComponent<JugarCarta>().jugable;
-    Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>(); 
-    Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
-    Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
-    emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-    ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
-    }
+{
+jugable = gameObject.GetComponent<JugarCarta>().jugable;
+Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>(); 
+Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
+Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
+emordor = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+ecda = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
+}
 }

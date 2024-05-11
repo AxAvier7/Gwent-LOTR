@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FranjaClima : MonoBehaviour
 {
-    private GameObject CartaJugada;
-    public List<GameObject> CartasenFranja;
-    public string Faccion;
-    private int Ronda = 1;
-    public GameObject GraveyardCDA;
-    public GameObject GraveyardMordor;
-    private int ComprobadordeRonda = 1;
+private GameObject CartaJugada;
+public List<GameObject> CartasenFranja;
+public string Faccion;
+private int Ronda = 1;
+public GameObject GraveyardCDA;
+public GameObject GraveyardMordor;
+private int ComprobadordeRonda = 1;
 
 private void OnCollisionEnter2D(Collision2D collision)
 {
@@ -20,7 +20,7 @@ private void OnCollisionEnter2D(Collision2D collision)
 
 void Update()
 {
-    Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
+Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
 if(ComprobadordeRonda != Ronda)
 {
     ComprobadordeRonda = Ronda;
@@ -34,7 +34,7 @@ if(ComprobadordeRonda != Ronda)
         CartasenFranja.Clear();
     }
 
-if(Faccion == "Mordor")
+    if(Faccion == "Mordor")
     {
         foreach (GameObject Carta in CartasenFranja)
         {
@@ -42,4 +42,7 @@ if(Faccion == "Mordor")
             Carta.transform.position = GraveyardMordor.transform.position;
         }
         CartasenFranja.Clear();
-    }}}}
+    }
+}
+}
+}

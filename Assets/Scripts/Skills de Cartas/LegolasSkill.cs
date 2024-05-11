@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class LegolasSkill : MonoBehaviour
 {
-    public bool jugable;
-    public ClaseFranja Ranged;
-    private bool eleg = false;
+public bool jugable;
+public ClaseFranja Ranged;
+private bool eleg = false;
 
-    public void Skill()
+public void Skill()
+{
+    if(jugable && eleg)
     {
-        if(jugable && eleg)
-        {
-            Ranged.Legolas();
-        }
+        Ranged.Legolas();
     }
-    void Update()
-    {
-        jugable = gameObject.GetComponent<JugarCarta>().jugable;
-        eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
-        Ranged = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>();
-    }
+}
+
+void Update()
+{
+jugable = gameObject.GetComponent<JugarCarta>().jugable;
+eleg = GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
+Ranged = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>();
+}
 }
