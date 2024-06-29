@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1883928581810246982}
   - component: {fileID: 6206125134975504670}
   - component: {fileID: 7105119105346514554}
+  - component: {fileID: 8581237805369103300}
   m_Layer: 5
   m_Name: Mazo CDA
-  m_TagString: Untagged
+  m_TagString: mazocda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7105119105346514554}
-        m_TargetAssemblyTypeName: robar, Assembly-CSharp
+        m_TargetAssemblyTypeName: RobarCDA, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -133,13 +134,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4852246999250710793}
-        m_TargetAssemblyTypeName: robar, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8581237805369103300}
+        m_TargetAssemblyTypeName: RoboDevuelve, Assembly-CSharp
+        m_MethodName: Devolver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -157,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea06f4795e77be544a490e90867b4c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Card: {fileID: 0}
   GondorWarrior1: {fileID: 3039818207556937179, guid: e4b105a3dbaac1e4ab422820bab07916, type: 3}
   GondorWarrior2: {fileID: 3039818207556937179, guid: 0b84ec9a1fd3b5f488083070678a8b80, type: 3}
   GondorWarrior3: {fileID: 3039818207556937179, guid: eba904912cd8abd49b8504f9fd210e1e, type: 3}
@@ -185,6 +185,28 @@ MonoBehaviour:
   Niebla2: {fileID: 3039818207556937179, guid: b3865c54b55c54d40984bf8d592afbf4, type: 3}
   Nevada: {fileID: 3039818207556937179, guid: 4c9324162f8f25447b5126525dd7d02d, type: 3}
   Nevada2: {fileID: 3039818207556937179, guid: 7d6b99e66e450b348828e52ad74a61ba, type: 3}
-  CuernoGondor: {fileID: 3039818207556937179, guid: 58d2f85e964504e4991909fa0b69078f, type: 3}
+  CuernoGondorMelee: {fileID: 3039818207556937179, guid: 58d2f85e964504e4991909fa0b69078f, type: 3}
+  CuernoGondorRanged: {fileID: 3039818207556937179, guid: 714dead9b0fd42a44b9d59452b46837a, type: 3}
+  CuernoGondorSiege: {fileID: 3039818207556937179, guid: a834afb336689bb4ea1d9d9989273bf8, type: 3}
+  robo1: 0
+  robo2: 0
+  robo3: 0
   CDA: []
   Mano: {fileID: 0}
+--- !u!114 &8581237805369103300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852246999250710793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}

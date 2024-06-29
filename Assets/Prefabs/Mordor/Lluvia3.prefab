@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -7821163645027402977}
   - component: {fileID: 4555956994134901774}
   - component: {fileID: 8330347627120388098}
-  - component: {fileID: 5969724642563374088}
   - component: {fileID: 1184389415932129019}
+  - component: {fileID: 3656325013004295275}
   m_Layer: 6
   m_Name: Lluvia3
   m_TagString: Untagged
@@ -152,8 +152,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5969724642563374088}
-        m_TargetAssemblyTypeName: ClimaSkill, Assembly-CSharp
+      - m_Target: {fileID: 3656325013004295275}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
         m_MethodName: Clima
         m_Mode: 1
         m_Arguments:
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -356,27 +355,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
---- !u!114 &5969724642563374088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e11f62ffe0e964083731ab5923c89b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mprop: {fileID: 0}
-  Rprop: {fileID: 0}
-  Sprop: {fileID: 0}
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  jugable: 0
 --- !u!114 &1184389415932129019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &3656325013004295275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6020092502584902913}
   m_Layer: 7
   m_Name: PropMelee
-  m_TagString: CDAMelee
+  m_TagString: MordorMelee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,15 +159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51555f4740d5ac84b82de7eac152b62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playedcard: {fileID: 0}
   CartasenFranja: []
   Suma: 0
   Cartas: 0
   puntuationText: {fileID: 0}
-  Faccion: Comunidad del Anillo
-  franja: 1
+  Faccion: Mordor
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 0}
   ManoPlayer: {fileID: 0}
   ManoVS: {fileID: 0}
   sumaparcial: 0
+  climaafectado: 0
+  aumentoafectado: 0

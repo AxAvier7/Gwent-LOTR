@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 7177065478776798782}
   - component: {fileID: -9201171098184561431}
   - component: {fileID: 5605545129006488935}
-  - component: {fileID: 1402795694175095556}
   - component: {fileID: 1696873899525498988}
+  - component: {fileID: -8841569984075957277}
   m_Layer: 6
   m_Name: AnilloUnicoRanged
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1402795694175095556}
-        m_TargetAssemblyTypeName: Anillo, Assembly-CSharp
-        m_MethodName: Habilidad
+      - m_Target: {fileID: -8841569984075957277}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Horn_n_Ring
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -318,7 +318,7 @@ MonoBehaviour:
   Afectaumento: 0
   Afectclima: 0
   Franjita: 5
-  yarepartida: 0
+  yarepartida: 1
   Franja_afectada: Ranged
   aragornrend: 0
   sauronrend: 0
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -356,24 +355,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
---- !u!114 &1402795694175095556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e35d26fca98064e95391d4d7f21f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  jugable: 0
 --- !u!114 &1696873899525498988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &-8841569984075957277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

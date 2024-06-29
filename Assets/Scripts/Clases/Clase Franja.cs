@@ -118,17 +118,6 @@ private void OnCollisionEnter2D(Collision2D collision)
             }
             foreach(GameObject Card in CartasenFranja)
             {
-                if(Card.GetComponent<ClaseCarta>().Poder == mayor && Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo")
-                {
-                    Card.transform.SetParent(ManoPlayer.transform, false);
-                    Card.transform.position = ManoPlayer.transform.position;
-                    Card.GetComponent<JugarCarta>().jugable = true;
-                    Card.GetComponent<ClaseCarta>().Afectclima = false;
-                    Card.GetComponent<ClaseCarta>().Afectaumento = false;
-                    Card.GetComponent<ClaseCarta>().Poder = Card.GetComponent<ClaseCarta>().PoderInicial;
-                    CartasenFranja.Remove(Card);
-                    return;
-                }
                 if(Card.GetComponent<ClaseCarta>().Poder == mayor && Card.GetComponent<ClaseCarta>().Faccion == "Mordor")
                 {
                     Card.transform.SetParent(ManoVS.transform, false);
@@ -146,19 +135,16 @@ private void OnCollisionEnter2D(Collision2D collision)
 
     public void Balrog(int Franja)
     {
-        if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+        if(CartasenFranja.Count >= 1 && CartasenFranja.Count < 10)
         {
-            if(CartasenFranja.Count < 10)
+            if(CartasenFranja.Count == Franja)
             {
-                if(CartasenFranja.Count == Franja)
+                foreach(GameObject Card in CartasenFranja)
                 {
-                    foreach(GameObject Card in CartasenFranja)
-                    {
-                        Card.transform.position = GraveyardCDA.transform.position;
-                        Card.transform.SetParent(GraveyardCDA.transform, true);
-                    }
-                    CartasenFranja.Clear();
+                    Card.transform.position = GraveyardCDA.transform.position;
+                    Card.transform.SetParent(GraveyardCDA.transform, true);
                 }
+                CartasenFranja.Clear();
             }
         }
     }

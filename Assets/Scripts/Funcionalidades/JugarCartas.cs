@@ -53,28 +53,28 @@ void Start()
    PartidaTerminada = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().FinPartida;
 }
 
-enum jugador
-{
-   Comunidad = 1,
-   Jugador2 =2
-}
+// enum jugador
+// {
+//    Comunidad = 1,
+//    Jugador2 =2
+// }
 
 public void Play()
 {
-   if(PartidaTerminada == false && !aragornrend && aragorneleg  && sauronrend == false && sauroneleg && jugable)
+   if(PartidaTerminada == false && !aragornrend && aragorneleg && sauronrend == false && sauroneleg && jugable)
    {
       if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == true)
       {
-            Card.transform.SetParent(CDAMelee.transform, false);
-            Card.transform.position = CDAMelee.transform.position;
-            jugable = false;
+         Card.transform.SetParent(CDAMelee.transform, false);
+         Card.transform.position = CDAMelee.transform.position;
+         jugable = false;
       }
 
       if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == true)
       {
-            Card.transform.SetParent(CDARanged.transform, false);
-            Card.transform.position = CDARanged.transform.position;
-            jugable = false;
+         Card.transform.SetParent(CDARanged.transform, false);
+         Card.transform.position = CDARanged.transform.position;
+         jugable = false;
       }
 
       if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == true)

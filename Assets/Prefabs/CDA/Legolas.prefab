@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 3769029098409597424}
   - component: {fileID: 6595456192245876436}
   - component: {fileID: -151224962813140999}
-  - component: {fileID: 3839031047210872603}
   - component: {fileID: -7848404332556092789}
+  - component: {fileID: -8359122141686443157}
   m_Layer: 6
   m_Name: Legolas
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3839031047210872603}
-        m_TargetAssemblyTypeName: LegolasSkill, Assembly-CSharp
-        m_MethodName: Skill
+      - m_Target: {fileID: -8359122141686443157}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Legolass
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -285,8 +284,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &6595456192245876436
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -359,20 +356,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &3839031047210872603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c0f99b314126e847921a024dac4e41c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugable: 0
-  Ranged: {fileID: 0}
 --- !u!114 &-7848404332556092789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,3 +373,24 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &-8359122141686443157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  ClimageRanged: {fileID: 0}
+  CuernoGondor: {fileID: 0}
+  jugable: 0

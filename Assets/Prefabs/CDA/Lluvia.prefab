@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -7454974856767751583}
   - component: {fileID: -4060686889710445949}
   - component: {fileID: -1015293604157027601}
-  - component: {fileID: -1111852727280892041}
   - component: {fileID: 6735443969388175464}
+  - component: {fileID: 8527415394627472493}
   m_Layer: 6
   m_Name: Lluvia
   m_TagString: Untagged
@@ -152,8 +152,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -1111852727280892041}
-        m_TargetAssemblyTypeName: ClimaSkill, Assembly-CSharp
+      - m_Target: {fileID: 8527415394627472493}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
         m_MethodName: Clima
         m_Mode: 1
         m_Arguments:
@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -284,8 +283,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &-4060686889710445949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,25 +355,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &-1111852727280892041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e11f62ffe0e964083731ab5923c89b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mprop: {fileID: 0}
-  Rprop: {fileID: 0}
-  Sprop: {fileID: 0}
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  jugable: 0
 --- !u!114 &6735443969388175464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &8527415394627472493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

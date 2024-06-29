@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -7845468241659249259}
   - component: {fileID: -2578512256102725917}
   - component: {fileID: -8291435304280031697}
-  - component: {fileID: 6108746125080899200}
   - component: {fileID: -1892146902841526145}
+  - component: {fileID: 201125590731523398}
   m_Layer: 6
   m_Name: Galadriel
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6108746125080899200}
-        m_TargetAssemblyTypeName: GaladrielSkill, Assembly-CSharp
-        m_MethodName: Skill
+      - m_Target: {fileID: 201125590731523398}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Galadriell
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -284,8 +283,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &-2578512256102725917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,21 +355,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &6108746125080899200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f03d4fd6228c494283cf7d905d43e8f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meucuerninho: {fileID: 3039818207556937179, guid: 58d2f85e964504e4991909fa0b69078f, type: 3}
-  climaranged: {fileID: 0}
-  ranged: {fileID: 0}
 --- !u!114 &-1892146902841526145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,3 +372,24 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &201125590731523398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  ClimageRanged: {fileID: 0}
+  CuernoGondor: {fileID: 3039818207556937179, guid: 714dead9b0fd42a44b9d59452b46837a, type: 3}
+  jugable: 0

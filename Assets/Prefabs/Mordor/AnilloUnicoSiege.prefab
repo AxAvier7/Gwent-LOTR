@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 111046193030269666}
   - component: {fileID: 2531165664910650734}
   - component: {fileID: -3242803745586905504}
-  - component: {fileID: 6927173886581259537}
   - component: {fileID: -5793772910656956601}
+  - component: {fileID: -2492728618918120700}
   m_Layer: 6
   m_Name: AnilloUnicoSiege
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6927173886581259537}
-        m_TargetAssemblyTypeName: Anillo, Assembly-CSharp
-        m_MethodName: Habilidad
+      - m_Target: {fileID: -2492728618918120700}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Horn_n_Ring
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -356,24 +355,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
---- !u!114 &6927173886581259537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e35d26fca98064e95391d4d7f21f44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  jugable: 0
 --- !u!114 &-5793772910656956601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &-2492728618918120700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

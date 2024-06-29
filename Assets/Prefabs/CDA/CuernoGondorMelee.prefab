@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 2794480824434184203}
   - component: {fileID: 3389237669842421951}
   - component: {fileID: -6397884401219758122}
-  - component: {fileID: 3193398186577686456}
   - component: {fileID: 4709786017529758563}
+  - component: {fileID: -895379307948667181}
   m_Layer: 6
   m_Name: CuernoGondorMelee
   m_TagString: Untagged
@@ -239,9 +239,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3193398186577686456}
-        m_TargetAssemblyTypeName: Cuerno, Assembly-CSharp
-        m_MethodName: Habilidad
+      - m_Target: {fileID: -895379307948667181}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Horn_n_Ring
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -284,8 +283,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &3389237669842421951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,22 +355,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &3193398186577686456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69027c89facbcdb4a8e4269dc798c36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mprop: {fileID: 0}
-  Rprop: {fileID: 0}
-  Sprop: {fileID: 0}
-  jugable: 0
 --- !u!114 &4709786017529758563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &-895379307948667181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

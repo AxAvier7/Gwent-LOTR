@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8094230658718348704}
   - component: {fileID: 8467949516038281904}
   - component: {fileID: 5252339707450798856}
+  - component: {fileID: 3056477302126636409}
   m_Layer: 5
   m_Name: Mazo Mordor
-  m_TagString: Untagged
+  m_TagString: mazomordor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,13 +134,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8917752585741074933}
-        m_TargetAssemblyTypeName: RobarMordor, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3056477302126636409}
+        m_TargetAssemblyTypeName: RoboDevuelve, Assembly-CSharp
+        m_MethodName: Devolver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -176,7 +177,9 @@ MonoBehaviour:
   Saruman: {fileID: 3039818207556937179, guid: 00cce57622023984b87418f23467fb34, type: 3}
   Gollum: {fileID: 3039818207556937179, guid: 02b729ff660e9f44daf5de8426d71c18, type: 3}
   Nazgul: {fileID: 3039818207556937179, guid: be1b1223b93aef84186b960cdbe6f9d5, type: 3}
-  Ring: {fileID: 3039818207556937179, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+  RingMelee: {fileID: 3039818207556937179, guid: b5ccf2f256baa124593188ada3386367, type: 3}
+  RingRanged: {fileID: 3039818207556937179, guid: 84ba8325679db824f982c3ce28a12c98, type: 3}
+  RingSiege: {fileID: 3039818207556937179, guid: 048cb5d40c16e52478a7421d9ab9ad82, type: 3}
   Despeje3: {fileID: 3039818207556937179, guid: 8dabdf14d2774b741b7ca895cacffd29, type: 3}
   Despeje4: {fileID: 3039818207556937179, guid: b1ce493f7fbc8974da526cde783d7559, type: 3}
   Lluvia3: {fileID: 3039818207556937179, guid: 724e34497e79ae84fa9ec74eeeb10070, type: 3}
@@ -185,5 +188,25 @@ MonoBehaviour:
   Niebla4: {fileID: 3039818207556937179, guid: 9be119837a6e70a4999e6b168f0f89f9, type: 3}
   Nevada3: {fileID: 3039818207556937179, guid: 273163d1ef7257940a20e77e95e0edcd, type: 3}
   Nevada4: {fileID: 3039818207556937179, guid: 1398bf90e30f79e45a5f9112ebb0ea89, type: 3}
+  robo1: 0
+  robo2: 0
+  robo3: 0
   Mordor: []
   Mano: {fileID: 0}
+--- !u!114 &3056477302126636409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8917752585741074933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}

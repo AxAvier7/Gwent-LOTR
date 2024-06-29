@@ -2524,7 +2524,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smaugtuto
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4996233573980594344, guid: ca105c70c5bc3974bab409a6a3ca5e95, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

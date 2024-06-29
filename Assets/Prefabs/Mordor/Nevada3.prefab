@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: 381354504379980603}
   - component: {fileID: -5659786431610846430}
   - component: {fileID: -6572744271197815362}
-  - component: {fileID: -7693651235185191197}
   - component: {fileID: -6392804524980463888}
+  - component: {fileID: 5443552209254690382}
   m_Layer: 6
   m_Name: Nevada3
   m_TagString: Untagged
@@ -152,8 +152,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -7693651235185191197}
-        m_TargetAssemblyTypeName: ClimaSkill, Assembly-CSharp
+      - m_Target: {fileID: 5443552209254690382}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
         m_MethodName: Clima
         m_Mode: 1
         m_Arguments:
@@ -308,7 +308,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -328,8 +327,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!114 &-6572744271197815362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,25 +355,6 @@ MonoBehaviour:
   aragornrend: 0
   sauronrend: 0
   Turno: 0
---- !u!114 &-7693651235185191197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e11f62ffe0e964083731ab5923c89b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mprop: {fileID: 0}
-  Rprop: {fileID: 0}
-  Sprop: {fileID: 0}
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  jugable: 0
 --- !u!114 &-6392804524980463888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &5443552209254690382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

@@ -1,5 +1,3 @@
-Hola hola.
-Este es mi proyecto del primer semestre de programación.
-Es -como nos orientaron- un juego de cartas al estilo del Gwent.
-Espero les guste y ya veré sus impresiones cuando se realice la revisión
--Adrián Xavier Brioso Jurado, C121
+Hola,
+Este es mi proyecto de primer y segundo semestres de programación.
+-Adrián Xavier Brioso Jurado, C111

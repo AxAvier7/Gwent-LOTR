@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -3483309196174024493}
   - component: {fileID: -3971785657137304395}
   - component: {fileID: 6549624925448297860}
-  - component: {fileID: -5862705773151478505}
   - component: {fileID: -77162023433788852}
+  - component: {fileID: 6708850613611683458}
   m_Layer: 6
   m_Name: Balrog
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -5862705773151478505}
-        m_TargetAssemblyTypeName: BalrogSkill, Assembly-CSharp
-        m_MethodName: Skill
+      - m_Target: {fileID: 6708850613611683458}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Balrogg
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -356,24 +355,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
---- !u!114 &-5862705773151478505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2b2c1ec778d0741b1ef3226e77bcff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jugable: 0
-  CDAMelee: {fileID: 0}
-  CDARanged: {fileID: 0}
-  CDASiege: {fileID: 0}
 --- !u!114 &-77162023433788852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,3 +372,22 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &6708850613611683458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0

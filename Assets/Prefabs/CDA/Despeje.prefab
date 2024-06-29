@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -7422655290557600153}
   - component: {fileID: 6473026394934798726}
   - component: {fileID: 6473914834677311923}
-  - component: {fileID: 2357119753247205504}
   - component: {fileID: -2335647246393955392}
+  - component: {fileID: -8045332261343956045}
   m_Layer: 6
   m_Name: Despeje
   m_TagString: Untagged
@@ -239,9 +239,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2357119753247205504}
-        m_TargetAssemblyTypeName: Despeje, Assembly-CSharp
-        m_MethodName: Efecto
+      - m_Target: {fileID: -8045332261343956045}
+        m_TargetAssemblyTypeName: Zkillz, Assembly-CSharp
+        m_MethodName: Despejee
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -264,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -284,8 +283,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &6473026394934798726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,18 +355,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &2357119753247205504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64b0a7704d76b741bf61e2fcc135f93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-2335647246393955392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,3 +372,30 @@ MonoBehaviour:
   mazojugador: {fileID: 0}
   mazoenemigo: {fileID: 0}
   InfoZona: {fileID: 0}
+--- !u!114 &-8045332261343956045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  ClimageMelee: {fileID: 0}
+  ClimageRanged: {fileID: 0}
+  ClimageSiege: {fileID: 0}
+  ClimageMeleeVS: {fileID: 0}
+  ClimageRangedVS: {fileID: 0}
+  ClimageSiegeVS: {fileID: 0}
+  CuernoGondor: {fileID: 0}
+  Nieve: {fileID: 0}
+  jugable: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1839901745634867559}
   m_Layer: 7
   m_Name: ClimateMelee
-  m_TagString: MordorMelee
+  m_TagString: CMMORDOR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CartasenFranja: []
-  Faccion: Comunidad del Anillo
+  Faccion: Mordor
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 0}
 --- !u!61 &1839901745634867559
