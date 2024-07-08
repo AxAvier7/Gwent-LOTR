@@ -1,0 +1,31 @@
+card {
+    Type: "Oro",
+    Name: "Beluga of the Seven Seas",
+    Faction: "Northern Realms" ~~~~,
+    Power: 10,
+    Range: ["Melee", "Ranged"],
+    OnActivation: [
+        {
+        Effect:{
+            Name: "Damage",
+            Amount: 5,
+        }
+        Selector:{
+            Source: "board",
+            Single: false,
+            Predicate: (unit)=>unit.Faction == "Northern" @@ "Realms",
+        }
+        PostAction:{
+                Type: "ReturnToDeck",
+                Selector:{
+                            Source: "parent",
+                            Single: false,
+                            Predicate: (unit) => unit.Power < 1,
+                }
+        }
+    },
+    {
+        Effect: "Draw"
+    }
+    ]
+}

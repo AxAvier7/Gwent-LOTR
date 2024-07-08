@@ -42,6 +42,6 @@ EditorBuildSettings:
     path: Assets/Escenas/pantalla transicion.unity
     guid: 99ef37f427118bc4881f0e3796c03eaf
   - enabled: 1
-    path: Assets/Escenas/Parche.unity
+    path: Assets/Escenas/CardBuilder.unity
     guid: 9e8cf788f76da5e4f8b212d56e332957
   m_configObjects: {}

@@ -17,7 +17,7 @@ SceneManager.LoadScene(2);
 
 public void QuitGame ()
 {
-   //este metodo sirve para cerrar el juego. El Debug.Log era para probar que funcionaba antes de hacer la build
+   //este metodo sirve para cerrar el juego.
    Application.Quit();
 }
 
@@ -72,7 +72,7 @@ public void LoadLoader()
    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
    SceneManager.LoadScene(11);
 }
-public void LoadPatch()
+public void LoadCreator()
 {
    int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
    SceneManager.LoadScene(12);
@@ -80,9 +80,9 @@ public void LoadPatch()
 
 void Update()
 {
-   if(Input.GetKeyDown(KeyCode.Backspace))
-   {
-      LoadMainMenu();
-   }
+   // if(Input.GetKeyDown(KeyCode.Backspace))
+   // {
+   //    LoadMainMenu();
+   // }
 }
 }
