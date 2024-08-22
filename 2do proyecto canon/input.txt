@@ -1,7 +1,7 @@
 card {
     Type: "Oro",
     Name: "Beluga of the Seven Seas",
-    Faction: "Northern Realms" ~~~~,
+    Faction: "Mordor",
     Power: 10,
     Range: ["Melee", "Ranged"],
     OnActivation: [

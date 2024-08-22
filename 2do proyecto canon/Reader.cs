@@ -12,5 +12,10 @@ public class Reader
         {
             Console.WriteLine(token);
         }
+
+        foreach (var error in lexer.Errors)
+        {
+            Console.WriteLine(error);
+        }
     }
 }

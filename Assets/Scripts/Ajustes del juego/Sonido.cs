@@ -1,7 +1,6 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
-//este script, resumiendo, es la clase sonido, donde estan todas las caracteristicas que va a tener cada pista de audio del juego
 [System.Serializable]
 public class Sound
 {

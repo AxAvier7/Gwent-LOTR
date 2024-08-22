@@ -55,7 +55,7 @@ void Update()
 eligearagorn = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
 eligesauron =GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
 Ganador = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().GanadordeRonda;
-skillsauron = GameObject.Find("Sauron").GetComponent<SkillSauron>().used;
+skillsauron = GameObject.Find("Sauron").GetComponent<Zkillz>().SauronPlayed;
 
 ManoCDA = GameObject.FindGameObjectWithTag("Manojugador").GetComponent<ClaseMano>();
 ManoMordor = GameObject.FindGameObjectWithTag("Manomordor").GetComponent<ClaseMano>();

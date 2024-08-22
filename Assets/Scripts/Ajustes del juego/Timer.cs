@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +8,10 @@ private int tiempillo = 0;
 
 public void Update()
 {
-    if (tiempillo < 10000)
+    if (tiempillo < 5000)
     {
         tiempillo ++;
-        if(tiempillo == 10000)
+        if(tiempillo == 5000)
         {
             SceneManager.LoadScene(2);
         }

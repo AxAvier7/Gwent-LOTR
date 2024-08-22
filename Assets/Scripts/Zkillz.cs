@@ -30,6 +30,7 @@ public bool jugable;
 private bool elegMordor = false;
 private bool elegCDA = false;
 public bool Turn;
+public bool SauronPlayed = false;
 
 #region Habilidades
 public void Horn_n_Ring() //Habilidad de cartas aumento
@@ -38,30 +39,30 @@ public void Horn_n_Ring() //Habilidad de cartas aumento
     {
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 4)
         {
-            Mprop.Cuerno();
+            Mprop.Aumento();
         }
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 5)
         {
-            Rprop.Cuerno();
+            Rprop.Aumento();
         }
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 6)
         {
-            Sprop.Cuerno();
+            Sprop.Aumento();
         }
     }
     else if(jugable && elegCDA && elegMordor && gameObject.GetComponent<ClaseCarta>().Faccion == "Mordor")
     {
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 4)
         {
-            Mvs.Anillo();
+            Mvs.Aumento();
         }
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 5)
         {
-            Rvs.Anillo();
+            Rvs.Aumento();
         }
         if(gameObject.GetComponent<ClaseCarta>().Franjita == 6)
         {
-            Svs.Anillo();
+            Svs.Aumento();
         }
     }
 }
@@ -160,7 +161,7 @@ public void Galadriell() //Habilidad de Galadriel
         GameObject Card = Instantiate(CuernoGondor, new Vector2(0,0), Quaternion.identity);
         Card.transform.SetParent(ClimageRanged.transform, false);
         Card.transform.position = ClimageRanged.transform.position;
-        Rprop.Cuerno();
+        Rprop.Aumento();
     }
 }
 
@@ -254,6 +255,38 @@ public void Gandulfo() //Habilidad de Gandalf
         Svs.GandalfUsado(poderpromediado);
     }
 }
+
+// public void Sauronn()
+// {
+//     int cdam = Mprop.MayorCarta(); 
+//     int cdar = Rprop.MayorCarta();
+//     int cdas = Sprop.MayorCarta();
+//     int mayor = Mathf.Max(cdam, Mathf.Max(cdar, Mathf.Max(cdas)));
+ 
+//     if (Turn == false && elegMordor && SauronPlayed == false)
+//     {
+//         if(cdam == mayor)
+//         {
+//             Mprop.EliminarMayorCarta(mayor);
+//             SauronPlayed = true;
+//             return;        
+//         }
+
+//         if(cdar == mayor)
+//         {
+//             Rprop.EliminarMayorCarta(mayor);
+//             SauronPlayed = true;
+//             return;
+//         }
+//         if(cdas == mayor)
+//         {
+//             Sprop.EliminarMayorCarta(mayor);
+//             SauronPlayed = true;
+//             return;
+//         }
+//     }
+// }
+
 
 #endregion Habilidades
 

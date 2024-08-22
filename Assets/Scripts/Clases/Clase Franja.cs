@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,32 +37,54 @@ private void OnCollisionEnter2D(Collision2D collision)
     Cartas += 1;
 }
 
-    public int MayorCarta()
-    {
-        int mayor = 0;
-        foreach(GameObject Card in CartasenFranja)
-        {
-            mayor = Mathf.Max(mayor, Card.GetComponent<ClaseCarta>().Poder);
-        }
-        return mayor;
-    }
+    // public void Sauron()
+    // {
+    //     if(Faccion == "Comunidad del Anillo")
+    //         if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
+    //             {
+    //                 int mayor = CartasenFranja[0].GetComponent<ClaseCarta>().Poder;
+    //                 for(int i = 0; i < CartasenFranja.Count; i++)
+    //                     mayor = Mathf.Max(mayor, CartasenFranja[i].GetComponent<ClaseCarta>().Poder);
+                    
+    //                 foreach(GameObject Cartas in CartasenFranja)
+    //                 {
+    //                     if(Cartas.GetComponent<ClaseCarta>().Poder == mayor)
+    //                     {
+    //                         Cartas.transform.SetParent(GraveyardCDA.transform, true);
+    //                         Cartas.transform.position = GraveyardCDA.transform.position;
+    //                         CartasenFranja.Remove(Cartas);
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+    // }
 
-    public void EliminarMayorCarta(int puntos)
-    {
-        if(CartasenFranja.Count == 1 || CartasenFranja.Count > 1)
-        {
-            foreach(GameObject Card in CartasenFranja)
-            {
-                if(Card.GetComponent<ClaseCarta>().Poder == puntos && Faccion == "Comunidad del Anillo")
-                {
-                    Card.transform.position = GraveyardCDA.transform.position;
-                    Card.transform.SetParent(GraveyardCDA.transform, true);
-                    CartasenFranja.Remove(Card);
-                    return;
-                }
-            }
-        }
-    }
+    // public int MayorCarta()
+    // {
+    //     int mayor = 0;
+    //     foreach(GameObject Card in CartasenFranja)
+    //     {
+    //         mayor = Mathf.Max(mayor, Card.GetComponent<ClaseCarta>().Poder);
+    //     }
+    //     return mayor;
+    // }
+
+    // public void EliminarMayorCarta(int puntos)
+    // {
+    //     if(CartasenFranja.Count >= 1)
+    //     {
+    //         foreach(GameObject Card in CartasenFranja)
+    //         {
+    //             if(Card.GetComponent<ClaseCarta>().Poder == puntos && Faccion == "Comunidad del Anillo")
+    //             {
+    //                 Card.transform.position = GraveyardCDA.transform.position;
+    //                 Card.transform.SetParent(GraveyardCDA.transform, true);
+    //                 CartasenFranja.Remove(Card);
+    //                 return;
+    //             }
+    //         }
+    //     }
+    // }
 
 
     public void Legolas()
@@ -154,12 +174,7 @@ private void OnCollisionEnter2D(Collision2D collision)
         climaafectado = true;
     }
 
-    public void Cuerno()
-    {
-        aumentoafectado = true;  
-    }
-
-    public void Anillo()
+    public void Aumento()
     {
         aumentoafectado = true;  
     }
@@ -194,88 +209,88 @@ private void OnCollisionEnter2D(Collision2D collision)
 
 void Update()
 {
-Ronda =  GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
-ManoPlayer = GameObject.Find("Mano");
-ManoVS = GameObject.Find("Mano rival");
-Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
-Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
-Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
-Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
-Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
-Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
+    Ronda =  GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
+    ManoPlayer = GameObject.Find("Mano");
+    ManoVS = GameObject.Find("Mano rival");
+    Mprop = GameObject.FindGameObjectWithTag("CDAMelee").GetComponent<ClaseFranja>();
+    Rprop = GameObject.FindGameObjectWithTag("CDARanged").GetComponent<ClaseFranja>(); 
+    Sprop = GameObject.FindGameObjectWithTag("CDASiege").GetComponent<ClaseFranja>(); 
+    Mvs = GameObject.FindGameObjectWithTag("MordorMelee").GetComponent<ClaseFranja>(); 
+    Rvs = GameObject.FindGameObjectWithTag("MordorRanged").GetComponent<ClaseFranja>(); 
+    Svs = GameObject.FindGameObjectWithTag("MordorSiege").GetComponent<ClaseFranja>();  
 
-if(ComprobadordeRonda != Ronda)
-{
-    ComprobadordeRonda = Ronda;
-    if(Faccion == "Comunidad del Anillo")
+    if(ComprobadordeRonda != Ronda)
+    {
+        ComprobadordeRonda = Ronda;
+        if(Faccion == "Comunidad del Anillo")
+        {
+            foreach(GameObject Card in CartasenFranja)
+            {
+                Card.transform.SetParent(GraveyardCDA.transform, true);
+                Card.transform.position = GraveyardCDA.transform.position;
+            }
+            CartasenFranja.Clear();
+            Suma = 0;
+            puntuationText.text = Suma.ToString();
+        }
+
+        if(Faccion == "Mordor")
+        {
+            foreach(GameObject Card in CartasenFranja)
+            {
+                Card.transform.SetParent(GraveyardMordor.transform, true);
+                Card.transform.position = GraveyardMordor.transform.position;
+            }
+            CartasenFranja.Clear();
+            Suma = 0;
+            puntuationText.text = Suma.ToString();
+        }
+        Mprop.aumentoafectado = false;
+        Mprop.climaafectado = false;
+        Rprop.aumentoafectado = false;
+        Rprop.climaafectado = false;
+        Sprop.aumentoafectado = false;
+        Sprop.climaafectado = false;
+        Mvs.aumentoafectado = false;
+        Mvs.climaafectado = false;
+        Rvs.aumentoafectado = false;
+        Rvs.climaafectado = false;
+        Svs.aumentoafectado = false;
+        Svs.climaafectado = false;
+    }
+
+
+    sumaparcial = 0;
+    for(int i = 0; i < CartasenFranja.Count; i++)
+    {
+        sumaparcial += CartasenFranja[i].GetComponent<ClaseCarta>().Poder;
+    }
+    Suma = sumaparcial;
+    puntuationText.text = Suma.ToString();
+
+
+    if(aumentoafectado)
     {
         foreach(GameObject Card in CartasenFranja)
         {
-            Card.transform.SetParent(GraveyardCDA.transform, true);
-            Card.transform.position = GraveyardCDA.transform.position;
+            if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectaumento == false) //si no es de oro y no esta afectada le suma 1
+            {
+                Card.GetComponent<ClaseCarta>().Afectaumento = true;
+                Card.GetComponent<ClaseCarta>().Poder += 1;
+            }
         }
-        CartasenFranja.Clear();
-        Suma = 0;
-        puntuationText.text = Suma.ToString();
     }
 
-    if(Faccion == "Mordor")
+    if(climaafectado)
     {
         foreach(GameObject Card in CartasenFranja)
         {
-            Card.transform.SetParent(GraveyardMordor.transform, true);
-            Card.transform.position = GraveyardMordor.transform.position;
-        }
-        CartasenFranja.Clear();
-        Suma = 0;
-        puntuationText.text = Suma.ToString();
-    }
-    Mprop.aumentoafectado = false;
-    Mprop.climaafectado = false;
-    Rprop.aumentoafectado = false;
-    Rprop.climaafectado = false;
-    Sprop.aumentoafectado = false;
-    Sprop.climaafectado = false;
-    Mvs.aumentoafectado = false;
-    Mvs.climaafectado = false;
-    Rvs.aumentoafectado = false;
-    Rvs.climaafectado = false;
-    Svs.aumentoafectado = false;
-    Svs.climaafectado = false;
-}
-
-
-sumaparcial = 0;
-for(int i = 0; i < CartasenFranja.Count; i++)
-{
-sumaparcial += CartasenFranja[i].GetComponent<ClaseCarta>().Poder;
-}
-Suma = sumaparcial;
-puntuationText.text = Suma.ToString();
-
-
-if(aumentoafectado)
-{
-    foreach(GameObject Card in CartasenFranja)
-    {
-        if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectaumento == false) //si no es de oro y no esta afectada le suma 1
-        {
-            Card.GetComponent<ClaseCarta>().Afectaumento = true;
-            Card.GetComponent<ClaseCarta>().Poder += 1;
+            if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectclima == false) // si no es de oro y no esta afectada ya la vuelve 1
+            {
+                Card.GetComponent<ClaseCarta>().Afectclima = true;
+                Card.GetComponent<ClaseCarta>().Poder = 1;
+            }
         }
     }
-}
-
-if(climaafectado)
-{
-    foreach(GameObject Card in CartasenFranja)
-    {
-    if(Card.GetComponent<ClaseCarta>().Rango != "Oro" && Card.GetComponent<ClaseCarta>().Afectclima == false) // si no es de oro y no esta afectada ya la vuelve 1
-    {
-        Card.GetComponent<ClaseCarta>().Afectclima = true;
-        Card.GetComponent<ClaseCarta>().Poder = 1;
-    }
-    }
-}
 }
 }

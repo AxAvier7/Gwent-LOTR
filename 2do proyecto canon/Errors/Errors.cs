@@ -11,5 +11,5 @@ public class LexError
         Column = column;
     }
 
-    public override string ToString() => $"Error: '{Message}', Line: {Line}, Column: {Column}";
+    public override string ToString() => $"Error: '{Message}' , Linea: {Line}, Columna: {Column}";
 }

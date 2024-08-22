@@ -6,9 +6,9 @@
     Number, //numero
     IDs, //Esta y Reserved son para que cuando revise la lista
     Reserved, // de Keywords decida que tipo de Token es
-    StringContent, //Todo lo que sea String y este dentro de dos comillas
     String, //string de los de siempre
-    ArrayString, //strings dentro de corchetes
+    StringCont, // Para cadenas comunes
+    StringCorch, // Para cadenas entre corchetes
 
     Mas, //+
     Menos, //-
@@ -24,6 +24,13 @@
     MinorSign, // <
     MajorSign, // >
     EqualSign, // =
+    TwoPoints, //:
+    Comma, // ,
+
+    Card, //Carta
+    Power, //Poder
+    Faction, //Faccion
+    Range, //Rango de ataque
 
     Unknown //otro
 }
@@ -43,5 +50,5 @@ public class Token
         Column = column;
     }
 
-    public override string ToString() => $"Type: {Type}, Value: '{Value}', Line: {Line}, Column: {Column}";
+    public override string ToString() => $"Tipo: {Type}, Value: '{Value}', Linea: {Line}, Columna: {Column}";
 }
