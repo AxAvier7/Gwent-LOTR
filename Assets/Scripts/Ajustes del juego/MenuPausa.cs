@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MenuPausa : MonoBehaviour
@@ -11,16 +9,16 @@ public class MenuPausa : MonoBehaviour
     void Update() //el menu se llama cuando se usa la tecla escape
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-    {
-        if (JuegoPausado) //si el juego ya estaba pausado, cierra el menu
-    {
-        Continuar();
-    }
-    else //en cualquier otro caso, abre el menu
-    {
-        Pausar();
-    }
-    }
+        {
+            if (JuegoPausado) //si el juego ya estaba pausado, cierra el menu
+            {
+                Continuar();
+            }
+            else //en cualquier otro caso, abre el menu
+            {
+                Pausar();
+            }
+        }
     }
 
     public void Continuar() //hace que continue el juego, cerrando el menu y ocultandolo al usuario

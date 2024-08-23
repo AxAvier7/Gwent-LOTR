@@ -4,17 +4,15 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
 [SerializeField]
-private int tiempillo = 0;
+private float ObjTime = 5f;
+private float CurrTime = 0f;
 
 public void Update()
 {
-    if (tiempillo < 5000)
+    CurrTime += Time.deltaTime;
+    if(CurrTime >= ObjTime)
     {
-        tiempillo ++;
-        if(tiempillo == 5000)
-        {
-            SceneManager.LoadScene(2);
-        }
+        SceneManager.LoadScene(2);
     }
 }
 }
