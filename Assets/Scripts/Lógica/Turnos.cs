@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,22 +38,22 @@ void Start()
     taparmanoCDA = TaparManoCDA.GetComponent<RectTransform>();
     taparmanomordor = TaparManoMordor.GetComponent<RectTransform>();
 }
- public void EmpCDA()
- {
+public void EmpCDA()
+{
     Turno = true;
- }
+}
 
-  public void EmpMordor()
- {
+public void EmpMordor()
+{
     Turno = false;
- }
+}
 
 void Update()
 {
 eligearagorn = GameObject.Find("ElecCDA").GetComponent<Eleccion>().cdaelegido;
 eligesauron =GameObject.Find("ElecMordor").GetComponent<Eleccion>().mordorelegido;
 Ganador = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().GanadordeRonda;
-skillsauron = GameObject.Find("Sauron").GetComponent<Zkillz>().SauronPlayed;
+skillsauron = GameObject.Find("Sauron").GetComponent<SkillSauron>().used;
 
 ManoCDA = GameObject.FindGameObjectWithTag("Manojugador").GetComponent<ClaseMano>();
 ManoMordor = GameObject.FindGameObjectWithTag("Manomordor").GetComponent<ClaseMano>();

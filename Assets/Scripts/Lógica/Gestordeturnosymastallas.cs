@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -320,7 +318,6 @@ CDARobo = GameObject.Find("Mazo CDA").GetComponent<RobarCDA>().robo1;
 MordorRobo = GameObject.Find("Mazo Mordor").GetComponent<RobarMordor>().robo1;
 
     
-//quien gana? quien sigue? tu decides
 if(FinPartida == false && CDAWin == 2) //gana la Comunidad
 {
     FinPartida = true;

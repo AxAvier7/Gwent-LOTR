@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,29 +19,17 @@ private void OnCollisionEnter2D(Collision2D collision)
 
 void Update()
 {
-Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
-if(ComprobadordeRonda != Ronda)
-{
-    ComprobadordeRonda = Ronda;
-    if(Faccion == "Comunidad del Anillo")
+    Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
+    if(ComprobadordeRonda != Ronda)
     {
-        foreach (GameObject Carta in CartasenFranja)
+        ComprobadordeRonda = Ronda;
+        GameObject destino = (Faccion == "Comunidad del Anillo") ? GraveyardCDA : GraveyardMordor;
+        foreach (GameObject carta in CartasenFranja)
         {
-            Carta.transform.SetParent(GraveyardCDA.transform,false);
-            Carta.transform.position = GraveyardCDA.transform.position;
+            carta.transform.SetParent(destino.transform, false);
+            carta.transform.position = destino.transform.position;
         }
         CartasenFranja.Clear();
     }
-
-    if(Faccion == "Mordor")
-    {
-        foreach (GameObject Carta in CartasenFranja)
-        {
-            Carta.transform.SetParent(GraveyardMordor.transform,false);
-            Carta.transform.position = GraveyardMordor.transform.position;
-        }
-        CartasenFranja.Clear();
-    }
-}
 }
 }

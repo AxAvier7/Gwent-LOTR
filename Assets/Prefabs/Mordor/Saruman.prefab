@@ -18,8 +18,8 @@ GameObject:
   - component: {fileID: -4267651723185377652}
   - component: {fileID: -4035744241775144911}
   - component: {fileID: -7494581395729123992}
-  - component: {fileID: -8830945525852498344}
   - component: {fileID: -4814193846205578945}
+  - component: {fileID: 1290772071336005440}
   m_Layer: 6
   m_Name: Saruman
   m_TagString: Untagged
@@ -152,9 +152,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -8830945525852498344}
-        m_TargetAssemblyTypeName: SarumanSkill, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 1290772071336005440}
+        m_TargetAssemblyTypeName: RobarMordor, Assembly-CSharp
+        m_MethodName: Suermano
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -356,9 +355,7 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
---- !u!114 &-8830945525852498344
+--- !u!114 &-4814193846205578945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,7 +364,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039818207556937179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0098fefccbda87542bf8691fa3f12599, type: 3}
+  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manocda: {fileID: 0}
+  manomordor: {fileID: 0}
+  mazojugador: {fileID: 0}
+  mazoenemigo: {fileID: 0}
+  InfoZona: {fileID: 0}
+--- !u!114 &1290772071336005440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f822383f98a359841817cf1ba5cee508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}
@@ -386,6 +400,7 @@ MonoBehaviour:
   Azog: {fileID: 3039818207556937179, guid: 48e1145b32ca5a340975a4cc2f76b7bb, type: 3}
   Balrog: {fileID: 3039818207556937179, guid: e944b98a37fe5a641844d31dfc461aef, type: 3}
   Smaug: {fileID: 3039818207556937179, guid: 98bf84c74d97eff428fd41b8adfff134, type: 3}
+  Saruman: {fileID: 3039818207556937179}
   Gollum: {fileID: 3039818207556937179, guid: 02b729ff660e9f44daf5de8426d71c18, type: 3}
   Nazgul: {fileID: 3039818207556937179, guid: be1b1223b93aef84186b960cdbe6f9d5, type: 3}
   RingMelee: {fileID: 3039818207556937179, guid: b5ccf2f256baa124593188ada3386367, type: 3}
@@ -399,23 +414,9 @@ MonoBehaviour:
   Niebla4: {fileID: 3039818207556937179, guid: 9be119837a6e70a4999e6b168f0f89f9, type: 3}
   Nevada3: {fileID: 3039818207556937179, guid: 273163d1ef7257940a20e77e95e0edcd, type: 3}
   Nevada4: {fileID: 3039818207556937179, guid: 1398bf90e30f79e45a5f9112ebb0ea89, type: 3}
-  robo: 0
+  robo1: 0
+  robo2: 0
+  robo3: 0
+  issaruman: 1
   Mordor: []
   Mano: {fileID: 0}
---- !u!114 &-4814193846205578945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f78d8589e1203ca4980f476e4cbd7fbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manocda: {fileID: 0}
-  manomordor: {fileID: 0}
-  mazojugador: {fileID: 0}
-  mazoenemigo: {fileID: 0}
-  InfoZona: {fileID: 0}

@@ -42,6 +42,9 @@ private int Ronda = 1;
 private bool Turno;
 private int posicion = 0;
 
+private bool Sarumanused = false;
+public bool issaruman;
+
 public List <GameObject> Mordor = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
 
@@ -92,7 +95,22 @@ public void OnClick()
         }
     } 
 }
-    
+
+public void Suermano()
+{
+    if(issaruman && Sarumanused == false)
+    {
+        for (int i = 0; i < 1; i ++)
+        { 
+            revisarjugada();
+        }
+        Sarumanused = true;
+        Turno = true;
+    }
+
+}
+
+
 void Start()
 {
 //aca añado todas las cartas a la lista de cartas
@@ -125,7 +143,7 @@ Mordor.Add(Niebla3);
 Mordor.Add(Niebla4);
 Mordor.Add(Nevada3);
 Mordor.Add(Nevada4);
-    
+
 foreach(GameObject Card in Mordor)
 {
     Card.GetComponent<ClaseCarta>().yarepartida = false;
@@ -136,5 +154,6 @@ void Update()
 {
     Ronda = GameObject.Find("CalcGanador").GetComponent<Gestordeturnosymastallas>().Ronda;
     Turno = GameObject.Find("GestTurno").GetComponent<Turnos>().Turno;
+    Mano = GameObject.Find("Mano rival");
 }
 }

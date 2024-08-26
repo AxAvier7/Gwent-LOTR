@@ -2748,8 +2748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 0}
-  transtime: 1
 --- !u!224 &992759926 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3262540254875033089, guid: 854ddcc07c926244e95e62bcdf283905, type: 3}
@@ -4310,8 +4308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83482ffb93a1fc4db93071c5c50b667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trans: {fileID: 0}
-  transtime: 1
 --- !u!1 &1536145515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5867,6 +5863,10 @@ PrefabInstance:
       value: CRCDA
       objectReference: {fileID: 0}
     - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: GraveyardCDA
       value: 
       objectReference: {fileID: 8728653141236571525}
@@ -6149,6 +6149,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: ManoPlayer
       value: 
       objectReference: {fileID: 1401522343}
@@ -6288,6 +6292,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
     - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: GraveyardCDA
       value: 
@@ -6489,8 +6497,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazo Mordor
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3056477302126636409, guid: 91e68af7751e56e488485b40675c692d, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6592,6 +6599,10 @@ PrefabInstance:
       value: CDASiege
       objectReference: {fileID: 0}
     - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
       propertyPath: ManoPlayer
       value: 
       objectReference: {fileID: 1401522343}
@@ -6618,7 +6629,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1553088289270859753, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
   m_PrefabInstance: {fileID: 4338901215463345471}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3763935055599688636
+--- !u!114 &3763935055599688643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6627,26 +6638,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 817957218}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07eff87f52e6dc42b20900f80a4117a, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf7ef8f82c482c4194c89caa076e84d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Mprop: {fileID: 0}
-  Rprop: {fileID: 0}
-  Sprop: {fileID: 0}
-  Mvs: {fileID: 0}
-  Rvs: {fileID: 0}
-  Svs: {fileID: 0}
-  ClimageMelee: {fileID: 0}
-  ClimageRanged: {fileID: 0}
-  ClimageSiege: {fileID: 0}
-  ClimageMeleeVS: {fileID: 0}
-  ClimageRangedVS: {fileID: 0}
-  ClimageSiegeVS: {fileID: 0}
-  CuernoGondor: {fileID: 0}
-  Nieve: {fileID: 0}
-  jugable: 0
-  Turn: 0
-  SauronPlayed: 0
+  CDAM: {fileID: 0}
+  CDAR: {fileID: 0}
+  CDAS: {fileID: 0}
+  used: 0
+  elegida: 0
+  Turnillo: 0
 --- !u!224 &3763935056720403075 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2336070270750724469, guid: 91e68af7751e56e488485b40675c692d, type: 3}
@@ -6875,14 +6875,14 @@ PrefabInstance:
     - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3763935055599688636}
+      objectReference: {fileID: 3763935055599688643}
     - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Sauronn
+      value: Skill
       objectReference: {fileID: 0}
     - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Zkillz, Assembly-CSharp
+      value: SkillSauron, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7935219269800618590, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
       propertyPath: m_Name
@@ -6893,8 +6893,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7935219269800618590, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3763935055599688636}
+      insertIndex: 4
+      addedObject: {fileID: 3763935055599688643}
   m_SourcePrefab: {fileID: 100100000, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
 --- !u!1001 &4350673925362039657
 PrefabInstance:
@@ -6904,6 +6904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
     - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: GraveyardCDA
       value: 
@@ -7233,6 +7237,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
+    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: Faccion
+      value: Comunidad del Anillo
+      objectReference: {fileID: 0}
     - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: ManoPlayer
       value: 

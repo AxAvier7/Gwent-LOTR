@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Eleccion : MonoBehaviour
@@ -25,14 +23,14 @@ public void SelectCards()
 {
     if(CDARobo)
     {
-    cdaelegido = true;
-    gameObject.transform.SetParent(Background.transform, false);
+        cdaelegido = true;
+        gameObject.transform.SetParent(Background.transform, false);
     }
 
     if(MordorRobo)
     {
-    mordorelegido = true;
-    gameObject.transform.SetParent(Background.transform, false);
+        mordorelegido = true;
+        gameObject.transform.SetParent(Background.transform, false);
     }
 }
 }
