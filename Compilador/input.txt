@@ -2,22 +2,23 @@ card {
     Type: "Oro",
     Name: "Beluga of the Seven Seas",
     Faction: "Mordor",
+    //
     Power: 10,
     Range: ["Melee", "Ranged"],
     OnActivation: [
         {
-        Effect:{
+        Effect: {
             Name: "Damage",
             Amount: 5,
         }
-        Selector:{
+        Selector: {
             Source: "board",
             Single: false,
-            Predicate: (unit)=>unit.Faction == "Northern" @@ "Realms",
+            Predicate: (unit)=>unit.Faction == "Comunidad" @@ "Anillo",
         }
-        PostAction:{
+        PostAction: {
                 Type: "ReturnToDeck",
-                Selector:{
+                Selector: {
                             Source: "parent",
                             Single: false,
                             Predicate: (unit) => unit.Power < 1,

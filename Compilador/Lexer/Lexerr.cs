@@ -1,36 +1,14 @@
+using Tookeen;
 public class Lexer
 {
     private readonly string _input;
     private int _position;
     private int _line;
     private int _column;
+    private bool _insidestring = false;
     public List<LexError> Errors {get;}
 
-    private static readonly HashSet<string> Keywords = new HashSet<string>
-    {
-        "Type", "Name", "Faction", "Power", "OnActivation", "Effect", "Selector", "PostAction", "Predicate",
-        "For", "While", "Card", "CardSharpEffect", "Params", "Action", "Source", "Single", "In"
-    };
-    private static readonly HashSet<string> Range = new HashSet<string>
-    {
-        "Melee", "Ranged", "Siege"
-    };
-    private static readonly HashSet<string> Factions = new HashSet<string>
-    {
-        "Comunidad del Anillo", "Mordor", "None"
-    };
-
-    private static readonly HashSet<string> Types = new HashSet<string>
-    {
-        "Oro", "Plata", "Lider", "Aumento", "Clima"
-    };
-
-    private static readonly HashSet<string> BooleanValues = new HashSet<string>
-    {
-        "true", "false"
-    };
-
-    public Lexer(string input) //works fine
+    public Lexer(string input)
     {
         _input = input;
         _position = 0;
@@ -46,7 +24,17 @@ public class Lexer
         {
             char current = _input[_position];
 
-            if (char.IsWhiteSpace(current)) //works fine
+            if (_position + 1 < _input.Length && _input[_position] == '/' && _input[_position + 1] == '/')
+            {
+                Errors.Add(new LexError($"Commentaries not admitted: //", _line, _column));
+                while (_position < _input.Length && _input[_position] != '\n')
+                {
+                    AvancePos();
+                }
+                continue;
+            }
+
+            if (char.IsWhiteSpace(current))
             {
                 AvancePos();
                 continue;
@@ -58,7 +46,7 @@ public class Lexer
                 tokens.Add(token);
             }
 
-            else if (char.IsDigit(current)) //works fine
+            else if (char.IsDigit(current))
             {
                 tokens.Add(ReadNumber());
             }
@@ -76,8 +64,6 @@ public class Lexer
                     tokens.Add(token);
                 }
             }
-
-            SkipComas(tokens);
         }
 
         tokens.Add(new Token(TokenType.EOF, string.Empty, _line, _column));
@@ -96,24 +82,16 @@ public class Lexer
             }
 
             string word = _input.Substring(start, _position - start);
-            TokenType type = Keywords.Contains(word) ? TokenType.Reserved : TokenType.IDs;
 
-            if (word == "Power" && _position < _input.Length && _input[_position] == ':')
-                {
-                    AvancePos();
+            if (Token.AllTokens.ContainsKey(word))
+            {
+                return new Token(Token.AllTokens[word], word, startLine, startColumn);
+            }
 
-                    while (_position < _input.Length && _input[_position] != ',')
-                    {
-                        AvancePos();
-                    }
-
-                    string value = _input.Substring(start, _position - start).Trim();
-                    return new Token(TokenType.Power, value, startLine, startColumn);
-                }
-            return new Token(type, word, startLine, startColumn);
+            return new Token(TokenType.IDs, word, startLine, startColumn);
         }
 
-    private Token ReadNumber() //works fine
+    private Token ReadNumber()
     {
         int start = _position;
         int startLine = _line;
@@ -127,72 +105,55 @@ public class Lexer
         return new Token(TokenType.Number, value, startLine, startColumn);
     }
 
-    private void SkipComas(List<Token> tokens)
-    {
-        if (tokens.Count > 0)
-        {
-            int lastIndex = tokens.Count - 1;
-            Token lastToken = tokens[lastIndex];
-            if (lastToken.Type == TokenType.Unknown && lastToken.Value == "," && 
-                (_position >= _input.Length || _input[_position] == '\n'))
-            {
-                tokens.RemoveAt(lastIndex);
-            }
-        }
-    }
-
-    private Token ReadSymbol() //works fine
+    private Token ReadSymbol()
     {
         int startline = _line;
         int startcol = _column;
         char current = _input[_position];
-        _position++;
-        _column++;
 
-        TokenType type = current switch
-        {
-            '+' => TokenType.Mas,
-            '-' => TokenType.Menos,
-            '*' => TokenType.Multiplicacion,
-            '/' => TokenType.Division,
-            '@' => TokenType.Arroba,
-            '<' => TokenType.MinorSign,
-            '>' => TokenType.MajorSign,
-            // '==' => TokenType.Equal,
-            ':' => TokenType.TwoPoints,
-            ',' => TokenType.Comma,
-            // '&&' => TokenType.And,
-            // '||' => TokenType.Or,
-            // '++' => TokenType.MasMas,
-            // '--' => TokenType.MenosMenos,
-            // '+=' => TokenType. MasIgual,
-            // '-=' => TokenType.MenosIgual,
-            // '*=' => TokenType.MultiplicacionIgual,
-            // '/=' => TokenType.DivisionIgual,
-            // '!=' => TokenType.Desigual,
-            '=' => TokenType.Asignacion,
-            // '@@' => TokenType.StringConcat,
-            // '=>' => TokenType.Implicacion,
-            '(' => TokenType.ParAb,
-            ')' => TokenType.ParCer,
-            '[' => TokenType.CorAb,
-            ']' => TokenType.CorCer,
-            '{' => TokenType.LlaveAb,
-            '}' => TokenType.LlaveCer,
-            _ => TokenType.Unknown
-        };
 
-        if (_position < _input.Length && (_input[_position] == '/' && _input[_position] == '/'))
+        switch (current)
         {
-            Errors.Add(new LexError($"Commentaries not admited: {current}/" , startline, startcol));
+            case '[':
+                AvancePos();
+                return new Token(TokenType.CorAb, "[", startline, startcol);
+            case ']':
+                AvancePos();
+                return new Token(TokenType.CorCer, "]", startline, startcol);
+            case ',':
+                AvancePos();
+                return new Token(TokenType.Comma, ",", startline, startcol);
+            case ':':
+                AvancePos();
+                return new Token(TokenType.TwoPoints, ":", startline, startcol);
+            case '}':
+                AvancePos();
+                return new Token(TokenType.LlaveCer, "}", startline, startcol);
+            default:
+                return HandleOtherSymbols();
+        }
+    }
+
+    private Token HandleOtherSymbols()
+    {
+        int startline = _line;
+        int startcol = _column;
+        int start = _position;
+
+        while (_position < _input.Length && (Token.AllTokens.ContainsKey(_input.Substring(start, _position - start + 1)) || char.IsPunctuation(_input[_position])))
+        {
+            _position++;
+            _column++;
         }
 
-        if(type == TokenType.Unknown)
-        {
-            Errors.Add(new LexError($"Invalid token: {current}" , startline, startcol));
-        }
+        string symbol = _input.Substring(start, _position - start);
 
-        return new Token(type, current.ToString(), startline, startcol);
+        if (Token.AllTokens.ContainsKey(symbol))
+        {
+            return new Token(Token.AllTokens[symbol], symbol, startline, startcol);
+        }
+        Errors.Add(new LexError($"Invalid token: {symbol}", startline, startcol));
+        return new Token(TokenType.Unknown, symbol, startline, startcol);
     }
 
     private Token ReadString(TokenType tokenType)
@@ -202,12 +163,14 @@ public class Lexer
         int start = _position;
         _position++;
         _column++;
+        _insidestring = true;
 
         while (_position < _input.Length && _input[_position] != '"')
         {
             if (_input[_position] == '\n')
             {
                 Errors.Add(new LexError("Unfinished string", _line, _column));
+                _insidestring = false;
                 return new Token(TokenType.Unknown, _input.Substring(start, _position - start), startline, startcol);
             }
             AvancePos();
@@ -216,30 +179,24 @@ public class Lexer
         if (_position >= _input.Length)
         {
             Errors.Add(new LexError("Unfinished string", startline, startcol));
+            _insidestring = false;
             return new Token(TokenType.Unknown, _input.Substring(start, _position - start), startline, startcol);
         }
 
         string value = _input.Substring(start + 1, _position - start - 1);
         _position++;
         _column++;
+        _insidestring = false;
 
-        if (Range.Contains(value))
+        if(Token.AllTokens.ContainsKey(value))
         {
-            return new Token(TokenType.Range, value, startline, startcol);
-        }
-        else if (Factions.Contains(value))
-        {
-            return new Token(TokenType.Faction, value, startline, startcol);
-        }
-        else if (Types.Contains(value))
-        {
-            return new Token(TokenType.Type, value, startline, startcol);
+            return new Token(Token.AllTokens[value], value, startline, startcol);
         }
 
         return new Token(tokenType, value, startline, startcol);
-        }
+    }
 
-    private void AvancePos() //works fine
+    private void AvancePos()
     {
         if (_position < _input.Length && _input[_position] == '\n')
         {

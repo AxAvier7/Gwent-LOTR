@@ -1,55 +1,59 @@
-// public double Evaluar(List<Token> tokens)
+// public class Parser
+// {
+//     private readonly List<Token> _tokens;
+//     private int _current;
+
+//     public Parser(List<Token> tokens)
 //     {
-//         Stack<double> values = new Stack<double>();
-//         Stack<Token> operators = new Stack<Token>();
-
-//         foreach (var token in tokens)
-//         {
-//             if (token.Type == TokenType.Number)
-//             {
-//                 values.Push(double.Parse(token.Value));
-//             }
-//             else if (token.Type == TokenType.Mas || token.Type == TokenType.Menos || token.Type == TokenType.Multiplicacion || token.Type == TokenType.Division)
-//             {
-//                 while (operators.Count > 0 && Precedencia(token, operators.Peek()))
-//                 {
-//                     values.Push(Operar(operators.Pop(), values.Pop(), values.Pop()));
-//                 }
-//                 operators.Push(token);
-//             }
-//         }
-
-//         while (operators.Count > 0)
-//         {
-//             values.Push(Operar(operators.Pop(), values.Pop(), values.Pop()));
-//         }
-
-//         return values.Pop();
+//         _tokens = tokens;
+//         _current = 0;
 //     }
 
-//     private bool Precedencia(Token current, Token top)
+//     private Token Current => _tokens[_current];
+//     private Token Next => _current + 1 < _tokens.Count ? _tokens[_current + 1] : null;
+
+//     public ProgramNode Parse()
 //     {
-//         if (top.Type == TokenType.Multiplicacion || top.Type == TokenType.Division)
+//         var program = new ProgramNode();
+
+//         while (Current.Type != TokenType.EOF)
 //         {
-//             return true;
+//             var declaration = ParseDeclaration();
+//             if (declaration != null)
+//             {
+//                 program.Declarations.Add(declaration);
+//             }
 //         }
 
-//         if (current.Type == TokenType.Multiplicacion || current.Type == TokenType.Division)
-//         {
-//             return false;
-//         }
-
-//         return true;
+//         return program;
 //     }
 
-//     private double Operar(Token op, double b, double a)
+//     private DeclarationNode ParseDeclaration()
 //     {
-//         return op.Type switch
+//         if (Current.Type == TokenType.Card)
 //         {
-//             TokenType.Mas => a + b,
-//             TokenType.Menos => a - b,
-//             TokenType.Multiplicacion => a * b,
-//             TokenType.Division => a / b,
-//             _ => throw new InvalidOperationException("Operador desconocido")
+//             return ParseCardDeclaration();
+//         }
+//         return null;
+//     }
+
+//     private VariableDeclarationNode ParseVariableDeclaration()
+//     {
+//         var node = new VariableDeclarationNode
+//         {
+//             Location = new CodeLocation(Current.Line, Current.Column)
 //         };
+
+//         return node;
 //     }
+
+//     private FunctionDeclarationNode ParseFunctionDeclaration()
+//     {
+//         var node = new FunctionDeclarationNode
+//         {
+//             Location = new CodeLocation(Current.Line, Current.Column)
+//         };
+
+//         return node;
+//     }
+// }
