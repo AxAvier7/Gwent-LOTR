@@ -2,8 +2,7 @@ card {
     Type: "Oro",
     Name: "Beluga of the Seven Seas",
     Faction: "Mordor",
-    //
-    Power: 10,
+    Power: 10 + 9,
     Range: ["Melee", "Ranged"],
     OnActivation: [
         {
@@ -14,7 +13,7 @@ card {
         Selector: {
             Source: "board",
             Single: false,
-            Predicate: (unit)=>unit.Faction == "Comunidad" @@ "Anillo",
+            Predicate: (unit)=>unit.Faction == "Comunidad" @@ "del" @@ "Anillo",
         }
         PostAction: {
                 Type: "ReturnToDeck",

@@ -2,21 +2,9 @@ using Tookeen;
 
 namespace Read
 {
-
-    abstract class Expression<T>
-    {
-        public abstract bool RevSemantica(out List<string> errors);
-        public abstract bool RevSemantica(out string error);
-        public abstract T Interpret();
-        public abstract ExpressionType Return { get; }
-        public abstract CodeLocation Location { get; protected set; }
-        public abstract string ToString();
-    }
-
-
     public class Reader
     {
-        public bool ReaderErrors = false;
+        public static bool ReaderErrors = false;
         public static void Main()
         {
             string inputFilePath = "input.txt";

@@ -1,4 +1,5 @@
 using Tookeen;
+using System.Text;
 public class Lexer
 {
     private readonly string _input;
@@ -71,25 +72,25 @@ public class Lexer
     }
 
     private Token ReadWord()
+    {
+        int startLine = _line;
+        int startColumn = _column;
+        int start = _position;
+
+        while (_position < _input.Length && (char.IsLetter(_input[_position]) || char.IsDigit(_input[_position])))
         {
-            int startLine = _line;
-            int startColumn = _column;
-            int start = _position;
-
-            while (_position < _input.Length && (char.IsLetter(_input[_position]) || char.IsDigit(_input[_position])))
-            {
-                AvancePos();
-            }
-
-            string word = _input.Substring(start, _position - start);
-
-            if (Token.AllTokens.ContainsKey(word))
-            {
-                return new Token(Token.AllTokens[word], word, startLine, startColumn);
-            }
-
-            return new Token(TokenType.IDs, word, startLine, startColumn);
+            AvancePos();
         }
+
+        string word = _input.Substring(start, _position - start);
+
+        if (Token.AllTokens.ContainsKey(word))
+        {
+            return new Token(Token.AllTokens[word], word, startLine, startColumn);
+        }
+
+        return new Token(TokenType.IDs, word, startLine, startColumn);
+    }
 
     private Token ReadNumber()
     {
@@ -158,43 +159,42 @@ public class Lexer
 
     private Token ReadString(TokenType tokenType)
     {
-        int startline = _line;
-        int startcol = _column;
-        int start = _position;
+        int startLine = _line;
+        int startColumn = _column;
         _position++;
         _column++;
-        _insidestring = true;
+        var value = new StringBuilder();
 
-        while (_position < _input.Length && _input[_position] != '"')
+        while (_position < _input.Length)
         {
-            if (_input[_position] == '\n')
+            char current = _input[_position];
+
+            if (current == '"')
+            {
+                _position++;
+                _column++;
+                break;
+            }
+
+            if (current == '\n')
             {
                 Errors.Add(new LexError("Unfinished string", _line, _column));
-                _insidestring = false;
-                return new Token(TokenType.Unknown, _input.Substring(start, _position - start), startline, startcol);
+                return new Token(TokenType.Unknown, value.ToString(), startLine, startColumn);
             }
+
+            value.Append(current);
             AvancePos();
         }
 
         if (_position >= _input.Length)
         {
-            Errors.Add(new LexError("Unfinished string", startline, startcol));
-            _insidestring = false;
-            return new Token(TokenType.Unknown, _input.Substring(start, _position - start), startline, startcol);
+            Errors.Add(new LexError("Unfinished string", startLine, startColumn));
+            return new Token(TokenType.Unknown, value.ToString(), startLine, startColumn);
         }
 
-        string value = _input.Substring(start + 1, _position - start - 1);
-        _position++;
-        _column++;
-        _insidestring = false;
-
-        if(Token.AllTokens.ContainsKey(value))
-        {
-            return new Token(Token.AllTokens[value], value, startline, startcol);
-        }
-
-        return new Token(tokenType, value, startline, startcol);
+        return new Token(tokenType, value.ToString(), startLine, startColumn);
     }
+
 
     private void AvancePos()
     {
@@ -210,17 +210,4 @@ public class Lexer
         _position++;
     }
 
-    // private void Coincidencia(List<Token> tokens, string _input, int _line, int _column, TokenType type = TokenType.TyDollaSign)
-    // {
-    //     try
-    //     {
-    //         tokens.Add(new Token((type == TokenType.TyDollaSign? Token.AllTokens[_input] : type), _input, _line + 1, _column + 1));
-    //     }
-    //     catch (KeyNotFoundException)
-    //     {
-    //         tokens.Add(new Token(TokenType.IDs, _input, _line + 1, _column + 1));
-    //         Token.AllTokens.Add(_input, TokenType.IDs);
-    //     }
-    //     _column += _input.Length - 1;
-    // }
 }

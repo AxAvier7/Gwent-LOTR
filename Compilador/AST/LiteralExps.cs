@@ -1,3 +1,6 @@
+using Read;
+using Tookeen;
+
 public class LiteralExpression : Expression<object>
 {
     public object Value { get; }
@@ -8,13 +11,15 @@ public class LiteralExpression : Expression<object>
         Location = location;
     }
 
+    public override CodeLocation Location { get; protected set; }
+
     public override bool RevSemantica(out List<string> errors)
     {
         errors = new List<string>();
         return true;
     }
 
-    public override bool RevSemantica(out string error)
+    public override bool SemanticRevision(out string error)
     {
         error = null;
         return true;

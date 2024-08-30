@@ -1,3 +1,6 @@
+using Tookeen;
+using System.Collections.Generic;
+
 public class VariableExpression : Expression<object>
 {
     public string Name { get; }
@@ -21,7 +24,7 @@ public class VariableExpression : Expression<object>
         return true;
     }
 
-    public override bool RevSemantica(out string error)
+    public override bool SemanticRevision(out string error)
     {
         if (!_symbolTable.ContainsKey(Name))
         {
@@ -40,4 +43,6 @@ public class VariableExpression : Expression<object>
     public override ExpressionType Return => _symbolTable[Name];
 
     public override string ToString() => Name;
+
+    public override CodeLocation Location { get; protected set; }
 }
