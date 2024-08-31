@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1086292043}
   - component: {fileID: 1086292042}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Loading...
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e26d26893f00244b992027d332cf70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempillo: 0
+  ObjTime: 5
 --- !u!114 &2136922266 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -274420427891528157, guid: f0596b9c22cfcac409698a71ab75c5bc, type: 3}

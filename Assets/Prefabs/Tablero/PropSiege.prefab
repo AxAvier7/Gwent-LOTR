@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8009977602220453175}
   m_Layer: 7
   m_Name: PropSiege
-  m_TagString: MordorSiege
+  m_TagString: CDASiege
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   Suma: 0
   Cartas: 0
   puntuationText: {fileID: 0}
-  Faccion: Mordor
+  Faccion: Comunidad del Anillo
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 0}
   ManoPlayer: {fileID: 0}

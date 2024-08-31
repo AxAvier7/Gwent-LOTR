@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8833048775556679718}
   m_Layer: 7
   m_Name: ClimateSiege
-  m_TagString: CSMORDOR
+  m_TagString: CSCDA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CartasenFranja: []
-  Faccion: Mordor
+  Faccion: Comunidad del Anillo
   GraveyardCDA: {fileID: 0}
   GraveyardMordor: {fileID: 0}
 --- !u!61 &8833048775556679718

@@ -730,7 +730,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CDAwin
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6108143781416302417, guid: 8367678a44f53de4eace8a14254b0c37, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

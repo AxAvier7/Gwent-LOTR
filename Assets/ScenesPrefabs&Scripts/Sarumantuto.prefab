@@ -266,8 +266,6 @@ GameObject:
   - component: {fileID: 1244952429852238239}
   - component: {fileID: 1004072114204313133}
   - component: {fileID: 453478604400188396}
-  - component: {fileID: 3236614469682302824}
-  - component: {fileID: 7132413792564348678}
   m_Layer: 6
   m_Name: Sarumantuto
   m_TagString: Untagged
@@ -333,61 +331,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3236614469682302824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7601338678952965417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2322f473e28f87041a605476f9d0c4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Descripciones: {fileID: -274420427891528157, guid: 13bc265862ed14046b8e857b246bdf71, type: 3}
-  Card: {fileID: 7601338678952965417}
---- !u!114 &7132413792564348678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7601338678952965417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0098fefccbda87542bf8691fa3f12599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 0}
-  UrukHai1: {fileID: 3039818207556937179, guid: bc36b446d5196cf4d8135f6988cf95c1, type: 3}
-  UrukHai2: {fileID: 3039818207556937179, guid: fb461a6a1b794ba47a0ea329d4c4e64a, type: 3}
-  UrukHai3: {fileID: 3039818207556937179, guid: bdc1d36c886581b43b97d02d376ad2a9, type: 3}
-  OrcArcher1: {fileID: 3039818207556937179, guid: efc51e442b2c61144ba5928b44b3e459, type: 3}
-  OrcArcher2: {fileID: 3039818207556937179, guid: 658a48eae26561447ad5b96647e3670c, type: 3}
-  OrcArcher3: {fileID: 3039818207556937179, guid: b4ba2ac4ef65a54499b858c4e061522a, type: 3}
-  OlogHai1: {fileID: 3039818207556937179, guid: fc3e887100f646d408006ae3b93ac404, type: 3}
-  OlogHai2: {fileID: 3039818207556937179, guid: d070f7f2d0d21f742aa4d0b46fad2713, type: 3}
-  OlogHai3: {fileID: 3039818207556937179, guid: 02b96d9a5903b8d4082ff490a46fd777, type: 3}
-  Bolg: {fileID: 3039818207556937179, guid: 9c17ec323a272d3419d39d93c4a417af, type: 3}
-  Lurtz: {fileID: 3039818207556937179, guid: 43e2f68744286e64b9b26de31596610b, type: 3}
-  Ratbag: {fileID: 3039818207556937179, guid: a290f921c6b54364b9126f1c7d44bda4, type: 3}
-  Azog: {fileID: 3039818207556937179, guid: 48e1145b32ca5a340975a4cc2f76b7bb, type: 3}
-  Balrog: {fileID: 3039818207556937179, guid: e944b98a37fe5a641844d31dfc461aef, type: 3}
-  Smaug: {fileID: 3039818207556937179, guid: 98bf84c74d97eff428fd41b8adfff134, type: 3}
-  Gollum: {fileID: 3039818207556937179, guid: 02b729ff660e9f44daf5de8426d71c18, type: 3}
-  Nazgul: {fileID: 3039818207556937179, guid: be1b1223b93aef84186b960cdbe6f9d5, type: 3}
-  RingMelee: {fileID: 3039818207556937179, guid: b5ccf2f256baa124593188ada3386367, type: 3}
-  RingRanged: {fileID: 3039818207556937179, guid: 84ba8325679db824f982c3ce28a12c98, type: 3}
-  RingSiege: {fileID: 3039818207556937179, guid: 048cb5d40c16e52478a7421d9ab9ad82, type: 3}
-  Despeje3: {fileID: 3039818207556937179, guid: 8dabdf14d2774b741b7ca895cacffd29, type: 3}
-  Despeje4: {fileID: 3039818207556937179, guid: b1ce493f7fbc8974da526cde783d7559, type: 3}
-  Lluvia3: {fileID: 3039818207556937179, guid: 724e34497e79ae84fa9ec74eeeb10070, type: 3}
-  Lluvia4: {fileID: 3039818207556937179, guid: 74ff42766442c2743a393f7de2fa59e0, type: 3}
-  Niebla3: {fileID: 3039818207556937179, guid: 3ae204c39f00d234db4a55e47733bde8, type: 3}
-  Niebla4: {fileID: 3039818207556937179, guid: 9be119837a6e70a4999e6b168f0f89f9, type: 3}
-  Nevada3: {fileID: 3039818207556937179, guid: 273163d1ef7257940a20e77e95e0edcd, type: 3}
-  Nevada4: {fileID: 3039818207556937179, guid: 1398bf90e30f79e45a5f9112ebb0ea89, type: 3}
-  robo: 0
-  Mordor: []
-  Mano: {fileID: 0}

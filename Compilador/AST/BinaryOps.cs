@@ -2,6 +2,7 @@ using Tookeen;
 using Read;
 using Tookeen2;
 
+namespace Bops{
 public abstract class BinaryExpression : Expression<object>
 {
     public Expression<object> Left { get; }
@@ -55,12 +56,12 @@ public abstract class BinaryExpression : Expression<object>
     protected abstract string GetOperatorSymbol();
 }
 
-
-public class BinaryOperationExpression : BinaryExpression
+#region Bool
+public class BooleanExp : BinaryExpression
 {
     public TokenType Operator { get; }
 
-    public BinaryOperationExpression(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
+    public BooleanExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
         : base(left, right, location)
     {
         Operator = op;
@@ -73,13 +74,46 @@ public class BinaryOperationExpression : BinaryExpression
 
     public override object Interpret()
     {
-        if (Operator == TokenType.StringConcat)
+        var leftValue = Left;
+        var rightValue = Right;
+        switch (Operator)
         {
-            var leftValue = Left.Interpret().ToString();
-            var rightValue = Right.Interpret().ToString();
-            return leftValue + " " + rightValue;
+            case TokenType.And:
+                return (bool)leftValue.Interpret() && (bool)rightValue.Interpret();
+            case TokenType.Or:
+                return (bool)leftValue.Interpret() || (bool)rightValue.Interpret();
+            default:
+                throw new InvalidOperationException($"Unsupported operator: {Operator}");
+                return null;
         }
-        
+    }
+
+    public override ExpressionType Return => Operator == TokenType.And || Operator == TokenType.Or 
+        ? ExpressionType.Boolean : ExpressionType.Null;
+    
+    public override string ToString() => $"({Left} {Operator} {Right})";
+}
+
+#endregion Bool
+
+#region Math
+public class MathematicExp : BinaryExpression
+{
+    public TokenType Operator { get; }
+
+    public MathematicExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
+        : base(left, right, location)
+    {
+        Operator = op;
+    }
+
+    protected override string GetOperatorSymbol()
+    {
+        return Operator.ToString();
+    }
+
+    public override object Interpret()
+    {
         var leftValue = Convert.ToDouble(Left.Interpret());
         var rightValue = Convert.ToDouble(Right.Interpret());
         switch (Operator)
@@ -100,18 +134,64 @@ public class BinaryOperationExpression : BinaryExpression
                 return leftValue *= rightValue;
             case TokenType.DivisionIgual:
                 return leftValue /= rightValue;
+            case TokenType.Pow:
+                return Math.Pow(leftValue, rightValue);
             default:
                 throw new InvalidOperationException($"Unsupported operator: {Operator}");
         }
     }
 
     public override ExpressionType Return => Operator == TokenType.Mas || Operator == TokenType.Menos 
-        || Operator == TokenType.Multiplicacion || Operator == TokenType.Division 
-        ? ExpressionType.Number : ExpressionType.Boolean;
+        || Operator == TokenType.Multiplicacion || Operator == TokenType.Division || Operator == TokenType.MasIgual
+        || Operator == TokenType.MenosIgual || Operator == TokenType.MultiplicacionIgual
+        || Operator == TokenType.DivisionIgual || Operator == TokenType.Pow
+        ? ExpressionType.Number : ExpressionType.Null;
     
     public override string ToString() => $"({Left} {Operator} {Right})";
 }
 
+#endregion Math
+
+#region Literales
+public class StringBuildingExp : BinaryExpression
+{
+    public TokenType Operator { get; }
+
+    public StringBuildingExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
+        : base(left, right, location)
+    {
+        Operator = op;
+    }
+
+    protected override string GetOperatorSymbol()
+    {
+        return Operator.ToString();
+    }
+
+    public override object Interpret()
+    {
+        if (Operator == TokenType.StringConcat)
+        {
+            var leftValue = Left.Interpret().ToString();
+            var rightValue = Right.Interpret().ToString();
+            return leftValue + " " + rightValue;
+        }
+        if (Operator == TokenType.Arroba)
+        {
+            var leftValue = Left.Interpret().ToString();
+            var rightValue = Right.Interpret().ToString();
+            return leftValue + rightValue;
+        }
+        else return null;
+    }
+
+    public override ExpressionType Return => Operator == TokenType.Arroba || Operator == TokenType.StringConcat 
+        ? ExpressionType.Literal : ExpressionType.Null;
+    
+    public override string ToString() => $"({Left} {Operator} {Right})";
+}
+
+#endregion Literales
 
 #region Comparadores
 public class GreaterThanExpression : BinaryExpression
@@ -222,3 +302,4 @@ public class NotEqualExpression : BinaryExpression
     public override string ToString() => $"({Left} != {Right})";
 }
 #endregion Comparadores
+}

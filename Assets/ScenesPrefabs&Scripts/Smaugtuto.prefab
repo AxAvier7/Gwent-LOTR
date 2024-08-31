@@ -145,8 +145,6 @@ GameObject:
   - component: {fileID: 2437072708201870200}
   - component: {fileID: 3663461205225143681}
   - component: {fileID: 6483467732667756537}
-  - component: {fileID: 4996233573980594344}
-  - component: {fileID: 5308953780978564670}
   m_Layer: 6
   m_Name: Smaugtuto
   m_TagString: Untagged
@@ -212,36 +210,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4996233573980594344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717360311731762134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2322f473e28f87041a605476f9d0c4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Descripciones: {fileID: -274420427891528157, guid: 13bc265862ed14046b8e857b246bdf71, type: 3}
-  Card: {fileID: 4717360311731762134}
---- !u!114 &5308953780978564670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4717360311731762134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32322d6e646bad740ba07f0ce3720bfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Snow: {fileID: 0}
-  FranjaSnow: {fileID: 3039818207556937179, guid: 273163d1ef7257940a20e77e95e0edcd, type: 3}
-  propSnow: {fileID: 0}
-  vsSnow: {fileID: 0}
 --- !u!1 &6346200270483925862
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1782855687997226654}
   - component: {fileID: 1748010365087683204}
   - component: {fileID: 2108948514809860024}
+  - component: {fileID: 8254056048425719472}
   - component: {fileID: 4827132541617992397}
   - component: {fileID: 4360246050528573283}
   - component: {fileID: 5080402676212067670}
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8254056048425719472}
         m_TargetAssemblyTypeName: SkillSauron, Assembly-CSharp
         m_MethodName: Skill
         m_Mode: 1
@@ -135,6 +136,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8254056048425719472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935219269800618590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf7ef8f82c482c4194c89caa076e84d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CDAM: {fileID: 0}
+  CDAR: {fileID: 0}
+  CDAS: {fileID: 0}
+  used: 0
+  elegida: 0
+  Turnillo: 0
 --- !u!114 &4827132541617992397
 MonoBehaviour:
   m_ObjectHideFlags: 0

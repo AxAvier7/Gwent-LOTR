@@ -541,6 +541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VsSiege
       objectReference: {fileID: 0}
+    - target: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
+      propertyPath: m_TagString
+      value: MordorRanged
+      objectReference: {fileID: 0}
     - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
       propertyPath: ManoVS
       value: 
@@ -1452,6 +1456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VsClimateMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
+      propertyPath: m_TagString
+      value: CMMORDOR
+      objectReference: {fileID: 0}
     - target: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1906,6 +1914,10 @@ PrefabInstance:
     - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Name
       value: VsMelee
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
+      propertyPath: m_TagString
+      value: MordorMelee
       objectReference: {fileID: 0}
     - target: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Pivot.x
@@ -2371,11 +2383,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793776236}
   m_CullTransparentMesh: 1
---- !u!1 &817957218 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7935219269800618590, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-  m_PrefabInstance: {fileID: 4338901215463345471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &876629396
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VsRanged
       objectReference: {fileID: 0}
+    - target: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
+      propertyPath: m_TagString
+      value: MordorRanged
+      objectReference: {fileID: 0}
     - target: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4698,6 +4709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VsClimateRanged
       objectReference: {fileID: 0}
+    - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
+      propertyPath: m_TagString
+      value: CRMORDOR
+      objectReference: {fileID: 0}
     - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: GraveyardMordor
       value: 
@@ -5116,6 +5131,10 @@ PrefabInstance:
     - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: m_Name
       value: VsClimateSiege
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
+      propertyPath: m_TagString
+      value: CSMORDOR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5810,18 +5829,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mazo CDA
       objectReference: {fileID: 0}
-    - target: {fileID: 6206125134975504670, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7105119105346514554, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
       propertyPath: Mano
       value: 
       objectReference: {fileID: 1401522343}
-    - target: {fileID: 8581237805369103300, guid: a0eaf85dc47397449ac4002dcf325a25, type: 3}
-      propertyPath: InfoZona
-      value: 
-      objectReference: {fileID: 7376377116929780921}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5857,14 +5868,6 @@ PrefabInstance:
     - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: m_Name
       value: PropClimateRanged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368666588010326524, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      propertyPath: m_TagString
-      value: CRCDA
-      objectReference: {fileID: 0}
-    - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
       objectReference: {fileID: 0}
     - target: {fileID: 2943875973528354279, guid: f54cc55a910092a4d83ce94c0f50afe0, type: 3}
       propertyPath: GraveyardCDA
@@ -6064,10 +6067,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PropRanged
       objectReference: {fileID: 0}
-    - target: {fileID: 4790695226614311263, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      propertyPath: m_TagString
-      value: CDARanged
-      objectReference: {fileID: 0}
     - target: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6147,10 +6146,6 @@ PrefabInstance:
     - target: {fileID: 4798641933584447982, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
       objectReference: {fileID: 0}
     - target: {fileID: 4812938663226475622, guid: 89e01fe2c23a0324bbf55d2575f3ecd8, type: 3}
       propertyPath: ManoPlayer
@@ -6293,10 +6288,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
     - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
-      objectReference: {fileID: 0}
-    - target: {fileID: 2601147652306393219, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: GraveyardCDA
       value: 
       objectReference: {fileID: 8728653141236571525}
@@ -6383,10 +6374,6 @@ PrefabInstance:
     - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
       propertyPath: m_Name
       value: PropClimateSiege
-      objectReference: {fileID: 0}
-    - target: {fileID: 6952753564189201202, guid: 3909878e751b807439169f74f1860bcc, type: 3}
-      propertyPath: m_TagString
-      value: CSCDA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6481,18 +6468,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.059
       objectReference: {fileID: 0}
-    - target: {fileID: 3056477302126636409, guid: 91e68af7751e56e488485b40675c692d, type: 3}
-      propertyPath: InfoZona
-      value: 
-      objectReference: {fileID: 7376377116929780921}
     - target: {fileID: 5252339707450798856, guid: 91e68af7751e56e488485b40675c692d, type: 3}
       propertyPath: Mano
       value: 
       objectReference: {fileID: 7488780437938185480}
-    - target: {fileID: 8467949516038281904, guid: 91e68af7751e56e488485b40675c692d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8917752585741074933, guid: 91e68af7751e56e488485b40675c692d, type: 3}
       propertyPath: m_Name
       value: Mazo Mordor
@@ -6594,14 +6573,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PropSiege
       objectReference: {fileID: 0}
-    - target: {fileID: 5212408859845766902, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      propertyPath: m_TagString
-      value: CDASiege
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
-      objectReference: {fileID: 0}
     - target: {fileID: 8009977602220453175, guid: 5e0a8ef1b07698b4ca55872603484487, type: 3}
       propertyPath: ManoPlayer
       value: 
@@ -6629,24 +6600,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1553088289270859753, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
   m_PrefabInstance: {fileID: 4338901215463345471}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3763935055599688643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817957218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf7ef8f82c482c4194c89caa076e84d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CDAM: {fileID: 0}
-  CDAR: {fileID: 0}
-  CDAS: {fileID: 0}
-  used: 0
-  elegida: 0
-  Turnillo: 0
 --- !u!224 &3763935056720403075 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2336070270750724469, guid: 91e68af7751e56e488485b40675c692d, type: 3}
@@ -6872,18 +6825,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.082
       objectReference: {fileID: 0}
-    - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3763935055599688643}
-    - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Skill
-      objectReference: {fileID: 0}
-    - target: {fileID: 2108948514809860024, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SkillSauron, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 7935219269800618590, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
       propertyPath: m_Name
       value: Sauron
@@ -6891,10 +6832,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7935219269800618590, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
-      insertIndex: 4
-      addedObject: {fileID: 3763935055599688643}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5e7b316811e5ae4e99f87802a0e2f9f, type: 3}
 --- !u!1001 &4350673925362039657
 PrefabInstance:
@@ -6905,20 +6843,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
     - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
-      objectReference: {fileID: 0}
-    - target: {fileID: 792010480019766528, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: GraveyardCDA
       value: 
       objectReference: {fileID: 8728653141236571525}
     - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Name
       value: PropClimateMelee
-      objectReference: {fileID: 0}
-    - target: {fileID: 1633805930092743014, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
-      propertyPath: m_TagString
-      value: CMCDA
       objectReference: {fileID: 0}
     - target: {fileID: 8562633465844134149, guid: 41282d8056208294caf7f0d1ac0ca8d4, type: 3}
       propertyPath: m_Pivot.x
@@ -7238,10 +7168,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 9394435}
     m_Modifications:
     - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      propertyPath: Faccion
-      value: Comunidad del Anillo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6020092502584902913, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: ManoPlayer
       value: 
       objectReference: {fileID: 1401522343}
@@ -7256,10 +7182,6 @@ PrefabInstance:
     - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Name
       value: PropMelee
-      objectReference: {fileID: 0}
-    - target: {fileID: 7224516314422696605, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
-      propertyPath: m_TagString
-      value: CDAMelee
       objectReference: {fileID: 0}
     - target: {fileID: 7490848195290507946, guid: bec00179bd9029e459ce49a65f54adaa, type: 3}
       propertyPath: m_Pivot.x

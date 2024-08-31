@@ -87,6 +87,7 @@
             { "/", TokenType.Division },
             { "++", TokenType.MasMas },
             { "--", TokenType.MenosMenos },
+            { "^", TokenType.Pow },
 
             //Puntuacion
             { "{", TokenType.LlaveAb },
@@ -134,13 +135,14 @@
 
         //Tipos
         Number,    IDs,    Reserved,
-        String, Boolean,
+        String, Boolean, Variable,
 
         //Booleanos
         _true, _false,
 
         //Cycles
         If, While, Else, For,
+        Return, Break, Continue,
 
         //Brackets
         ParAb,    ParCer,    CorAb,    CorCer,
@@ -154,6 +156,7 @@
         MultiplicacionIgual, DivisionIgual,   Desigual,  Asignacion, //*= /= != =
         TyDollaSign, Implicacion, StringConcat, Dot, //$ => @@ .
         MajorEqual, MinorEqual, SemiColon, Denial, //>= <= ; !
+        Pow, //^
 
         //Reservados
         Card,   Power,  Faction,    Range,
@@ -166,24 +169,19 @@
         Range_Melee, Range_Ranged, Range_Siege,
         Faction_CDA, Faction_Mordor, Faction_None,
         Type_Oro, Type_Plata, Type_Lider, Type_Aumento, Type_Clima,
+        TypeIdentifier, Function,
 
         Unknown //otros
     }
 
     public enum ExpressionType
     {
-        Binary,
-        Unary,
-        Literal,
-        Variable,
-        Conditional,
-        Loop,
-        FunctionCall,
-        Assignment,
-        Boolean,
-        Number,
-        Void,
-        Function
+        Binary, Unary,  Literal,
+        Conditional,    Loop, ForLoop,
+        FunctionCall,   Assignment, Boolean,
+        Number, Void,   Function,   Null,
+        LogicalAnd, LogicalOr,
+        Continue, Break, Return
     }
 
 }

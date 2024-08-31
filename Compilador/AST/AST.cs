@@ -22,7 +22,7 @@ namespace Tookeen2
     public class VariableDeclarationNode : DeclarationNode
     {
         public string VariableName { get; set; }
-        public string VariableType { get; set; }
+        public string Type { get; set; }
         public ExpressionNode InitialValue { get; set; }
     }
 

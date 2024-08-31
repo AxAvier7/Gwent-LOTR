@@ -1,298 +1,629 @@
-// using Tookeen;
-// using Tookeen2;
-// using Read;
+using Tookeen;
+using Tookeen2;
+using Read;
+using Bops;
+using XP;
+using VariableExp;
 
-// public class Parser
-// {
-//     private readonly List<Token> _tokens;
-//     private int _current;
+public class Parser
+{
+    private readonly List<Token> _tokens;
+    private int _current;
 
-//     public Parser(List<Token> tokens)
-//     {
-//         _tokens = tokens;
-//         _current = 0;
-//     }
+    public Parser(List<Token> tokens)
+    {
+        _tokens = tokens;
+        _current = 0;
+    }
 
-//     private Token CurrentToken => _currentPosition < _tokens.Count ? _tokens[_currentPosition] : null;    private Token Next => _current + 1 < _tokens.Count ? _tokens[_current + 1] : null;
-//     private void AdvanceToken() => _currentPosition++;
+    private Token CurrentToken => _current < _tokens.Count ? _tokens[_current] : null;
+    private Token Next => _current + 1 < _tokens.Count ? _tokens[_current + 1] : null;
+    private void AdvanceToken() => _current++;
+
+    private Expression<object> ParseExpression()
+    {
+        var expression = ParseComparison();
+
+        while (CurrentToken != null && (CurrentToken.Type == TokenType.And || CurrentToken.Type == TokenType.Or))
+        {
+            var operatorToken = CurrentToken;
+            AdvanceToken();
+
+            var right = ParseComparison();
+
+            switch (operatorToken.Type)
+            {
+                case TokenType.And:
+                    expression = new LogicalAndExpression(expression, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.Or:
+                    expression = new LogicalOrExpression(expression, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+            }
+        }
+        return expression;
+    }
+
+    public class LogicalAndExpression : Expression<object>
+    {
+        public Expression<object> Left { get; }
+        public Expression<object> Right { get; }
+        public override ExpressionType Return => ExpressionType.LogicalAnd;
+        public override CodeLocation Location { get; protected set; }
+
+        public LogicalAndExpression(Expression<object> left, Expression<object> right, CodeLocation location)
+        {
+            Left = left;
+            Right = right;
+            Location = location;
+        }
+
+        public override bool RevSemantica(out List<string> errors)
+        {
+            errors = new List<string>();
+
+            if (!Left.RevSemantica(out var leftErrors))
+                errors.AddRange(leftErrors);
+
+            if (!Right.RevSemantica(out var rightErrors))
+                errors.AddRange(rightErrors);
+
+            if (!(Left is BooleanExp) || !(Right is BooleanExp))
+            {
+                errors.Add($"Logical AND operation requires both operands to be boolean expressions at {Location}.");
+                return false;
+            }
+            return errors.Count == 0;
+        }
+
+        public override bool SemanticRevision(out string error)
+        {
+            var errors = new List<string>();
+            bool valid = RevSemantica(out errors);
+
+            error = errors.Count > 0 ? string.Join(", ", errors) : null;
+            return valid;
+        }
+
+        public override object Interpret()
+        {
+            var leftResult = (bool)Left.Interpret();
+            var rightResult = (bool)Right.Interpret();
+
+            return leftResult && rightResult;
+        }
+
+        public override string ToString()
+        {
+            return $"({Left} AND {Right})";
+        }
+    }
+
+    public class LogicalOrExpression : Expression<object>
+    {
+        public Expression<object> Left { get; }
+        public Expression<object> Right { get; }
+        public override ExpressionType Return => ExpressionType.LogicalOr;
+        public override CodeLocation Location { get; protected set; }
+
+        public LogicalOrExpression(Expression<object> left, Expression<object> right, CodeLocation location)
+        {
+            Left = left;
+            Right = right;
+            Location = location;
+        }
+
+        public override bool RevSemantica(out List<string> errors)
+        {
+            errors = new List<string>();
+
+            if (!Left.RevSemantica(out var leftErrors))
+                errors.AddRange(leftErrors);
+
+            if (!Right.RevSemantica(out var rightErrors))
+                errors.AddRange(rightErrors);
+
+            if (!(Left is BooleanExp) || !(Right is BooleanExp))
+            {
+                errors.Add($"Logical OR operation requires both operands to be boolean expressions at {Location}.");
+                return false;
+            }
+
+            return errors.Count == 0;
+        }
+
+        public override bool SemanticRevision(out string error)
+        {
+            var errors = new List<string>();
+            bool valid = RevSemantica(out errors);
+
+            error = errors.Count > 0 ? string.Join(", ", errors) : null;
+            return valid;
+        }
+
+        public override object Interpret()
+        {
+            var leftResult = (bool)Left.Interpret();
+            var rightResult = (bool)Right.Interpret();
+
+            return leftResult || rightResult;
+        }
+
+        public override string ToString()
+        {
+            return $"({Left} OR {Right})";
+        }
+    }
+
+    public Expression<object> ParseIfStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        AdvanceToken();
+
+        var condition = ParseExpression();
+
+        if (CurrentToken.Type != TokenType.LlaveAb)
+            throw new Exception($"Expected '{{' after condition at {location}");
+
+        AdvanceToken();
+        var trueBranch = ParseStatement();
+
+        if (CurrentToken.Type != TokenType.LlaveCer)
+            throw new Exception($"Expected '}}' after true branch at {location}");
+        AdvanceToken();
+
+        Expression<object> falseBranch = null;
+        if (CurrentToken.Type == TokenType.Else)
+        {
+            AdvanceToken();
+
+            if (CurrentToken.Type != TokenType.LlaveAb)
+                throw new Exception($"Expected '{{' after 'else' at {location}");
+
+            AdvanceToken();
+            falseBranch = ParseStatement();
+
+            if (CurrentToken.Type != TokenType.LlaveCer)
+                throw new Exception($"Expected '}}' after false branch at {location}");
+            AdvanceToken();
+        }
+        return new ConditionalExpression(condition, trueBranch, falseBranch, location);
+    }
+
+    public Expression<object> ParseWhileStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        AdvanceToken();
+
+        var condition = ParseExpression();
+
+        if (CurrentToken.Type != TokenType.LlaveAb)
+            throw new Exception($"Expected '{{' after condition at {location}");
+
+        AdvanceToken();
+        var body = ParseStatement();
+
+        if (CurrentToken.Type != TokenType.LlaveCer)
+            throw new Exception($"Expected '}}' after body at {location}");
+        AdvanceToken();
+
+        return new WhileLoopExpression(condition, body, location);
+    }
+
+    public Expression<object> ParseForStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        AdvanceToken();
+
+        var initialization = ParseExpression();
+
+        if (CurrentToken.Type != TokenType.SemiColon)
+            throw new Exception($"Expected ';' after initialization at {location}");
+        AdvanceToken();
+
+        var condition = ParseExpression();
+
+        if (CurrentToken.Type != TokenType.SemiColon)
+            throw new Exception($"Expected ';' after condition at {location}");
+        AdvanceToken();
+
+        var iteration = ParseExpression();
+
+        if (CurrentToken.Type != TokenType.LlaveAb)
+            throw new Exception($"Expected '{{' after iteration at {location}");
+
+        AdvanceToken();
+        var body = ParseStatement();
+
+        if (CurrentToken.Type != TokenType.LlaveCer)
+            throw new Exception($"Expected '}}' after body at {location}");
+        AdvanceToken();
+
+        return new ForLoopExpression(initialization, condition, iteration, body, location);
+    }
+
+    public Expression<object> ParseFunctionDeclaration()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        AdvanceToken();
+
+        if (CurrentToken.Type != TokenType.IDs)
+            throw new Exception($"Expected function name at {location}");
+        var functionName = CurrentToken.Value;
+        AdvanceToken();
+
+        if (CurrentToken.Type != TokenType.ParAb)
+            throw new Exception($"Expected '(' after function name at {location}");
+        AdvanceToken();
+
+        var parameters = new List<string>();
+        while (CurrentToken.Type != TokenType.ParCer)
+        {
+            if (CurrentToken.Type != TokenType.IDs)
+                throw new Exception($"Expected parameter name at {location}");
+            parameters.Add(CurrentToken.Value);
+            AdvanceToken();
+
+            if (CurrentToken.Type == TokenType.Comma)
+            {
+                AdvanceToken();
+            }
+            else if (CurrentToken.Type != TokenType.ParCer)
+            {
+                throw new Exception($"Expected ',' or ')' after parameter at {location}");
+            }
+        }
+        AdvanceToken();
+
+        if (CurrentToken.Type != TokenType.LlaveAb)
+            throw new Exception($"Expected '{{' before function body at {location}");
+        AdvanceToken();
+
+        var body = ParseStatement();
+
+        if (CurrentToken.Type != TokenType.LlaveCer)
+            throw new Exception($"Expected '}}' after function body at {location}");
+        AdvanceToken();
+
+        return new FunctionDeclarationExpression(functionName, parameters, body, location);
+    }
+
+    public Expression<object> ParseFunctionCall()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        if (CurrentToken.Type != TokenType.IDs)
+            throw new Exception($"Expected function name at {location}");
+        var functionName = CurrentToken.Value;
+        AdvanceToken();
+
+        if (CurrentToken.Type != TokenType.ParAb)
+            throw new Exception($"Expected '(' after function name at {location}");
+        AdvanceToken();
+
+        var arguments = new List<Expression<object>>();
+        while (CurrentToken.Type != TokenType.ParCer)
+        {
+            arguments.Add(ParseExpression());
+
+            if (CurrentToken.Type == TokenType.Comma)
+            {
+                AdvanceToken();
+            }
+            else if (CurrentToken.Type != TokenType.ParCer)
+            {
+                throw new Exception($"Expected ',' or ')' after argument at {location}");
+            }
+        }
+        AdvanceToken();
+
+        return new FunctionCallExpression(functionName, arguments, location);
+    }
+
+    private Expression<object> ParseComparison()
+    {
+        var left = ParseAdditive();
+
+        while (IsComparisonOperator(CurrentToken.Type))
+        {
+            var operatorToken = CurrentToken;
+            AdvanceToken();
+
+            var right = ParseAdditive();
+
+            switch (operatorToken.Type)
+            {
+                case TokenType.MajorSign:
+                    left = new GreaterThanExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.MinorSign:
+                    left = new LessThanExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.Equal:
+                    left = new EqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.MajorEqual:
+                    left = new GreaterThanOrEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.MinorEqual:
+                    left = new LessThanOrEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+                case TokenType.Desigual:
+                    left = new NotEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    break;
+            }
+        }
+        return left;
+    }
+
+    private bool IsComparisonOperator(TokenType tokenType)
+    {
+        return tokenType == TokenType.MajorSign ||
+               tokenType == TokenType.MinorSign ||
+               tokenType == TokenType.Equal ||
+               tokenType == TokenType.MajorEqual ||
+               tokenType == TokenType.MinorEqual ||
+               tokenType == TokenType.Desigual;
+    }
+
+    public ProgramNode Parse()
+    {
+        var program = new ProgramNode();
+
+        while (CurrentToken.Type != TokenType.EOF)
+        {
+            var declaration = ParseDeclaration();
+            if (declaration != null)
+            {
+                program.Declarations.Add(declaration);
+            }
+        }
+        return program;
+    }
+
+    private DeclarationNode ParseDeclaration()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        switch (CurrentToken.Type)
+        {
+            case TokenType.Card:
+                return ParseCardDeclaration();
+
+            case TokenType.Variable:
+                return ParseVariableDeclaration();
+            default:
+                throw new Exception($"Unexpected token type {CurrentToken.Type} at {location}");
+        }
+    }
+
+    private VariableDeclarationNode ParseVariableDeclaration()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+
+        var node = new VariableDeclarationNode
+        {
+            Location = location
+        };
+
+        if (CurrentToken.Type != TokenType.TypeIdentifier)
+            throw new Exception($"Expected type identifier at {location}");
+        
+        node.Type = CurrentToken.Value;
+        AdvanceToken();
+
+        if (CurrentToken.Type != TokenType.IDs)
+            throw new Exception($"Expected variable name at {location}");
+
+        node.VariableName = CurrentToken.Value;
+        AdvanceToken();
+
+        if (CurrentToken.Type == TokenType.Asignacion)
+        {
+            AdvanceToken();
+            node.InitialValue = ParseExpression();
+        }
+
+        if (CurrentToken.Type != TokenType.SemiColon)
+            throw new Exception($"Expected ';' at end of variable declaration at {location}");
+
+        AdvanceToken();
+        return node;
+    }
     
-//     public Expression<object> ParseIfStatement()
-//     {
-//         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+    private Expression<object> ParseAdditive()
+    {
+        var left = ParseMultiplicative();
 
-//         // Consume the 'if' token
-//         AdvanceToken();
+        while (CurrentToken != null && (CurrentToken.Type == TokenType.Mas || CurrentToken.Type == TokenType.Menos))
+        {
+            var operatorToken = CurrentToken;
+            AdvanceToken();
+            var right = ParseMultiplicative();
 
-//         // Parse the condition
-//         var condition = ParseExpression();
+            left = new BinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+        }
+        return left;
+    }
 
-//         // Expecting a '{' after the condition
-//         if (CurrentToken.Type != TokenType.LlaveAb)
-//             throw new Exception($"Expected '{{' after condition at {location}");
+    private Expression<object> ParseMultiplicative()
+    {
+        var left = ParsePrimary();
 
-//         // Parse the true branch (inside the braces)
-//         AdvanceToken(); // consume '{'
-//         var trueBranch = ParseStatement();
+        while (CurrentToken != null && (CurrentToken.Type == TokenType.Multiplicacion || CurrentToken.Type == TokenType.Division))
+        {
+            var operatorToken = CurrentToken;
+            AdvanceToken();
+            var right = ParsePrimary();
 
-//         // Expecting a '}' after the true branch
-//         if (CurrentToken.Type != TokenType.LlaveCer)
-//             throw new Exception($"Expected '}}' after true branch at {location}");
-//         AdvanceToken(); // consume '}'
+            left = new BinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+        }
 
-//         // Parse the false branch if 'else' is present
-//         Expression<object> falseBranch = null;
-//         if (CurrentToken.Type == TokenType.Else)
-//         {
-//             AdvanceToken(); // consume 'else'
+        return left;
+    }
 
-//             if (CurrentToken.Type != TokenType.LlaveAb)
-//                 throw new Exception($"Expected '{{' after 'else' at {location}");
+    private Expression<object> ParsePrimary()
+    {
+        if (CurrentToken.Type == TokenType.Number)
+        {
+            var value = Convert.ToDouble(CurrentToken.Value);
+            AdvanceToken();
+            return new LiteralExpression(value, new CodeLocation(CurrentToken.Line, CurrentToken.Column));
+        }
+        else if (CurrentToken.Type == TokenType.IDs)
+        {
+            var identifier = CurrentToken.Value;
+            AdvanceToken();
+            if (CurrentToken.Type == TokenType.ParAb)
+            {
+                return ParseFunctionCall();
+            }
+            return new VariableExpression(identifier, new Dictionary<string, ExpressionType>(), new CodeLocation(CurrentToken.Line, CurrentToken.Column));
+        }
+        else if (CurrentToken.Type == TokenType.ParAb)
+        {
+            AdvanceToken();
+            var expression = ParseExpression();
+            if (CurrentToken.Type != TokenType.ParCer)
+                throw new Exception($"Expected ')' after expression at {CurrentToken.Line}:{CurrentToken.Column}");
+            AdvanceToken();
+            return expression;
+        }
+        throw new Exception($"Unexpected token: {CurrentToken.Type}");
+    }
 
-//             AdvanceToken(); // consume '{'
-//             falseBranch = ParseStatement();
+    private Expression<object> ParseStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
 
-//             if (CurrentToken.Type != TokenType.LlaveCer)
-//                 throw new Exception($"Expected '}}' after false branch at {location}");
-//             AdvanceToken(); // consume '}'
-//         }
-//         return new ConditionalExpression(condition, trueBranch, falseBranch, location);
-//     }
+        switch (CurrentToken.Type)
+        {
+            case TokenType.If:
+                return ParseIfStatement();
+            case TokenType.While:
+                return ParseWhileStatement();
+            case TokenType.For:
+                return ParseForStatement();
+            case TokenType.Function:
+                return ParseFunctionDeclaration();
+            case TokenType.IDs:
+                if (Next.Type == TokenType.Asignacion)
+                {
+                    return ParseAssignment();
+                }
+                else if (Next.Type == TokenType.ParAb)
+                {
+                    return ParseFunctionCall();
+                }
+                else
+                {
+                    return ParseExpression();
+                }
+            case TokenType.Return:
+                return ParseReturnStatement();
+            case TokenType.Break:
+                return ParseBreakStatement();
+            case TokenType.Continue:
+                return ParseContinueStatement();
+            default:
+                throw new Exception($"Unexpected token: {CurrentToken.Type} at {location}");
+        }
+    }
 
-//     public Expression<object> ParseWhileStatement()
-//     {
-//         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+    private Expression<object> ParseAssignment()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
 
-//         // Consume the 'while' token
-//         AdvanceToken();
+        var variableName = CurrentToken.Value;
+        AdvanceToken();
 
-//         // Parse the condition
-//         var condition = ParseExpression();
+        if (CurrentToken.Type != TokenType.Asignacion)
+            throw new Exception($"Expected '=' after variable name at {location}");
+        AdvanceToken();
 
-//         // Expecting a '{' after the condition
-//         if (CurrentToken.Type != TokenType.LlaveAb)
-//             throw new Exception($"Expected '{{' after condition at {location}");
+        var value = ParseExpression();
 
-//         // Parse the body
-//         AdvanceToken(); // consume '{'
-//         var body = ParseStatement();
+        return new AssignmentExpression(variableName, value, location);
+    }
 
-//         // Expecting a '}' after the body
-//         if (CurrentToken.Type != TokenType.LlaveCer)
-//             throw new Exception($"Expected '}}' after body at {location}");
-//         AdvanceToken(); // consume '}'
+    private Expression<object> ParseReturnStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+        AdvanceToken();
+        var value = ParseExpression();
+        return new ReturnExpression(value, location);
+    }
 
-//         return new WhileLoopExpression(condition, body, location);
-//     }
+    private Expression<object> ParseBreakStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+        AdvanceToken();
+        return new BreakExpression(location);
+    }
 
-//     public Expression<object> ParseForStatement()
-//     {
-//         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+    private Expression<object> ParseContinueStatement()
+    {
+        var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
+        AdvanceToken();
+        return new ContinueExpression(location);
+    }
 
-//         // Consume the 'for' token
-//         AdvanceToken();
+    private DeclarationNode ParseCardDeclaration()
+    {
+        ExpectToken(TokenType.Keyword, "Card");
 
-//         // Parse the initialization statement
-//         var initialization = ParseExpression();
+        string cardName = ExpectToken(TokenType.String).Value;
 
-//         // Expect a semicolon
-//         if (CurrentToken.Type != TokenType.SemiColon)
-//             throw new Exception($"Expected ';' after initialization at {location}");
-//         AdvanceToken(); // consume ';'
+        ExpectToken(TokenType.Colon, "Faction");
+        string faction = ExpectToken(TokenType.String).Value;
+        if (!IsValidFaction(faction))
+        {
+            throw new ParseException($"Invalid faction: {faction}");
+        }
 
-//         // Parse the condition
-//         var condition = ParseExpression();
+        ExpectToken(TokenType.Colon, "Type");
+        string type = ExpectToken(TokenType.String).Value;
+        if (!IsValidType(type))
+        {
+            throw new ParseException($"Invalid type: {type}");
+        }
 
-//         // Expect another semicolon
-//         if (CurrentToken.Type != TokenType.SemiColon)
-//             throw new Exception($"Expected ';' after condition at {location}");
-//         AdvanceToken(); // consume ';'
+        ExpectToken(TokenType.Colon, "Range");
+        string range = ExpectToken(TokenType.String).Value;
+        if (!IsValidRange(range))
+        {
+            throw new ParseException($"Invalid range: {range}");
+        }
 
-//         // Parse the iteration statement
-//         var iteration = ParseExpression();
+        ExpectToken(TokenType.Colon, "Power");
+        int power = int.Parse(ExpectToken(TokenType.Number).Value);
 
-//         // Expecting a '{' after the iteration statement
-//         if (CurrentToken.Type != TokenType.LlaveAb)
-//             throw new Exception($"Expected '{{' after iteration at {location}");
+        return new DeclarationNode
+        {
+            Name = cardName,
+            Faction = faction,
+            Type = type,
+            Range = range,
+            Power = power
+        };
+    }
 
-//         // Parse the body
-//         AdvanceToken(); // consume '{'
-//         var body = ParseStatement();
+    private bool IsValidFaction(string faction)
+    {
+        return faction == "Mordor" || faction == "Comunidad del Anillo" || faction == "None";
+    }
 
-//         // Expecting a '}' after the body
-//         if (CurrentToken.Type != TokenType.LlaveCer)
-//             throw new Exception($"Expected '}}' after body at {location}");
-//         AdvanceToken(); // consume '}'
+    private bool IsValidType(string type)
+    {
+        return type == "Oro" || type == "Plata" || type == "Lider" || type == "Aumento" || type == "Clima";
+    }
 
-//         return new ForLoopExpression(initialization, condition, iteration, body, location);
-//     }
-
-//     public Expression<object> ParseFunctionDeclaration()
-//     {
-//         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
-
-//         // Consume the 'function' keyword
-//         AdvanceToken();
-
-//         // Expecting the function name
-//         if (CurrentToken.Type != TokenType.IDs)
-//             throw new Exception($"Expected function name at {location}");
-//         var functionName = CurrentToken.Value;
-//         AdvanceToken(); // consume function name
-
-//         // Expecting '(' after the function name
-//         if (CurrentToken.Type != TokenType.ParAb)
-//             throw new Exception($"Expected '(' after function name at {location}");
-//         AdvanceToken(); // consume '('
-
-//         // Parse parameters
-//         var parameters = new List<string>();
-//         while (CurrentToken.Type != TokenType.ParCer)
-//         {
-//             if (CurrentToken.Type != TokenType.IDs)
-//                 throw new Exception($"Expected parameter name at {location}");
-//             parameters.Add(CurrentToken.Value);
-//             AdvanceToken(); // consume parameter name
-
-//             if (CurrentToken.Type == TokenType.Comma)
-//             {
-//                 AdvanceToken(); // consume ','
-//             }
-//             else if (CurrentToken.Type != TokenType.ParCer)
-//             {
-//                 throw new Exception($"Expected ',' or ')' after parameter at {location}");
-//             }
-//         }
-//         AdvanceToken(); // consume ')'
-
-//         // Expecting '{' before the function body
-//         if (CurrentToken.Type != TokenType.LlaveAb)
-//             throw new Exception($"Expected '{{' before function body at {location}");
-//         AdvanceToken(); // consume '{'
-
-//         // Parse the function body
-//         var body = ParseStatement();
-
-//         // Expecting '}' after the function body
-//         if (CurrentToken.Type != TokenType.LlaveCer)
-//             throw new Exception($"Expected '}}' after function body at {location}");
-//         AdvanceToken(); // consume '}'
-
-//         return new FunctionDeclarationExpression(functionName, parameters, body, location);
-//     }
-
-//     public Expression<object> ParseFunctionCall()
-//     {
-//         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
-
-//         // Expecting the function name
-//         if (CurrentToken.Type != TokenType.IDs)
-//             throw new Exception($"Expected function name at {location}");
-//         var functionName = CurrentToken.Value;
-//         AdvanceToken(); // consume function name
-
-//         // Expecting '(' after the function name
-//         if (CurrentToken.Type != TokenType.ParAb)
-//             throw new Exception($"Expected '(' after function name at {location}");
-//         AdvanceToken(); // consume '('
-
-//         // Parse arguments
-//         var arguments = new List<Expression<object>>();
-//         while (CurrentToken.Type != TokenType.ParCer)
-//         {
-//             arguments.Add(ParseExpression());
-
-//             if (CurrentToken.Type == TokenType.Comma)
-//             {
-//                 AdvanceToken(); // consume ','
-//             }
-//             else if (CurrentToken.Type != TokenType.ParCer)
-//             {
-//                 throw new Exception($"Expected ',' or ')' after argument at {location}");
-//             }
-//         }
-//         AdvanceToken(); // consume ')'
-
-//         return new FunctionCallExpression(functionName, arguments, location);
-//     }
-
-//     private Expression<object> ParseComparison()
-//     {
-//         var left = ParseAdditive(); // assuming ParseAdditive handles +, - operations
-
-//         while (IsComparisonOperator(CurrentToken.Type))
-//         {
-//             var operatorToken = CurrentToken;
-//             AdvanceToken();
-
-//             var right = ParseAdditive();
-
-//             switch (operatorToken.Type)
-//             {
-//                 case TokenType.MajorSign:
-//                     left = new GreaterThanExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//                 case TokenType.MinorSign:
-//                     left = new LessThanExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//                 case TokenType.Equal:
-//                     left = new EqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//                 case TokenType.MajorEqual:
-//                     left = new GreaterThanOrEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//                 case TokenType.MinorEqual:
-//                     left = new LessThanOrEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//                 case TokenType.Desigual:
-//                     left = new NotEqualExpression(left, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
-//                     break;
-//             }
-//         }
-//         return left;
-//     }
-
-//     private bool IsComparisonOperator(TokenType tokenType)
-//     {
-//         return tokenType == TokenType.MajorSign ||
-//                tokenType == TokenType.MinorSign ||
-//                tokenType == TokenType.Equal ||
-//                tokenType == TokenType.MajorEqual ||
-//                tokenType == TokenType.MinorEqual ||
-//                tokenType == TokenType.Desigual;
-//     }
-    
-//     public ProgramNode Parse()
-//     {
-//         var program = new ProgramNode();
-
-//         while (Current.Type != TokenType.EOF)
-//         {
-//             var declaration = ParseDeclaration();
-//             if (declaration != null)
-//             {
-//                 program.Declarations.Add(declaration);
-//             }
-//         }
-//         return program;
-//     }
-
-//     private DeclarationNode ParseDeclaration()
-//     {
-//         if (Current.Type == TokenType.Card)
-//         {
-//             return ParseCardDeclaration();
-//         }
-//         return null;
-//     }
-
-//     private VariableDeclarationNode ParseVariableDeclaration()
-//     {
-//         var node = new VariableDeclarationNode
-//         {
-//             Location = new CodeLocation(Current.Line, Current.Column)
-//         };
-
-//         return node;
-//     }
-
-// }
+    private bool IsValidRange(string range)
+    {
+        return range == "Melee" || range == "Ranged" || range == "Siege";
+    }
+}

@@ -6,7 +6,6 @@ public class Lexer
     private int _position;
     private int _line;
     private int _column;
-    private bool _insidestring = false;
     public List<LexError> Errors {get;}
 
     public Lexer(string input)

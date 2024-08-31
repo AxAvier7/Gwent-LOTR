@@ -3,6 +3,8 @@ using Tookeen2;
 using Read;
 using System.Collections.Generic;
 
+namespace XP
+{
 #region Condiciones
 public class ConditionalExpression : Expression<object>
 {
@@ -184,6 +186,175 @@ public class WhileLoopExpression : Expression<object>
     public override CodeLocation Location { get; protected set; }
 }
 
+public class ForLoopExpression : Expression<object>
+{
+    public Expression<object> Initialization { get; }
+    public Expression<object> Condition { get; }
+    public Expression<object> Iteration { get; }
+    public Expression<object> Body { get; }
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.ForLoop;
+
+    public ForLoopExpression(Expression<object> initialization, Expression<object> condition, Expression<object> iteration, Expression<object> body, CodeLocation location)
+    {
+        Initialization = initialization;
+        Condition = condition;
+        Iteration = iteration;
+        Body = body;
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+
+        if (!Initialization.RevSemantica(out var initErrors))
+            errors.AddRange(initErrors);
+
+        if (!Condition.RevSemantica(out var condErrors))
+            errors.AddRange(condErrors);
+
+        if (!Iteration.RevSemantica(out var iterErrors))
+            errors.AddRange(iterErrors);
+
+        if (!Body.RevSemantica(out var bodyErrors))
+            errors.AddRange(bodyErrors);
+
+        return errors.Count == 0;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return null;
+    }
+
+    public override string ToString()
+    {
+        return $"for ({Initialization}; {Condition}; {Iteration}) {{ {Body} }}";
+    }
+}
+
+public class ContinueExpression : Expression<object>
+{
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.Continue;
+
+    public ContinueExpression(CodeLocation location)
+    {
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+        return true;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return null;
+    }
+
+    public override string ToString()
+    {
+        return "continue";
+    }
+}
+
+
+public class BreakExpression : Expression<object>
+{
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.Break;
+
+    public BreakExpression(CodeLocation location)
+    {
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+        return true;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return null;
+    }
+
+    public override string ToString()
+    {
+        return "break";
+    }
+}
+
+public class ReturnExpression : Expression<object>
+{
+    public Expression<object> Value { get; }
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.Return;
+
+    public ReturnExpression(Expression<object> value, CodeLocation location)
+    {
+        Value = value;
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+        return true;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return Value.Interpret();
+    }
+
+    public override string ToString()
+    {
+        return $"return {Value}";
+    }
+}
+
+
 #endregion Ciclos
 
 #region Funciones
@@ -256,4 +427,96 @@ public class FunctionDeclarationExpression : Expression<object>
     public override CodeLocation Location { get; protected set; }
 }
 
+public class FunctionCallExpression : Expression<object>
+{
+    public string FunctionName { get; }
+    public List<Expression<object>> Arguments { get; }
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.FunctionCall;
+
+    public FunctionCallExpression(string functionName, List<Expression<object>> arguments, CodeLocation location)
+    {
+        FunctionName = functionName;
+        Arguments = arguments;
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+
+        foreach (var argument in Arguments)
+        {
+            if (!argument.RevSemantica(out var argErrors))
+                errors.AddRange(argErrors);
+        }
+
+        return errors.Count == 0;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return null;
+    }
+
+    public override string ToString()
+    {
+        var args = string.Join(", ", Arguments);
+        return $"{FunctionName}({args})";
+    }
+}
+
 #endregion Funciones
+
+#region Asignacion
+public class AssignmentExpression : Expression<object>
+{
+    public string VariableName { get; }
+    public Expression<object> Value { get; }
+    public override CodeLocation Location { get; protected set; }
+    public override ExpressionType Return => ExpressionType.Assignment;
+
+    public AssignmentExpression(string variableName, Expression<object> value, CodeLocation location)
+    {
+        VariableName = variableName;
+        Value = value;
+        Location = location;
+    }
+
+    public override bool RevSemantica(out List<string> errors)
+    {
+        errors = new List<string>();
+        return true;
+    }
+
+    public override bool SemanticRevision(out string error)
+    {
+        var errors = new List<string>();
+        bool valid = RevSemantica(out errors);
+
+        error = errors.Count > 0 ? string.Join(", ", errors) : null;
+        return valid;
+    }
+
+    public override object Interpret()
+    {
+        return null;
+    }
+
+    public override string ToString()
+    {
+        return $"{VariableName} = {Value}";
+    }
+}
+#endregion Asignacion
+
+}

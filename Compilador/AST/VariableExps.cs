@@ -1,6 +1,8 @@
 using Tookeen;
 using System.Collections.Generic;
 
+namespace VariableExp
+{
 public class VariableExpression : Expression<object>
 {
     public string Name { get; }
@@ -45,4 +47,5 @@ public class VariableExpression : Expression<object>
     public override string ToString() => Name;
 
     public override CodeLocation Location { get; protected set; }
+}
 }
