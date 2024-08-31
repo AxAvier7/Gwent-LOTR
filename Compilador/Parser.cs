@@ -30,26 +30,27 @@ public class Parser
             AdvanceToken();
 
             var right = ParseComparison();
+            var location = new Tookeen.CodeLocation(operatorToken.Line, operatorToken.Column); // Cambiado a Tookeen.CodeLocation
 
             switch (operatorToken.Type)
             {
                 case TokenType.And:
-                    expression = new LogicalAndExpression(expression, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    expression = new LogicalAndExpression(expression, right, location);
                     break;
                 case TokenType.Or:
-                    expression = new LogicalOrExpression(expression, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+                    expression = new LogicalOrExpression(expression, right, location);
                     break;
             }
         }
         return expression;
     }
 
+
     public class LogicalAndExpression : Expression<object>
     {
         public Expression<object> Left { get; }
         public Expression<object> Right { get; }
-        public override ExpressionType Return => ExpressionType.LogicalAnd;
-        public override CodeLocation Location { get; protected set; }
+        public override CodeLocation Location { get; set; }
 
         public LogicalAndExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         {
@@ -57,7 +58,6 @@ public class Parser
             Right = right;
             Location = location;
         }
-
         public override bool RevSemantica(out List<string> errors)
         {
             errors = new List<string>();
@@ -103,8 +103,7 @@ public class Parser
     {
         public Expression<object> Left { get; }
         public Expression<object> Right { get; }
-        public override ExpressionType Return => ExpressionType.LogicalOr;
-        public override CodeLocation Location { get; protected set; }
+        public override CodeLocation Location { get; set; }
 
         public LogicalOrExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         {
@@ -155,6 +154,7 @@ public class Parser
         }
     }
 
+#region Ciclos
     public Expression<object> ParseIfStatement()
     {
         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
@@ -245,6 +245,7 @@ public class Parser
         return new ForLoopExpression(initialization, condition, iteration, body, location);
     }
 
+#endregion Ciclos
     public Expression<object> ParseFunctionDeclaration()
     {
         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
@@ -370,7 +371,7 @@ public class Parser
                tokenType == TokenType.Desigual;
     }
 
-    public ProgramNode Parse()
+    public Tookeen2.ProgramNode Parse()
     {
         var program = new ProgramNode();
 
@@ -445,7 +446,7 @@ public class Parser
             AdvanceToken();
             var right = ParseMultiplicative();
 
-            left = new BinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+            left = new ConcreteBinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
         }
         return left;
     }
@@ -460,7 +461,7 @@ public class Parser
             AdvanceToken();
             var right = ParsePrimary();
 
-            left = new BinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+            left = new ConcreteBinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
         }
 
         return left;
@@ -578,28 +579,28 @@ public class Parser
 
         string cardName = ExpectToken(TokenType.String).Value;
 
-        ExpectToken(TokenType.Colon, "Faction");
+        ExpectToken(TokenType.TwoPoints, "Faction");
         string faction = ExpectToken(TokenType.String).Value;
         if (!IsValidFaction(faction))
         {
             throw new ParseException($"Invalid faction: {faction}");
         }
 
-        ExpectToken(TokenType.Colon, "Type");
+        ExpectToken(TokenType.TwoPoints, "Type");
         string type = ExpectToken(TokenType.String).Value;
         if (!IsValidType(type))
         {
             throw new ParseException($"Invalid type: {type}");
         }
 
-        ExpectToken(TokenType.Colon, "Range");
+        ExpectToken(TokenType.TwoPoints, "Range");
         string range = ExpectToken(TokenType.String).Value;
         if (!IsValidRange(range))
         {
             throw new ParseException($"Invalid range: {range}");
         }
 
-        ExpectToken(TokenType.Colon, "Power");
+        ExpectToken(TokenType.TwoPoints, "Power");
         int power = int.Parse(ExpectToken(TokenType.Number).Value);
 
         return new DeclarationNode
@@ -626,4 +627,32 @@ public class Parser
     {
         return range == "Melee" || range == "Ranged" || range == "Siege";
     }
+
+    public class DeclarationNode
+    {
+        public string Name { get; set; }
+        public string Faction { get; set; }
+        public string Type { get; set; }
+        public string Range { get; set; }
+        public int Power { get; set; }
+    }
+
+
+    private Token ExpectToken(TokenType expectedType, string expectedValue = null)
+    {
+        if (CurrentToken.Type != expectedType || (expectedValue != null && CurrentToken.Value != expectedValue))
+        {
+            throw new ParseException($"Expected {expectedType} token with value '{expectedValue}', but found {CurrentToken.Type} with value '{CurrentToken.Value}'.");
+        }
+
+        Token token = CurrentToken;
+        AdvanceToken();
+        return token;
+    }
+
+    public class ParseException : Exception
+    {
+        public ParseException(string message) : base(message) { }
+    }
+
 }

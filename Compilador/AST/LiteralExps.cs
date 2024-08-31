@@ -11,7 +11,7 @@ public class LiteralExpression : Expression<object>
         Location = location;
     }
 
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
 
     public override bool RevSemantica(out List<string> errors)
     {

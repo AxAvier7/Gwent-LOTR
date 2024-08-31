@@ -46,6 +46,6 @@ public class VariableExpression : Expression<object>
 
     public override string ToString() => Name;
 
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
 }
 }

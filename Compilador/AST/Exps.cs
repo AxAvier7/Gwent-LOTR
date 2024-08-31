@@ -100,7 +100,7 @@ public class ConditionalExpression : Expression<object>
     public override string ToString() =>
         $"if ({Condition}) {{ {TrueBranch} }}" + (FalseBranch != null ? $" else {{ {FalseBranch} }}" : string.Empty);
 
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
 }
 #endregion Condiciones
 
@@ -183,7 +183,7 @@ public class WhileLoopExpression : Expression<object>
         return $"while ({Condition}) {{ {Body} }}";
     }
 
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
 }
 
 public class ForLoopExpression : Expression<object>
@@ -192,7 +192,7 @@ public class ForLoopExpression : Expression<object>
     public Expression<object> Condition { get; }
     public Expression<object> Iteration { get; }
     public Expression<object> Body { get; }
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.ForLoop;
 
     public ForLoopExpression(Expression<object> initialization, Expression<object> condition, Expression<object> iteration, Expression<object> body, CodeLocation location)
@@ -245,7 +245,7 @@ public class ForLoopExpression : Expression<object>
 
 public class ContinueExpression : Expression<object>
 {
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.Continue;
 
     public ContinueExpression(CodeLocation location)
@@ -282,7 +282,7 @@ public class ContinueExpression : Expression<object>
 
 public class BreakExpression : Expression<object>
 {
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.Break;
 
     public BreakExpression(CodeLocation location)
@@ -319,7 +319,7 @@ public class BreakExpression : Expression<object>
 public class ReturnExpression : Expression<object>
 {
     public Expression<object> Value { get; }
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.Return;
 
     public ReturnExpression(Expression<object> value, CodeLocation location)
@@ -424,14 +424,14 @@ public class FunctionDeclarationExpression : Expression<object>
         return $"function {Name}({parameters}) {{ {Body} }}";
     }
 
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
 }
 
 public class FunctionCallExpression : Expression<object>
 {
     public string FunctionName { get; }
     public List<Expression<object>> Arguments { get; }
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.FunctionCall;
 
     public FunctionCallExpression(string functionName, List<Expression<object>> arguments, CodeLocation location)
@@ -482,7 +482,7 @@ public class AssignmentExpression : Expression<object>
 {
     public string VariableName { get; }
     public Expression<object> Value { get; }
-    public override CodeLocation Location { get; protected set; }
+    public override CodeLocation Location { get; set; }
     public override ExpressionType Return => ExpressionType.Assignment;
 
     public AssignmentExpression(string variableName, Expression<object> value, CodeLocation location)

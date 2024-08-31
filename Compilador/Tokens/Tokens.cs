@@ -17,11 +17,23 @@
     public abstract class Expression<T>
     {
         public abstract ExpressionType Return { get; }
-        public abstract CodeLocation Location { get; protected set; }
+        public abstract CodeLocation Location { get; set; }
         public abstract bool RevSemantica(out List<string> errors);
         public abstract bool SemanticRevision(out string error);
         public abstract T Interpret();
         public abstract override string ToString();
+
+         public class CodeLocation
+        {
+            public CodeLocation(int line, int column)
+            {
+                Line = line;
+                Column = column;
+            }
+
+            public int Line { get; }
+            public int Column { get; }
+        }
     }
 
     public class Token
@@ -34,7 +46,7 @@
         public Token(TokenType type, string value, int line, int column)
         {
             Type = type;
-            Value = value;
+            Value = type.ToString();;
             Line = line;
             Column = column;
         }
@@ -146,7 +158,7 @@
 
         //Brackets
         ParAb,    ParCer,    CorAb,    CorCer,
-        LlaveAb,    LlaveCer,
+        LlaveAb,    LlaveCer, Keyword,
 
         //Operadores
         Mas,    Menos,  Multiplicacion, Division, //+ - * /

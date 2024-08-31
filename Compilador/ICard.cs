@@ -46,3 +46,22 @@
 
         public List<EfectoDeclarado> Effects { get; }
     }
+
+    public class EfectoDeclarado
+    {
+        public string Name { get; }
+        public Dictionary<string, object> Params { get; }
+        public Action<List<ICard>, object> Action { get; }
+
+        public EfectoDeclarado(string name, Dictionary<string, object> parameters, Action<List<ICard>, object> action)
+        {
+            Name = name;
+            Params = parameters;
+            Action = action;
+        }
+
+        public void Execute(List<ICard> targets, object context)
+        {
+            Action(targets, context);
+        }
+    }

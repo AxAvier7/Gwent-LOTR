@@ -1,21 +1,23 @@
 using Tookeen;
 using Read;
 using Tookeen2;
+using XP;
 
 namespace Bops{
 public abstract class BinaryExpression : Expression<object>
 {
     public Expression<object> Left { get; }
+    public Token OperatorToken { get; }
     public Expression<object> Right { get; }
+    // public CodeLocation Location { get; set; }
 
-    protected BinaryExpression(Expression<object> left, Expression<object> right, CodeLocation location)
+    public BinaryExpression(Expression<object> left, Token operatorToken, Expression<object> right, CodeLocation location)
     {
         Left = left;
+        OperatorToken = operatorToken;
         Right = right;
         Location = location;
     }
-
-    public override CodeLocation Location {get; protected set;}
 
     public override bool RevSemantica(out List<string> errors)
     {
@@ -49,8 +51,7 @@ public abstract class BinaryExpression : Expression<object>
 
     public abstract override object Interpret();
 
-    public override ExpressionType Return => ExpressionType.Number;
-
+    public override ExpressionType Return => ExpressionType.Null;
     public override string ToString() => $"({Left} {GetOperatorSymbol()} {Right})";
 
     protected abstract string GetOperatorSymbol();
@@ -60,11 +61,13 @@ public abstract class BinaryExpression : Expression<object>
 public class BooleanExp : BinaryExpression
 {
     public TokenType Operator { get; }
+    public override CodeLocation Location { get; set; }
 
     public BooleanExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, right, location)
+        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
+        Location = location; // Implementación concreta de Location
     }
 
     protected override string GetOperatorSymbol()
@@ -74,23 +77,17 @@ public class BooleanExp : BinaryExpression
 
     public override object Interpret()
     {
-        var leftValue = Left;
-        var rightValue = Right;
-        switch (Operator)
+        var leftValue = (bool)Left.Interpret();
+        var rightValue = (bool)Right.Interpret();
+        return Operator switch
         {
-            case TokenType.And:
-                return (bool)leftValue.Interpret() && (bool)rightValue.Interpret();
-            case TokenType.Or:
-                return (bool)leftValue.Interpret() || (bool)rightValue.Interpret();
-            default:
-                throw new InvalidOperationException($"Unsupported operator: {Operator}");
-                return null;
-        }
+            TokenType.And => leftValue && rightValue,
+            TokenType.Or => leftValue || rightValue,
+            _ => throw new InvalidOperationException($"Unsupported operator: {Operator}")
+        };
     }
 
-    public override ExpressionType Return => Operator == TokenType.And || Operator == TokenType.Or 
-        ? ExpressionType.Boolean : ExpressionType.Null;
-    
+    public override ExpressionType Return => ExpressionType.Boolean;
     public override string ToString() => $"({Left} {Operator} {Right})";
 }
 
@@ -100,11 +97,13 @@ public class BooleanExp : BinaryExpression
 public class MathematicExp : BinaryExpression
 {
     public TokenType Operator { get; }
+    public override CodeLocation Location { get; set; }
 
     public MathematicExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, right, location)
+        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
+        Location = location; // Implementación concreta de Location
     }
 
     protected override string GetOperatorSymbol()
@@ -116,29 +115,19 @@ public class MathematicExp : BinaryExpression
     {
         var leftValue = Convert.ToDouble(Left.Interpret());
         var rightValue = Convert.ToDouble(Right.Interpret());
-        switch (Operator)
+        return Operator switch
         {
-            case TokenType.Mas:
-                return leftValue + rightValue;
-            case TokenType.Menos:
-                return leftValue - rightValue;
-            case TokenType.Multiplicacion:
-                return leftValue * rightValue;
-            case TokenType.Division:
-                return leftValue / rightValue;
-            case TokenType.MasIgual:
-                return leftValue += rightValue;
-            case TokenType.MenosIgual:
-                return leftValue -= rightValue;
-            case TokenType.MultiplicacionIgual:
-                return leftValue *= rightValue;
-            case TokenType.DivisionIgual:
-                return leftValue /= rightValue;
-            case TokenType.Pow:
-                return Math.Pow(leftValue, rightValue);
-            default:
-                throw new InvalidOperationException($"Unsupported operator: {Operator}");
-        }
+            TokenType.Mas => leftValue + rightValue,
+            TokenType.Menos => leftValue - rightValue,
+            TokenType.Multiplicacion => leftValue * rightValue,
+            TokenType.Division => leftValue / rightValue,
+            TokenType.MasIgual => leftValue += rightValue,
+            TokenType.MenosIgual => leftValue -= rightValue,
+            TokenType.MultiplicacionIgual => leftValue *= rightValue,
+            TokenType.DivisionIgual => leftValue /= rightValue,
+            TokenType.Pow => Math.Pow(leftValue, rightValue),
+            _ => throw new InvalidOperationException($"Unsupported operator: {Operator}")
+        };
     }
 
     public override ExpressionType Return => Operator == TokenType.Mas || Operator == TokenType.Menos 
@@ -150,17 +139,20 @@ public class MathematicExp : BinaryExpression
     public override string ToString() => $"({Left} {Operator} {Right})";
 }
 
+
 #endregion Math
 
 #region Literales
 public class StringBuildingExp : BinaryExpression
 {
     public TokenType Operator { get; }
+    public override CodeLocation Location { get; set; } // Implementación de Location
 
     public StringBuildingExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, right, location)
+        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
+        Location = location; // Asignación del valor a Location
     }
 
     protected override string GetOperatorSymbol()
@@ -170,34 +162,31 @@ public class StringBuildingExp : BinaryExpression
 
     public override object Interpret()
     {
-        if (Operator == TokenType.StringConcat)
+        var leftValue = Left.Interpret().ToString();
+        var rightValue = Right.Interpret().ToString();
+        return Operator switch
         {
-            var leftValue = Left.Interpret().ToString();
-            var rightValue = Right.Interpret().ToString();
-            return leftValue + " " + rightValue;
-        }
-        if (Operator == TokenType.Arroba)
-        {
-            var leftValue = Left.Interpret().ToString();
-            var rightValue = Right.Interpret().ToString();
-            return leftValue + rightValue;
-        }
-        else return null;
+            TokenType.StringConcat => leftValue + " " + rightValue,
+            TokenType.Arroba => leftValue + rightValue,
+            _ => null
+        };
     }
 
-    public override ExpressionType Return => Operator == TokenType.Arroba || Operator == TokenType.StringConcat 
-        ? ExpressionType.Literal : ExpressionType.Null;
-    
+    public override ExpressionType Return => ExpressionType.Literal;    
     public override string ToString() => $"({Left} {Operator} {Right})";
 }
-
 #endregion Literales
 
 #region Comparadores
 public class GreaterThanExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public GreaterThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.MajorSign, ">", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {
@@ -214,8 +203,13 @@ public class GreaterThanExpression : BinaryExpression
 
 public class LessThanExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public LessThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.MinorSign, "<", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {
@@ -232,8 +226,13 @@ public class LessThanExpression : BinaryExpression
 
 public class EqualExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public EqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.Equal, "==", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {
@@ -250,8 +249,13 @@ public class EqualExpression : BinaryExpression
 
 public class GreaterThanOrEqualExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public GreaterThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.MajorEqual, ">=", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {
@@ -268,8 +272,13 @@ public class GreaterThanOrEqualExpression : BinaryExpression
 
 public class LessThanOrEqualExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public LessThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.MinorEqual, "<=", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {
@@ -286,8 +295,13 @@ public class LessThanOrEqualExpression : BinaryExpression
 
 public class NotEqualExpression : BinaryExpression
 {
+    public override CodeLocation Location { get; set; } // Implementación de Location
+
     public NotEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, right, location) { }
+        : base(left, new Token(TokenType.Desigual, "!=", location.Line, location.Column), right, location)
+    {
+        Location = location; // Asignación del valor a Location
+    }
 
     public override object Interpret()
     {

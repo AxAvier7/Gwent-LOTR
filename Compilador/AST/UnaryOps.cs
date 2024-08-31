@@ -1,12 +1,14 @@
 using Read;
 using Tookeen;
 using Tookeen2;
+using Bops;
+
 public class UnaryOperationExpression : Expression<object>
 {
     public Expression<object> Operand { get; }
     public TokenType Operator { get; }
-
-    public override CodeLocation Location { get; protected set; }
+    
+    public override CodeLocation Location { get; set; }
 
     public UnaryOperationExpression(Expression<object> operand, TokenType op, CodeLocation location)
     {
