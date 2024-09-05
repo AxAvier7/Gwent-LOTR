@@ -67,7 +67,7 @@ public class BooleanExp : BinaryExpression
         : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
-        Location = location; // Implementación concreta de Location
+        Location = location;
     }
 
     protected override string GetOperatorSymbol()
@@ -103,7 +103,7 @@ public class MathematicExp : BinaryExpression
         : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
-        Location = location; // Implementación concreta de Location
+        Location = location;
     }
 
     protected override string GetOperatorSymbol()
@@ -146,13 +146,13 @@ public class MathematicExp : BinaryExpression
 public class StringBuildingExp : BinaryExpression
 {
     public TokenType Operator { get; }
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public StringBuildingExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
         : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
     {
         Operator = op;
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     protected override string GetOperatorSymbol()
@@ -180,12 +180,12 @@ public class StringBuildingExp : BinaryExpression
 #region Comparadores
 public class GreaterThanExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public GreaterThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.MajorSign, ">", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()
@@ -203,12 +203,12 @@ public class GreaterThanExpression : BinaryExpression
 
 public class LessThanExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public LessThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.MinorSign, "<", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()
@@ -226,12 +226,12 @@ public class LessThanExpression : BinaryExpression
 
 public class EqualExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public EqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.Equal, "==", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()
@@ -249,12 +249,12 @@ public class EqualExpression : BinaryExpression
 
 public class GreaterThanOrEqualExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public GreaterThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.MajorEqual, ">=", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()
@@ -272,12 +272,12 @@ public class GreaterThanOrEqualExpression : BinaryExpression
 
 public class LessThanOrEqualExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public LessThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.MinorEqual, "<=", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()
@@ -295,12 +295,12 @@ public class LessThanOrEqualExpression : BinaryExpression
 
 public class NotEqualExpression : BinaryExpression
 {
-    public override CodeLocation Location { get; set; } // Implementación de Location
+    public override CodeLocation Location { get; set; }
 
     public NotEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         : base(left, new Token(TokenType.Desigual, "!=", location.Line, location.Column), right, location)
     {
-        Location = location; // Asignación del valor a Location
+        Location = location;
     }
 
     public override object Interpret()

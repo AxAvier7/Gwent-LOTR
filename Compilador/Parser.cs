@@ -30,7 +30,7 @@ public class Parser
             AdvanceToken();
 
             var right = ParseComparison();
-            var location = new Tookeen.CodeLocation(operatorToken.Line, operatorToken.Column); // Cambiado a Tookeen.CodeLocation
+            var location = new Tookeen.CodeLocation(operatorToken.Line, operatorToken.Column);
 
             switch (operatorToken.Type)
             {
