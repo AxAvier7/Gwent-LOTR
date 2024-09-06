@@ -1,4 +1,6 @@
-﻿namespace Tookeen
+﻿using Tookeen2;
+
+namespace Tookeen
 {
     public class CodeLocation
     {
@@ -18,11 +20,10 @@
         }
     }
     
-    public abstract class Expression<T>
+    public abstract class Expression<T> : ExpressionNode
     {
         public abstract ExpressionType Return { get; }
         public abstract Tookeen.CodeLocation Location { get; set; }
-        // public abstract CodeLocation Location { get; set; }
         public abstract bool RevSemantica(out List<string> errors);
         public abstract bool SemanticRevision(out string error);
         public abstract T Interpret();
@@ -39,7 +40,7 @@
         public Token(TokenType type, string value, int line, int column)
         {
             Type = type;
-            Value = type.ToString();;
+            Value = value.ToString();;
             Line = line;
             Column = column;
         }
@@ -189,4 +190,8 @@
         Continue, Break, Return
     }
 
+    public enum ParamType
+    {
+        Number,        String,        Bool
+    }
 }

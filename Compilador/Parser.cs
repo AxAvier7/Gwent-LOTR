@@ -537,7 +537,7 @@ public class Parser
     }
 
     #endregion Operaciones
-    
+
     #region Cartas
     private CardDeclarationNode ParseCardDeclaration()
     {
@@ -657,11 +657,26 @@ public class Parser
         if (CurrentToken.Type == TokenType.Asignacion)
         {
             AdvanceToken();
-            initialValue = ParseExpression();
+            var expression = ParseExpression();
+            initialValue = ExpressionConverter.ConvertToExpressionNode(expression);
         }
 
         return new Tookeen2.VariableDeclarationNode(variableName, type, initialValue, location);
     }
+
+    public static class ExpressionConverter
+    {
+        public static Tookeen2.ExpressionNode ConvertToExpressionNode(Tookeen.Expression<object> expression)
+        {
+            if (expression is Tookeen2.ExpressionNode expressionNode)
+            {
+                return expressionNode;
+            }
+
+            throw new InvalidCastException("Cannot convert Expression<object> to ExpressionNode.");
+        }
+    }
+
     
     private Token ExpectToken(TokenType expectedType, string expectedValue = null)
     {

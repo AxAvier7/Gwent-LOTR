@@ -1,5 +1,6 @@
 using Tookeen;
 using System.Text;
+
 public class Lexer
 {
     private readonly string _input;
