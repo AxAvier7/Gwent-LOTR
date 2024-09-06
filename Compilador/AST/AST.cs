@@ -21,9 +21,18 @@ namespace Tookeen2
     // Para declarar variables
     public class VariableDeclarationNode : DeclarationNode
     {
-        public string VariableName { get; set; }
-        public string Type { get; set; }
-        public ExpressionNode InitialValue { get; set; }
+        public string VariableName { get; }
+        public string Type { get; }
+        public ExpressionNode InitialValue { get; }
+        public CodeLocation Location { get; }
+
+        public VariableDeclarationNode(string variableName, string type, ExpressionNode initialValue, CodeLocation location)
+        {
+            VariableName = variableName;
+            Type = type;
+            InitialValue = initialValue;
+            Location = location;
+        }
     }
 
     // Para declarar funciones

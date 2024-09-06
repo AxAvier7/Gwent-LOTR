@@ -2,38 +2,31 @@
 {
     public class CodeLocation
     {
-        public int Line { get; }
-        public int Column { get; }
-
         public CodeLocation(int line, int column)
         {
             Line = line;
             Column = column;
         }
 
-        public override string ToString() => $"Line: {Line}, Column: {Column}";
+        public int Line { get; }
+        public int Column { get; }
+
+        public CodeLocation(Tookeen.CodeLocation tookeenLocation)
+        {
+            Line = tookeenLocation.Line;
+            Column = tookeenLocation.Column;
+        }
     }
     
     public abstract class Expression<T>
     {
         public abstract ExpressionType Return { get; }
-        public abstract CodeLocation Location { get; set; }
+        public abstract Tookeen.CodeLocation Location { get; set; }
+        // public abstract CodeLocation Location { get; set; }
         public abstract bool RevSemantica(out List<string> errors);
         public abstract bool SemanticRevision(out string error);
         public abstract T Interpret();
         public abstract override string ToString();
-
-         public class CodeLocation
-        {
-            public CodeLocation(int line, int column)
-            {
-                Line = line;
-                Column = column;
-            }
-
-            public int Line { get; }
-            public int Column { get; }
-        }
     }
 
     public class Token

@@ -3,7 +3,8 @@ using Read;
 using Tookeen2;
 using XP;
 
-namespace Bops{
+namespace Bops
+{
 public abstract class BinaryExpression : Expression<object>
 {
     public Expression<object> Left { get; }

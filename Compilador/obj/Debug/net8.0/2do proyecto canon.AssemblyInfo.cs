@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("2do proyecto canon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1ca4f18c0cc665a7563dc32d98adde7216668fc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3c69dee24ddea2df73eaf1eb4a68f217a1ddd05")]
 [assembly: System.Reflection.AssemblyProductAttribute("2do proyecto canon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("2do proyecto canon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

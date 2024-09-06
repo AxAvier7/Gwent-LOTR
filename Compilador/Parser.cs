@@ -22,6 +22,11 @@ public class Parser
 
     private Expression<object> ParseExpression()
     {
+        return ParseLogicalExpression();
+    }
+    
+    private Expression<object> ParseLogicalExpression()
+    {
         var expression = ParseComparison();
 
         while (CurrentToken != null && (CurrentToken.Type == TokenType.And || CurrentToken.Type == TokenType.Or))
@@ -52,12 +57,15 @@ public class Parser
         public Expression<object> Right { get; }
         public override CodeLocation Location { get; set; }
 
+        public override ExpressionType Return => ExpressionType.Boolean;
+
         public LogicalAndExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         {
             Left = left;
             Right = right;
             Location = location;
         }
+
         public override bool RevSemantica(out List<string> errors)
         {
             errors = new List<string>();
@@ -104,6 +112,8 @@ public class Parser
         public Expression<object> Left { get; }
         public Expression<object> Right { get; }
         public override CodeLocation Location { get; set; }
+
+        public override ExpressionType Return => ExpressionType.Boolean;
 
         public LogicalOrExpression(Expression<object> left, Expression<object> right, CodeLocation location)
         {
@@ -154,7 +164,7 @@ public class Parser
         }
     }
 
-#region Ciclos
+    #region Ciclos
     public Expression<object> ParseIfStatement()
     {
         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
@@ -190,6 +200,7 @@ public class Parser
         }
         return new ConditionalExpression(condition, trueBranch, falseBranch, location);
     }
+
 
     public Expression<object> ParseWhileStatement()
     {
@@ -386,7 +397,7 @@ public class Parser
         return program;
     }
 
-    private DeclarationNode ParseDeclaration()
+    private Tookeen2.DeclarationNode ParseDeclaration()
     {
         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
 
@@ -394,7 +405,6 @@ public class Parser
         {
             case TokenType.Card:
                 return ParseCardDeclaration();
-
             case TokenType.Variable:
                 return ParseVariableDeclaration();
             default:
@@ -402,40 +412,33 @@ public class Parser
         }
     }
 
-    private VariableDeclarationNode ParseVariableDeclaration()
+    private Tookeen2.VariableDeclarationNode ParseVariableDeclaration()
     {
         var location = new CodeLocation(CurrentToken.Line, CurrentToken.Column);
 
-        var node = new VariableDeclarationNode
-        {
-            Location = location
-        };
+        if (CurrentToken.Type != TokenType.Variable)
+            throw new Exception($"Expected 'Variable' declaration at {location}");
 
-        if (CurrentToken.Type != TokenType.TypeIdentifier)
-            throw new Exception($"Expected type identifier at {location}");
-        
-        node.Type = CurrentToken.Value;
+        var variableName = CurrentToken.Value;
         AdvanceToken();
 
-        if (CurrentToken.Type != TokenType.IDs)
-            throw new Exception($"Expected variable name at {location}");
+        if (CurrentToken.Type != TokenType.Type)
+            throw new Exception($"Expected type after variable name at {location}");
 
-        node.VariableName = CurrentToken.Value;
+        var type = CurrentToken.Value;
         AdvanceToken();
+
+        Tookeen2.ExpressionNode initialValue = null;
 
         if (CurrentToken.Type == TokenType.Asignacion)
         {
             AdvanceToken();
-            node.InitialValue = ParseExpression();
+            initialValue = ParseExpression();
         }
 
-        if (CurrentToken.Type != TokenType.SemiColon)
-            throw new Exception($"Expected ';' at end of variable declaration at {location}");
-
-        AdvanceToken();
-        return node;
+        return new Tookeen2.VariableDeclarationNode(variableName, type, initialValue, location);
     }
-    
+
     private Expression<object> ParseAdditive()
     {
         var left = ParseMultiplicative();
@@ -446,7 +449,7 @@ public class Parser
             AdvanceToken();
             var right = ParseMultiplicative();
 
-            left = new ConcreteBinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+            left = new MathematicExp(left, right, operatorToken.Type, new CodeLocation(operatorToken.Line, operatorToken.Column));
         }
         return left;
     }
@@ -461,7 +464,7 @@ public class Parser
             AdvanceToken();
             var right = ParsePrimary();
 
-            left = new ConcreteBinaryExpression(left, operatorToken, right, new CodeLocation(operatorToken.Line, operatorToken.Column));
+            left = new MathematicExp(left, right, operatorToken.Type, new CodeLocation(operatorToken.Line, operatorToken.Column));
         }
 
         return left;
@@ -627,7 +630,7 @@ public class Parser
     {
         return range == "Melee" || range == "Ranged" || range == "Siege";
     }
-
+    
     public class DeclarationNode
     {
         public string Name { get; set; }
