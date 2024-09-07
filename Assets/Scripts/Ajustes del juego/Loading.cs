@@ -11,7 +11,7 @@ void Start()
 {
     textillo = GameObject.Find("InfoZone1");
 
-    Rdm = Random.Range(0, 8);
+    Rdm = UnityEngine.Random.Range(0, 8);
     switch (Rdm)
     {
         case 0:

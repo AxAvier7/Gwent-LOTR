@@ -50,7 +50,7 @@ public GameObject Mano;
 
 public void revisarjugada()
 {
-    posicion = Random.Range(0, Mordor.Count);
+    posicion = UnityEngine.Random.Range(0, Mordor.Count);
     if(Mordor[posicion].GetComponent<ClaseCarta>().yarepartida == false)
     {
         GameObject Card = Instantiate(Mordor[posicion], new Vector2(0,0), Quaternion.identity);

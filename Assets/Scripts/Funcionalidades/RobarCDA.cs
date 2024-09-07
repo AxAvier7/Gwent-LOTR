@@ -47,7 +47,7 @@ public GameObject Mano;
 
 public void revisarjugada()
 {
-    posicion = Random.Range(0, CDA.Count);
+    posicion = UnityEngine.Random.Range(0, CDA.Count);
     if(CDA[posicion].GetComponent<ClaseCarta>().yarepartida == false)
     {
         GameObject Card = Instantiate(CDA[posicion], new Vector2(0,0), Quaternion.identity);

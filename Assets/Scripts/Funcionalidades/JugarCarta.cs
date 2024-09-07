@@ -143,7 +143,7 @@ public void Play()
 
 public void verificadorcda()
 {
-   position = Random.Range(0, CDA.Count);
+   position = UnityEngine.Random.Range(0, CDA.Count);
    if(CDA[position].GetComponent<ClaseCarta>().yarepartida == false)
    {
       GameObject Card = Instantiate(CDA[position], new Vector2(0,0), Quaternion.identity);
@@ -158,7 +158,7 @@ public void verificadorcda()
 
 public void verificadormordor() 
 {
-   position = Random.Range(0, Mordor.Count);
+   position = UnityEngine.Random.Range(0, Mordor.Count);
    if(Mordor[position].GetComponent<ClaseCarta>().yarepartida == false)
    {
       GameObject Card = Instantiate(Mordor[position], new Vector2(0,0), Quaternion.identity);
