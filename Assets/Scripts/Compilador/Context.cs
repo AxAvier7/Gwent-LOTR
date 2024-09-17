@@ -1,66 +1,187 @@
-using Bops;
-using XP;
-using Tookeen;
-using Tookeen2;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-    namespace Cont
-    {    
-    public class Context
+public class Card
+{
+    public int Owner { get; set; }
+    public int Power { get; set; }
+    public string Name { get; set; }
+    public string Type { get; set; }
+    public string Faction { get; set; }
+    public string Range { get; set; }
+}
+
+public class Context
+{
+    private int triggerPlayerId;
+    private Dictionary<int, List<Card>> hands;
+    private Dictionary<int, List<Card>> fields;
+    private Dictionary<int, List<Card>> graveyards;
+    private Dictionary<int, List<Card>> decks;
+    private List<Card> board;
+
+    public Context(int triggerPlayerId)
     {
-        // Diccionarios para variables y funciones
-        private readonly Dictionary<string, object> _variables = new Dictionary<string, object>();
-        private readonly Dictionary<string, FunctionDeclarationExpression> _functions = new Dictionary<string, FunctionDeclarationExpression>();
+        this.triggerPlayerId = triggerPlayerId;
+        this.hands = new Dictionary<int, List<Card>>();
+        this.fields = new Dictionary<int, List<Card>>();
+        this.graveyards = new Dictionary<int, List<Card>>();
+        this.decks = new Dictionary<int, List<Card>>();
+        this.board = new List<Card>();
+    }
 
-        // Propiedades para el estado del juego
-        public static Context Current { get; } = new Context();
-        public int TriggerPlayer { get; } // Jugador que desencadenó el efecto
-        public List<ICard> Board { get; } // Todas las cartas en el tablero
+    public int TriggerPlayer => triggerPlayerId;
 
-        // Diccionarios para manos, campos, cementerios y mazos de los jugadores
-        private Dictionary<int, List<ICard>> _hands;
-        private Dictionary<int, List<ICard>> _fields;
-        private Dictionary<int, List<ICard>> _graveyards;
-        private Dictionary<int, List<ICard>> _decks;
+    public List<Card> Board => board;
 
-        // Constructor por defecto
-        public Context() {}
+    public List<Card> HandOfPlayer(int playerId)
+    {
+        return hands.ContainsKey(playerId) ? hands[playerId] : new List<Card>();
+    }
 
-        // Constructor con parámetros para inicializar el estado del juego
-        public Context(int triggerPlayer, List<ICard> board, Dictionary<int, List<ICard>> hands,
-                    Dictionary<int, List<ICard>> fields, Dictionary<int, List<ICard>> graveyards,
-                    Dictionary<int, List<ICard>> decks)
+    public List<Card> FieldOfPlayer(int playerId)
+    {
+        return fields.ContainsKey(playerId) ? fields[playerId] : new List<Card>();
+    }
+
+    public List<Card> GraveyardOfPlayer(int playerId)
+    {
+        return graveyards.ContainsKey(playerId) ? graveyards[playerId] : new List<Card>();
+    }
+
+    public List<Card> DeckOfPlayer(int playerId)
+    {
+        return decks.ContainsKey(playerId) ? decks[playerId] : new List<Card>();
+    }
+
+    // Propiedades simplificadas para el jugador que desencadenó el efecto
+    public List<Card> Hand => HandOfPlayer(TriggerPlayer);
+    public List<Card> Field => FieldOfPlayer(TriggerPlayer);
+    public List<Card> Graveyard => GraveyardOfPlayer(TriggerPlayer);
+    public List<Card> Deck => DeckOfPlayer(TriggerPlayer);
+
+    // Métodos para agregar cartas a las colecciones del contexto
+    public void AddCardToHand(int playerId, Card card)
+    {
+        if (!hands.ContainsKey(playerId))
         {
-            TriggerPlayer = triggerPlayer;
-            Board = board;
-            _hands = hands;
-            _fields = fields;
-            _graveyards = graveyards;
-            _decks = decks;
+            hands[playerId] = new List<Card>();
         }
+        hands[playerId].Add(card);
+    }
 
-        // Métodos para gestión de variables
-        public void SetVariable(string name, object value) => _variables[name] = value;
+    public void AddCardToField(int playerId, Card card)
+    {
+        if (!fields.ContainsKey(playerId))
+        {
+            fields[playerId] = new List<Card>();
+        }
+        fields[playerId].Add(card);
+    }
 
-        public object GetVariable(string name) =>
-            _variables.TryGetValue(name, out var value) ? value : throw new Exception($"Runtime error: Variable '{name}' not found.");
+    public void AddCardToGraveyard(int playerId, Card card)
+    {
+        if (!graveyards.ContainsKey(playerId))
+        {
+            graveyards[playerId] = new List<Card>();
+        }
+        graveyards[playerId].Add(card);
+    }
 
-        // Métodos para gestión de funciones
-        public void SetFunction(string name, FunctionDeclarationExpression function) => _functions[name] = function;
+    public void AddCardToDeck(int playerId, Card card)
+    {
+        if (!decks.ContainsKey(playerId))
+        {
+            decks[playerId] = new List<Card>();
+        }
+        decks[playerId].Add(card);
+    }
 
-        public FunctionDeclarationExpression GetFunction(string name) =>
-            _functions.TryGetValue(name, out var function) ? function : null;
+    public void AddCardToBoard(Card card)
+    {
+        board.Add(card);
+    }
 
-        // Métodos para obtener el estado del juego de un jugador específico
-        public List<ICard> HandOfPlayer(int playerId) =>
-            _hands.ContainsKey(playerId) ? _hands[playerId] : new List<ICard>();
+    public void RemoveCardFromHand(int playerId, Card card)
+    {
+        if (hands.ContainsKey(playerId))
+        {
+            hands[playerId].Remove(card);
+        }
+    }
 
-        public List<ICard> FieldOfPlayer(int playerId) =>
-            _fields.ContainsKey(playerId) ? _fields[playerId] : new List<ICard>();
+    public void RemoveCardFromField(int playerId, Card card)
+    {
+        if (fields.ContainsKey(playerId))
+        {
+            fields[playerId].Remove(card);
+        }
+    }
 
-        public List<ICard> GraveyardOfPlayer(int playerId) =>
-            _graveyards.ContainsKey(playerId) ? _graveyards[playerId] : new List<ICard>();
+    public void RemoveCardFromGraveyard(int playerId, Card card)
+    {
+        if (graveyards.ContainsKey(playerId))
+        {
+            graveyards[playerId].Remove(card);
+        }
+    }
 
-        public List<ICard> DeckOfPlayer(int playerId) =>
-            _decks.ContainsKey(playerId) ? _decks[playerId] : new List<ICard>();
+    public void RemoveCardFromDeck(int playerId, Card card)
+    {
+        if (decks.ContainsKey(playerId))
+        {
+            decks[playerId].Remove(card);
+        }
+    }
+
+    public void RemoveCardFromBoard(Card card)
+    {
+        board.Remove(card);
+    }
+
+    public List<Card> Find(Func<Card, bool> predicate)
+    {
+        return Hand.Concat(Field).Concat(Graveyard).Concat(Deck).Concat(Board)
+            .Where(predicate)
+            .ToList();
+    }
+
+    public void Push(Card card)
+    {
+        Hand.Insert(0, card);
+    }
+
+    public void SendBottom(Card card)
+    {
+        Hand.Add(card);
+    }
+
+    public Card Pop()
+    {
+        if (Hand.Count > 0)
+        {
+            Card card = Hand[0];
+            Hand.RemoveAt(0);
+            return card;
+        }
+        throw new InvalidOperationException("No hay cartas en la mano para quitar.");
+    }
+
+    public void Shuffle()
+    {
+        Random rng = new Random();
+        List<Card> cards = Hand.ToList();
+        int n = cards.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            Card value = cards[k];
+            cards[k] = cards[n];
+            cards[n] = value;
+        }
+        Hand.Clear();
+        Hand.AddRange(cards);
     }
 }

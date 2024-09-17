@@ -45,26 +45,26 @@ public void LoadTutorial()
    SceneManager.LoadScene(8);
 }
 
-public void LoadTutorial2()
+// public void LoadTutorial2()
+// {
+//    SceneManager.LoadScene(9);
+// }
+public void LoadTutorial3()
 {
    SceneManager.LoadScene(9);
 }
-public void LoadTutorial3()
+public void LoadLoader()
 {
    SceneManager.LoadScene(10);
 }
-public void LoadLoader()
-{
-   SceneManager.LoadScene(11);
-}
 public void LoadCreator()
 {
-   SceneManager.LoadScene(12);
+   SceneManager.LoadScene(11);
 }
 
 void Update()
 {
-   if(Input.GetKeyDown(KeyCode.Backspace) && SceneManager.GetActiveScene().buildIndex != 12)
+   if(Input.GetKeyDown(KeyCode.Backspace) && SceneManager.GetActiveScene().buildIndex != 11)
    {
       LoadMainMenu();
    }

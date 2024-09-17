@@ -1,38 +1,30 @@
 using System;
 using System.Collections.Generic;
-using Tookeen;
-using Tookeen2;
-using Read;
-using Bops;
-using Cont;
 
-public class EffectParam
+public class Effect
 {
-    public string Name { get; }
-    public ParamType Type { get; }
+    public string Name { get; set; }
+    public Dictionary<string, (Type, object)> Params { get; set; } = new Dictionary<string, (Type, object)>();
+    public Action<List<Card>, Context> Action { get; set; }
 
-    public EffectParam(string name, ParamType type)
+    public Effect(string name, Action<List<Card>, Context> action)
     {
         Name = name;
-        Type = type;
-    }
-}
-
-public class CardEffect
-{
-    public string Name { get; }
-    public Dictionary<string, EffectParam> Params { get; }
-    public Action<List<object>, Context> Action { get; }
-
-    public CardEffect(string name, Dictionary<string, EffectParam> parameters, Action<List<object>, Context> action)
-    {
-        Name = name;
-        Params = parameters;
         Action = action;
     }
 
-    public void Execute(List<object> targets, Context context)
+    public void AddParam(string paramName, Type paramType, object paramValue)
     {
-        Action(targets, context);
+        Params[paramName] = (paramType, paramValue);
+    }
+
+    public object GetParam(string paramName)
+    {
+        return Params.TryGetValue(paramName, out var param) ? param.Item2 : null;
+    }
+
+    public Type GetParamType(string paramName)
+    {
+        return Params.TryGetValue(paramName, out var param) ? param.Item1 : null;
     }
 }

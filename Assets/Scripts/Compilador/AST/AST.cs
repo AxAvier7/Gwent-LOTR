@@ -1,158 +1,192 @@
 using System.Collections.Generic;
-using Tookeen;
 
-namespace Tookeen2
+namespace aesete
 {
-    // Clase base para todos los tokens
-    public abstract class AstNode
+    public abstract class ASTNode
     {
-        public CodeLocation Location { get; set; }
+        public abstract void Accept(IASTVisitor visitor);
     }
 
-    // Nodo para representar el programa
-    public class ProgramNode : AstNode
+    // Nodo para la declaración de una carta
+    public class CardDeclarationNode : ASTNode
     {
-        public List<DeclarationNode> Declarations { get; } = new List<DeclarationNode>();
-    }
+        public CardTypeNode Type { get; set; }
+        public NameNode Name { get; set; }
+        public FactionNode Faction { get; set; }
+        public PowerNode Power { get; set; }
+        public RangeNode Range { get; set; }
 
-    // Clase abstracta para todas las declaraciones
-    public abstract class DeclarationNode : AstNode { }
-
-    // Para declarar variables
-    public class VariableDeclarationNode : DeclarationNode
-    {
-        public string VariableName { get; }
-        public string Type { get; }
-        public ExpressionNode InitialValue { get; }
-        public CodeLocation Location { get; }
-
-        public VariableDeclarationNode(string variableName, string type, ExpressionNode initialValue, CodeLocation location)
+        public CardDeclarationNode(CardTypeNode type, NameNode name, FactionNode faction, PowerNode power, RangeNode range)
         {
-            VariableName = variableName;
             Type = type;
-            InitialValue = initialValue;
-            Location = location;
+            Name = name;
+            Faction = faction;
+            Power = power;
+            Range = range;
         }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Para declarar funciones
-    public class FunctionDeclarationNode : DeclarationNode
+    // Nodo para el tipo de carta
+    public class CardTypeNode : ASTNode
     {
-        public string FunctionName { get; set; }
-        public List<ParameterNode> Parameters { get; } = new List<ParameterNode>();
-        public BlockNode Body { get; set; }
-        public string ReturnType { get; set; }
+        public string Type { get; }
+
+        public CardTypeNode(string type)
+        {
+            Type = type;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Para declarar clases
-    public class ClassDeclarationNode : DeclarationNode
+    // Nodo para el nombre de la carta
+    public class NameNode : ASTNode
     {
-        public string ClassName { get; set; }
-        public List<VariableDeclarationNode> Fields { get; } = new List<VariableDeclarationNode>();
-        public List<FunctionDeclarationNode> Methods { get; } = new List<FunctionDeclarationNode>();
+        public string Name { get; }
+
+        public NameNode(string name)
+        {
+            Name = name;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Para definir parametros de funciones
-    public class ParameterNode : AstNode
+    // Nodo para la facción
+    public class FactionNode : ASTNode
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string Faction { get; }
+
+        public FactionNode(string faction)
+        {
+            Faction = faction;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Para representar bloques de statements
-    public class BlockNode : AstNode
+    // Nodo para el poder de la carta (soporta expresiones)
+    public class PowerNode : ASTNode
     {
-        public List<StatementNode> Statements { get; } = new List<StatementNode>();
+        public ExpressionNode PowerExpression { get; }
+
+        public PowerNode(ExpressionNode powerExpression)
+        {
+            PowerExpression = powerExpression;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Clase abstracta para todos los statement
-    public abstract class StatementNode : AstNode { }
-
-    // Expression statement
-    public class ExpressionStatementNode : StatementNode
+    // Nodo para el rango de la carta
+    public class RangeNode : ASTNode
     {
-        public ExpressionNode Expression { get; set; }
+        public List<RangeType> Ranges { get; private set; }
+
+        public RangeNode(List<RangeType> ranges)
+        {
+            Ranges = ranges;
+        }
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // If statement
-    public class IfStatementNode : StatementNode
+    // Nodo para las expresiones aritméticas (poder)
+    public class ExpressionNode : ASTNode
     {
-        public ExpressionNode Condition { get; set; }
-        public BlockNode ThenBlock { get; set; }
-        public BlockNode ElseBlock { get; set; }
+        public string Operator { get; }
+        public List<ASTNode> Operands { get; }
+
+        public ExpressionNode(string @operator, List<ASTNode> operands)
+        {
+            Operator = @operator;
+            Operands = operands;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // While statement
-    public class WhileStatementNode : StatementNode
+    // Nodo para representar un número en una expresión
+    public class NumberNode : ASTNode
     {
-        public ExpressionNode Condition { get; set; }
-        public BlockNode Body { get; set; }
+        public int Value { get; }
+
+        public NumberNode(int value)
+        {
+            Value = value;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // For statement
-    public class ForStatementNode : StatementNode
+    // Nodo para representar un operador en una expresión
+    public class OperatorNode : ASTNode
     {
-        public StatementNode Initializer { get; set; }
-        public ExpressionNode Condition { get; set; }
-        public StatementNode Iterator { get; set; }
-        public BlockNode Body { get; set; }
+        public string Operator { get; }
+
+        public OperatorNode(string @operator)
+        {
+            Operator = @operator;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Devolver statement
-    public class ReturnStatementNode : StatementNode
+    // Nodo para representar una cadena en una expresión
+    public class StringNode : ASTNode
     {
-        public ExpressionNode ReturnValue { get; set; }
+        public string Value { get; }
+
+        public StringNode(string value)
+        {
+            Value = value;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Clase abstracta para todas las expresiones
-    public abstract class ExpressionNode : AstNode { }
-
-    // Expresiones binarias
-    public class BinaryExpressionNode : ExpressionNode
+    // Nodo para operaciones de incremento (++)
+    public class IncrementNode : ASTNode
     {
-        public ExpressionNode Left { get; set; }
-        public string Operator { get; set; }
-        public ExpressionNode Right { get; set; }
+        public ASTNode Operand { get; }
+
+        public IncrementNode(ASTNode operand)
+        {
+            Operand = operand;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Expresiones unarias
-    public class UnaryExpressionNode : ExpressionNode
+    // Nodo para operaciones de decremento (--)
+    public class DecrementNode : ASTNode
     {
-        public string Operator { get; set; }
-        public ExpressionNode Operand { get; set; }
+        public ASTNode Operand { get; }
+
+        public DecrementNode(ASTNode operand)
+        {
+            Operand = operand;
+        }
+
+        public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
 
-    // Expresiones literales
-    public class LiteralExpressionNode : ExpressionNode
-    {
-        public string Value { get; set; }
-    }
 
-    // Expresiones variables
-    public class VariableExpressionNode : ExpressionNode
+    public interface IASTVisitor
     {
-        public string VariableName { get; set; }
-    }
+        void Visit(CardDeclarationNode cardDeclaration);
+        void Visit(CardTypeNode cardType);
+        void Visit(NameNode name);
+        void Visit(FactionNode faction);
+        void Visit(PowerNode power);
+        void Visit(RangeNode range);
+        void Visit(ExpressionNode expression);
+        void Visit(NumberNode number);   
+        void Visit(OperatorNode @operator); 
+        void Visit(StringNode str); 
 
-    // Llamar expresiones
-    public class FunctionCallExpressionNode : ExpressionNode
-    {
-        public string FunctionName { get; set; }
-        public List<ExpressionNode> Arguments { get; } = new List<ExpressionNode>();
-    }
-
-    // Asignar expresiones
-    public class AssignmentExpressionNode : ExpressionNode
-    {
-        public string VariableName { get; set; }
-        public ExpressionNode Value { get; set; }
-    }
-
-    // Expresiones condicionales (operadores ternarios)
-    public class ConditionalExpressionNode : ExpressionNode
-    {
-        public ExpressionNode Condition { get; set; }
-        public ExpressionNode TrueExpression { get; set; }
-        public ExpressionNode FalseExpression { get; set; }
+        void Visit(IncrementNode incrementNode);
+        void Visit(DecrementNode decrementNode);
     }
 }

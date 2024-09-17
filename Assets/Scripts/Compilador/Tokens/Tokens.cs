@@ -1,7 +1,8 @@
-﻿using Tookeen2;
+﻿using System.Collections.Generic;
 
 namespace Tookeen
 {
+    //Define la ubicacion de un elemento en todo el codigo a traves de la linea y la columna
     public class CodeLocation
     {
         public CodeLocation(int line, int column)
@@ -13,23 +14,14 @@ namespace Tookeen
         public int Line { get; }
         public int Column { get; }
 
-        public CodeLocation(Tookeen.CodeLocation tookeenLocation)
+        public CodeLocation(CodeLocation tookeenLocation)
         {
             Line = tookeenLocation.Line;
             Column = tookeenLocation.Column;
         }
     }
-    
-    public abstract class Expression<T> : ExpressionNode
-    {
-        public abstract ExpressionType Return { get; }
-        public abstract Tookeen.CodeLocation Location { get; set; }
-        public abstract bool RevSemantica(out List<string> errors);
-        public abstract bool SemanticRevision(out string error);
-        public abstract T Interpret();
-        public abstract override string ToString();
-    }
 
+    //Define los tokens que se utilizaran luego en el analisis lexico
     public class Token
     {
         public TokenType Type { get; }
@@ -40,7 +32,7 @@ namespace Tookeen
         public Token(TokenType type, string value, int line, int column)
         {
             Type = type;
-            Value = value.ToString();;
+            Value = value;
             Line = line;
             Column = column;
         }
@@ -87,13 +79,13 @@ namespace Tookeen
             { "<=", TokenType.MinorEqual },
             { "==", TokenType.Equal },
             { "!=", TokenType.Desigual },
-            { "+", TokenType.Mas },
-            { "-", TokenType.Menos },
-            { "*", TokenType.Multiplicacion },
-            { "/", TokenType.Division },
+            { "+", TokenType.Operador },
+            { "-", TokenType.Operador },
+            { "*", TokenType.Operador },
+            { "/", TokenType.Operador },
             { "++", TokenType.MasMas },
             { "--", TokenType.MenosMenos },
-            { "^", TokenType.Pow },
+            { "^", TokenType.Operador },
 
             //Puntuacion
             { "{", TokenType.LlaveAb },
@@ -106,6 +98,7 @@ namespace Tookeen
             { ".", TokenType.Dot },
             { ",", TokenType.Comma },
             { ";", TokenType.SemiColon },
+            { "\"", TokenType.Quote },
 
             //Booleanos
             { "true", TokenType._true },
@@ -120,64 +113,51 @@ namespace Tookeen
             { "$", TokenType.TyDollaSign },
 
             //Extra Stuff
-            { "Melee", TokenType.Range_Melee },
-            { "Ranged", TokenType.Range_Ranged },
-            { "Siege", TokenType.Range_Siege },
-            { "Comunidad del Anillo", TokenType.Faction_CDA },
-            { "Mordor", TokenType.Faction_Mordor },
-            { "None", TokenType.Faction_None },
-            { "Oro", TokenType.Type_Oro },
-            { "Plata", TokenType.Type_Plata },
-            { "Lider", TokenType.Type_Lider },
-            { "Aumento", TokenType.Type_Aumento },
-            { "Clima", TokenType.Type_Clima },
+            { "Melee", TokenType.Range },
+            { "Ranged", TokenType.Range },
+            { "Siege", TokenType.Range },
+            { "Comunidad del Anillo", TokenType.Faction },
+            { "Mordor", TokenType.Faction },
+            { "None", TokenType.Faction },
+            { "Oro", TokenType.Type },
+            { "Plata", TokenType.Type },
+            { "Lider", TokenType.Type },
+            { "Aumento", TokenType.Type },
+            { "Clima", TokenType.Type },
         };
     }
 
     public enum TokenType
     {
-        EOF, //fin del archivo
-        EOL, // fin de linea
+        EOF, // Fin del archivo
+        EOL, // Fin de línea
 
-        //Tipos
-        Number,    IDs,    Reserved,
-        String, Boolean, Variable,
+        // Tipos
+        Number, IDs, Reserved, String, Boolean, Variable,
 
-        //Booleanos
+        // Booleanos
         _true, _false,
 
-        //Cycles
-        If, While, Else, For,
-        Return, Break, Continue,
+        // Ciclos
+        If, While, Else, For, Return, Break, Continue,
 
-        //Brackets
-        ParAb,    ParCer,    CorAb,    CorCer,
-        LlaveAb,    LlaveCer, Keyword,
+        // Corchetes
+        ParAb, ParCer, CorAb, CorCer, LlaveAb, LlaveCer, Keyword,
 
-        //Operadores
-        Mas,    Menos,  Multiplicacion, Division, //+ - * /
-        Arroba, MinorSign,  MajorSign,  Equal, //@ < > ==
-        TwoPoints,  Comma, And, Or, //: , && ||
-        MasMas, MenosMenos, MasIgual, MenosIgual, //++ -- += -=
-        MultiplicacionIgual, DivisionIgual,   Desigual,  Asignacion, //*= /= != =
-        TyDollaSign, Implicacion, StringConcat, Dot, //$ => @@ .
-        MajorEqual, MinorEqual, SemiColon, Denial, //>= <= ; !
-        Pow, //^
+        // Operadores
+        Mas, Menos, Multiplicacion, Division, Arroba, MinorSign, MajorSign,
+        Equal, TwoPoints, Comma, And, Or, MasMas, MenosMenos,
+        MasIgual, MenosIgual, MultiplicacionIgual, DivisionIgual, Desigual, Asignacion, TyDollaSign,
+        Implicacion, StringConcat, Dot, MajorEqual, MinorEqual, SemiColon, Denial, Pow, Quote,
 
-        //Reservados
-        Card,   Power,  Faction,    Range,
-        Effect, CardSharpEffect,
-        Predicate, PostAction, Type, Name,
-        Params, Action, Source, Single,
+        // Reservados
+        Card, Power, Faction, Range, Effect, CardSharpEffect, Predicate,
+        PostAction, Type, Name, Params, Action, Source, Single,
         In, OnActivation, Selector, Amount,
 
-        //Extras
-        Range_Melee, Range_Ranged, Range_Siege,
-        Faction_CDA, Faction_Mordor, Faction_None,
-        Type_Oro, Type_Plata, Type_Lider, Type_Aumento, Type_Clima,
-        TypeIdentifier, Function,
+        TypeIdentifier, Function, Context, Targets, Operador,
 
-        Unknown //otros
+        Unknown // Otros
     }
 
     public enum ExpressionType
@@ -188,10 +168,5 @@ namespace Tookeen
         Number, Void,   Function,   Null,
         LogicalAnd, LogicalOr,
         Continue, Break, Return
-    }
-
-    public enum ParamType
-    {
-        Number,        String,        Bool
     }
 }

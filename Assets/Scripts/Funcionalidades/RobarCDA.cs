@@ -34,6 +34,7 @@ public GameObject Nevada2;
 public GameObject CuernoGondorMelee;
 public GameObject CuernoGondorRanged;
 public GameObject CuernoGondorSiege;
+// public GameObject NewCardC;
 
 public bool robo1 = false;
 public bool robo2 = false;

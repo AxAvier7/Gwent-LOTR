@@ -29,3 +29,11 @@ card {
     }
     ]
 }
+
+card {
+    Type: "Oro",
+    Name: "Illo" @@ "Juan",
+    Faction: "Mordor",
+    Power: 10,
+    Range: ["Melee", "Ranged"],
+}

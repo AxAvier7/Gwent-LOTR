@@ -53,123 +53,95 @@ void Start()
 
 public void Play()
 {
-   if(PartidaTerminada == false && !aragornrend && aragorneleg && sauronrend == false && sauroneleg && jugable)
+   if(PartidaTerminada == false && !aragornrend && aragorneleg && !sauronrend && sauroneleg && jugable)
    {
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == true)
+      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Turno == true)
       {
-         Card.transform.SetParent(CDAMelee.transform, false);
-         Card.transform.position = CDAMelee.transform.position;
-         jugable = false;
+         switch (Card.GetComponent<ClaseCarta>().Franjita)
+         {
+            case 1:
+               JugarCartaEnZona(CDAMelee);
+               break;
+            case 2:
+               JugarCartaEnZona(CDARanged);
+               break;
+            case 3:
+               JugarCartaEnZona(CDASiege);
+               break;
+            case 4:
+               JugarCartaEnZona(CMCDA);
+               break;
+            case 5:
+               JugarCartaEnZona(CRCDA);
+               break;
+            case 6:
+               JugarCartaEnZona(CSCDA);
+               break;
+         }
       }
 
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == true)
+      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Turno == false)
       {
-         Card.transform.SetParent(CDARanged.transform, false);
-         Card.transform.position = CDARanged.transform.position;
-         jugable = false;
+         switch (Card.GetComponent<ClaseCarta>().Franjita)
+         {
+            case 1:
+               JugarCartaEnZona(MordorMelee);
+               break;
+            case 2:
+               JugarCartaEnZona(MordorRanged);
+               break;
+            case 3:
+               JugarCartaEnZona(MordorSiege);
+               break;
+            case 4:
+               JugarCartaEnZona(CMMORDOR);
+               break;
+            case 5:
+               JugarCartaEnZona(CRMORDOR);
+               break;
+            case 6:
+               JugarCartaEnZona(CSMORDOR);
+               break;
+         }
       }
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == true)
-      {
-         Card.transform.SetParent(CDASiege.transform, false);
-         Card.transform.position = CDASiege.transform.position;
-         jugable = false;
-      }  
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == true)
-      {
-         Card.transform.SetParent(CMCDA.transform, true);
-         Card.transform.position = CMCDA.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == true)
-      {
-         Card.transform.SetParent(CRCDA.transform, true);
-         Card.transform.position = CRCDA.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Comunidad del Anillo" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == true)
-      {
-         Card.transform.SetParent(CSCDA.transform, true);
-         Card.transform.position = CSCDA.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 1 && Turno == false)
-      {
-         Card.transform.SetParent(MordorMelee.transform, false);
-         Card.transform.position = MordorMelee.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 2 && Turno == false)
-      {
-         Card.transform.SetParent(MordorRanged.transform, false);
-         Card.transform.position = MordorRanged.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 3 && Turno == false)
-      {
-         Card.transform.SetParent(MordorSiege.transform, false);
-         Card.transform.position = MordorSiege.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 4 && Turno == false)
-      {
-         Card.transform.SetParent(CMMORDOR.transform, true);
-         Card.transform.position = CMMORDOR.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 5 && Turno == false)
-      {
-         Card.transform.SetParent(CRMORDOR.transform, true);
-         Card.transform.position = CRMORDOR.transform.position;
-         jugable = false;
-      }   
-
-      if(Card.GetComponent<ClaseCarta>().Faccion == "Mordor" && Card.GetComponent<ClaseCarta>().Franjita == 6 && Turno == false)
-      {
-         Card.transform.SetParent(CSMORDOR.transform, true);
-         Card.transform.position = CSMORDOR.transform.position;
-         jugable = false;
-      }   
    }
 }
+   private void JugarCartaEnZona(GameObject zona)
+   {
+      Card.transform.SetParent(zona.transform, false);
+      Card.transform.position = zona.transform.position;
+      jugable = false;
+   }
 
-public void verificadorcda()
-{
-   position = UnityEngine.Random.Range(0, CDA.Count);
-   if(CDA[position].GetComponent<ClaseCarta>().yarepartida == false)
+   public void verificadorcda()
    {
-      GameObject Card = Instantiate(CDA[position], new Vector2(0,0), Quaternion.identity);
-      Card.transform.SetParent(Manojugador.transform, false);
-      CDA[position].GetComponent<ClaseCarta>().yarepartida = true;
+      position = UnityEngine.Random.Range(0, CDA.Count);
+      if(CDA[position].GetComponent<ClaseCarta>().yarepartida == false)
+      {
+         GameObject Card = Instantiate(CDA[position], new Vector2(0,0), Quaternion.identity);
+         Card.transform.SetParent(Manojugador.transform, false);
+         CDA[position].GetComponent<ClaseCarta>().yarepartida = true;
+      }
+      else
+      {
+         verificadorcda();
+      }
    }
-   else
-   {
-      verificadorcda();
-   }
-}
 
-public void verificadormordor() 
-{
-   position = UnityEngine.Random.Range(0, Mordor.Count);
-   if(Mordor[position].GetComponent<ClaseCarta>().yarepartida == false)
+   public void verificadormordor() 
    {
-      GameObject Card = Instantiate(Mordor[position], new Vector2(0,0), Quaternion.identity);
-      Card.transform.SetParent(Manomordor.transform, false);
-      Mordor[position].GetComponent<ClaseCarta>().yarepartida = true;
+      position = UnityEngine.Random.Range(0, Mordor.Count);
+      if(Mordor[position].GetComponent<ClaseCarta>().yarepartida == false)
+      {
+         GameObject Card = Instantiate(Mordor[position], new Vector2(0,0), Quaternion.identity);
+         Card.transform.SetParent(Manomordor.transform, false);
+         Mordor[position].GetComponent<ClaseCarta>().yarepartida = true;
+      }
+      else
+      {
+         verificadormordor();
+      }
    }
-   else
-   {
-      verificadormordor();
-   }
-}
 
 void Update()
 {

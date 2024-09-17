@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 1162041042}
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadTutorial2
+      value: LoadTutorial3
       objectReference: {fileID: 0}
     - target: {fileID: 1313447527728601119, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389382915149120201, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_text
-      value: Cartas con efectos
+      value: Tablero
       objectReference: {fileID: 0}
     - target: {fileID: 9158099178888402281, guid: 5d20f5b10725de84a896b89ad6cc3fa3, type: 3}
       propertyPath: m_Name

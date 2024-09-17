@@ -1,79 +1,62 @@
-using Bops;
-using XP;
+using System;
+using System.Collections.Generic;
 
 public class Scope
 {
-    private readonly Dictionary<string, object> _variables;
-    private readonly Dictionary<string, FunctionDeclarationExpression> _functions;
-    private readonly Scope _parentScope;
+    public BaseCard CurrentCard { get; private set; }
 
-    public Scope(Scope parentScope = null)
+    public Scope(BaseCard card)
     {
-        _variables = new Dictionary<string, object>();
-        _functions = new Dictionary<string, FunctionDeclarationExpression>();
-        _parentScope = parentScope;
+        CurrentCard = card;
     }
 
-    public void SetVariable(string name, object value)
+    public void SetCardType(CardType cardType)
     {
-        if (_variables.ContainsKey(name))
-        {
-            _variables[name] = value;
-        }
-        else if (_parentScope != null && _parentScope.HasVariable(name))
-        {
-            _parentScope.SetVariable(name, value);
-        }
-        else
-        {
-            _variables[name] = value;
-        }
+        CurrentCard.Type = cardType.ToString();
     }
 
-    public object GetVariable(string name)
+    public void SetCardName(string name)
     {
-        if (_variables.TryGetValue(name, out var value))
-        {
-            return value;
-        }
-        else if (_parentScope != null)
-        {
-            return _parentScope.GetVariable(name);
-        }
-        else
-        {
-            throw new Exception($"Runtime error: Variable '{name}' not found.");
-        }
+        CurrentCard.Name = name;
     }
 
-    public bool HasVariable(string name)
+    public void SetCardFaction(FactionType factionType)
     {
-        return _variables.ContainsKey(name) || (_parentScope != null && _parentScope.HasVariable(name));
+        CurrentCard.Faction = factionType.ToString();
     }
 
-    public void SetFunction(string name, FunctionDeclarationExpression function)
+    public void SetCardPower(int power)
     {
-        _functions[name] = function;
+        CurrentCard.Power = power;
     }
 
-    public FunctionDeclarationExpression GetFunction(string name)
+    public void SetCardRange(List<RangeType> ranges)
     {
-        if (_functions.TryGetValue(name, out var function))
-        {
-            return function;
-        }
-        else if (_parentScope != null)
-        {
-            return _parentScope.GetFunction(name);
-        }
-        else
-        {
-            throw new Exception($"Runtime error: Function '{name}' not found.");
-        }
+        CurrentCard.Range = ranges.ConvertAll(r => r.ToString());
     }
 
-    public bool HasFunction(string name)
+    public CardType GetCardType()
     {
-        return _functions.ContainsKey(name) || (_parentScope != null && _parentScope.HasFunction(name));
+        return Enum.TryParse(CurrentCard.Type, out CardType cardType) ? cardType : default;
+    }
+
+    public string GetCardName()
+    {
+        return CurrentCard.Name;
+    }
+
+    public FactionType GetCardFaction()
+    {
+        return Enum.TryParse(CurrentCard.Faction, out FactionType factionType) ? factionType : default;
+    }
+
+    public int GetCardPower()
+    {
+        return CurrentCard.Power;
+    }
+
+    public List<RangeType> GetCardRange()
+    {
+        return CurrentCard.Range.ConvertAll(r => Enum.TryParse(r, out RangeType rangeType) ? rangeType : default);
     }
 }

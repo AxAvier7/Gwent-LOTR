@@ -1,77 +1,86 @@
-using Tookeen;
-using Tookeen2;
-using Bops;
-using XP;
-using VariableExp;
+using UnityEngine;
 using System.Collections.Generic;
-using System.IO;
+using Tookeen;
+using aesete;
+using ExpressionEvaluator = Bops.ExpressionEvaluator;
+using System;
+using Lexing;
 
-namespace Read
+public class CardProcessor : MonoBehaviour
 {
-    public class Reader
+    public UnityEngine.UI.InputField CardCompiler;
+    public BaseCard cardBase;
+
+    private Scope scope;
+
+    public void CompileCardInput()
     {
-        public static bool ReaderErrors = false;
-
-        public static void Main()
+        if (CardCompiler != null && cardBase != null)
         {
-            string inputFilePath = "input.txt";
-            string input = File.ReadAllText(inputFilePath);
-
-            // Lexer: tokenización del archivo de entrada
-            Lexer lexer = new Lexer(input);
-            List<Token> tokens = lexer.Tokenize();
-
-            if (lexer.Errors.Count > 0)
+            string input = CardCompiler.text;
+            if (!string.IsNullOrEmpty(input))
             {
-                ReaderErrors = true;
-                foreach (var error in lexer.Errors)
-                {
-                    Console.WriteLine(error);
-                }
-                Console.WriteLine("--->Fix all errors before running the code<---");
-                return;
+                scope = new Scope(cardBase);
+
+                Lexerr lexerr = new Lexerr(input);       
+                List<Token> tokens = lexerr.Tokenize();
+                DebugTokens(tokens);
+                Parser parser = new Parser(tokens, scope);
+                ASTNode ast = parser.Parse();
+                ProcessASTToCard(ast);
+            }
+            else
+            {
+                Debug.LogWarning("El input del campo CardCompiler está vacío.");
+            }
+        }
+        else
+        {
+            Debug.LogError("El InputField 'CardCompiler' o el objeto 'BaseCard' no están asignados.");
+        }
+    }
+
+    private void ProcessASTToCard(ASTNode ast)
+    {
+        if (ast is CardDeclarationNode cardNode)
+        {
+            if (Enum.TryParse(cardNode.Type.Type, out CardType cardType))
+            {
+                scope.SetCardType(cardType);
+            }
+            else
+            {
+                throw new Exception($"Tipo de carta inválido: {cardNode.Type.Type}");
             }
 
-            // Mostrar los tokens generados
-            foreach (var token in tokens)
+            scope.SetCardName(cardNode.Name.Name);
+
+            if (Enum.TryParse(cardNode.Faction.Faction, out FactionType factionType))
             {
-                Console.WriteLine(token);
+                scope.SetCardFaction(factionType);
+            }
+            else
+            {
+                throw new Exception($"Facción inválida: {cardNode.Faction.Faction}");
             }
 
-            // Parser parser = new Parser(tokens);
-            // ProgramNode programNode;
-            // try
-            // {
-            //     programNode = parser.ParseProgram();
-            //     Console.WriteLine("Parsing completed successfully.");
-            // }
-            // catch (Exception ex)
-            // {
-            //     Console.WriteLine($"Parsing error: {ex.Message}");
-            //     return;
-            // }
+            scope.SetCardPower(EvaluateExpression(cardNode.Power.PowerExpression));
+            scope.SetCardRange(cardNode.Range.Ranges);
+        }
+    }
 
-            // try
-            // {
-            //     programNode.RevSemantica();
-            //     Console.WriteLine("Semantic revision completed successfully.");
-            // }
-            // catch (Exception ex)
-            // {
-            //     Console.WriteLine($"Semantic error: {ex.Message}");
-            //     return;
-            // }
+    private int EvaluateExpression(ExpressionNode expressionNode)
+    {
+        ExpressionEvaluator evaluator = new ExpressionEvaluator();
+        int result = evaluator.EvaluateExpression(expressionNode);
+        return result;
+    }
 
-            // try
-            // {
-            //     var context = Context.Current;
-            //     programNode.Interpret(context);
-            //     Console.WriteLine("Execution completed successfully.");
-            // }
-            // catch (Exception ex)
-            // {
-            //     Console.WriteLine($"Execution error: {ex.Message}");
-            // }
+    public void DebugTokens(List<Token> tokens)
+    {
+        foreach (var token in tokens)
+        {
+            Debug.Log($"Token: Type={token.Type} | Value={token.Value} | L:{token.Line}/C:{token.Column}");
         }
     }
 }

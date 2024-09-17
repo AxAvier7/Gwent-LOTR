@@ -34,6 +34,7 @@ public GameObject Niebla3;
 public GameObject Niebla4;
 public GameObject Nevada3;
 public GameObject Nevada4;
+// public GameObject NewCardM;
 
 public bool robo1 = false;
 public bool robo2 = false;

@@ -1,320 +1,119 @@
-using Tookeen;
-using Read;
-using Tookeen2;
-using XP;
+using System.Collections.Generic;
+using aesete;
+using UnityEngine;
 
 namespace Bops
 {
-public abstract class BinaryExpression : Expression<object>
-{
-    public Expression<object> Left { get; }
-    public Token OperatorToken { get; }
-    public Expression<object> Right { get; }
-    // public CodeLocation Location { get; set; }
-
-    public BinaryExpression(Expression<object> left, Token operatorToken, Expression<object> right, CodeLocation location)
+    public class ExpressionEvaluator : IASTVisitor
     {
-        Left = left;
-        OperatorToken = operatorToken;
-        Right = right;
-        Location = location;
-    }
+        private Stack<int> values = new Stack<int>();
+        private Stack<string> strings = new Stack<string>();
 
-    public override bool RevSemantica(out List<string> errors)
-    {
-        errors = new List<string>();
-        string leftError = null;
-        string rightError = null;
-        
-        if (!Left.SemanticRevision(out leftError) || !Right.SemanticRevision(out rightError))
+        // Método para evaluar expresiones aritméticas
+        public int EvaluateExpression(ExpressionNode expression)
         {
-            if (!string.IsNullOrEmpty(leftError))
-                errors.Add(leftError);
-            if (!string.IsNullOrEmpty(rightError))
-                errors.Add(rightError);
-            return false;
+            Visit(expression);
+            return values.Pop();
         }
-        return true;
-    }
 
-    public override bool SemanticRevision(out string error)
-    {
-        error = null;
-        string leftError = null;
-        string rightError = null;
-        if (!Left.SemanticRevision(out leftError) || !Right.SemanticRevision(out rightError))
+        // Método para evaluar expresiones de concatenación de cadenas
+        public string EvaluateStringExpression(ExpressionNode expression)
         {
-            error = leftError ?? rightError;
-            return false;
+            Visit(expression);
+            return strings.Pop();
         }
-        return true;
-    }
 
-    public abstract override object Interpret();
+        // Implementación de IASTVisitor
+        public void Visit(CardDeclarationNode cardDeclaration) { }
+        public void Visit(CardTypeNode cardType) { }
+        public void Visit(NameNode name) { }
+        public void Visit(FactionNode faction) { }
+        public void Visit(PowerNode power) { }
+        public void Visit(RangeNode range) { }
 
-    public override ExpressionType Return => ExpressionType.Null;
-    public override string ToString() => $"({Left} {GetOperatorSymbol()} {Right})";
-
-    protected abstract string GetOperatorSymbol();
-}
-
-#region Bool
-public class BooleanExp : BinaryExpression
-{
-    public TokenType Operator { get; }
-    public override CodeLocation Location { get; set; }
-
-    public BooleanExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
-    {
-        Operator = op;
-        Location = location;
-    }
-
-    protected override string GetOperatorSymbol()
-    {
-        return Operator.ToString();
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = (bool)Left.Interpret();
-        var rightValue = (bool)Right.Interpret();
-        return Operator switch
+        public void Visit(NumberNode number)
         {
-            TokenType.And => leftValue && rightValue,
-            TokenType.Or => leftValue || rightValue,
-            _ => throw new InvalidOperationException($"Unsupported operator: {Operator}")
-        };
-    }
+            values.Push(number.Value);
+        }
 
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} {Operator} {Right})";
-}
-
-#endregion Bool
-
-#region Math
-public class MathematicExp : BinaryExpression
-{
-    public TokenType Operator { get; }
-    public override CodeLocation Location { get; set; }
-
-    public MathematicExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
-    {
-        Operator = op;
-        Location = location;
-    }
-
-    protected override string GetOperatorSymbol()
-    {
-        return Operator.ToString();
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Convert.ToDouble(Left.Interpret());
-        var rightValue = Convert.ToDouble(Right.Interpret());
-        return Operator switch
+        public void Visit(StringNode stringNode)
         {
-            TokenType.Mas => leftValue + rightValue,
-            TokenType.Menos => leftValue - rightValue,
-            TokenType.Multiplicacion => leftValue * rightValue,
-            TokenType.Division => leftValue / rightValue,
-            TokenType.MasIgual => leftValue += rightValue,
-            TokenType.MenosIgual => leftValue -= rightValue,
-            TokenType.MultiplicacionIgual => leftValue *= rightValue,
-            TokenType.DivisionIgual => leftValue /= rightValue,
-            TokenType.Pow => Math.Pow(leftValue, rightValue),
-            _ => throw new InvalidOperationException($"Unsupported operator: {Operator}")
-        };
-    }
+            strings.Push(stringNode.Value);
+        }
 
-    public override ExpressionType Return => Operator == TokenType.Mas || Operator == TokenType.Menos 
-        || Operator == TokenType.Multiplicacion || Operator == TokenType.Division || Operator == TokenType.MasIgual
-        || Operator == TokenType.MenosIgual || Operator == TokenType.MultiplicacionIgual
-        || Operator == TokenType.DivisionIgual || Operator == TokenType.Pow
-        ? ExpressionType.Number : ExpressionType.Null;
-    
-    public override string ToString() => $"({Left} {Operator} {Right})";
-}
-
-
-#endregion Math
-
-#region Literales
-public class StringBuildingExp : BinaryExpression
-{
-    public TokenType Operator { get; }
-    public override CodeLocation Location { get; set; }
-
-    public StringBuildingExp(Expression<object> left, Expression<object> right, TokenType op, CodeLocation location)
-        : base(left, new Token(op, op.ToString(), location.Line, location.Column), right, location)
-    {
-        Operator = op;
-        Location = location;
-    }
-
-    protected override string GetOperatorSymbol()
-    {
-        return Operator.ToString();
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Left.Interpret().ToString();
-        var rightValue = Right.Interpret().ToString();
-        return Operator switch
+        // Implementación de la lógica para operadores matemáticos
+        public void Visit(OperatorNode @operator)
         {
-            TokenType.StringConcat => leftValue + " " + rightValue,
-            TokenType.Arroba => leftValue + rightValue,
-            _ => null
-        };
+            if (values.Count < 2)
+            {
+                throw new System.InvalidOperationException("No hay suficientes operandos en la pila para realizar la operación.");
+            }
+
+            int right = values.Pop();
+            int left = values.Pop();
+
+            int result;
+            switch (@operator.Operator)
+            {
+                case "+":
+                    result = left + right;
+                    break;
+                case "-":
+                    result = left - right;
+                    break;
+                case "*":
+                    result = left * right;
+                    break;
+                case "/":
+                    if (right == 0)
+                        throw new System.DivideByZeroException("División por cero.");
+                    result = left / right;
+                    break;
+                case "^":
+                    result = (int)Mathf.Pow(left, right);
+                    break;
+                default:
+                    throw new System.Exception("Operador no soportado: " + @operator.Operator);
+            }
+
+            values.Push(result);
+        }
+
+
+        public void Visit(IncrementNode incrementNode)
+        {
+            incrementNode.Operand.Accept(this);
+            int value = values.Pop();
+            values.Push(value + 1);
+        }
+
+        public void Visit(DecrementNode decrementNode)
+        {
+            decrementNode.Operand.Accept(this);
+            int value = values.Pop();
+            values.Push(value - 1);
+        }
+
+        public void Visit(ExpressionNode expression)
+        {
+            foreach (var operand in expression.Operands)
+            {
+                operand.Accept(this);
+            }
+
+            if (!string.IsNullOrEmpty(expression.Operator))
+            {
+                if (expression.Operator == "@@")
+                {
+                    string right = strings.Pop();
+                    string left = strings.Pop();
+                    strings.Push(left + right);
+                }
+                else
+                {
+                    Visit(new OperatorNode(expression.Operator));
+                }
+            }
+        }
     }
-
-    public override ExpressionType Return => ExpressionType.Literal;    
-    public override string ToString() => $"({Left} {Operator} {Right})";
-}
-#endregion Literales
-
-#region Comparadores
-public class GreaterThanExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public GreaterThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.MajorSign, ">", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Convert.ToDouble(Left.Interpret());
-        var rightValue = Convert.ToDouble(Right.Interpret());
-        return leftValue > rightValue;
-    }
-
-    protected override string GetOperatorSymbol() => ">";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} > {Right})";
-}
-
-public class LessThanExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public LessThanExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.MinorSign, "<", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Convert.ToDouble(Left.Interpret());
-        var rightValue = Convert.ToDouble(Right.Interpret());
-        return leftValue < rightValue;
-    }
-
-    protected override string GetOperatorSymbol() => "<";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} < {Right})";
-}
-
-public class EqualExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public EqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.Equal, "==", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Left.Interpret();
-        var rightValue = Right.Interpret();
-        return leftValue.Equals(rightValue);
-    }
-
-    protected override string GetOperatorSymbol() => "==";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} == {Right})";
-}
-
-public class GreaterThanOrEqualExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public GreaterThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.MajorEqual, ">=", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Convert.ToDouble(Left.Interpret());
-        var rightValue = Convert.ToDouble(Right.Interpret());
-        return leftValue >= rightValue;
-    }
-
-    protected override string GetOperatorSymbol() => ">=";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} >= {Right})";
-}
-
-public class LessThanOrEqualExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public LessThanOrEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.MinorEqual, "<=", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Convert.ToDouble(Left.Interpret());
-        var rightValue = Convert.ToDouble(Right.Interpret());
-        return leftValue <= rightValue;
-    }
-
-    protected override string GetOperatorSymbol() => "<=";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} <= {Right})";
-}
-
-public class NotEqualExpression : BinaryExpression
-{
-    public override CodeLocation Location { get; set; }
-
-    public NotEqualExpression(Expression<object> left, Expression<object> right, CodeLocation location)
-        : base(left, new Token(TokenType.Desigual, "!=", location.Line, location.Column), right, location)
-    {
-        Location = location;
-    }
-
-    public override object Interpret()
-    {
-        var leftValue = Left.Interpret();
-        var rightValue = Right.Interpret();
-        return !leftValue.Equals(rightValue);
-    }
-
-    protected override string GetOperatorSymbol() => "!=";
-
-    public override ExpressionType Return => ExpressionType.Boolean;
-    public override string ToString() => $"({Left} != {Right})";
-}
-#endregion Comparadores
 }
