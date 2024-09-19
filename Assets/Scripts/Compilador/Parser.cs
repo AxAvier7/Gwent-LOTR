@@ -28,7 +28,7 @@ public class Parser
         if (Check(TokenType.Effect))
         {
             Consume(TokenType.Effect);
-            // return ParseEffect;
+            // return ParseEffect();
         }
 
         throw new Exception($"Se esperaba una definición de carta o de efecto, pero se encontró: {tokens[position].Type} en la posición {position}.");
@@ -50,7 +50,7 @@ public class Parser
         {
             if (expectComma && !Match(TokenType.Comma))
             {
-                throw new Exception($"Se esperaba una coma en la posición {position}, pero se encontró: {tokens[position].Type}");
+                throw new Exception($"Se esperaba una coma en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
             }
 
             if (Match(TokenType.Type))
@@ -97,8 +97,8 @@ public class Parser
             else if (Match(TokenType.Power))
             {
                 Consume(TokenType.TwoPoints);
-                ExpressionNode powerExpressionNode = ParseExpression(); 
-                int evaluatedPower = EvaluateExpression(powerExpressionNode); 
+                ExpressionNode powerExpressionNode = ParseExpression();
+                int evaluatedPower = EvaluateExpression(powerExpressionNode);
                 powerNode = new PowerNode(powerExpressionNode);
                 scope.SetCardPower(evaluatedPower);
                 expectComma = true;
@@ -178,20 +178,38 @@ public class Parser
 
     private ExpressionNode ParseExpression()
     {
-        List<ASTNode> operands = new List<ASTNode>();
-        Operators operatorToken = Operators.None;
-        Token token = Consume(TokenType.Number);
-        operands.Add(new NumberNode(int.Parse(token.Value)));
+        Stack<ASTNode> operands = new Stack<ASTNode>();
+        Stack<Operators> operators = new Stack<Operators>();
 
-        while (Match(TokenType.Operador))
+        if(Check(TokenType.Number))
         {
-            operatorToken = ParseOperator(Consume(TokenType.Operador).Value);
-            Token nextOperand = Consume(TokenType.Number);
-            operands.Add(new OperatorNode(operatorToken.ToString()));
-            operands.Add(new NumberNode(int.Parse(nextOperand.Value)));
+            operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
+        }
+        else
+        {
+            throw new Exception($"Se esperaba un número, pero se encontró: {tokens[position].Type} en C:{tokens[position].Line}/L:{tokens[position].Column}");
+        }
+        if(Check(TokenType.Operador))
+        {
+            var currentOperator = ParseOperator(Consume(TokenType.Operador).Value);
+            if(!Check(TokenType.Number))
+                throw new Exception ($"Se esperaba un número despues de; operador, pero se encontró: {tokens[position].Type} en C:{tokens[position].Line}/L:{tokens[position].Column}");
+            operators.Push(currentOperator);
+            operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
         }
 
-        return new ExpressionNode(operatorToken.ToString(), operands);
+        if (operators.Count == 0)
+        {
+            return (ExpressionNode)operands.Pop();
+        }
+        while(operators.Count > 0)
+        {
+            var op = operators.Pop();
+            var right = operands.Pop();
+            var left = operands.Pop();
+            operands.Push(new ExpressionNode(op.ToString(), new List<ASTNode> {left, right}));
+        }
+        return (ExpressionNode)operands.Pop();
     }
 
     private Operators ParseOperator(string value)
@@ -213,34 +231,6 @@ public class Parser
     {
         ExpressionEvaluator evaluator = new ExpressionEvaluator();
         return evaluator.EvaluateExpression(expressionNode);
-    }
-
-    private string ConvertExpressionToString(ExpressionNode expressionNode)
-    {
-        if (expressionNode == null) return string.Empty;
-
-        string expressionString = "(";
-
-        for (int i = 0; i < expressionNode.Operands.Count; i++)
-        {
-            var operand = expressionNode.Operands[i];
-
-            if (operand is NumberNode numberNode)
-            {
-                expressionString += numberNode.Value.ToString();
-            }
-            else if (operand is ExpressionNode subExpressionNode)
-            {
-                expressionString += ConvertExpressionToString(subExpressionNode);
-            }
-
-            if (i < expressionNode.Operands.Count - 1)
-            {
-                expressionString += " " + expressionNode.Operator + " ";
-            }
-        }
-        expressionString += ")";
-        return expressionString;
     }
 
     #region Auxiliares

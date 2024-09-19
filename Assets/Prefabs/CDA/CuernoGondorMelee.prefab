@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Cuerno de Gondor
   Faccion: Comunidad del Anillo
-  Rango: 
+  Rango: Aumento
   Franja: Melee
   Poder: 0
   PoderInicial: 0
@@ -390,4 +390,14 @@ MonoBehaviour:
   Mvs: {fileID: 0}
   Rvs: {fileID: 0}
   Svs: {fileID: 0}
+  ClimageMelee: {fileID: 0}
+  ClimageRanged: {fileID: 0}
+  ClimageSiege: {fileID: 0}
+  ClimageMeleeVS: {fileID: 0}
+  ClimageRangedVS: {fileID: 0}
+  ClimageSiegeVS: {fileID: 0}
+  CuernoGondor: {fileID: 0}
+  Nieve: {fileID: 0}
   jugable: 0
+  Turn: 0
+  SauronPlayed: 0

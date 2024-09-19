@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1941150815555594265}
   - component: {fileID: 4352113008848839618}
   - component: {fileID: 5990931873548733669}
+  - component: {fileID: -3969120064886406917}
   - component: {fileID: 1745506729741234748}
   - component: {fileID: -5932439384660143481}
-  - component: {fileID: -3969120064886406917}
   - component: {fileID: 1792462812505229371}
   - component: {fileID: -1023411446275684044}
   - component: {fileID: 3181985301953037541}
@@ -151,48 +151,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1745506729741234748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Elrond
-  Faccion: Comunidad del Anillo
-  Rango: Plata
-  Franja: Ranged
-  Poder: 5
-  PoderInicial: 5
-  Descripcion: "\xC9l estuvo ah\xED Gandalf"
-  Habilidad: '-'
-  Afectaumento: 0
-  Afectclima: 0
-  Franjita: 2
-  yarepartida: 1
-  Franja_afectada: 
-  aragornrend: 0
-  sauronrend: 0
-  Turno: 1
---- !u!114 &-5932439384660143481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3039818207556937179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2322f473e28f87041a605476f9d0c4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Descripciones: {fileID: -274420427891528157, guid: 13bc265862ed14046b8e857b246bdf71, type: 3}
-  Card: {fileID: 3039818207556937179}
 --- !u!114 &-3969120064886406917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +196,48 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1745506729741234748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e3e3401183bdb44beddfc0209c30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Nombre: Elrond
+  Faccion: Comunidad del Anillo
+  Rango: Plata
+  Franja: Ranged
+  Poder: 5
+  PoderInicial: 5
+  Descripcion: "\xC9l estuvo ah\xED Gandalf"
+  Habilidad: '-'
+  Afectaumento: 0
+  Afectclima: 0
+  Franjita: 2
+  yarepartida: 0
+  Franja_afectada: 
+  aragornrend: 0
+  sauronrend: 0
+  Turno: 1
+--- !u!114 &-5932439384660143481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039818207556937179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2322f473e28f87041a605476f9d0c4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Descripciones: {fileID: -274420427891528157, guid: 13bc265862ed14046b8e857b246bdf71, type: 3}
+  Card: {fileID: 3039818207556937179}
 --- !u!114 &1792462812505229371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 3039818207556937179}
-  Zona: {fileID: 0}
   jugable: 1
   PartidaTerminada: 0
   aragornrend: 0
@@ -271,8 +270,6 @@ MonoBehaviour:
   CMMORDOR: {fileID: 0}
   CRMORDOR: {fileID: 0}
   CSMORDOR: {fileID: 0}
-  Bloqueo1: {fileID: 0}
-  Bloqueo2: {fileID: 0}
 --- !u!61 &-1023411446275684044
 BoxCollider2D:
   m_ObjectHideFlags: 0

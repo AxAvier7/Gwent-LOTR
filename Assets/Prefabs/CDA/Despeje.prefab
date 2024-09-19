@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: Despeje
   Faccion: Comunidad del Anillo
-  Rango: 
+  Rango: Clima
   Franja: Todas
   Poder: 0
   PoderInicial: 0
@@ -399,3 +399,5 @@ MonoBehaviour:
   CuernoGondor: {fileID: 0}
   Nieve: {fileID: 0}
   jugable: 0
+  Turn: 0
+  SauronPlayed: 0

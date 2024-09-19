@@ -34,7 +34,6 @@ public GameObject Nevada2;
 public GameObject CuernoGondorMelee;
 public GameObject CuernoGondorRanged;
 public GameObject CuernoGondorSiege;
-// public GameObject NewCardC;
 
 public bool robo1 = false;
 public bool robo2 = false;
@@ -42,6 +41,7 @@ public bool robo3 = false;
 private int Ronda = 1;
 private bool Turno;
 private int posicion = 0;
+public bool added = false;
 
 public List <GameObject> CDA = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
@@ -93,6 +93,7 @@ public void OnClick()
         }
     }
 }
+
 void Start()
 {
 //aca añado todas las cartas a la lista de cartas

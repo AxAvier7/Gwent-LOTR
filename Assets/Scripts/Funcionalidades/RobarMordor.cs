@@ -34,7 +34,6 @@ public GameObject Niebla3;
 public GameObject Niebla4;
 public GameObject Nevada3;
 public GameObject Nevada4;
-// public GameObject NewCardM;
 
 public bool robo1 = false;
 public bool robo2 = false;
@@ -45,6 +44,7 @@ private int posicion = 0;
 
 private bool Sarumanused = false;
 public bool issaruman;
+public bool added = false;
 
 public List <GameObject> Mordor = new List<GameObject>(); //aca creo una lista en la que se van a meter las cartas
 public GameObject Mano;
@@ -110,7 +110,6 @@ public void Suermano()
     }
 
 }
-
 
 void Start()
 {

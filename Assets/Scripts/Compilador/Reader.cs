@@ -10,7 +10,6 @@ public class CardProcessor : MonoBehaviour
 {
     public UnityEngine.UI.InputField CardCompiler;
     public BaseCard cardBase;
-
     private Scope scope;
 
     public void CompileCardInput()
@@ -39,7 +38,7 @@ public class CardProcessor : MonoBehaviour
             Debug.LogError("El InputField 'CardCompiler' o el objeto 'BaseCard' no están asignados.");
         }
     }
-
+    
     private void ProcessASTToCard(ASTNode ast)
     {
         if (ast is CardDeclarationNode cardNode)

@@ -9,8 +9,6 @@ public class Images : MonoBehaviour
     {
         Sprite cartaSprite = gameObject.GetComponent<Image>().sprite;
         Carta.GetComponent<Image>().sprite = cartaSprite;
-
-        // Asigna la imagen al componente BaseCard de la carta
         BaseCard baseCard = Carta.GetComponent<BaseCard>();
         if (baseCard != null)
         {

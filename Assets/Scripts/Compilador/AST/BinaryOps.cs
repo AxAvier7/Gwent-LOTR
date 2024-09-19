@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using aesete;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace Bops
         public int EvaluateExpression(ExpressionNode expression)
         {
             Visit(expression);
+            if (values.Count == 0)
+                throw new InvalidOperationException("El stack de valores esta vacio");
             return values.Pop();
         }
 
@@ -20,6 +23,8 @@ namespace Bops
         public string EvaluateStringExpression(ExpressionNode expression)
         {
             Visit(expression);
+                if (strings.Count == 0)
+                    throw new InvalidOperationException("EL stack de strings esta vacio");
             return strings.Pop();
         }
 
@@ -46,7 +51,7 @@ namespace Bops
         {
             if (values.Count < 2)
             {
-                throw new System.InvalidOperationException("No hay suficientes operandos en la pila para realizar la operación.");
+                throw new InvalidOperationException("No hay suficientes operandos en la pila para realizar la operación.");
             }
 
             int right = values.Pop();
@@ -55,25 +60,26 @@ namespace Bops
             int result;
             switch (@operator.Operator)
             {
-                case "+":
+                case "Addition":
                     result = left + right;
                     break;
-                case "-":
+                case "Substraction":
                     result = left - right;
                     break;
-                case "*":
+                case "Multiplication":
                     result = left * right;
                     break;
-                case "/":
+                case "Division":
                     if (right == 0)
-                        throw new System.DivideByZeroException("División por cero.");
+                        throw new DivideByZeroException("División por cero.");
                     result = left / right;
                     break;
-                case "^":
+                case "Pow":
                     result = (int)Mathf.Pow(left, right);
                     break;
                 default:
-                    throw new System.Exception("Operador no soportado: " + @operator.Operator);
+                    Debug.Log($"{@operator.Operator}");
+                    throw new Exception("Operador no soportado: " + @operator.Operator);
             }
 
             values.Push(result);
@@ -105,6 +111,8 @@ namespace Bops
             {
                 if (expression.Operator == "@@")
                 {
+                    if (strings.Count < 2)
+                        throw new InvalidOperationException("No hay suficientes cadenas para concatenar");
                     string right = strings.Pop();
                     string left = strings.Pop();
                     strings.Push(left + right);

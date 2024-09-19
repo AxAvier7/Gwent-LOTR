@@ -7,19 +7,29 @@ public class BaseCard : MonoBehaviour
     public string Name;
     public string Faction;
     public int Power;
+    public int OriginalPower;
     public List<string> Range;
     public string Description;
-    private string selectedRange;
+    public string selectedRange;
     private bool isFrangeChosen = false;
     public int Franjita;
     public Sprite CardImage;
     private bool cartaCreada = false;
 
+    public string Habilidad;
+    public bool Afectaumento = false;
+    public bool Afectclima = false;
+    public bool yarepartida = false;
+    public string Franja_afectada;
+    public bool aragornrend;
+    public bool sauronrend;
+    public bool Turno = true;
+
     void Update()
     {
+        OriginalPower = Power;
         if (!cartaCreada)
         {
-
             GuardarCarta();
             cartaCreada = true;
         }
@@ -29,6 +39,7 @@ public class BaseCard : MonoBehaviour
             selectedRange = Range[Random.Range(0, Range.Count)];
             isFrangeChosen = true;
         }
+        if(Faction == "CDA") Faction = "Comunidad del Anillo";
         if ((Faction == "Comunidad del Anillo" || Faction == "Mordor") && (Type == "Oro" || Type == "Plata"))
         {
             if (selectedRange == "Melee")
@@ -55,12 +66,32 @@ public class BaseCard : MonoBehaviour
         CardManager cardManager = CardManager.Instance;
         if (cardManager != null)
         {
-            cardManager.AddCard(gameObject);
+            CardData newCardData = new CardData
+            {
+                Type = this.Type,
+                Name = this.Name,
+                Faction = this.Faction,
+                Power = this.Power,
+                OriginalPower = this.OriginalPower,
+                selectedRange = this.selectedRange,
+                Description = this.Description,
+                Franjita = this.Franjita,
+                CardImage = this.CardImage,
+
+                Habilidad = this.Habilidad,
+                Afectaumento = this.Afectaumento,
+                Afectclima = this.Afectclima,
+                yarepartida = this.yarepartida,
+                Franja_afectada = this.Franja_afectada,
+                aragornrend = this.aragornrend,
+                sauronrend = this.sauronrend,
+                Turno = this.Turno
+            };
         }
         else
         {
             Debug.LogError("CardManager no encontrado en la escena.");
-        }
+        }    
     }
 
     public void SetCardImage(Sprite image)

@@ -37,22 +37,30 @@ public class Context
 
     public List<Card> HandOfPlayer(int playerId)
     {
-        return hands.ContainsKey(playerId) ? hands[playerId] : new List<Card>();
+        if (!hands.ContainsKey(playerId)) 
+            return new List<Card>();
+        return new List<Card>(hands[playerId]);
     }
 
     public List<Card> FieldOfPlayer(int playerId)
     {
-        return fields.ContainsKey(playerId) ? fields[playerId] : new List<Card>();
+        if (!fields.ContainsKey(playerId)) 
+            return new List<Card>();
+        return new List<Card>(fields[playerId]);
     }
 
     public List<Card> GraveyardOfPlayer(int playerId)
     {
-        return graveyards.ContainsKey(playerId) ? graveyards[playerId] : new List<Card>();
+        if (!graveyards.ContainsKey(playerId)) 
+            return new List<Card>();
+        return new List<Card>(graveyards[playerId]);
     }
 
     public List<Card> DeckOfPlayer(int playerId)
     {
-        return decks.ContainsKey(playerId) ? decks[playerId] : new List<Card>();
+        if (!decks.ContainsKey(playerId)) 
+            return new List<Card>();
+        return new List<Card>(decks[playerId]);
     }
 
     // Propiedades simplificadas para el jugador que desencadenó el efecto
@@ -140,6 +148,7 @@ public class Context
         board.Remove(card);
     }
 
+    #region MetodosContext
     public List<Card> Find(Func<Card, bool> predicate)
     {
         return Hand.Concat(Field).Concat(Graveyard).Concat(Deck).Concat(Board)
@@ -185,3 +194,4 @@ public class Context
         Hand.AddRange(cards);
     }
 }
+    #endregion MetodosContext
