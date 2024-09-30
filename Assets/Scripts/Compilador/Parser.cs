@@ -34,6 +34,52 @@ public class Parser
         throw new Exception($"Se esperaba una definición de carta o de efecto, pero se encontró: {tokens[position].Type} en la posición {position}.");
     }
 
+    // private ASTNode ParseEffect()
+    // {
+    //     Consume(TokenType.LlaveAb);
+    //     NameNode effectNameNode = null;
+    //     EffectParamsNode effectParamsNode = null;
+    //     ActionNode = null;
+
+    //     bool expectComma = false;
+    //     while(!Check(TokenType.LlaveCer))
+    //     {
+    //         if (expectComma && !Match(TokenType.Comma))
+    //         {
+    //             throw new Exception($"Se esperaba una coma en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
+    //         }
+    //         if(Match(TokenType.Name))
+    //         {
+    //             Consume(TokenType.TwoPoints);
+    //             string firstPart = Consume(TokenType.String).Value;
+    //             if (Match(TokenType.StringConcat))
+    //             {
+    //                 string secondPart = Consume(TokenType.String).Value;
+    //                 string name = firstPart + " " + secondPart;
+    //                 scope.SetEffectName(name);
+    //                 effectNameNode = new EffectNameNode(name);
+    //             }
+    //             else if (Match(TokenType.Arroba))
+    //             {
+    //                 string secondPart = Consume(TokenType.String).Value;
+    //                 string name = firstPart + secondPart;
+    //                 scope.SetEffectName(name);
+    //                 effectNameNode = new EffectNameNode(name);
+    //             }
+    //             else
+    //             {
+    //                 scope.SetEffectName(firstPart);
+    //                 effectEffectNode = new EffectNameNode(firstPart);
+    //             }
+    //             expectComma = true;            
+    //         }
+    //         else if(Match(TokenType.Params))
+    //         {
+
+    //         }
+    //     }
+    // }
+
     private ASTNode ParseCard()
     {
         Consume(TokenType.LlaveAb);
@@ -64,26 +110,22 @@ public class Parser
             else if (Match(TokenType.Name))
             {
                 Consume(TokenType.TwoPoints);
-                string firstPart = Consume(TokenType.String).Value;
-                if (Match(TokenType.StringConcat))
+                string name = Consume(TokenType.String).Value;
+
+                while (Match(TokenType.StringConcat))
                 {
-                    string secondPart = Consume(TokenType.String).Value;
-                    string name = firstPart + " " + secondPart;
-                    scope.SetCardName(name);
-                    nameNode = new NameNode(name);
+                    string nextPart = Consume(TokenType.String).Value;
+                    name += " " + nextPart;
                 }
-                else if (Match(TokenType.Arroba))
+
+                while (Match(TokenType.Arroba))
                 {
-                    string secondPart = Consume(TokenType.String).Value;
-                    string name = firstPart + secondPart;
-                    scope.SetCardName(name);
-                    nameNode = new NameNode(name);
+                    string nextPart = Consume(TokenType.String).Value;
+                    name += nextPart;
                 }
-                else
-                {
-                    scope.SetCardName(firstPart);
-                    nameNode = new NameNode(firstPart);
-                }
+                scope.SetCardName(name);
+                nameNode = new NameNode(name);
+
                 expectComma = true;
             }
             else if (Match(TokenType.Faction))
@@ -96,11 +138,7 @@ public class Parser
             }
             else if (Match(TokenType.Power))
             {
-                Consume(TokenType.TwoPoints);
-                ExpressionNode powerExpressionNode = ParseExpression();
-                int evaluatedPower = EvaluateExpression(powerExpressionNode);
-                powerNode = new PowerNode(powerExpressionNode);
-                scope.SetCardPower(evaluatedPower);
+                ParsePower();
                 expectComma = true;
             }
             else if (Match(TokenType.Range))
@@ -176,40 +214,50 @@ public class Parser
         return ranges;
     }
 
+
+
     private ExpressionNode ParseExpression()
     {
         Stack<ASTNode> operands = new Stack<ASTNode>();
         Stack<Operators> operators = new Stack<Operators>();
+        operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
 
-        if(Check(TokenType.Number))
-        {
-            operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
-        }
-        else
-        {
-            throw new Exception($"Se esperaba un número, pero se encontró: {tokens[position].Type} en C:{tokens[position].Line}/L:{tokens[position].Column}");
-        }
-        if(Check(TokenType.Operador))
+        while (Check(TokenType.Operador))
         {
             var currentOperator = ParseOperator(Consume(TokenType.Operador).Value);
-            if(!Check(TokenType.Number))
-                throw new Exception ($"Se esperaba un número despues de; operador, pero se encontró: {tokens[position].Type} en C:{tokens[position].Line}/L:{tokens[position].Column}");
-            operators.Push(currentOperator);
+            if (!Check(TokenType.Number))
+            {
+                throw new Exception($"Se esperaba un número después del operador en C:{tokens[position].Column}/L:{tokens[position].Line}, pero se encontró: {tokens[position].Type}");
+            }
+
             operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
+            operators.Push(currentOperator);
         }
 
         if (operators.Count == 0)
         {
-            return (ExpressionNode)operands.Pop();
+            return new ExpressionNode("Number", new List<ASTNode> { operands.Pop() });
         }
-        while(operators.Count > 0)
+
+        while (operators.Count > 0)
         {
             var op = operators.Pop();
             var right = operands.Pop();
             var left = operands.Pop();
-            operands.Push(new ExpressionNode(op.ToString(), new List<ASTNode> {left, right}));
+            operands.Push(new ExpressionNode(op.ToString(), new List<ASTNode> { left, right }));
         }
+
         return (ExpressionNode)operands.Pop();
+    }
+
+    private NumberNode ParseNumberExpression()
+    {
+        if (!Check(TokenType.Number))
+        {
+            throw new Exception($"Se esperaba un número en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
+        }
+
+        return new NumberNode(int.Parse(Consume(TokenType.Number).Value));
     }
 
     private Operators ParseOperator(string value)
@@ -223,6 +271,69 @@ public class Parser
             "^" => Operators.Pow,
             _ => throw new Exception("Operador inválido: " + value),
         };
+    }
+
+    private void ParsePower()
+    {
+        Consume(TokenType.TwoPoints);
+
+        if (!Check(TokenType.Number))
+        {
+            throw new Exception($"Se esperaba un número después de 'Power:', pero se encontró: {tokens[position].Type}");
+        }
+
+        var firstNumberToken = Consume(TokenType.Number);
+        int firstNumber = int.Parse(firstNumberToken.Value);
+
+        if (Check(TokenType.Operador))
+        {
+            var powerExpressionNode = ParseExpressionStartingWith(firstNumber);
+
+            int evaluatedPower = EvaluateExpression(powerExpressionNode);
+
+            scope.SetCardPower(evaluatedPower);
+        }
+        else
+        {
+            scope.SetCardPower(firstNumber);
+        }
+    }
+
+    private ExpressionNode ParseExpressionStartingWith(int firstNumber)
+    {
+        Stack<ASTNode> operands = new Stack<ASTNode>();
+        Stack<Operators> operators = new Stack<Operators>();
+
+        operands.Push(new NumberNode(firstNumber));
+
+        while (Check(TokenType.Operador))
+        {
+            var currentOperator = ParseOperator(Consume(TokenType.Operador).Value);
+
+            if (!Check(TokenType.Number))
+            {
+                throw new Exception($"Se esperaba un número después del operador en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
+            }
+
+            operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
+
+            operators.Push(currentOperator);
+        }
+
+        if (operators.Count == 0)
+        {
+            return new ExpressionNode("Number", new List<ASTNode> { operands.Pop() });
+        }
+
+        while (operators.Count > 0)
+        {
+            var op = operators.Pop();
+            var right = operands.Pop();
+            var left = operands.Pop();
+            operands.Push(new ExpressionNode(op.ToString(), new List<ASTNode> { left, right }));
+        }
+
+        return (ExpressionNode)operands.Pop();
     }
 
     #endregion MetodosparaparsearCartas
@@ -282,6 +393,8 @@ public enum RangeType
     Ranged,
     Siege
 }
+
+
 
 public enum Operators {None, Addition, Substraction, Multiplication, Division, Pow}
 #endregion Auxiliares

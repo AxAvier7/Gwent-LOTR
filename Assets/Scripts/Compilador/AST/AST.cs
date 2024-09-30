@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace aesete
@@ -7,6 +8,7 @@ namespace aesete
         public abstract void Accept(IASTVisitor visitor);
     }
 
+    #region NodosCartas
     // Nodo para la declaración de una carta
     public class CardDeclarationNode : ASTNode
     {
@@ -15,14 +17,16 @@ namespace aesete
         public FactionNode Faction { get; set; }
         public PowerNode Power { get; set; }
         public RangeNode Range { get; set; }
+        // public List<EffectNode> Effects { get; set; }
 
-        public CardDeclarationNode(CardTypeNode type, NameNode name, FactionNode faction, PowerNode power, RangeNode range)
+        public CardDeclarationNode(CardTypeNode type, NameNode name, FactionNode faction, PowerNode power, RangeNode range /*List<EffectNode> effects*/)
         {
             Type = type;
             Name = name;
             Faction = faction;
             Power = power;
             Range = range;
+            // Effects = effects;
         }
 
         public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
@@ -91,7 +95,54 @@ namespace aesete
         }
         public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
+    #endregion
 
+    #region NodosEfectos
+    // // Nodo para la declaración de un efecto
+    // public class EffectNode : ASTNode
+    // {
+    //     public NameNode Name { get; set; }
+    //     public EffectParamsNode Params { get; set; }
+    //     public ActionNode Action { get; set; }
+
+    //     public EffectNode(NameNode name, EffectParamsNode @params, ActionNode action)
+    //     {
+    //         Name = name;
+    //         Params = @params;
+    //         Action = action;
+    //     }
+
+    //     public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
+    // }
+
+    // // Nodo para los parámetros del efecto
+    // public class EffectParamsNode : ASTNode
+    // {
+    //     public Dictionary<string, ASTNode> Parameters { get; set; }
+
+    //     public EffectParamsNode(Dictionary<string, ASTNode> parameters)
+    //     {
+    //         Parameters = parameters;
+    //     }
+
+    //     public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
+    // }
+
+    // // Nodo para la acción del efecto
+    // public class ActionNode : ASTNode
+    // {
+    //     public string ActionCode { get; }
+
+    //     public ActionNode(string actionCode)
+    //     {
+    //         ActionCode = actionCode;
+    //     }
+
+    //     public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
+    // }
+    #endregion
+
+    #region OtrosNodos
     // Nodo para las expresiones aritméticas (poder)
     public class ExpressionNode : ASTNode
     {
@@ -171,7 +222,7 @@ namespace aesete
 
         public override void Accept(IASTVisitor visitor) => visitor.Visit(this);
     }
-
+    #endregion
 
     public interface IASTVisitor
     {
@@ -185,7 +236,9 @@ namespace aesete
         void Visit(NumberNode number);   
         void Visit(OperatorNode @operator); 
         void Visit(StringNode str); 
-
+        // void Visit(EffectNode effect);
+        // void Visit(EffectParamsNode effectParams);
+        // void Visit(ActionNode action);
         void Visit(IncrementNode incrementNode);
         void Visit(DecrementNode decrementNode);
     }

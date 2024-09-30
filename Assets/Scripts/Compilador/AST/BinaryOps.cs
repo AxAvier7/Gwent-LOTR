@@ -9,6 +9,7 @@ namespace Bops
     {
         private Stack<int> values = new Stack<int>();
         private Stack<string> strings = new Stack<string>();
+        // private Stack<EffectNode> effects = new Stack<EffectNode>();
 
         // Método para evaluar expresiones aritméticas
         public int EvaluateExpression(ExpressionNode expression)
@@ -28,6 +29,15 @@ namespace Bops
             return strings.Pop();
         }
 
+        // Método para evaluar efectos
+        // public EffectNode EvaluateEffect(EffectNode effect)
+        // {
+        //     Visit(effect);
+        //     if (effects.Count == 0)
+        //         throw new InvalidOperationException("El stack de efectos está vacío");
+        //     return effects.Pop();
+        // }
+
         // Implementación de IASTVisitor
         public void Visit(CardDeclarationNode cardDeclaration) { }
         public void Visit(CardTypeNode cardType) { }
@@ -46,7 +56,6 @@ namespace Bops
             strings.Push(stringNode.Value);
         }
 
-        // Implementación de la lógica para operadores matemáticos
         public void Visit(OperatorNode @operator)
         {
             if (values.Count < 2)
@@ -123,5 +132,33 @@ namespace Bops
                 }
             }
         }
+
+        // public void Visit(EffectNode effect)
+        // {
+        //     effects.Push(effect);
+        //     Debug.Log($"Efecto: {effect.Name}");
+
+        //     foreach (var param in effect.Params)
+        //     {
+        //         Visit(param);
+        //     }
+        // }
+
+        // // Visita para el nodo EffectParamsNode
+        // public void Visit(EffectParamsNode effectParams)
+        // {
+        //     foreach (var param in effectParams.Parameters)
+        //     {
+        //         Debug.Log($"Parámetro: {param.Key}, Valor: {param.Value}");
+        //         param.Value.Accept(this);
+        //     }
+        // }
+
+        // // Visita para el nodo ActionNode
+        // public void Visit(ActionNode action)
+        // {
+        //     Debug.Log("Ejecutando acción...");
+        //     action.Action?.Invoke();
+        // }
     }
 }
