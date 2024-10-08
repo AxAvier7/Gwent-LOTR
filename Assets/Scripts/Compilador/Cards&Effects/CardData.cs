@@ -21,4 +21,6 @@ public class CardData
     public bool sauronrend;
     public bool Turno;
     public bool yarepartida;
+    public List<Effect> Effects { get; set; }
+    public int Amount { get; set; }
 }

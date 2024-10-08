@@ -1,6 +1,6 @@
 card {
-    Type: "Oro",
-    Name: "Beluga of the Seven Seas",
+Type: "Oro",
+    Name: "Illo" @@ "Juan",
     Faction: "Mordor",
     Power: 10 + 9,
     Range: ["Melee", "Ranged"],
@@ -13,7 +13,7 @@ card {
         Selector: {
             Source: "board",
             Single: false,
-            Predicate: (unit)=>unit.Faction == "Comunidad" @@ "del" @@ "Anillo",
+            Predicate: (unit)=>unit.Faction == "Comunidad del Anillo",
         }
         PostAction: {
                 Type: "ReturnToDeck",
@@ -30,10 +30,27 @@ card {
     ]
 }
 
+-----------------------------------------------------------------------
+
 card {
     Type: "Oro",
     Name: "Illo" @@ "Juan",
     Faction: "Mordor",
     Power: 10 + 9,
     Range: ["Melee", "Ranged"]
+}
+
+-----------------------------------------------------------------------
+
+card {
+Type: "Oro",
+    Name: "Illo" @@ "Juan",
+    Faction: "Mordor",
+    Power: 10 + 9,
+    Range: ["Melee", "Ranged"]
+    OnActivation: [
+    {
+        Effect: "Draw"
+    }
+    ]
 }

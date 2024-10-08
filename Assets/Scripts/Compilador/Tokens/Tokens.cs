@@ -49,8 +49,8 @@ namespace Tookeen
             { "Power", TokenType.Power },
             { "Range", TokenType.Range },
             { "OnActivation", TokenType.OnActivation },
-            { "effect", TokenType.Effect },
-            { "Effect", TokenType.CardSharpEffect },
+            { "effect", TokenType.CardSharpEffect },
+            { "Effect", TokenType.Effect },
             { "Selector", TokenType.Selector },
             { "Postaction", TokenType.PostAction },
             { "Source", TokenType.Source },
@@ -59,6 +59,7 @@ namespace Tookeen
             { "Action", TokenType.Action },
             { "Params", TokenType.Params },
             { "Amount", TokenType.Amount },
+            { "amount", TokenType.Amount },
 
             //Ciclos, condiciones
             { "if", TokenType.If },
@@ -73,12 +74,22 @@ namespace Tookeen
             { "-=", TokenType.MenosIgual },
             { "*=", TokenType.MultiplicacionIgual },
             { "/=", TokenType.DivisionIgual },
-            { ">", TokenType.MajorSign },
-            { "<", TokenType.MinorSign },
-            { ">=", TokenType.MajorEqual },
-            { "<=", TokenType.MinorEqual },
-            { "==", TokenType.Equal },
-            { "!=", TokenType.Desigual },
+
+            // { ">", TokenType.MajorSign },
+            // { "<", TokenType.MinorSign },
+            // { ">=", TokenType.MajorEqual },
+            // { "<=", TokenType.MinorEqual },
+            // { "==", TokenType.Equal },
+            // { "!=", TokenType.Desigual },
+
+            { ">", TokenType.Comparador },
+            { "<", TokenType.Comparador },
+            { ">=", TokenType.Comparador },
+            { "<=", TokenType.Comparador },
+            { "==", TokenType.Comparador },
+            { "!=", TokenType.Comparador },
+
+
             { "+", TokenType.Operador },
             { "-", TokenType.Operador },
             { "*", TokenType.Operador },
@@ -155,18 +166,18 @@ namespace Tookeen
         PostAction, Type, Name, Params, Action, Source, Single,
         In, OnActivation, Selector, Amount,
 
-        TypeIdentifier, Function, Context, Targets, Operador,
+        TypeIdentifier, Function, Context, Targets, Operador, Comparador,
 
         Unknown // Otros
     }
 
-    public enum ExpressionType
-    {
-        Binary, Unary,  Literal,
-        Conditional,    Loop, ForLoop,
-        FunctionCall,   Assignment, Boolean,
-        Number, Void,   Function,   Null,
-        LogicalAnd, LogicalOr,
-        Continue, Break, Return
-    }
+    // public enum ExpressionType
+    // {
+    //     Binary, Unary,  Literal,
+    //     Conditional,    Loop, ForLoop,
+    //     FunctionCall,   Assignment, Boolean,
+    //     Number, Void,   Function,   Null,
+    //     LogicalAnd, LogicalOr,
+    //     Continue, Break, Return
+    // }
 }

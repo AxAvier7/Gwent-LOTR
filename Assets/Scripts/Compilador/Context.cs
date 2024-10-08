@@ -63,13 +63,11 @@ public class Context
         return new List<Card>(decks[playerId]);
     }
 
-    // Propiedades simplificadas para el jugador que desencadenó el efecto
     public List<Card> Hand => HandOfPlayer(TriggerPlayer);
     public List<Card> Field => FieldOfPlayer(TriggerPlayer);
     public List<Card> Graveyard => GraveyardOfPlayer(TriggerPlayer);
     public List<Card> Deck => DeckOfPlayer(TriggerPlayer);
 
-    // Métodos para agregar cartas a las colecciones del contexto
     public void AddCardToHand(int playerId, Card card)
     {
         if (!hands.ContainsKey(playerId))

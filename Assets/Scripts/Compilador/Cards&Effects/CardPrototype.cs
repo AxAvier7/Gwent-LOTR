@@ -25,6 +25,14 @@ public class BaseCard : MonoBehaviour
     public bool sauronrend;
     public bool Turno = true;
 
+    public List<Effect> Effects;
+    public int Amount;
+
+    void Start()
+    {
+        Effects = new List<Effect>();
+    }
+
     void Update()
     {
         OriginalPower = Power;
@@ -78,6 +86,9 @@ public class BaseCard : MonoBehaviour
                 Franjita = this.Franjita,
                 CardImage = this.CardImage,
 
+                Effects = this.Effects,
+                Amount = this.Amount,
+
                 Habilidad = this.Habilidad,
                 Afectaumento = this.Afectaumento,
                 Afectclima = this.Afectclima,
@@ -97,5 +108,14 @@ public class BaseCard : MonoBehaviour
     public void SetCardImage(Sprite image)
     {
         CardImage = image;
+    }
+
+    public void AddEffect(Effect effect)
+    {
+        if (Effects == null)
+        {
+            Effects = new List<Effect>();
+        }
+        Effects.Add(effect);
     }
 }

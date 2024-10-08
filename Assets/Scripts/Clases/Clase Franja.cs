@@ -25,6 +25,8 @@ private ClaseFranja Mvs;
 private ClaseFranja Rvs;
 private ClaseFranja Svs;
 
+public int changedpower;
+
 
 private int Ronda = 1;
 private int ComprobadordeRonda = 1;
@@ -155,6 +157,17 @@ private void OnCollisionEnter2D(Collision2D collision)
     {
         aumentoafectado = true;  
     }
+
+    public void Damaging(Effect effect)
+    {
+        int amount = effect.GetAmount();    
+    }
+
+    public void Healing(Effect effect)
+    {
+        int amount = effect.GetAmount();    
+    }
+
 
     public void Despeje()
     {

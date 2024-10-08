@@ -25,60 +25,14 @@ public class Parser
             Consume(TokenType.Card);
             return ParseCard();
         }
-        if (Check(TokenType.Effect))
+        if (Check(TokenType.CardSharpEffect))
         {
-            Consume(TokenType.Effect);
-            // return ParseEffect();
+            Consume(TokenType.CardSharpEffect);
+            return ParseEffect();
         }
 
         throw new Exception($"Se esperaba una definición de carta o de efecto, pero se encontró: {tokens[position].Type} en la posición {position}.");
     }
-
-    // private ASTNode ParseEffect()
-    // {
-    //     Consume(TokenType.LlaveAb);
-    //     NameNode effectNameNode = null;
-    //     EffectParamsNode effectParamsNode = null;
-    //     ActionNode = null;
-
-    //     bool expectComma = false;
-    //     while(!Check(TokenType.LlaveCer))
-    //     {
-    //         if (expectComma && !Match(TokenType.Comma))
-    //         {
-    //             throw new Exception($"Se esperaba una coma en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
-    //         }
-    //         if(Match(TokenType.Name))
-    //         {
-    //             Consume(TokenType.TwoPoints);
-    //             string firstPart = Consume(TokenType.String).Value;
-    //             if (Match(TokenType.StringConcat))
-    //             {
-    //                 string secondPart = Consume(TokenType.String).Value;
-    //                 string name = firstPart + " " + secondPart;
-    //                 scope.SetEffectName(name);
-    //                 effectNameNode = new EffectNameNode(name);
-    //             }
-    //             else if (Match(TokenType.Arroba))
-    //             {
-    //                 string secondPart = Consume(TokenType.String).Value;
-    //                 string name = firstPart + secondPart;
-    //                 scope.SetEffectName(name);
-    //                 effectNameNode = new EffectNameNode(name);
-    //             }
-    //             else
-    //             {
-    //                 scope.SetEffectName(firstPart);
-    //                 effectEffectNode = new EffectNameNode(firstPart);
-    //             }
-    //             expectComma = true;            
-    //         }
-    //         else if(Match(TokenType.Params))
-    //         {
-
-    //         }
-    //     }
-    // }
 
     private ASTNode ParseCard()
     {
@@ -89,6 +43,9 @@ public class Parser
         FactionNode factionNode = null;
         PowerNode powerNode = null;
         RangeNode rangeNode = null;
+        string effectName = null;
+        int amount = 0;
+        List<ActivationNode> activationNodes = new List<ActivationNode>();
 
         bool expectComma = false;
 
@@ -148,6 +105,23 @@ public class Parser
                 rangeNode = new RangeNode(ranges);
                 scope.SetCardRange(ranges);
             }
+            else if (Match(TokenType.Effect))
+            {
+                Consume(TokenType.TwoPoints);
+                effectName = Consume(TokenType.String).Value;
+            }
+            else if (Match(TokenType.Amount))
+            {
+                Consume(TokenType.TwoPoints);
+                amount = int.Parse(Consume(TokenType.Number).Value);
+                Debug.LogError(amount);
+            }
+            else if (Match(TokenType.OnActivation))
+            {
+                Consume(TokenType.TwoPoints);
+                activationNodes = ParseOnActivation();
+                expectComma = true;
+            }
             else
             {
                 throw new Exception($"Se encontró un token inesperado ({tokens[position].Type}) en la posición L:{tokens[position].Line}/C:{tokens[position].Column}");
@@ -155,8 +129,58 @@ public class Parser
         }
 
         Consume(TokenType.LlaveCer);
-        return new CardDeclarationNode(typeNode, nameNode, factionNode, powerNode, rangeNode);
+
+        return new CardDeclarationNode(typeNode, nameNode, factionNode, powerNode, rangeNode, activationNodes, amount);    
     }
+
+    private EffectNode ParseEffect()
+    {
+        Consume(TokenType.LlaveAb);
+        
+        string effectName = string.Empty;
+        int amount = 0;
+        Dictionary<string, object> parameters = new Dictionary<string, object>();
+
+        while (!Check(TokenType.LlaveCer))
+        {
+            if (Match(TokenType.Name))
+            {
+                Consume(TokenType.TwoPoints);
+                effectName = Consume(TokenType.String).Value;
+                Consume(TokenType.Comma);
+            }
+            else if(Match(TokenType.Amount))
+            {
+                Consume(TokenType.TwoPoints);
+                if(Check(TokenType.Number))
+                {
+                    amount = int.Parse(Consume(TokenType.Number).Value);
+                }
+                else throw new Exception($"Se esperaba un numero en en la posición L:{tokens[position].Line}/C:{tokens[position].Column}");
+                Consume(TokenType.Comma);
+            }
+            else if (Match(TokenType.Params))
+            {
+                Consume(TokenType.TwoPoints);
+                Consume(TokenType.LlaveAb);
+                parameters = ParseEffectParameters();
+                Consume(TokenType.LlaveCer);
+            }
+            else if (Match(TokenType.Action))
+            {
+                var actionNode = ParseEffectAction(parameters);
+            }
+            else
+            {
+                throw new Exception($"Token inesperado al parsear el efecto en L:{tokens[position].Line}/C:{tokens[position].Column}");
+            }
+        }
+
+        Effect effect = new Effect(effectName, parameters, amount);        
+        Consume(TokenType.LlaveCer);
+        return new EffectNode(effectName, parameters);
+    }
+
 
     #region MetodosparaparsearCartas
     private CardType ParseTypeValue()
@@ -212,52 +236,6 @@ public class Parser
 
         Consume(TokenType.CorCer);
         return ranges;
-    }
-
-
-
-    private ExpressionNode ParseExpression()
-    {
-        Stack<ASTNode> operands = new Stack<ASTNode>();
-        Stack<Operators> operators = new Stack<Operators>();
-        operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
-
-        while (Check(TokenType.Operador))
-        {
-            var currentOperator = ParseOperator(Consume(TokenType.Operador).Value);
-            if (!Check(TokenType.Number))
-            {
-                throw new Exception($"Se esperaba un número después del operador en C:{tokens[position].Column}/L:{tokens[position].Line}, pero se encontró: {tokens[position].Type}");
-            }
-
-            operands.Push(new NumberNode(int.Parse(Consume(TokenType.Number).Value)));
-            operators.Push(currentOperator);
-        }
-
-        if (operators.Count == 0)
-        {
-            return new ExpressionNode("Number", new List<ASTNode> { operands.Pop() });
-        }
-
-        while (operators.Count > 0)
-        {
-            var op = operators.Pop();
-            var right = operands.Pop();
-            var left = operands.Pop();
-            operands.Push(new ExpressionNode(op.ToString(), new List<ASTNode> { left, right }));
-        }
-
-        return (ExpressionNode)operands.Pop();
-    }
-
-    private NumberNode ParseNumberExpression()
-    {
-        if (!Check(TokenType.Number))
-        {
-            throw new Exception($"Se esperaba un número en L:{tokens[position].Line}/C:{tokens[position].Column}, pero se encontró: {tokens[position].Type}");
-        }
-
-        return new NumberNode(int.Parse(Consume(TokenType.Number).Value));
     }
 
     private Operators ParseOperator(string value)
@@ -338,14 +316,230 @@ public class Parser
 
     #endregion MetodosparaparsearCartas
 
-    private int EvaluateExpression(ExpressionNode expressionNode)
+    #region MetodosparaparsearEfectos
+    private Dictionary<string, object> ParseEffectParameters()
     {
-        ExpressionEvaluator evaluator = new ExpressionEvaluator();
-        return evaluator.EvaluateExpression(expressionNode);
+        var parameters = new Dictionary<string, object>();
+            
+        while (true)
+        {
+            if (Check(TokenType.LlaveCer))
+            {
+                Consume(TokenType.LlaveCer);
+                break;
+            }
+            string paramName = Consume(TokenType.Amount).Value;
+            Consume(TokenType.TwoPoints);
+            object paramValue;
+
+            if (Match(TokenType.Number))
+            {
+                paramValue = int.Parse(Consume(TokenType.Number).Value);
+            }
+            else if (Match(TokenType.IDs))
+            {
+                paramValue = Consume(TokenType.IDs).Value;
+            }
+            else if (Match(TokenType.String))
+            {
+                paramValue = Consume(TokenType.String).Value;
+            }
+            else if (Match(TokenType.Boolean))
+            {
+                paramValue = Consume(TokenType.Boolean).Value.ToLower() == "true"; 
+            }
+            else
+            {
+                throw new Exception($"Tipo de parámetro no reconocido en L:{tokens[position].Line}/C:{tokens[position].Column}");
+            }
+           parameters[paramName] = paramValue;
+
+            if (Check(TokenType.Comma))                    
+                Consume(TokenType.Comma);
+            
+        }            
+        Consume(TokenType.LlaveCer);
+        return parameters;
     }
 
-    #region Auxiliares
+    private ActionNode ParseEffectAction(Dictionary<string, object> parameters)
+    {
+        if (!Match(TokenType.Action))
+        {
+            throw new Exception($"Se esperaba el token 'Action' en L:{tokens[position].Line}/C:{tokens[position].Column}");
+        }
 
+        Consume(TokenType.LlaveAb);
+
+        List<ASTNode> actionStatements = new List<ASTNode>();
+
+        while (!Check(TokenType.LlaveCer))
+        {
+            var statementNode = ParseActionStatement(parameters);
+            actionStatements.Add(statementNode);
+
+            if (Check(TokenType.Comma))
+                Consume(TokenType.Comma);
+        }
+
+        Consume(TokenType.LlaveCer);
+
+        return new ActionNode(actionStatements);
+    }
+
+    private ASTNode ParseActionStatement(Dictionary<string, object> parameters)
+    {
+        if (Match(TokenType.IDs))
+        {
+            string identifier = Consume(TokenType.IDs).Value;
+            if (parameters.ContainsKey(identifier))
+            {
+                return new ParameterNode(identifier, parameters[identifier]);
+            }
+        }
+
+        throw new Exception($"Declaración de acción no válida en L:{tokens[position].Line}/C:{tokens[position].Column}");
+    }
+
+    private List<ActivationNode> ParseOnActivation()
+    {
+        List<ActivationNode> activationNodes = new List<ActivationNode>();
+        Consume(TokenType.CorAb);
+
+        while (!Check(TokenType.CorCer))
+        {
+            Consume(TokenType.LlaveAb);
+
+            EffectNode effectNode = null;
+            SelectorNode selectorNode = null;
+            PostActionNode postActionNode = null;
+
+            while (!Check(TokenType.LlaveCer))
+            {
+                if (Match(TokenType.Effect))
+                {
+                    Consume(TokenType.TwoPoints);
+                    effectNode = ParseEffect();
+                }
+                else if (Match(TokenType.Selector))
+                {
+                    Consume(TokenType.TwoPoints);
+                    selectorNode = ParseSelector();
+                }
+                else if (Match(TokenType.PostAction))
+                {
+                    Consume(TokenType.TwoPoints);
+                    postActionNode = ParsePostAction();
+                }
+                else
+                {
+                    throw new Exception($"Token inesperado al parsear OnActivation en L:{tokens[position].Line}/C:{tokens[position].Column}");
+                }
+            }
+
+            Consume(TokenType.LlaveCer);
+            activationNodes.Add(new ActivationNode(effectNode, selectorNode, postActionNode));
+
+            if (Check(TokenType.Comma))
+            {
+                Consume(TokenType.Comma);
+            }
+        }
+
+        Consume(TokenType.CorCer);
+        return activationNodes;
+    }
+
+    private SelectorNode ParseSelector()
+    {
+        Consume(TokenType.LlaveAb);
+        string source = null;
+        bool single = false;
+        PredicateNode predicateNode = null;
+
+        while (!Check(TokenType.LlaveCer))
+        {
+            if (Match(TokenType.Source))
+            {
+                Consume(TokenType.TwoPoints);
+                source = Consume(TokenType.String).Value;
+            }
+            else if (Match(TokenType.Single))
+            {
+                Consume(TokenType.TwoPoints);
+                if(Match(TokenType._true))
+                    single = Consume(TokenType.Boolean).Value.ToLower() == "true";
+                else if(Match(TokenType._false))
+                    single = Consume(TokenType.Boolean).Value.ToLower() == "false";
+                Consume(TokenType.Comma);
+break;
+            }
+            else if (Match(TokenType.Predicate))
+            {
+                Consume(TokenType.TwoPoints);
+                predicateNode = ParsePredicate();
+            }            
+            else if (Check(TokenType.Comma))
+            {
+                Consume(TokenType.Comma);
+            }
+            else
+            {
+                throw new Exception($"Token inesperado al parsear Selector en L:{tokens[position].Line}/C:{tokens[position].Column}");
+            }
+
+        }
+
+        Consume(TokenType.LlaveCer);
+        return new SelectorNode(source, single, predicateNode);
+    }
+
+    private PredicateNode ParsePredicate()
+    {
+        Consume(TokenType.ParAb);
+        string predicateExpression = ""; 
+
+        while (!Check(TokenType.ParCer))
+        {
+            predicateExpression += ConsumeAny().Value;
+        }
+
+        Consume(TokenType.ParCer);
+        return new PredicateNode(predicateExpression);
+    }
+
+    private PostActionNode ParsePostAction()
+    {
+        Consume(TokenType.LlaveAb);
+        string type = null;
+        SelectorNode selectorNode = null;
+
+        while (!Check(TokenType.LlaveCer))
+        {
+            if (Match(TokenType.Type))
+            {
+                Consume(TokenType.TwoPoints);
+                type = Consume(TokenType.String).Value;
+            }
+            else if (Match(TokenType.Selector))
+            {
+                Consume(TokenType.TwoPoints);
+                selectorNode = ParseSelector();
+            }
+            else
+            {
+                throw new Exception($"Token inesperado al parsear PostAction en L:{tokens[position].Line}/C:{tokens[position].Column}");
+            }
+        }
+
+        Consume(TokenType.LlaveCer);
+        return new PostActionNode(type, selectorNode);
+    }
+
+
+    #endregion
+
+    #region Auxiliares
     private Token Consume(TokenType expectedType)
     {
         if (Check(expectedType))
@@ -370,31 +564,38 @@ public class Parser
     {
         return position < tokens.Count && tokens[position].Type == type;
     }
+
+        private Comparadores ParseComparisonOperator(string value)
+    {
+        return value switch
+        {
+            ">" => Comparadores.Mayor,
+            "<" => Comparadores.Menor,
+            "==" => Comparadores.Igual,
+            "!=" => Comparadores.Diferente,
+            ">=" => Comparadores.MayorIgual,
+            "<=" => Comparadores.MenorIgual,
+            _ => throw new Exception("Comparador inválido: " + value),
+        };
+    }
+
+    private int EvaluateExpression(ExpressionNode expressionNode)
+    {
+        ExpressionEvaluator evaluator = new ExpressionEvaluator();
+        return evaluator.EvaluateExpression(expressionNode);
+    }
+
+    private Token ConsumeAny()
+    {
+        return tokens[position++];
+    }
+
 }
 
-public enum CardType
-{
-    Oro,
-    Plata,
-    Aumento,
-    Clima
-}
 
-public enum FactionType
-{
-    CDA,
-    Mordor,
-    None
-}
-
-public enum RangeType
-{
-    Melee,
-    Ranged,
-    Siege
-}
-
-
-
-public enum Operators {None, Addition, Substraction, Multiplication, Division, Pow}
+public enum CardType{   Oro,    Plata,  Aumento,    Clima   }
+public enum FactionType{    CDA,    Mordor, None    }
+public enum RangeType{  Melee,  Ranged, Siege   }
+public enum Operators { None, Addition, Substraction, Multiplication, Division, Pow }
+public enum Comparadores { None, Mayor, Menor, Igual, Diferente, MayorIgual, MenorIgual }
 #endregion Auxiliares

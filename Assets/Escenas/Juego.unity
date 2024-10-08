@@ -5256,11 +5256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8405559498587051440, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -536.33
+      value: -1650
       objectReference: {fileID: 0}
     - target: {fileID: 8405559498587051440, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1033
+      value: 2835
       objectReference: {fileID: 0}
     - target: {fileID: 8405559498587051440, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5300,6 +5300,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6323190149342316840, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1859635960}
+    - targetCorrespondingSourceObject: {fileID: 6323190149342316840, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1859635962}
   m_SourcePrefab: {fileID: 100100000, guid: 0dd9c8e1731ecac47989f5989404ee37, type: 3}
 --- !u!1 &1859635950 stripped
 GameObject:
@@ -5569,6 +5572,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 95, y: 105}
   m_EdgeRadius: 0
+--- !u!114 &1859635962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859635950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5e3732574aa3644b45c38ffd71917f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mprop: {fileID: 0}
+  Rprop: {fileID: 0}
+  Sprop: {fileID: 0}
+  Mvs: {fileID: 0}
+  Rvs: {fileID: 0}
+  Svs: {fileID: 0}
+  jugable: 0
+  Turn: 0
 --- !u!1 &1867452975
 GameObject:
   m_ObjectHideFlags: 0

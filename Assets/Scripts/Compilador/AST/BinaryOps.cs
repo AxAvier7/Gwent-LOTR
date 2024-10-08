@@ -9,14 +9,13 @@ namespace Bops
     {
         private Stack<int> values = new Stack<int>();
         private Stack<string> strings = new Stack<string>();
-        // private Stack<EffectNode> effects = new Stack<EffectNode>();
 
         // Método para evaluar expresiones aritméticas
         public int EvaluateExpression(ExpressionNode expression)
         {
             Visit(expression);
             if (values.Count == 0)
-                throw new InvalidOperationException("El stack de valores esta vacio");
+                throw new InvalidOperationException("El stack de valores está vacío");
             return values.Pop();
         }
 
@@ -24,19 +23,10 @@ namespace Bops
         public string EvaluateStringExpression(ExpressionNode expression)
         {
             Visit(expression);
-                if (strings.Count == 0)
-                    throw new InvalidOperationException("EL stack de strings esta vacio");
+            if (strings.Count == 0)
+                throw new InvalidOperationException("El stack de cadenas está vacío");
             return strings.Pop();
         }
-
-        // Método para evaluar efectos
-        // public EffectNode EvaluateEffect(EffectNode effect)
-        // {
-        //     Visit(effect);
-        //     if (effects.Count == 0)
-        //         throw new InvalidOperationException("El stack de efectos está vacío");
-        //     return effects.Pop();
-        // }
 
         // Implementación de IASTVisitor
         public void Visit(CardDeclarationNode cardDeclaration) { }
@@ -86,14 +76,30 @@ namespace Bops
                 case "Pow":
                     result = (int)Mathf.Pow(left, right);
                     break;
+                case "Equal":
+                    result = left == right ? 1 : 0;
+                    break;
+                case "NotEqual":
+                    result = left != right ? 1 : 0;
+                    break;
+                case "LessThan":
+                    result = left < right ? 1 : 0;
+                    break;
+                case "GreaterThan":
+                    result = left > right ? 1 : 0;
+                    break;
+                case "LessThanOrEqual":
+                    result = left <= right ? 1 : 0;
+                    break;
+                case "GreaterThanOrEqual":
+                    result = left >= right ? 1 : 0;
+                    break;
                 default:
                     Debug.Log($"{@operator.Operator}");
                     throw new Exception("Operador no soportado: " + @operator.Operator);
             }
-
             values.Push(result);
         }
-
 
         public void Visit(IncrementNode incrementNode)
         {
@@ -133,32 +139,152 @@ namespace Bops
             }
         }
 
-        // public void Visit(EffectNode effect)
-        // {
-        //     effects.Push(effect);
-        //     Debug.Log($"Efecto: {effect.Name}");
+        public void Visit(IfStatementNode ifStatement)
+        {
+            bool conditionResult = EvaluateCondition(ifStatement.Condition);
+            if (conditionResult)
+            {
+                foreach (var statement in ifStatement.TrueStatements)
+                {
+                    statement.Accept(this);
+                }
+            }
+            else
+            {
+                foreach (var statement in ifStatement.FalseStatements)
+                {
+                    statement.Accept(this);
+                }
+            }
+        }
 
-        //     foreach (var param in effect.Params)
-        //     {
-        //         Visit(param);
-        //     }
-        // }
+        public void Visit(ForLoopNode forLoop)
+        {
+            int start = EvaluateExpression(forLoop.Start);
+            int end = EvaluateExpression(forLoop.End);
+            for (int i = start; i < end; i++)
+            {
+                foreach (var statement in forLoop.Body)
+                {
+                    statement.Accept(this);
+                }
+            }
+        }
 
-        // // Visita para el nodo EffectParamsNode
-        // public void Visit(EffectParamsNode effectParams)
-        // {
-        //     foreach (var param in effectParams.Parameters)
-        //     {
-        //         Debug.Log($"Parámetro: {param.Key}, Valor: {param.Value}");
-        //         param.Value.Accept(this);
-        //     }
-        // }
+        public void Visit(ForeachLoopNode foreachLoop)
+        {
+            var collection = EvaluateCollection(foreachLoop.Collection);
+            foreach (var item in collection)
+            {
+                foreach (var statement in foreachLoop.Body)
+                {
+                    statement.Accept(this);
+                }
+            }
+        }
 
-        // // Visita para el nodo ActionNode
-        // public void Visit(ActionNode action)
-        // {
-        //     Debug.Log("Ejecutando acción...");
-        //     action.Action?.Invoke();
-        // }
+
+        public void Visit(BinaryExpressionNode binaryExpression)
+        {
+            binaryExpression.Left.Accept(this);
+            binaryExpression.Right.Accept(this);
+        }
+
+        private IEnumerable<object> EvaluateCollection(ExpressionNode collectionNode)
+        {
+            return new List<object> { 1, 2, 3 };
+        }
+
+        private bool EvaluateCondition(ExpressionNode condition)
+        {
+            if (condition is BinaryExpressionNode binaryNode)
+            {
+                var left = EvaluateExpression(binaryNode.Left);
+                var right = EvaluateExpression(binaryNode.Right);
+
+                switch (binaryNode.Operator)
+                {
+                    case "&&":
+                        return left != 0 && right != 0;
+                    case "||":
+                        return left != 0 || right != 0;
+                    case "==":
+                        return left == right;
+                    case "!=":
+                        return left != right;
+                    case "LessThan":
+                        return left < right;
+                    case "GreaterThan":
+                        return left > right;
+                    case "LessThanOrEqual":
+                        return left <= right;
+                    case "GreaterThanOrEqual":
+                        return left >= right;
+                }
+            }
+            return false;
+        }
+
+        // Método para visitar ActionNode
+    public void Visit(ActionNode actionNode)
+    {
+        foreach (var statement in actionNode.Statements)
+        {
+            statement.Accept(this);
+        }
+    }
+
+    // Método para visitar EffectNode
+    public void Visit(EffectNode effectNode)
+    {
+        Debug.Log($"Ejecutando efecto: {effectNode.EffectName}");
+        foreach (var param in effectNode.Parameters)
+        {
+            Debug.Log($"Parámetro: {param.Key} = {param.Value}");
+        }
+    }
+
+    public void Visit(ParameterNode parameterNode)
+    {
+        if (parameterNode.Value is int intValue)
+        {
+            values.Push(intValue);
+        }
+        else if (parameterNode.Value is string stringValue)
+        {
+            strings.Push(stringValue);
+        }
+        else
+        {
+            throw new Exception($"Tipo de parámetro no soportado: {parameterNode.Value.GetType()}");
+        }
+    }
+
+    public void Visit(ActivationNode activationNode)
+    {
+        activationNode.Effect.Accept(this);
+        activationNode.Selector?.Accept(this);
+        activationNode.PostAction?.Accept(this);
+       }
+
+    public void Visit(SelectorNode selectorNode)
+        {
+            Debug.Log($"Seleccionando desde: {selectorNode.Source}, Selección única: {selectorNode.Single}");
+            if (selectorNode.Predicate != null)
+            {
+                selectorNode.Predicate.Accept(this);
+            }
+        }
+
+        public void Visit(PredicateNode predicateNode)
+        {
+            Debug.Log($"Evaluando predicado: {predicateNode.Expression}");
+        }
+
+        public void Visit(PostActionNode postActionNode)
+        {
+            Debug.Log($"Ejecutando acción posterior: {postActionNode.Type}");
+                        postActionNode.Selector?.Accept(this);
+        }
     }
 }

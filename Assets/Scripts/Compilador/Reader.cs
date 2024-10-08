@@ -20,7 +20,6 @@ public class CardProcessor : MonoBehaviour
             if (!string.IsNullOrEmpty(input))
             {
                 scope = new Scope(cardBase);
-
                 Lexerr lexerr = new Lexerr(input);       
                 List<Token> tokens = lexerr.Tokenize();
                 DebugTokens(tokens);
@@ -65,6 +64,7 @@ public class CardProcessor : MonoBehaviour
 
             scope.SetCardPower(EvaluateExpression(cardNode.Power.PowerExpression));
             scope.SetCardRange(cardNode.Range.Ranges);
+            cardBase.Amount = cardNode.Amount;
         }
     }
 
@@ -79,7 +79,7 @@ public class CardProcessor : MonoBehaviour
     {
         foreach (var token in tokens)
         {
-            Debug.Log($"Token: Type={token.Type} | Value={token.Value} | L:{token.Line}/C:{token.Column}");
+            Debug.Log($"Token: Type= {token.Type} | Value= {token.Value} | L:{token.Line}/C:{token.Column}");
         }
     }
 }
